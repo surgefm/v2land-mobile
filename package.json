@@ -1,0 +1,38 @@
+{
+  "name": "v2land-mobile",
+  "version": "0.1.0",
+  "description": "mobile app for Langchao",
+  "private": true,
+  "devDependencies": {
+    "babel-eslint": "^8.2.3",
+    "eslint": "^4.19.1",
+    "eslint-config-v2land": "^1.0.3",
+    "eslint-plugin-react": "^7.8.1",
+    "jest-expo": "~27.0.0",
+    "prettier": "1.12.1",
+    "react-native-scripts": "1.14.0",
+    "react-test-renderer": "16.3.1"
+  },
+  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
+  "scripts": {
+    "start": "react-native-scripts start",
+    "eject": "react-native-scripts eject",
+    "android": "react-native-scripts android",
+    "ios": "react-native-scripts ios",
+    "test": "jest",
+    "format": "prettier --write \"{src,test}/**/*.js\"",
+    "lint": "eslint src test"
+  },
+  "jest": {
+    "preset": "jest-expo"
+  },
+  "dependencies": {
+    "expo": "^27.0.1",
+    "react": "16.3.1",
+    "react-native": "~0.55.2"
+  },
+  "engines": {
+    "node": ">=8",
+    "npm": ">=6"
+  }
+}

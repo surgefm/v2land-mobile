@@ -1,0 +1,18 @@
+{
+  "root": true,
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true
+  },
+  "plugins": [
+    "react"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "v2land"
+  ],
+  "rules": {
+    "require-jsdoc": 0
+  }
+}
