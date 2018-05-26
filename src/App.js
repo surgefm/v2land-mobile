@@ -2,18 +2,18 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import configStore from './store/configStore';
 import { createBottomTabNavigator } from 'react-navigation';
-import News from './components/News';
+import Events from './components/Events';
 import Profile from './components/Profile';
 
 const store = configStore();
 
 const Navigator = createBottomTabNavigator(
   {
-    News,
+    Events,
     Profile,
   },
   {
-    initialRouteName: 'News'
+    initialRouteName: 'Events'
   }
 );
 
