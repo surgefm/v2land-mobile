@@ -1,16 +1,16 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import configStore from './store/configStore';
-import { TabNavigator } from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation';
 import News from './components/News';
 import Profile from './components/Profile';
 
 const store = configStore();
 
-const Navigator = TabNavigator(
+const Navigator = createBottomTabNavigator(
   {
-    News: { screen: News },
-    Profile: { screen: Profile },
+    News,
+    Profile,
   },
   {
     initialRouteName: 'News'
