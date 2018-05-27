@@ -1,16 +1,26 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import configStore from './store/configStore';
-import { createBottomTabNavigator } from 'react-navigation';
-import Events from './components/Events';
+import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
+import Events from './containers/Events';
+import Article from './components/Article';
 import Profile from './components/Profile';
 
 const store = configStore();
 
+const EventsStack = createStackNavigator({
+  Events,
+  Article,
+});
+
+const ProfileStack = createStackNavigator({
+  Profile
+})
+
 const Navigator = createBottomTabNavigator(
   {
-    Events,
-    Profile,
+    Events: EventsStack,
+    Profile: ProfileStack,
   },
   {
     initialRouteName: 'Events'
