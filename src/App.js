@@ -15,8 +15,13 @@ const EventsStack = createStackNavigator({
 });
 
 const ProfileStack = createStackNavigator({
-  Profile
-})
+  Profile: {
+    screen: Profile,
+    navigationOptions: {
+      header: null,
+    }
+  }
+});
 
 const tabBarIcons = {
   Events: 'library-books',
