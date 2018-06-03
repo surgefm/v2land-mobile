@@ -5,6 +5,7 @@ import { createBottomTabNavigator, createStackNavigator } from 'react-navigation
 import Events from './containers/Events';
 import Article from './components/Article';
 import Profile from './components/Profile';
+import { Icon } from 'react-native-elements';
 
 const store = configStore();
 
@@ -17,13 +18,24 @@ const ProfileStack = createStackNavigator({
   Profile
 })
 
+const tabBarIcons = {
+  Events: 'library-books',
+  Profile: 'account-box',
+};
 const Navigator = createBottomTabNavigator(
   {
     Events: EventsStack,
     Profile: ProfileStack,
   },
   {
-    initialRouteName: 'Events'
+    initialRouteName: 'Events',
+    navigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, tintColor }) => {
+        const { routeName } = navigation.state;
+        const iconName = tabBarIcons[routeName];
+        return <Icon name={iconName} color={tintColor} type="Ionicons"/>
+      }
+    })
   }
 );
 
