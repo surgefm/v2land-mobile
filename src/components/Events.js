@@ -4,6 +4,7 @@ import EventItem from './EventItem';
 
 const Events = () => (
   <FlatList
+    style={{ padding: 12 }}
     data={eventList}
     renderItem={({ item }) =>
       <EventItem

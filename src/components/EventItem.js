@@ -1,6 +1,9 @@
 import React from 'react';
-import { TouchableNativeFeedback, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Text, Card } from 'react-native-elements';
+import EventTitle from './EventTitle';
+import { colors } from '../styles';
+import getAssetURL from '../util/getAssetURL';
 
 const EventItem = ({
   name,
@@ -9,16 +12,31 @@ const EventItem = ({
   source,
   sourceUrl,
 }) => (
-  <TouchableNativeFeedback
-    useForeground
+  <Card
+    containerStyle={styles.cardContainer}
+    image={{ uri: getAssetURL(imageUrl) }}
   >
-    <Card
-      featuredTitle={name}
-      image={{ uri: imageUrl }}
-    >
-      <Text>{description || ''}</Text>
-    </Card>
-  </TouchableNativeFeedback>
-)
+    <EventTitle>{name}</EventTitle>
+    <Text style={styles.textDesc}>{description || ''}</Text>
+  </Card>
+);
+
+const styles = StyleSheet.create({
+  textDesc: {
+    marginTop: 8,
+  },
+  cardContainer: {
+    padding: 16,
+    borderRadius: 18,
+    borderWidth: 0,
+    marginBottom: 40,
+
+    // FIXME: shadow on android
+    /* shadow */
+    shadowColor: colors.shadow,
+    shadowOffset: { width: 8, height: 8 },
+    shadowOpacity: 1.0,
+  }
+});
 
 export default EventItem;

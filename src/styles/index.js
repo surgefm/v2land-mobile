@@ -1,5 +1,9 @@
 import { StyleSheet } from 'react-native';
 
+export const colors = {
+  shadow: '#EAEAEA',
+}
+
 export const fontSizes = {
   xlarge: '46px',
   large: '24px',
