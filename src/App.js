@@ -5,7 +5,9 @@ import { createBottomTabNavigator, createStackNavigator } from 'react-navigation
 import Events from './containers/Events';
 import Article from './components/Article';
 import Profile from './components/Profile';
+import Search from './components/Search';
 import { Icon } from 'react-native-elements';
+import routers from './config/routers';
 
 const store = configStore();
 
@@ -24,23 +26,31 @@ const ProfileStack = createStackNavigator({
 });
 
 const tabBarIcons = {
-  Events: 'library-books',
-  Profile: 'account-box',
+  [routers.today]: 'library-books',
+  // Profile: 'account-box',
+  [routers.search]: 'search',
 };
 const Navigator = createBottomTabNavigator(
   {
-    Events: EventsStack,
-    Profile: ProfileStack,
+    [routers.today]: EventsStack,
+    [routers.search]: Search,
+    // Profile: ProfileStack,
   },
   {
-    initialRouteName: 'Events',
+    initialRouteName: routers.today,
     navigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
         const iconName = tabBarIcons[routeName];
         return <Icon name={iconName} color={tintColor} type="Ionicons"/>
       }
-    })
+    }),
+    tabBarOptions: {
+      style: {
+        // FIXME: adding a shadow arround the top of the tab bar
+        elevation: 24,
+      },
+    },
   }
 );
 
