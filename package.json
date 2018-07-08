@@ -4,10 +4,12 @@
   "description": "mobile app for Langchao",
   "private": true,
   "devDependencies": {
+    "appr": "^2.0.0",
     "babel-eslint": "^8.2.3",
     "eslint": "^4.19.1",
     "eslint-config-v2land": "^1.0.3",
     "eslint-plugin-react": "^7.8.1",
+    "exp": "^55.0.4",
     "jest-expo": "~27.0.0",
     "prettier": "1.12.1",
     "react-native-scripts": "1.14.0",
@@ -20,6 +22,7 @@
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
     "test": "jest",
+    "appr": "appr",
     "format": "prettier --write \"{src,test}/**/*.js\"",
     "lint": "eslint src test"
   },
