@@ -19,8 +19,10 @@ const EventItem = ({
       containerStyle={styles.cardContainer}
       image={{ uri: getAssetURL(imageUrl) }}
     >
-      <EventTitle>{name}</EventTitle>
-      <Text style={styles.textDesc}>{description || ''}</Text>
+      <View style={styles.eventDescription}>
+        <EventTitle>{name}</EventTitle>
+        <Text style={styles.textDesc}>{description || ''}</Text>
+      </View>
     </Card>
   </View>
 );
@@ -31,10 +33,10 @@ const styles = StyleSheet.create({
   },
   textDesc: {
     marginTop: 8,
+    lineHeight: 20,
   },
   cardContainer: {
-    padding: 16,
-    borderRadius: 18,
+    borderRadius: 8,
     borderWidth: 0,
     marginLeft: 0,
     marginRight: 0,
@@ -44,7 +46,12 @@ const styles = StyleSheet.create({
     shadowColor: colors.shadow,
     shadowOffset: { width: 8, height: 8 },
     shadowOpacity: 1.0,
-  }
+    overflow: 'hidden',
+  },
+  eventDescription: {
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+  },
 });
 
 export default EventItem;

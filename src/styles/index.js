@@ -14,7 +14,7 @@ export const fontSizes = {
 export const styles = StyleSheet.create({
   eventTitle: {
     fontWeight: 'bold',
-    fontSize: 30,
+    fontSize: 24,
   }
 });
 
