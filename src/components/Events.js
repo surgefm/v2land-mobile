@@ -13,8 +13,8 @@ const Events = () => (
       style={styles.header}
     >
       <SvgUri
-        width="100"
-        height="50"
+        width='100'
+        height='50'
         source={require('../static/logotype.svg')}
       />
       <View
@@ -24,11 +24,13 @@ const Events = () => (
           name='user'
           type='font-awesome'
           color='#fff'
+          size={20}
         />
       </View>
     </View>
     <FlatList
       data={eventList}
+      style={{paddingBottom: 50}}
       renderItem={({ item }) =>
         <EventItem
           name={item.name}
@@ -45,7 +47,7 @@ const Events = () => (
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 50,
+    paddingTop: 50,
     backgroundColor: colors.lightGrey,
     flexDirection: 'column',
   },
@@ -57,8 +59,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerCircle: {
-    width: 40,
-    height: 40,
+    width: 36,
+    height: 36,
     borderRadius: 20,
     backgroundColor: colors.grey,
     justifyContent: 'center',
