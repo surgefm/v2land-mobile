@@ -11,7 +11,7 @@ const SearchHistoryItem = ({ history } = {}) => (
 
 const styles = StyleSheet.create({
   view: {
-    marginRight: 4,
+    marginRight: 8,
     paddingVertical: 4,
   },
 });
