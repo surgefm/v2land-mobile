@@ -16,6 +16,17 @@ const EventsStack = createStackNavigator({
   Article,
 });
 
+const SearchStack = createStackNavigator({
+  Search: {
+    screen: Search,
+    navigationOptions: {
+      header: null,
+    },
+  },
+}, {
+  initialRouteName: 'Search',
+});
+
 const ProfileStack = createStackNavigator({
   Profile: {
     screen: Profile,
@@ -33,7 +44,7 @@ const tabBarIcons = {
 const Navigator = createBottomTabNavigator(
   {
     [routers.today]: EventsStack,
-    [routers.search]: Search,
+    [routers.search]: SearchStack,
     // Profile: ProfileStack,
   },
   {
