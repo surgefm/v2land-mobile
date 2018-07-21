@@ -15,8 +15,8 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
   },
   text: {
-    color: colors.white
-  }
+    color: colors.white,
+  },
 });
 
 export default TimeBadge;

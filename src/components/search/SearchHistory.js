@@ -1,18 +1,25 @@
 import React from 'react';
-import { Text } from 'react-native-elements';
+import { View, StyleSheet } from 'react-native';
 import SearchHistoryItem from './SearchHistoryItem';
 
 const SearchHistory = ({ history }) => (
-  <Text>
+  <View style={styles.history}>
     {
-      history.map(h => 
+      history.map(h =>
         <SearchHistoryItem
           history={h}
           key={h.text}
         />
       )
     }
-  </Text>
+  </View>
 );
 
-export default SearchHistory
+const styles = StyleSheet.create({
+  history: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+});
+
+export default SearchHistory;
