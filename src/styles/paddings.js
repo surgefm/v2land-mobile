@@ -11,4 +11,6 @@ export const paddingConstants = {
 export const paddings = StyleSheet.create({
   interval: { paddingBottom: paddingConstants.interval },
   largeInterval: { paddingBottom: paddingConstants.largeInterval },
+  side: { paddingHorizontal: paddingConstants.side },
+  pageTop: { paddingTop: paddingConstants.top },
 });

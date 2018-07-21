@@ -8,7 +8,10 @@ export const pageStyle = StyleSheet.create({
     paddingLeft: paddingConstants.side,
     paddingRight: paddingConstants.side,
     paddingBottom: paddingConstants.bottom,
-  }
+  },
+  background: {
+    backgroundColor: '#FFF',
+  },
 });
 
 export default pageStyle;
