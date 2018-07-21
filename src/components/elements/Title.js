@@ -1,10 +1,12 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { fontSizes } from '../../styles';
 import { Text } from 'react-native-elements';
 
 const Title = ({ children }) => (
-  <Text style={styles.title}>{children}</Text>
+  <View>
+    <Text style={styles.title}>{children}</Text>
+  </View>
 );
 
 const styles = StyleSheet.create({
