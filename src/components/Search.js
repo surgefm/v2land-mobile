@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, ScrollView } from 'react-native';
 import { SearchBar } from 'react-native-elements';
-import { SearchHistory } from '../components/search';
-import { Title, Subtitle } from '../components/common';
+import { SearchHistory } from './search';
+import { Title, Subtitle } from './partials';
 import { pageStyle, paddings, searchBarStyle } from '../styles';
 
 const Search = () => (
