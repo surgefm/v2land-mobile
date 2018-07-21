@@ -1,15 +1,9 @@
 import { StyleSheet } from 'react-native';
-
-export const colors = {
-  shadow: '#EAEAEA',
-  blue: '#4A90E2',
-  white: '#FFFFFF',
-}
-
-export const fontSizes = {
-  xlarge: '46px',
-  large: '24px',
-};
+import fontSizes from './fontSizes';
+import colors from './colors';
+import { paddingConstants, paddings } from './paddings';
+import { pageStyle } from './pageStyle';
+import { searchBarStyle } from './searchBarStyle';
 
 export const styles = StyleSheet.create({
   eventTitle: {
@@ -19,3 +13,11 @@ export const styles = StyleSheet.create({
 });
 
 export default styles;
+export {
+  fontSizes,
+  colors,
+  paddingConstants,
+  paddings,
+  searchBarStyle,
+  pageStyle,
+};
