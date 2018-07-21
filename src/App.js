@@ -37,7 +37,7 @@ const ProfileStack = createStackNavigator({
 });
 
 const tabBarIcons = {
-  [routers.today]: 'library-books',
+  [routers.today]: 'today',
   // Profile: 'account-box',
   [routers.search]: 'search',
 };

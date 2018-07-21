@@ -7,7 +7,7 @@ import { pageStyle, paddings, searchBarStyle } from '../styles';
 
 const Search = () => (
   <ScrollView style={pageStyle.default}>
-    <View style={paddings.interval}>
+    <View style={paddings.largeInterval}>
       <View style={paddings.interval}>
         <Title>搜索</Title>
       </View>
