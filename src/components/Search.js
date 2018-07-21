@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, ScrollView } from 'react-native';
-import { SearchBar, Text } from 'react-native-elements';
+import { SearchBar } from 'react-native-elements';
 import { SearchHistory } from './search';
 import { Title, Subtitle } from './elements';
 import { pageStyle, paddings, searchBarStyle } from '../styles';
@@ -9,7 +9,7 @@ const Search = () => (
   <ScrollView style={[pageStyle.background, paddings.pageTop]}>
     <View style={paddings.largeInterval}>
       <View style={[paddings.side, paddings.interval]}>
-        <Title><Text>搜索</Text></Title>
+        <Title>搜索</Title>
       </View>
       <View style={{ paddingHorizontal: 8 }}>
         <SearchBar
@@ -21,7 +21,7 @@ const Search = () => (
       </View>
     </View>
     <View style={paddings.side}>
-      <Subtitle style={paddings.interval}><Text>搜索历史</Text></Subtitle>
+      <Subtitle style={paddings.interval}>搜索历史</Subtitle>
       <SearchHistory history={history} />
     </View>
   </ScrollView>

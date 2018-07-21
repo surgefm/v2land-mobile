@@ -32,8 +32,8 @@ const ProfileStack = createStackNavigator({
     screen: Profile,
     navigationOptions: {
       header: null,
-    }
-  }
+    },
+  },
 });
 
 const tabBarIcons = {
@@ -53,8 +53,8 @@ const Navigator = createBottomTabNavigator(
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
         const iconName = tabBarIcons[routeName];
-        return <Icon name={iconName} color={tintColor} type="Ionicons"/>
-      }
+        return <Icon name={iconName} color={tintColor} type="Ionicons"/>;
+      },
     }),
     tabBarOptions: {
       style: {
