@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, TouchableHighlight } from 'react-native';
 import { Text, Card } from 'react-native-elements';
 import EventTitle from './EventTitle';
 import TimeBadge from './TimeBadge';
@@ -12,19 +12,22 @@ const EventItem = ({
   imageUrl,
   source,
   sourceUrl,
+  onPress,
 }) => (
-  <View style={styles.wrapper}>
-    <TimeBadge />
-    <Card
-      containerStyle={styles.cardContainer}
-      image={{ uri: getAssetURL(imageUrl) }}
-    >
-      <View style={styles.eventDescription}>
-        <EventTitle>{name}</EventTitle>
-        <Text style={styles.textDesc}>{description || ''}</Text>
-      </View>
-    </Card>
-  </View>
+  <TouchableHighlight onPress={onPress} underlayColor={colors.lightGrey}>
+    <View style={styles.wrapper}>
+      <TimeBadge />
+      <Card
+        containerStyle={styles.cardContainer}
+        image={{ uri: getAssetURL(imageUrl) }}
+      >
+        <View style={styles.eventDescription}>
+          <EventTitle>{name}</EventTitle>
+          <Text style={styles.textDesc}>{description || ''}</Text>
+        </View>
+      </Card>
+    </View>
+  </TouchableHighlight>
 );
 
 const styles = StyleSheet.create({
