@@ -14,6 +14,11 @@ const store = configStore();
 const EventsStack = createStackNavigator({
   Events,
   Article,
+}, {
+  headerMode: 'none',
+  navigationOptions: {
+    headerVisible: false,
+  },
 });
 
 const SearchStack = createStackNavigator({
