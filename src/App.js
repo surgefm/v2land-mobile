@@ -1,7 +1,10 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import configStore from './store/configStore';
-import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
+import {
+  createBottomTabNavigator,
+  createStackNavigator,
+} from 'react-navigation';
 import Events from './containers/Events';
 import Search from './containers/Search';
 import Article from './containers/Article';
@@ -16,11 +19,14 @@ const EventsStack = createStackNavigator({
   [routers.event]: Article,
 });
 
-const SearchStack = createStackNavigator({
-  [routers.searchIndex]: Search,
-}, {
-  initialRouteName: routers.searchIndex,
-});
+const SearchStack = createStackNavigator(
+  {
+    [routers.searchIndex]: Search,
+  },
+  {
+    initialRouteName: routers.searchIndex,
+  },
+);
 
 const ProfileStack = createStackNavigator({
   Profile: {
@@ -48,7 +54,7 @@ const Navigator = createBottomTabNavigator(
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
         const iconName = tabBarIcons[routeName];
-        return <Icon name={iconName} color={tintColor} type="Ionicons"/>;
+        return <Icon name={iconName} color={tintColor} type="Ionicons" />;
       },
     }),
     tabBarOptions: {
@@ -57,7 +63,7 @@ const Navigator = createBottomTabNavigator(
         elevation: 24,
       },
     },
-  }
+  },
 );
 
 export default class App extends React.Component {

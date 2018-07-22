@@ -22,13 +22,13 @@ export default class Search extends Component {
           </View>
           <View style={{ paddingHorizontal: 8 }}>
             <SearchBar
-              ref={(search) => this.search = search}
+              ref={search => (this.search = search)}
               value={this.state.search}
-              onChangeText={(text) => this.setState({ search: text })}
+              onChangeText={text => this.setState({ search: text })}
               containerStyle={searchBarStyle.searchContainer}
               inputStyle={searchBarStyle.searchInput}
               clearIcon={{ color: '#86939e', name: 'close' }}
-              placeholder='输入事件/新闻关键词'
+              placeholder="输入事件/新闻关键词"
               lightTheme
             />
           </View>
