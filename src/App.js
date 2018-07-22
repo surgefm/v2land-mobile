@@ -3,33 +3,23 @@ import { Provider } from 'react-redux';
 import configStore from './store/configStore';
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 import Events from './containers/Events';
-import Article from './components/Article';
+import Search from './containers/Search';
+import Article from './containers/Article';
 import Profile from './components/Profile';
-import Search from './components/Search';
 import { Icon } from 'react-native-elements';
 import routers from './config/routers';
 
 const store = configStore();
 
 const EventsStack = createStackNavigator({
-  Events,
-  Article,
-}, {
-  headerMode: 'none',
-  navigationOptions: {
-    headerVisible: false,
-  },
+  [routers.eventList]: Events,
+  [routers.event]: Article,
 });
 
 const SearchStack = createStackNavigator({
-  Search: {
-    screen: Search,
-    navigationOptions: {
-      header: null,
-    },
-  },
+  [routers.searchIndex]: Search,
 }, {
-  initialRouteName: 'Search',
+  initialRouteName: routers.searchIndex,
 });
 
 const ProfileStack = createStackNavigator({
