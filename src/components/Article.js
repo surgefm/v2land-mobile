@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableNativeFeedback } from 'react-native';
+import { View } from 'react-native';
 import { Card, Text } from 'react-native-elements';
 
 const Article = ({
@@ -8,15 +8,7 @@ const Article = ({
   createdAt,
   updatedAt,
 }) => (
-  <TouchableNativeFeedback
-    useForeground
-  >
-    <Card
-      featuredTitle={title}
-    >
-
-    </Card>
-  </TouchableNativeFeedback>
+  <View></View>
 );
 
 export default Article;
