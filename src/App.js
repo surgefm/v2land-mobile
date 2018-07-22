@@ -21,24 +21,35 @@ const EventsStack = createStackNavigator({
   },
 });
 
+const SearchStack = createStackNavigator({
+  Search: {
+    screen: Search,
+    navigationOptions: {
+      header: null,
+    },
+  },
+}, {
+  initialRouteName: 'Search',
+});
+
 const ProfileStack = createStackNavigator({
   Profile: {
     screen: Profile,
     navigationOptions: {
       header: null,
-    }
-  }
+    },
+  },
 });
 
 const tabBarIcons = {
-  [routers.today]: 'library-books',
+  [routers.today]: 'today',
   // Profile: 'account-box',
   [routers.search]: 'search',
 };
 const Navigator = createBottomTabNavigator(
   {
     [routers.today]: EventsStack,
-    [routers.search]: Search,
+    [routers.search]: SearchStack,
     // Profile: ProfileStack,
   },
   {
@@ -47,8 +58,8 @@ const Navigator = createBottomTabNavigator(
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
         const iconName = tabBarIcons[routeName];
-        return <Icon name={iconName} color={tintColor} type="Ionicons"/>
-      }
+        return <Icon name={iconName} color={tintColor} type="Ionicons"/>;
+      },
     }),
     tabBarOptions: {
       style: {
