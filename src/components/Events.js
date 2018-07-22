@@ -5,7 +5,7 @@ import { colors } from '../styles';
 import SvgUri from 'react-native-svg-uri';
 import EventItem from './EventItem';
 
-const Events = () => (
+const Events = ({ onEventPress }) => (
   <ScrollView
     style={styles.container}
   >
@@ -38,6 +38,7 @@ const Events = () => (
           imageUrl={item.headerImage.imageUrl}
           source={item.headerImage.source}
           sourceUrl={item.headerImage.sourceUrl}
+          onPress={onEventPress}
         />
       }
       keyExtractor={item => item.id.toString()}
