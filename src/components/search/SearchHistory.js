@@ -4,14 +4,7 @@ import SearchHistoryItem from './SearchHistoryItem';
 
 const SearchHistory = ({ history }) => (
   <View style={styles.history}>
-    {
-      history.map(h =>
-        <SearchHistoryItem
-          history={h}
-          key={h.text}
-        />
-      )
-    }
+    {history.map(h => <SearchHistoryItem history={h} key={h.text} />)}
   </View>
 );
 

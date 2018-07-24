@@ -1,4 +1,3 @@
-// TODO: normalize asset address
 import config from '../config/const';
 
 const getAssetURL = (relativePath, { width, height } = {}) => {

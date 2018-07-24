@@ -1,36 +1,32 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import configStore from './store/configStore';
-import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
+import {
+  createBottomTabNavigator,
+  createStackNavigator,
+} from 'react-navigation';
 import Events from './containers/Events';
-import Article from './components/Article';
+import Search from './containers/Search';
+import Article from './containers/Article';
 import Profile from './components/Profile';
-import Search from './components/Search';
 import { Icon } from 'react-native-elements';
 import routers from './config/routers';
 
 const store = configStore();
 
 const EventsStack = createStackNavigator({
-  Events,
-  Article,
-}, {
-  headerMode: 'none',
-  navigationOptions: {
-    headerVisible: false,
-  },
+  [routers.eventList]: Events,
+  [routers.event]: Article,
 });
 
-const SearchStack = createStackNavigator({
-  Search: {
-    screen: Search,
-    navigationOptions: {
-      header: null,
-    },
+const SearchStack = createStackNavigator(
+  {
+    [routers.searchIndex]: Search,
   },
-}, {
-  initialRouteName: 'Search',
-});
+  {
+    initialRouteName: routers.searchIndex,
+  },
+);
 
 const ProfileStack = createStackNavigator({
   Profile: {
@@ -58,7 +54,7 @@ const Navigator = createBottomTabNavigator(
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
         const iconName = tabBarIcons[routeName];
-        return <Icon name={iconName} color={tintColor} type="Ionicons"/>;
+        return <Icon name={iconName} color={tintColor} type="Ionicons" />;
       },
     }),
     tabBarOptions: {
@@ -67,7 +63,7 @@ const Navigator = createBottomTabNavigator(
         elevation: 24,
       },
     },
-  }
+  },
 );
 
 export default class App extends React.Component {
