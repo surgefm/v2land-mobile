@@ -15,7 +15,10 @@ export default class Search extends Component {
 
   render() {
     return (
-      <ScrollView style={[pageStyle.background, paddings.pageTop]}>
+      <ScrollView
+        keyboardShouldPersistTaps="always"
+        style={[pageStyle.background, paddings.pageTop]}
+      >
         <View style={paddings.largeInterval}>
           <View style={[paddings.side, paddings.interval]}>
             <Title>搜索</Title>
