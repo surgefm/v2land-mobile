@@ -2,7 +2,6 @@ import React from 'react';
 import { StyleSheet, View, TouchableHighlight } from 'react-native';
 import { Text, Card } from 'react-native-elements';
 import EventTitle from './EventTitle';
-import TimeBadge from './TimeBadge';
 import { colors } from '../styles';
 import getAssetURL from '../util/getAssetURL';
 
@@ -15,25 +14,19 @@ const EventItem = ({
   onPress,
 }) => (
   <TouchableHighlight onPress={onPress} underlayColor={colors.lightGrey}>
-    <View style={styles.wrapper}>
-      <TimeBadge />
-      <Card
-        containerStyle={styles.cardContainer}
-        image={{ uri: getAssetURL(imageUrl) }}
-      >
-        <View style={styles.eventDescription}>
-          <EventTitle>{name}</EventTitle>
-          <Text style={styles.textDesc}>{description || ''}</Text>
-        </View>
-      </Card>
-    </View>
+    <Card
+      containerStyle={styles.cardContainer}
+      image={{ uri: getAssetURL(imageUrl) }}
+    >
+      <View style={styles.eventDescription}>
+        <EventTitle>{name}</EventTitle>
+        <Text style={styles.textDesc}>{description || ''}</Text>
+      </View>
+    </Card>
   </TouchableHighlight>
 );
 
 const styles = StyleSheet.create({
-  wrapper: {
-    padding: 16,
-  },
   textDesc: {
     marginTop: 8,
     lineHeight: 20,
@@ -43,6 +36,7 @@ const styles = StyleSheet.create({
     borderWidth: 0,
     marginLeft: 0,
     marginRight: 0,
+    marginTop: 12,
 
     // FIXME: shadow on android
     /* shadow */

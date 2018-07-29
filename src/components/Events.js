@@ -1,13 +1,14 @@
 import React from 'react';
-import { StyleSheet, FlatList, View, ScrollView } from 'react-native';
+import { StyleSheet, SectionList, View, ScrollView } from 'react-native';
 import { Icon } from 'react-native-elements';
-import { colors } from '../styles';
+import { colors, paddings, paddingConstants } from '../styles';
 import SvgUri from 'react-native-svg-uri';
 import EventItem from './EventItem';
+import TimeBadge from './TimeBadge';
 
 const Events = ({ onEventPress }) => (
-  <ScrollView style={styles.container}>
-    <View style={styles.header}>
+  <ScrollView style={[styles.container, paddings.side]}>
+    <View style={[styles.header, paddings.largeInterval]}>
       <SvgUri
         width="100"
         height="50"
@@ -17,8 +18,8 @@ const Events = ({ onEventPress }) => (
         <Icon name="user" type="font-awesome" color="#fff" size={20} />
       </View>
     </View>
-    <FlatList
-      data={eventList}
+    <SectionList
+      sections={eventList}
       style={{ paddingBottom: 50 }}
       renderItem={({ item }) => (
         <EventItem
@@ -30,6 +31,12 @@ const Events = ({ onEventPress }) => (
           onPress={onEventPress}
         />
       )}
+      renderSectionHeader={({ section }) => (
+        <TimeBadge style={styles.sectionHeader} />
+      )}
+      renderSectionFooter={({}) => (
+        <View style={{ height: 16 }} />
+      )}
       keyExtractor={item => item.id.toString()}
     />
   </ScrollView>
@@ -37,12 +44,11 @@ const Events = ({ onEventPress }) => (
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 50,
+    paddingTop: paddingConstants.top,
     backgroundColor: colors.lightGrey,
     flexDirection: 'column',
   },
   header: {
-    marginHorizontal: 16,
     flexDirection: 'row',
     height: 50,
     justifyContent: 'space-between',
@@ -58,8 +64,9 @@ const styles = StyleSheet.create({
   },
 });
 
-const eventList = [
-  {
+const eventList = [{
+  data:
+  [{
     headerImage: {
       imageUrl: '181bc4c41c8f4f921b7d974cb1ce3148.jpg',
       source: '新京报',
@@ -77,8 +84,9 @@ const eventList = [
     id: 12,
     createdAt: '2018-03-10T20:07:40.000Z',
     updatedAt: '2018-03-28T01:55:48.000Z',
-  },
-  {
+  }],
+},{data:
+  [{
     headerImage: {
       imageUrl: 'a229ae18efbf4ab145bf9bb04b06af45.jpg',
       source: '爱范儿',
@@ -115,7 +123,9 @@ const eventList = [
     id: 10,
     createdAt: '2018-03-08T06:12:36.000Z',
     updatedAt: '2018-03-08T06:12:36.000Z',
-  },
+  }],
+},{
+  data:[
   {
     headerImage: {
       imageUrl: '0960c803795139a7f1d5b93f393f7fe5.jpg',
@@ -153,7 +163,7 @@ const eventList = [
     id: 2,
     createdAt: '2018-02-27T02:21:30.000Z',
     updatedAt: '2018-02-28T06:18:06.000Z',
-  },
+  }]},
 ];
 
 export default Events;
