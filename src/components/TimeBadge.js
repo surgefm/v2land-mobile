@@ -1,21 +1,27 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Badge } from 'react-native-elements';
-import { colors } from '../styles';
+import { colors, fontSizes } from '../styles';
 
 const TimeBadge = ({ date }) => (
-  <Badge containerStyle={styles.badge}>
-    <Text style={styles.text}>Today</Text>
-  </Badge>
+  <View style={styles.timeContainer}>
+    <Text style={styles.textLeft}>今天</Text>
+    <Text style={styles.textRight}>7月28日 星期六</Text>
+  </View>
 );
 
 const styles = StyleSheet.create({
-  badge: {
-    backgroundColor: colors.blue,
-    alignSelf: 'flex-start',
+  timeContainer: {
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexDirection: 'row',
+    width: '100%',
   },
-  text: {
-    color: colors.white,
+  textLeft: {
+    fontSize: fontSizes.medium,
+    fontWeight: 'bold',
+  },
+  textRight: {
+    color: colors.black,
   },
 });
 
