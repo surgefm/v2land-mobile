@@ -4,4 +4,5 @@ export default {
   event: '事件',
   eventList: '事件列表',
   searchIndex: '搜索起始页',
+  profile:'用户'
 };
