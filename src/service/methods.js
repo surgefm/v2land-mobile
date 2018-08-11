@@ -1,6 +1,7 @@
 import { resolve, format } from 'url';
+import config from '../config/const';
 
-const api = path => resolve('https://langchao.org/api/', path);
+const api = path => resolve(config.api, path);
 
 export const get = (path, query = {}, options = {}) =>
   fetch(format({
