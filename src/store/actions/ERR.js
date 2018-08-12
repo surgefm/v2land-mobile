@@ -1,3 +1,3 @@
-const ERR = actionType = `${actionType}#ERR`;
+const ERR = actionType => `${actionType}#ERR`;
 
 export default ERR;
