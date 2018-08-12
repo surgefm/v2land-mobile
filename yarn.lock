@@ -6025,6 +6025,10 @@ rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+re-select@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/re-select/-/re-select-0.5.0.tgz#12b017964be3aea71542259893d1cce7d7644448"
+
 react-clone-referenced-element@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/react-clone-referenced-element/-/react-clone-referenced-element-1.0.1.tgz#2bba8c69404c5e4a944398600bcc4c941f860682"
