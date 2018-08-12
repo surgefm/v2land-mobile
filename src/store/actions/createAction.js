@@ -1,8 +1,8 @@
-const returnEmpty = () => ({});
+import R from 'ramda';
 
 const createType = name => name.split(' ').map(s => s.toUpperCase()).join('_');
 
-const createAction = (name, input = returnEmpty) => {
+const createAction = (name, input = R.identity) => {
   const type = createType(name);
 
   return {

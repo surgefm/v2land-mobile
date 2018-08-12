@@ -1,3 +1,3 @@
-const OK = actionType = `${actionType}#OK`;
+const OK = actionType => `${actionType}#OK`;
 
 export default OK;
