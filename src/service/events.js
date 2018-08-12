@@ -1,3 +1,3 @@
 import { get } from './methods.js';
 
-const getAll = () => get('/event');
+export const getAll = () => get('event');
