@@ -1,4 +1,4 @@
-import { createStore, compose } from 'redux';
+import { createStore } from 'redux';
 import { install } from 'redux-loop';
 import reducers from './reducers';
 

@@ -17,7 +17,7 @@ export const post = (path, data = {}, options = {}) =>
     ...options,
     method: 'POST',
     header: {
-      "Content-Type": "application/json; charset=utf-8",
+      'Content-Type': 'application/json; charset=utf-8',
     },
     body: JSON.stringify(data),
   }).then(res => res.json());

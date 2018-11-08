@@ -14,6 +14,6 @@ const prepare = func => BaseComponent => {
   }
 
   return Prepare;
-}
+};
 
 export default prepare;
