@@ -1,7 +1,11 @@
 import React from 'react';
-import { View } from 'react-native';
-import { Card, Text } from 'react-native-elements';
+import { SafeAreaView } from 'react-native';
+import { HeaderImage } from './elements';
 
-const Article = ({ title, description, createdAt, updatedAt }) => <View />;
+const Article = ({ event }) => (
+  <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+    <HeaderImage event={event} />
+  </SafeAreaView>
+);
 
 export default Article;
