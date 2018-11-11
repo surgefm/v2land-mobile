@@ -1,13 +1,14 @@
-import React from 'react';
 import R from 'ramda';
 import routers from '../config/routers';
 
 import EventsComponent from '../components/Events';
 
-import withNavigationOptions from '../enhancers/withNavigationOptions';
-import withNavigationHandlers from '../enhancers/withNavigationHandlers';
-import prepare from '../enhancers/prepare';
-import connect from '../enhancers/connect.js';
+import {
+  withNavigationOptions,
+  withNavigationHandlers,
+  connect,
+  prepare,
+} from '../enhancers';
 
 import { fetchList } from '../store/actions/events.js';
 
