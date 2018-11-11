@@ -29,7 +29,7 @@ const Events = ({ onEventPress, eventList }) => (
             imageUrl={item.headerImage.imageUrl}
             source={item.headerImage.source}
             sourceUrl={item.headerImage.sourceUrl}
-            onPress={onEventPress}
+            onPress={onEventPress(item.id)}
           />
         )}
         renderSectionHeader={({ section }) => (
