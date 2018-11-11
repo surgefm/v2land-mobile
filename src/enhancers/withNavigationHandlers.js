@@ -4,7 +4,10 @@ import { createFactory } from 'react';
 const withNavigationHandlers = handlers => BaseComponent => {
   const factory = createFactory(BaseComponent);
   const WithNavigationHandlers = props =>
-    factory(...props, handlers(props.navigation || {}));
+    factory({
+      ...props,
+      ...handlers(props.navigation || {}),
+    });
   return WithNavigationHandlers;
 };
 
