@@ -1,4 +1,3 @@
-import React from 'react';
 import R from 'ramda';
 import ArticleComponent from '../components/Article';
 import withNavigationOptions from '../enhancers/withNavigationOptions';

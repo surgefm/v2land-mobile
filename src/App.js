@@ -14,7 +14,6 @@ import routers from './config/routers';
 
 const store = configStore();
 
-
 const EventsStack = createStackNavigator({
   [routers.eventList]: Events,
   [routers.event]: Article,
@@ -44,6 +43,7 @@ const tabBarIcons = {
   [routers.login]: 'ios-person',
   [routers.profile]: 'account-box',
 };
+
 const Navigator = createBottomTabNavigator(
   {
     [routers.today]: EventsStack,
