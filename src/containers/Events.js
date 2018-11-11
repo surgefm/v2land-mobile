@@ -11,7 +11,6 @@ import {
 } from '../enhancers';
 
 import { fetchList } from '../store/actions/events.js';
-
 import { eventListSelector } from '../store/selectors/events.js';
 
 const Events = R.compose(
@@ -20,15 +19,13 @@ const Events = R.compose(
     header: null,
   }),
   withNavigationHandlers(({ navigate }) => ({
-    onEventPress: () => navigate(routers.event),
+    onEventPress: (eventId) => () => navigate(routers.event, { eventId }),
   })),
-
   connect({
     eventList: eventListSelector,
   }, {
     fetchList,
   }),
-
   prepare(({ fetchList }) => fetchList()),
 )(EventsComponent);
 
