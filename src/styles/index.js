@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
   eventTitle: {
     fontWeight: 'bold',
     fontSize: 24,
+    lineHeight: 28,
   },
 });
 export default styles;
