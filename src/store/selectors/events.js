@@ -8,8 +8,12 @@ export const eventListSelector = [
 
 export const eventSelector = [
   (state, props) => {
-    if (!state.events || !state.events.data) return [];
-    return state.events.data.filter(e => e.id === props.eventId);
+    if (!state.events || !state.events.data) return null;
+    for (const event of state.events.data) {
+      if (event.id === props.eventId) {
+        return event;
+      }
+    }
+    return null;
   },
-  event => event.length ? event[0] : null,
 ];
