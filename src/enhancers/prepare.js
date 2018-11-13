@@ -1,6 +1,6 @@
 import { createFactory, Component } from 'react';
 
-const prepare = func => BaseComponent => {
+const prepare = (func = () => {}) => BaseComponent => {
   const factory = createFactory(BaseComponent);
 
   class Prepare extends Component {
