@@ -3,7 +3,7 @@ import { StyleSheet, SectionList, View, ScrollView, SafeAreaView } from 'react-n
 import { Icon } from 'react-native-elements';
 import { colors, paddings, paddingConstants } from '../styles';
 import SvgUri from 'react-native-svg-uri';
-import EventItem from './EventItem';
+import EventItem from './Events/EventItem';
 import TimeBadge from './TimeBadge';
 
 const Events = ({ onEventPress, eventList }) => (
@@ -20,6 +20,7 @@ const Events = ({ onEventPress, eventList }) => (
         </View>
       </View>
       <SectionList
+        x={console.log(123, eventList)}
         sections={eventList.map(data => ({ data: [data] }))}
         style={{ paddingBottom: 50 }}
         renderItem={({ item }) => (
