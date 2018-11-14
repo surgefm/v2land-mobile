@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { colors, fontSizes } from '../styles';
+import { colors, fontSizes } from '../../styles';
 
 const TimeBadge = ({ date }) => (
   <View style={styles.timeContainer}>
