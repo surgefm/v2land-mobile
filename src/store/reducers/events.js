@@ -15,21 +15,27 @@ import { getAll, getEvent } from '../../service/events.js';
 export const fetchEventList = requestData(
   fetchListAction.type,
   getAll,
-  (_, res) => res.eventList,
+  (_, res) => {
+    return res.eventList;
+  },
   (_, err) => {
     // TODO: handle error
     return null;
   },
 );
 
-export const fetchEvent = ({ eventId }) => requestData(
+export const fetchEvent = (state, action) => requestData(
   fetchEventAction.type,
-  getEvent(eventId),
-  (_, res) => (state, action) => {
+  getEvent(action.payload.eventId),
+  (_, res) => {
+    console.log('FETCH_EVENT#OK');
+    return [res];
+  },
+  (_, err) => {
+    console.log('FETCH_EVENT#ERR');
     return _;
   },
-  (_, err) => { console.log('err', _, err); return _ },
-);
+)(state, action);
 
 export const eventReducers = combineReducers({
   data: (state, action) => {
@@ -37,7 +43,7 @@ export const eventReducers = combineReducers({
     case 'FETCH_EVENT_LIST':
       return fetchEventList(state, action);
     case 'FETCH_EVENT':
-      return fetchEvent({ eventId: action.payload.eventId })(state, action);
+      return fetchEvent(state, action);
     default:
       return fetchEventList(state, action);
     }
