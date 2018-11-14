@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux-loop';
-import { fetchAll, fetchEvent } from './events.js';
+import eventReducers, { fetchEventList, fetchEvent } from './events.js';
 
 export default combineReducers({
-  events: fetchAll,
+  events: eventReducers,
 });
 
 export {
-  fetchAll,
+  fetchEventList,
   fetchEvent,
 };

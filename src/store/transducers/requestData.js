@@ -13,8 +13,8 @@ const requestData = (type, func, inputOK, inputERR) => simpleSM({
         successActionCreator: createAction(OK(type)).make,
         failActionCreator: createAction(ERR(type)).make,
         args: [state, payload],
-      }
-    )
+      },
+    ),
   ),
 
   [OK(type)]: inputOK,
