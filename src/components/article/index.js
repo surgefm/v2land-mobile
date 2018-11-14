@@ -1,6 +1,6 @@
-import EventTime from './EventTime';
-import EventTitle from './EventTitle';
-import NewsItem from './NewsItem';
+import EventTime from './EventTime.js';
+import EventTitle from './EventTitle.js';
+import NewsItem from './NewsItem.js';
 
 export {
   EventTime,

@@ -1,6 +1,6 @@
-import Title from './Title';
-import Subtitle from './Subtitle';
-import HeaderImage from './HeaderImage';
-import BackButton from './BackButton';
+import Title from './Title.js';
+import Subtitle from './Subtitle.js';
+import HeaderImage from './HeaderImage.js';
+import BackButton from './BackButton.js';
 
 export { Title, Subtitle, HeaderImage, BackButton };

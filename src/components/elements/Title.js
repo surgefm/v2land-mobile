@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { fontSizes } from '../../styles';
 import { Text } from 'react-native-elements';
+import { fontSizes } from '../../styles';
 
 const Title = ({ children }) => (
   <View>

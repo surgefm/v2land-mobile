@@ -1,6 +1,6 @@
 import R from 'ramda';
 import React from 'react';
-import ArticleComponent from '../components/Article';
+import ArticleComponent from '../components/Article.js';
 import { BackButton } from '../components/elements';
 
 import {
