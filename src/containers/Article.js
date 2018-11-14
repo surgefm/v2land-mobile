@@ -32,7 +32,7 @@ const Article = R.compose(
     fetchEvent,
   }),
   prepare(({ fetchEvent, eventId }) => {
-    // fetchEvent({ eventId });
+    fetchEvent({ eventId });
   }),
 )(ArticleComponent);
 
