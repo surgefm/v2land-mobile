@@ -1,5 +1,6 @@
 import R from 'ramda';
 import React from 'react';
+import routers from '../config/routers';
 import ArticleComponent from '../components/Article.js';
 import { BackButton } from '../components/elements';
 
@@ -21,9 +22,10 @@ const Article = R.compose(
       <BackButton onPress={() => navigation.goBack()} />
     ),
   })),
-  withNavigationHandlers(({ state, goBack }) => {
+  withNavigationHandlers(({ state, navigate }) => {
     return {
       eventId: state.params.eventId,
+      onStackPress: ({ stackId }) => () => navigate(routers.search, { stackId }, console.log(stackId)),
     };
   }),
   connect({

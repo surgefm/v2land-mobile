@@ -37,13 +37,27 @@ export const fetchEvent = (state, action) => requestData(
   },
 )(state, action);
 
+const fetchEventOK = (state, action) => {
+  const eventList = [...state];
+  const event = action.payload;
+  for (let i = 0; i < eventList.length; i++) {
+    if (eventList[i].id === event.id) {
+      eventList[i] = event;
+      return eventList;
+    }
+  }
+  return [...eventList, event];
+};
+
 export const eventReducers = combineReducers({
   data: (state, action) => {
     switch (action.type) {
-    case 'FETCH_EVENT_LIST':
+    case fetchListAction.type:
       return fetchEventList(state, action);
-    case 'FETCH_EVENT':
+    case fetchEventAction.type:
       return fetchEvent(state, action);
+    case OK(fetchEventAction.type):
+      return fetchEventOK(state, action);
     default:
       return fetchEventList(state, action);
     }
