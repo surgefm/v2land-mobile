@@ -1,7 +1,7 @@
 import R from 'ramda';
 import routers from '../config/routers';
 
-import EventsComponent from '../components/Events';
+import EventsComponent from '../components/Events.js';
 
 import {
   withNavigationOptions,

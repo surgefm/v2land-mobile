@@ -1,8 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, ScrollView, SafeAreaView } from 'react-native';
-import EditView from './profile/LoginInput';
-import PasswordInput from './profile/PasswordInput';
 import { Icon, Button } from 'react-native-elements';
+import { PasswordInput, LoginInput as EditView } from './profile';
 import { pageStyle, paddings } from '../styles';
 
 const widthOfMargin = Dimensions.get('window').width;

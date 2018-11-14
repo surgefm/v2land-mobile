@@ -3,8 +3,7 @@ import { StyleSheet, SectionList, View, ScrollView, SafeAreaView } from 'react-n
 import { Icon } from 'react-native-elements';
 import { colors, paddings, paddingConstants } from '../styles';
 import SvgUri from 'react-native-svg-uri';
-import EventItem from './events/EventItem';
-import TimeBadge from './events/TimeBadge';
+import { EventItem, TimeBadge } from './events';
 
 const Events = ({ onEventPress, eventList }) => (
   <SafeAreaView style={styles.container}>
