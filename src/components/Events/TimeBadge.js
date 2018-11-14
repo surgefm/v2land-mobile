@@ -1,11 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { colors, fontSizes } from '../../styles';
+import { getTimeString, getTimeLapseString } from '../../util';
 
-const TimeBadge = ({ date }) => (
+const TimeBadge = ({ date }) => !date || !getTimeLapseString(date) || (
   <View style={styles.timeContainer}>
-    <Text style={styles.textLeft}>今天</Text>
-    <Text style={styles.textRight}>7月28日 星期六</Text>
+    <Text style={styles.textLeft}>{getTimeLapseString(date, 'general')}</Text>
+    <Text style={styles.textRight}>{getTimeString(date)}</Text>
   </View>
 );
 

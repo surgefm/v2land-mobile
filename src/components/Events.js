@@ -33,7 +33,7 @@ const Events = ({ onEventPress, eventList }) => (
           />
         )}
         renderSectionHeader={({ section }) => (
-          <TimeBadge style={styles.sectionHeader} />
+          <TimeBadge style={styles.sectionHeader} date={1542083664886} />
         )}
         renderSectionFooter={() => (
           <View style={{ height: 16 }} />
