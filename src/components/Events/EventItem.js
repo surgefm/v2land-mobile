@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, View, TouchableHighlight } from 'react-native';
 import { Text, Card } from 'react-native-elements';
-import EventTitle from './EventTitle';
-import { colors } from '../styles';
-import getAssetURL from '../util/getAssetURL';
+import EventTitle from '../article/EventTitle';
+import { colors } from '../../styles';
+import getAssetURL from '../../util/getAssetURL';
 
 const EventItem = ({
   name,
