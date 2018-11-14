@@ -9,8 +9,9 @@
     "eslint": "^4.19.1",
     "eslint-config-v2land": "^1.0.3",
     "eslint-plugin-react": "^7.8.1",
-    "exp": "^55.0.4",
-    "jest-expo": "~27.0.0",
+    "exp": "^57.2.1",
+    "jest-expo": "^31.0.0",
+    "metro": "^0.49.1",
     "prettier": "1.12.1",
     "react-native-scripts": "1.14.0",
     "react-test-renderer": "16.3.1"
