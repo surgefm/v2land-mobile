@@ -4,13 +4,13 @@ import { SafeAreaView } from 'react-navigation';
 import { Text } from 'react-native-elements';
 import { EventTitle, EventTime } from './article';
 import { StackList } from './stacks';
-import { HeaderImage } from './elements';
-import { paddings, paddingConstants } from '../styles';
+import { HeaderImage, BackButton } from './elements';
+import { paddings, paddingConstants, buttonStyles } from '../styles';
 
-const Article = ({ event, onStackPress }) => (
+const Article = ({ event, onStackPress, goBack }) => (
   <ScrollView style={{ flex: 1, flexDirection: 'column', backgroundColor: '#fff' }}>
     <HeaderImage headerImage={event.headerImage} />
-    <SafeAreaView style={{ flex: 1 }} forceInset={{ top: 'never' }}>
+    <SafeAreaView style={{ flex: 1 }}>
       {!event || <View>
         <View style={[paddings.side, paddings.largeInterval]}>
           <EventTime style={[paddings.interval, styles.eventTime]} time={1542083664886} />
@@ -23,6 +23,12 @@ const Article = ({ event, onStackPress }) => (
         </View>
       </View>}
     </SafeAreaView>
+
+    <BackButton
+      style={buttonStyles.goBackButton}
+      onPress={() => {
+        goBack();
+      }} />
   </ScrollView>
 );
 
