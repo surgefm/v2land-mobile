@@ -1,8 +1,6 @@
 import R from 'ramda';
-import React from 'react';
 import routers from '../config/routers';
 import ArticleComponent from '../components/Article.js';
-import { BackButton } from '../components/elements';
 
 import {
   withNavigationOptions,
@@ -16,16 +14,13 @@ import { eventSelector } from '../store/selectors/events.js';
 
 const Article = R.compose(
   withNavigationOptions(({ navigation }) => ({
-    headerTransparent: true,
-    tintColor: 'transparent',
-    headerLeft: (
-      <BackButton onPress={() => navigation.goBack()} />
-    ),
+    header: null,
   })),
-  withNavigationHandlers(({ state, navigate }) => {
+  withNavigationHandlers(({ state, navigate, goBack }) => {
     return {
       eventId: state.params.eventId,
-      onStackPress: ({ stackId }) => () => navigate(routers.search, { stackId }, console.log(stackId)),
+      onStackPress: ({ stackId }) => () => navigate(routers.search, { stackId }),
+      goBack,
     };
   }),
   connect({

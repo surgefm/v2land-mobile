@@ -12,6 +12,15 @@ export const styles = StyleSheet.create({
     lineHeight: 28,
   },
 });
+
+export const buttonStyles = StyleSheet.create({
+  goBackButton: {
+    position: 'absolute',
+    top: 40,
+    left: 20,
+  },
+});
+
 export default styles;
 export {
   fontSizes,
