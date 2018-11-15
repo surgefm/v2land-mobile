@@ -33,9 +33,7 @@ const Article = ({ event, onStackPress, goBack, refreshing, onRefresh }) => !eve
 
     <BackButton
       style={buttonStyles.goBackButton}
-      onPress={() => {
-        goBack();
-      }} />
+      onPress={() => goBack()} />
   </ScrollView>
 );
 
