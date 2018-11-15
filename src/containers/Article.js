@@ -7,15 +7,16 @@ import {
   withNavigationHandlers,
   connect,
   prepare,
+  setProp,
 } from '../enhancers';
 
 import { fetchEvent } from '../store/actions/events.js';
 import { eventSelector } from '../store/selectors/events.js';
 
 const Article = R.compose(
-  withNavigationOptions(({ navigation }) => ({
+  withNavigationOptions({
     header: null,
-  })),
+  }),
   withNavigationHandlers(({ state, navigate, goBack }) => {
     return {
       eventId: state.params.eventId,
@@ -28,9 +29,12 @@ const Article = R.compose(
   }, {
     fetchEvent,
   }),
-  prepare(({ fetchEvent, eventId }) => {
-    fetchEvent({ eventId });
-  }),
+  setProp('refreshing', false),
+  setProp(({ fetchEvent, eventId }) => ({
+    key: 'onRefresh',
+    value: () => fetchEvent({ eventId }),
+  })),
+  prepare(({ fetchEvent, eventId }) => fetchEvent({ eventId })),
 )(ArticleComponent);
 
 export default Article;
