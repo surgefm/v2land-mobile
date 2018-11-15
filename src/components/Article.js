@@ -4,11 +4,18 @@ import { SafeAreaView } from 'react-navigation';
 import { Text } from 'react-native-elements';
 import { EventTitle, EventTime } from './article';
 import { StackList } from './stacks';
-import { HeaderImage, BackButton } from './elements';
+import { HeaderImage, BackButton, RefreshControl } from './elements';
 import { paddings, paddingConstants, buttonStyles } from '../styles';
 
-const Article = ({ event, onStackPress, goBack }) => (
-  <ScrollView style={{ flex: 1, flexDirection: 'column', backgroundColor: '#fff' }}>
+const Article = ({ event, onStackPress, goBack, refreshing, onRefresh }) => !event ||(
+  <ScrollView
+    style={{ flex: 1, flexDirection: 'column', backgroundColor: '#fff' }}
+    refreshControl={
+      <RefreshControl
+        refreshing={refreshing}
+        onRefresh={() => onRefresh()}
+        title='刷新事件进展'/>
+    }>
     <HeaderImage headerImage={event.headerImage} />
     <SafeAreaView style={{ flex: 1 }}>
       {!event || <View>

@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { BreakLine } from '../elements';
-import { colors, fontSizes, paddings, paddingConstants } from '../../styles';
+import { colors, paddings } from '../../styles';
 import { getTimeString, trimText } from '../../util';
 
 const StackItem = ({ stack, isLastStack = false, onPress = () => {} }) => !stack || (
@@ -34,14 +34,14 @@ const StackItem = ({ stack, isLastStack = false, onPress = () => {} }) => !stack
 
 const styles = StyleSheet.create({
   title: {
-    fontSize: fontSizes.large,
+    fontSize: 20,
   },
   time: {
     fontSize: 16,
     color: colors.darkGrey,
   },
   description: {
-    paddingBottom: paddingConstants.interval + 4,
+    paddingBottom: 12,
     fontSize: 14,
     lineHeight: 22,
   },
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     paddingRight: 4,
   },
   breakLine: {
-    marginVertical: paddingConstants.largeInterval - 12,
+    marginVertical: 20,
   },
 });
 
