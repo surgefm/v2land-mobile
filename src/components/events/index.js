@@ -1,5 +1,5 @@
-import EventItem from './EventCard.js';
-import TimeBadge from './TimeBadges.js';
+import EventItem from './EventItem.js';
+import TimeBadge from './TimeBadge.js';
 
 export {
   EventItem,
