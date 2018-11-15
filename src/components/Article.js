@@ -20,7 +20,7 @@ const Article = ({ event, onStackPress, goBack, refreshing, onRefresh }) => !eve
     <SafeAreaView style={{ flex: 1 }}>
       {!event || <View>
         <View style={[paddings.side, paddings.largeInterval]}>
-          <EventTime style={[paddings.interval, styles.eventTime]} time={1542083664886} />
+          <EventTime style={[paddings.interval, styles.eventTime]} time={1531368000000} />
           <EventTitle style={paddings.interval}>{event.name}</EventTitle>
           <Text style={styles.eventDescription}>{event.description}</Text>
         </View>

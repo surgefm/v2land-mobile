@@ -35,6 +35,7 @@ const StackItem = ({ stack, isLastStack = false, onPress = () => {} }) => !stack
 const styles = StyleSheet.create({
   title: {
     fontSize: 20,
+    lineHeight: 26,
   },
   time: {
     fontSize: 16,
