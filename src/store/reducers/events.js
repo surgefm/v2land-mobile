@@ -26,7 +26,7 @@ export const fetchEventList = requestData(
 
 export const fetchEvent = (state, action) => requestData(
   fetchEventAction.type,
-  getEvent(action.payload.eventId),
+  getEvent,
   (_, res) => {
     console.log('FETCH_EVENT#OK');
     return [res];
