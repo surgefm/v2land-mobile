@@ -5,4 +5,5 @@ export default {
   eventList: '事件列表',
   searchIndex: '搜索起始页',
   profile: '用户',
+  login: '登录',
 };
