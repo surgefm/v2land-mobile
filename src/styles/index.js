@@ -1,9 +1,11 @@
 import { StyleSheet } from 'react-native';
 import fontSizes from './fontSizes';
 import colors from './colors';
+import { buttonStyle, buttonTextStyle } from './buttons';
 import { paddingConstants, paddings } from './paddings';
 import { pageStyle } from './pageStyle';
 import { searchBarStyle } from './searchBarStyle';
+import loginStyle from './login';
 
 export const styles = StyleSheet.create({
   eventTitle: {
@@ -25,8 +27,11 @@ export default styles;
 export {
   fontSizes,
   colors,
+  buttonStyle,
+  buttonTextStyle,
   paddingConstants,
   paddings,
   searchBarStyle,
   pageStyle,
+  loginStyle,
 };
