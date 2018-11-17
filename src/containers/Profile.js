@@ -5,7 +5,6 @@ import ProfileComponent from '../components/Profile.js';
 import {
   withNavigationOptions,
   withNavigationHandlers,
-  prepare,
 } from '../enhancers';
 
 const Article = R.compose(
@@ -17,7 +16,6 @@ const Article = R.compose(
       goLogin: () => replace(routers.login),
     };
   }),
-  prepare(),
 )(ProfileComponent);
 
 export default Article;
