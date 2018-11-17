@@ -3,9 +3,9 @@ import { StyleSheet, View } from 'react-native';
 import { Text } from 'react-native-elements';
 import { fontSizes } from '../../styles';
 
-const Title = ({ children }) => (
+const Title = ({ children, style }) => (
   <View>
-    <Text style={styles.title}>{children}</Text>
+    <Text style={[styles.title, style]}>{children}</Text>
   </View>
 );
 

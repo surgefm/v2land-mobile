@@ -8,7 +8,8 @@ import {
 import Events from './containers/Events';
 import Search from './containers/Search';
 import Article from './containers/Article';
-import Profile from './components/Profile';
+import Profile from './containers/Profile';
+import Login from './containers/Login';
 import { Icon } from 'react-native-elements';
 import routers from './config/routers';
 
@@ -35,13 +36,13 @@ const ProfileStack = createStackNavigator({
       header: null,
     },
   },
+  [routers.login]: Login,
 });
 
 const tabBarIcons = {
-  [routers.today]: 'today',
-  [routers.search]: 'search',
-  [routers.login]: 'ios-person',
-  [routers.profile]: 'account-box',
+  [routers.today]: { name: 'today', type: 'Ionicons' },
+  [routers.search]: { name: 'search', type: 'Ionicons' },
+  [routers.profile]: { name: 'account-box', type: 'Ionicons' },
 };
 
 const Navigator = createBottomTabNavigator(
@@ -55,14 +56,22 @@ const Navigator = createBottomTabNavigator(
     navigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
-        const iconName = tabBarIcons[routeName];
-        return <Icon name={iconName} color={tintColor} type="Ionicons" />;
+        const iconConfig = tabBarIcons[routeName];
+        if (!iconConfig.name && iconConfig.focused) {
+          const focusedIcon = iconConfig.focused;
+          const idleIcon = iconConfig.idle;
+          return focused
+            ? <Icon name={focusedIcon.name} color={tintColor} type={focusedIcon.name} />
+            : <Icon name={idleIcon.name} color={tintColor} type={idleIcon.type} />;
+        } else {
+          return <Icon name={iconConfig.name} color={tintColor} type={iconConfig.type} />;
+        }
       },
     }),
     tabBarOptions: {
       style: {
         // FIXME: adding a shadow arround the top of the tab bar
-        elevation: 24,
+        // elevation: 24,
       },
     },
   },
