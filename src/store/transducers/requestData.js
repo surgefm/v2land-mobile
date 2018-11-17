@@ -6,7 +6,7 @@ import ERR from '../actions/ERR.js';
 
 const requestData = (type, func, inputOK, inputERR) => simpleSM({
   [type]: (state, payload) => loop(
-    null,
+    state,
     Cmd.run(
       func,
       {
