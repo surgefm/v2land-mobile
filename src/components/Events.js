@@ -25,9 +25,7 @@ const Events = ({ onEventPress, eventList }) => (
           <EventItem
             name={item.name}
             description={item.description}
-            imageUrl={item.headerImage.imageUrl}
-            source={item.headerImage.source}
-            sourceUrl={item.headerImage.sourceUrl}
+            headerImage={item.headerImage}
             onPress={onEventPress(item.id)}
           />
         )}

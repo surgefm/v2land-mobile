@@ -7,7 +7,6 @@ import {
   withNavigationHandlers,
   connect,
   prepare,
-  setProp,
 } from '../enhancers';
 
 import { fetchEvent } from '../store/actions/events.js';
@@ -29,11 +28,6 @@ const Article = R.compose(
   }, {
     fetchEvent,
   }),
-  setProp('refreshing', false),
-  setProp(({ fetchEvent, eventId }) => ({
-    key: 'onRefresh',
-    value: () => fetchEvent({ eventId }),
-  })),
   prepare(({ fetchEvent, eventId }) => fetchEvent({ eventId })),
 )(ArticleComponent);
 
