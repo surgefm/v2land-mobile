@@ -7,6 +7,8 @@ export default StyleSheet.create({
   },
   socialButton: {
     minWidth: 150,
+    marginLeft: 4,
+    marginRight: 4,
   },
   textStyle: {
     fontSize: 16,
