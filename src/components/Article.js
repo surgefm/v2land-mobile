@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import ArticleComponent from './article/Article';
+import { DropDownHolder } from '../App';
 
 let _this;
 
@@ -17,6 +18,7 @@ export default class Article extends Component {
     const { fetchEvent, eventId } = _this.props;
     await fetchEvent({ eventId });
     _this.setState(() => ({ refreshing: false }));
+    DropDownHolder.alert('info', '刷新成功', '成功加载该事件的最新信息');
   }
 
   render() {

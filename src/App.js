@@ -1,17 +1,24 @@
 import React from 'react';
+import { View } from 'react-native';
 import { Provider } from 'react-redux';
 import configStore from './store/configStore';
+
 import {
   createBottomTabNavigator,
   createStackNavigator,
 } from 'react-navigation';
+import routers from './config/routers';
+
+import DropdownAlert from 'react-native-dropdownalert';
+import { Icon } from 'react-native-elements';
+
 import Events from './containers/Events';
 import Search from './containers/Search';
 import Article from './containers/Article';
 import Profile from './containers/Profile';
 import Login from './containers/Login';
-import { Icon } from 'react-native-elements';
-import routers from './config/routers';
+
+import { colors } from './styles';
 
 const store = configStore();
 
@@ -77,12 +84,35 @@ const Navigator = createBottomTabNavigator(
   },
 );
 
+export class DropDownHolder {
+  static dropDown;
+
+  static setDropDown(dropDown) {
+    this.dropDown = dropDown;
+  }
+
+  static getDropDown() {
+    return this.dropDown;
+  }
+
+  static alert(type, title, message) {
+    this.dropDown.alertWithType(type, title, message);
+  }
+}
+
 export default class App extends React.Component {
   render() {
     return (
-      <Provider store={store}>
-        <Navigator />
-      </Provider>
+      <View style={{ flex: 1 }}>
+        <Provider store={store}>
+          <Navigator />
+        </Provider>
+        <DropdownAlert
+          ref={ref => DropDownHolder.setDropDown(ref)}
+          infoColor={colors.blue}
+          closeInterval={3000}
+        />
+      </View>
     );
   }
 }
