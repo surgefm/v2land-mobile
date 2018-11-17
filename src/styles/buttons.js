@@ -6,6 +6,8 @@ export const buttonStyle = StyleSheet.create({
     height: 45,
     paddingHorizontal: 30,
     borderRadius: 8,
+    marginLeft: 0,
+    marginRight: 0,
   },
   outline: {
     backgroundColor: '#fff',

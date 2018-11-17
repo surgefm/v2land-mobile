@@ -7,11 +7,15 @@ import { pageStyle } from './pageStyle';
 import { searchBarStyle } from './searchBarStyle';
 import loginStyle from './login';
 
-export const styles = StyleSheet.create({
+export const commonStyle = StyleSheet.create({
   eventTitle: {
     fontWeight: 'bold',
     fontSize: 24,
     lineHeight: 28,
+  },
+  noSideMargins: {
+    marginLeft: 0,
+    marginRight: 0,
   },
 });
 
@@ -23,7 +27,6 @@ export const buttonStyles = StyleSheet.create({
   },
 });
 
-export default styles;
 export {
   fontSizes,
   colors,
@@ -35,3 +38,5 @@ export {
   pageStyle,
   loginStyle,
 };
+
+export default commonStyle;
