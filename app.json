@@ -4,6 +4,8 @@
     "name": "v2land-mobile",
     "slug": "v2land-mobile",
     "privacy": "unlisted",
-    "orientation": "portrait"
+    "orientation": "portrait",
+    "primaryColor": "#4A90E2",
+    "scheme": "v2land"
   }
 }
