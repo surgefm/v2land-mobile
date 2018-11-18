@@ -4,8 +4,8 @@ import { SafeAreaView } from 'react-navigation';
 import { Text } from 'react-native-elements';
 import { EventTitle, EventTime } from './article';
 import { StackList } from './stacks';
-import { HeaderImage, BackButton, RefreshControl } from './elements';
-import { paddings, paddingConstants, buttonStyles } from '../styles';
+import { HeaderImage, RefreshControl } from './elements';
+import { paddings, paddingConstants } from '../styles';
 
 const Article = ({ event, onStackPress, goBack, refreshing, onRefresh }) => !event ||(
   <ScrollView
@@ -30,10 +30,6 @@ const Article = ({ event, onStackPress, goBack, refreshing, onRefresh }) => !eve
         </View>
       </View>}
     </SafeAreaView>
-
-    <BackButton
-      style={buttonStyles.goBackButton}
-      onPress={() => goBack()} />
   </ScrollView>
 );
 

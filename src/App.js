@@ -19,6 +19,8 @@ const store = configStore();
 const EventsStack = createStackNavigator({
   [routers.eventList]: Events,
   [routers.event]: Article,
+}, {
+  headerMode: 'screen',
 });
 
 const SearchStack = createStackNavigator(

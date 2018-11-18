@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, SectionList, View, ScrollView, SafeAreaView } from 'react-native';
-import { Icon } from 'react-native-elements';
 import { colors, paddings, paddingConstants } from '../styles';
 import SvgUri from 'react-native-svg-uri';
 import { EventItem, TimeBadge } from './events';
@@ -14,9 +13,6 @@ const Events = ({ onEventPress, eventList }) => (
           height="50"
           source={require('../static/logotype.svg')}
         />
-        <View style={styles.headerCircle}>
-          <Icon name="user" type="font-awesome" color="#fff" size={20} />
-        </View>
       </View>
       <SectionList
         sections={eventList.map(data => ({ data: [data] }))}
