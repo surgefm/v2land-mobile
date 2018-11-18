@@ -42,6 +42,13 @@ const fetchEventOK = (state, action) => {
   const event = action.payload;
   for (let i = 0; i < eventList.length; i++) {
     if (eventList[i].id === event.id) {
+      const oldEvent = eventList[i];
+      if (oldEvent.newsCount) {
+        event.updateStat = {
+          news: event.newsCount - oldEvent.newsCount,
+          stack: event.stackCount - oldEvent.stackCount,
+        };
+      }
       eventList[i] = event;
       return eventList;
     }
