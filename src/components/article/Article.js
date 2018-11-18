@@ -7,7 +7,14 @@ import { StackList } from '../stacks';
 import { HeaderImage, BackButton, RefreshControl } from '../elements';
 import { paddings, paddingConstants, buttonStyles } from '../../styles';
 
-const Article = ({ event, onStackPress, goBack, refreshing, onRefresh }) => !event ||(
+const Article = ({
+  event,
+  onStackPress,
+  onNewsPress,
+  goBack,
+  refreshing,
+  onRefresh,
+}) => !event ||(
   <ScrollView
     style={{ flex: 1, flexDirection: 'column', backgroundColor: '#fff' }}
     refreshControl={
@@ -27,7 +34,11 @@ const Article = ({ event, onStackPress, goBack, refreshing, onRefresh }) => !eve
         </View>
         <View style={[paddings.side, paddings.largeInterval]}>
           <EventTitle style={paddings.interval}>进展</EventTitle>
-          <StackList stacks={event.stack} onPress={onStackPress} />
+          <StackList
+            stacks={event.stack}
+            onPress={onStackPress}
+            onNewsPress={onNewsPress}
+          />
         </View>
       </View>}
     </SafeAreaView>

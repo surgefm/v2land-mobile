@@ -1,36 +1,63 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { BreakLine } from '../elements';
+import { NewsList } from '../news';
 import { colors, paddings } from '../../styles';
 import { getTimeString, trimText } from '../../util';
 
-const StackItem = ({ stack, isLastStack = false, onPress = () => {} }) => !stack || (
-  <View>
-    <Text style={[styles.title, paddings.interval]}>{trimText(stack.title)}</Text>
-    {!getTimeString(stack.time) || <Text style={[paddings.interval, styles.time]}>
-      {getTimeString(stack.time, {
-        showWeekday: false,
-        withSpaceBetween: true,
-        forceShowYear: true,
-      })}
-    </Text>}
-    <Text style={styles.description}>{trimText(stack.description)}</Text>
-    <TouchableOpacity
-      activeOpacity={.8}
-      style={[styles.button, paddings.interval]}
-      onPress={onPress({ stackId: stack.id })}>
-      <Text style={styles.buttonText}>查看 {stack.news.length} 条相关新闻</Text>
-      <Icon
-        type='material-community'
-        color={colors.darkGrey}
-        name='arrow-right'
-        size={11} />
-    </TouchableOpacity>
+export default class StackItemComponent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isStackExpanded: false,
+    };
+    _this = this;
+    console.log(this.props);
+  }
 
-    {isLastStack || <BreakLine style={styles.breakLine} />}
-  </View>
-);
+  toggleNewsList() {
+    this.setState((state) => ({
+      ...state,
+      isStackExpanded: !state.isStackExpanded,
+    }));
+  }
+
+  render() {
+    return (
+      <View>
+        <Text style={[styles.title, paddings.interval]}>{trimText(this.props.stack.title)}</Text>
+        {!getTimeString(this.props.stack.time) || <Text style={[paddings.interval, styles.time]}>
+          {getTimeString(this.props.stack.time, {
+            showWeekday: false,
+            withSpaceBetween: true,
+            forceShowYear: true,
+          })}
+        </Text>}
+        <Text style={styles.description}>{trimText(this.props.stack.description)}</Text>
+        <TouchableOpacity
+          activeOpacity={.8}
+          style={[styles.button, paddings.interval]}
+          onPress={() => this.toggleNewsList()}>
+          <Text style={styles.buttonText}>查看 {this.props.stack.newsCount} 条相关新闻</Text>
+          <Icon
+            type='material-community'
+            color={colors.darkGrey}
+            name={this.state.isStackExpanded ? 'arrow-down' : 'arrow-right'}
+            size={11} />
+        </TouchableOpacity>
+
+        {!this.state.isStackExpanded || <NewsList
+          style={styles.newsList}
+          newsList={this.props.stack.news}
+          onNewsPress={this.props.onNewsPress}
+        />}
+
+        {this.props.isLastStack || <BreakLine style={styles.breakLine} />}
+      </View>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   title: {
@@ -60,9 +87,10 @@ const styles = StyleSheet.create({
     color: colors.darkGrey,
     paddingRight: 4,
   },
+  newsList: {
+    marginTop: 8,
+  },
   breakLine: {
     marginVertical: 20,
   },
 });
-
-export default StackItem;

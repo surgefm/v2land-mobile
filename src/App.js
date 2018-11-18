@@ -13,6 +13,7 @@ import DropdownAlert from 'react-native-dropdownalert';
 import { Icon } from 'react-native-elements';
 
 import Events from './containers/Events';
+import News from './containers/News';
 import Search from './containers/Search';
 import Article from './containers/Article';
 import Profile from './containers/Profile';
@@ -25,6 +26,7 @@ const store = configStore();
 const EventsStack = createStackNavigator({
   [routers.eventList]: Events,
   [routers.event]: Article,
+  [routers.news]: News,
 });
 
 const SearchStack = createStackNavigator(

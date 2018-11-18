@@ -20,6 +20,7 @@ const Article = R.compose(
     return {
       eventId: state.params.eventId,
       onStackPress: ({ stackId }) => () => navigate(routers.search, { stackId }),
+      onNewsPress: ({ newsId }) => () => navigate(routers.news, { newsId }),
       goBack,
     };
   }),
