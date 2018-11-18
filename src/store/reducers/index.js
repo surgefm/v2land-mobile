@@ -4,8 +4,3 @@ import eventReducers, { fetchEventList, fetchEvent } from './events.js';
 export default combineReducers({
   events: eventReducers,
 });
-
-export {
-  fetchEventList,
-  fetchEvent,
-};
