@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, SectionList, View, ScrollView, SafeAreaView } from 'react-native';
+import { StyleSheet, SectionList, View, SafeAreaView } from 'react-native';
+import { ScrollView } from 'react-navigation';
 import { colors, paddings, paddingConstants } from '../styles';
 import SvgUri from 'react-native-svg-uri';
 import { EventItem, TimeBadge } from './events';

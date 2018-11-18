@@ -1,17 +1,16 @@
 import React from 'react';
-import { StyleSheet, ScrollView, View, StatusBar } from 'react-native';
-import { SafeAreaView } from 'react-navigation';
+import { StyleSheet, View, StatusBar } from 'react-native';
+import { SafeAreaView, ScrollView } from 'react-navigation';
 import { Text } from 'react-native-elements';
 import { EventTitle, EventTime } from '.';
 import { StackList } from '../stacks';
-import { HeaderImage, BackButton, RefreshControl } from '../elements';
-import { paddings, paddingConstants, buttonStyles } from '../../styles';
+import { HeaderImage, RefreshControl } from '../elements';
+import { paddings, paddingConstants } from '../../styles';
 
 const Article = ({
   event,
   onStackPress,
   onNewsPress,
-  goBack,
   refreshing,
   onRefresh,
 }) => !event ||(
@@ -42,10 +41,6 @@ const Article = ({
         </View>
       </View>}
     </SafeAreaView>
-
-    <BackButton
-      style={buttonStyles.goBackButton}
-      onPress={() => goBack()} />
   </ScrollView>
 );
 
