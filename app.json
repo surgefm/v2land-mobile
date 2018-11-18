@@ -3,6 +3,7 @@
     "sdkVersion": "27.0.0",
     "name": "v2land-mobile",
     "slug": "v2land-mobile",
-    "privacy": "unlisted"
+    "privacy": "unlisted",
+    "orientation": "portrait"
   }
 }
