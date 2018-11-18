@@ -4,6 +4,7 @@ import configStore from './store/configStore';
 import {
   createBottomTabNavigator,
   createStackNavigator,
+  createAppContainer,
 } from 'react-navigation';
 import Events from './containers/Events';
 import Search from './containers/Search';
@@ -53,7 +54,7 @@ const Navigator = createBottomTabNavigator(
   },
   {
     initialRouteName: routers.today,
-    navigationOptions: ({ navigation }) => ({
+    defaultNavigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
         const iconConfig = tabBarIcons[routeName];
@@ -77,11 +78,13 @@ const Navigator = createBottomTabNavigator(
   },
 );
 
+const NavigatorContainer = createAppContainer(Navigator);
+
 export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <Navigator />
+        <NavigatorContainer />
       </Provider>
     );
   }
