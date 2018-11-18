@@ -23,6 +23,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "test": "jest",
+    "test:watch": "npm test -- --watch",
     "appr": "appr",
     "format": "prettier --write \"{src,test}/**/*.js\"",
     "lint": "eslint src test"
