@@ -1,7 +1,9 @@
-import { combineReducers } from 'redux-loop';
+import { combineReducers, reduceReducers } from 'redux-loop';
+import log from '../../util/log.js';
 
 import requestState from '../transducers/requestState.js';
 import requestData from '../transducers/requestData.js';
+import fallback from '../transducers/fallback.js';
 
 import {
   fetchList as fetchListAction,
@@ -24,22 +26,8 @@ export const fetchEventList = requestData(
   },
 );
 
-export const fetchEvent = (state, action) => requestData(
-  fetchEventAction.type,
-  getEvent,
-  (_, res) => {
-    console.log('FETCH_EVENT#OK');
-    return [res];
-  },
-  (_, err) => {
-    console.log('FETCH_EVENT#ERR');
-    return _;
-  },
-)(state, action);
-
-const fetchEventOK = (state, action) => {
+const fetchEventOKHandler = (state, event) => {
   const eventList = [...state];
-  const event = action.payload;
   for (let i = 0; i < eventList.length; i++) {
     if (eventList[i].id === event.id) {
       eventList[i] = event;
@@ -49,19 +37,22 @@ const fetchEventOK = (state, action) => {
   return [...eventList, event];
 };
 
-export const eventReducers = combineReducers({
-  data: (state, action) => {
-    switch (action.type) {
-    case fetchListAction.type:
-      return fetchEventList(state, action);
-    case fetchEventAction.type:
-      return fetchEvent(state, action);
-    case OK(fetchEventAction.type):
-      return fetchEventOK(state, action);
-    default:
-      return fetchEventList(state, action);
-    }
+export const fetchEvent = (state, action) => requestData(
+  fetchEventAction.type,
+  getEvent,
+  fetchEventOKHandler,
+  (_, err) => {
+    log('FETCH_EVENT#ERR');
+    return null;
   },
+)(state, action);
+
+export const eventReducers = combineReducers({
+  data: reduceReducers(
+    fetchEventList,
+    fetchEvent,
+    fallback(null),
+  ),
 
   state: (state, action) => requestState(
     action.type,
