@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, ScrollView, View } from 'react-native';
+import { StyleSheet, ScrollView, View, StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-navigation';
 import { Text } from 'react-native-elements';
 import { EventTitle, EventTime } from '.';
@@ -16,6 +16,7 @@ const Article = ({ event, onStackPress, goBack, refreshing, onRefresh }) => !eve
         onRefresh={() => onRefresh()}
         title='刷新事件进展'/>
     }>
+    <StatusBar hidden />
     <HeaderImage headerImage={event.headerImage} />
     <SafeAreaView style={{ flex: 1 }}>
       {!event || <View>
