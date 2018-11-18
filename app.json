@@ -1,8 +1,11 @@
 {
   "expo": {
-    "sdkVersion": "27.0.0",
+    "sdkVersion": "31.0.0",
     "name": "v2land-mobile",
     "slug": "v2land-mobile",
-    "privacy": "unlisted"
+    "privacy": "unlisted",
+    "orientation": "portrait",
+    "primaryColor": "#4A90E2",
+    "scheme": "v2land"
   }
 }

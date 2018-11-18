@@ -6,6 +6,7 @@ import configStore from './store/configStore';
 import {
   createBottomTabNavigator,
   createStackNavigator,
+  createAppContainer,
 } from 'react-navigation';
 import routers from './config/routers';
 
@@ -27,6 +28,8 @@ const EventsStack = createStackNavigator({
   [routers.eventList]: Events,
   [routers.event]: Article,
   [routers.news]: News,
+}, {
+  headerMode: 'screen',
 });
 
 const SearchStack = createStackNavigator(
@@ -62,7 +65,7 @@ const Navigator = createBottomTabNavigator(
   },
   {
     initialRouteName: routers.today,
-    navigationOptions: ({ navigation }) => ({
+    defaultNavigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
         const iconConfig = tabBarIcons[routeName];
@@ -86,6 +89,8 @@ const Navigator = createBottomTabNavigator(
   },
 );
 
+const NavigatorContainer = createAppContainer(Navigator);
+
 export class DropDownHolder {
   static dropDown;
 
@@ -107,7 +112,7 @@ export default class App extends React.Component {
     return (
       <View style={{ flex: 1 }}>
         <Provider store={store}>
-          <Navigator />
+          <NavigatorContainer />
         </Provider>
         <DropdownAlert
           ref={ref => DropDownHolder.setDropDown(ref)}

@@ -14,7 +14,13 @@ import { eventSelector } from '../store/selectors/events.js';
 
 const Article = R.compose(
   withNavigationOptions({
-    header: null,
+    headerTransparent: true,
+    headerTintColor: '#fff',
+    headerBackTitleStyle: {
+      textShadowColor: 'rgba(0, 0, 0, 0.75)',
+      textShadowOffset: { width: -1, height: 1 },
+      textShadowRadius: 2,
+    },
   }),
   withNavigationHandlers(({ state, navigate, goBack }) => {
     return {
