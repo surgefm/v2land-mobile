@@ -13,7 +13,6 @@ export default class StackItemComponent extends Component {
       isStackExpanded: false,
     };
     _this = this;
-    console.log(this.props);
   }
 
   toggleNewsList() {

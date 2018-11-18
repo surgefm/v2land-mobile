@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, StatusBar } from 'react-native';
-import { SafeAreaView, ScrollView } from 'react-navigation';
+import { StyleSheet, View, StatusBar, Animated } from 'react-native';
+import { SafeAreaView } from 'react-navigation';
 import { Text } from 'react-native-elements';
 import { EventTitle, EventTime } from '.';
 import { StackList } from '../stacks';
@@ -13,9 +13,17 @@ const Article = ({
   onNewsPress,
   refreshing,
   onRefresh,
+  onScroll = () => {},
+  setScrollView = () => {},
+  onScrollEndSnapToEdge = () => {},
 }) => !event ||(
-  <ScrollView
+  <Animated.ScrollView
     style={{ flex: 1, flexDirection: 'column', backgroundColor: '#fff' }}
+    ref={setScrollView}
+    onScroll={onScrollEndSnapToEdge}
+    onScrollEndDrag={onScrollEndSnapToEdge}
+    onMomentumScrollEnd={onScrollEndSnapToEdge}
+    scrollEventThrottle={16}
     refreshControl={
       <RefreshControl
         refreshing={refreshing}
@@ -41,7 +49,7 @@ const Article = ({
         </View>
       </View>}
     </SafeAreaView>
-  </ScrollView>
+  </Animated.ScrollView>
 );
 
 const styles = StyleSheet.create({

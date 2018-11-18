@@ -13,15 +13,18 @@ import { fetchEvent } from '../store/actions/events.js';
 import { eventSelector } from '../store/selectors/events.js';
 
 const Article = R.compose(
-  withNavigationOptions({
+  withNavigationOptions(({ navigation: { state: { params } } }) => ({
     headerTransparent: true,
-    headerTintColor: '#fff',
-    headerBackTitleStyle: {
-      textShadowColor: 'rgba(0, 0, 0, 0.75)',
-      textShadowOffset: { width: -1, height: 1 },
-      textShadowRadius: 2,
+    headerTintColor: params.headerTintColor || '#fff',
+    headerBackgroundTransitionPreset: 'fade',
+    headerTitle: params.headerTitle,
+    headerTitleStyle: {
+      color: params.headerTitleColor,
     },
-  }),
+    headerStyle: {
+      backgroundColor: params.headerBackgroundColor || 'rgba(256, 256, 256, 0)',
+    },
+  })),
   withNavigationHandlers(({ state, navigate, goBack }) => {
     return {
       eventId: state.params.eventId,
