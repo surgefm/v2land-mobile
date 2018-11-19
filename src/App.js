@@ -10,7 +10,8 @@ import {
 } from 'react-navigation';
 import routers from './config/routers';
 
-import DropdownAlert from 'react-native-dropdownalert';
+import DropDownAlert from 'react-native-dropdownalert';
+import DropDownHolder from './plugins/DropDownHolder';
 import { Icon } from 'react-native-elements';
 
 import Events from './containers/Events';
@@ -91,22 +92,6 @@ const Navigator = createBottomTabNavigator(
 
 const NavigatorContainer = createAppContainer(Navigator);
 
-export class DropDownHolder {
-  static dropDown;
-
-  static setDropDown(dropDown) {
-    this.dropDown = dropDown;
-  }
-
-  static getDropDown() {
-    return this.dropDown;
-  }
-
-  static alert(type, title, message) {
-    this.dropDown.alertWithType(type, title, message);
-  }
-}
-
 export default class App extends React.Component {
   render() {
     return (
@@ -114,7 +99,7 @@ export default class App extends React.Component {
         <Provider store={store}>
           <NavigatorContainer />
         </Provider>
-        <DropdownAlert
+        <DropDownAlert
           ref={ref => DropDownHolder.setDropDown(ref)}
           infoColor={colors.blue}
           closeInterval={3000}

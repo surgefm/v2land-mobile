@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { Animated } from 'react-native';
 import ArticleComponent from './article/Article';
-import { DropDownHolder } from '../App';
+import DropDownHolder from '../plugins/DropDownHolder';
 
 let _this;
 
