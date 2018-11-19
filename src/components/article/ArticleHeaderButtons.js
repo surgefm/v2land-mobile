@@ -2,7 +2,7 @@ import React from 'react';
 import { Share } from 'react-native';
 import { EvilIcons } from '@expo/vector-icons';
 import HeaderButtons, { HeaderButton, Item } from 'react-navigation-header-buttons';
-import { getEventURL, log } from '../../util';
+import { getEventURL, getShortenedDescription, log } from '../../util';
 
 const ArticleHeaderButtons = ({ color, event }) => (
   <HeaderButtons HeaderButtonComponent={props => (
@@ -20,7 +20,7 @@ const onShare = (event) => async () => {
   try {
     await Share.share({
       title: event.name,
-      message: event.description,
+      message: getShortenedDescription(event.name + ' | ' + event.description),
       url: getEventURL(event),
     });
   } catch (error) {
