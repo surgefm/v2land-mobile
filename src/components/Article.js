@@ -24,6 +24,10 @@ export default class Article extends Component {
     this.state = {
       refreshing: false,
     };
+    this.props.navigation.setParams({
+      ...this.props.navigation.state,
+      event: this.props.event,
+    });
     _this = this;
   }
 
@@ -47,7 +51,6 @@ export default class Article extends Component {
     const shade = Math.min((y - 100) / 100, 1);
     const tintColorElement = Math.floor((1 - shade) * 256);
     const tintColor = `${tintColorElement}, ${tintColorElement}, ${tintColorElement}`;
-    console.log(y, shade, tintColorElement, `rgba(256, 256, 256, ${shade})`);
     _this.props.navigation.setParams({
       ..._this.props.navigation.state,
       headerShade: shade,

@@ -2,6 +2,9 @@ import R from 'ramda';
 import routers from '../config/routers';
 import ArticleComponent from '../components/Article.js';
 
+import React from 'react';
+import { ArticleHeaderButtons } from '../components/article';
+
 import {
   withNavigationOptions,
   withNavigationHandlers,
@@ -24,6 +27,11 @@ const Article = R.compose(
     headerStyle: {
       backgroundColor: params.headerBackgroundColor || 'rgba(256, 256, 256, 0)',
     },
+    headerRight: (
+      <ArticleHeaderButtons
+        event={params.event}
+        color={params.headerTintColor} />
+    ),
   })),
   withNavigationHandlers(({ state, navigate, goBack }) => {
     return {
