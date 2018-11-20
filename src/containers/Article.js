@@ -1,9 +1,9 @@
+import React from 'react';
+import ArticleComponent from '../components/Article.js';
+import { ArticleHeaderButtons } from '../components/article';
+
 import R from 'ramda';
 import routers from '../config/routers';
-import ArticleComponent from '../components/Article.js';
-
-import React from 'react';
-import { ArticleHeaderButtons } from '../components/article';
 
 import {
   withNavigationOptions,
@@ -23,6 +23,10 @@ const Article = R.compose(
     headerTitle: params.headerTitle,
     headerTitleStyle: {
       color: params.headerTitleColor,
+    },
+    headerBackTitle: null,
+    headerLeftContainerStyle: {
+      paddingLeft: 10,
     },
     headerStyle: {
       backgroundColor: params.headerBackgroundColor || 'rgba(256, 256, 256, 0)',

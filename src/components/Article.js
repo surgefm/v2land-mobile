@@ -3,8 +3,6 @@ import { Animated } from 'react-native';
 import ArticleComponent from './article/Article';
 import DropDownHolder from '../plugins/DropDownHolder';
 
-let _this;
-
 export const scrollRangeForAnimation = 100;
 
 export const onScroll = Animated.event(
@@ -32,11 +30,11 @@ export default class Article extends Component {
   }
 
   async onRefresh() {
-    _this.setState(() => ({ refreshing: true }));
-    const { fetchEvent, eventId } = _this.props;
+    this.setState(() => ({ refreshing: true }));
+    const { fetchEvent, eventId } = this.props;
     await fetchEvent({ eventId });
-    _this.setState(() => ({ refreshing: false }));
-    DropDownHolder.alert('info', '刷新成功', _this.refreshInfo());
+    this.setState(() => ({ refreshing: false }));
+    DropDownHolder.alert('info', '刷新成功', this.refreshInfo());
   }
 
   refreshInfo() {
@@ -51,10 +49,10 @@ export default class Article extends Component {
     const shade = Math.min((y - 100) / 100, 1);
     const tintColorElement = Math.floor((1 - shade) * 256);
     const tintColor = `${tintColorElement}, ${tintColorElement}, ${tintColorElement}`;
-    _this.props.navigation.setParams({
-      ..._this.props.navigation.state,
+    this.props.navigation.setParams({
+      ...this.props.navigation.state,
       headerShade: shade,
-      headerTitle: _this.props.event.name,
+      headerTitle: this.props.event.name,
       headerTitleColor: `rgba(${tintColor}, ${shade})`,
       headerBackgroundColor: `rgba(256, 256, 256, ${shade})`,
       headerTintColor: `rgb(${tintColor})`,
@@ -65,9 +63,9 @@ export default class Article extends Component {
     return ArticleComponent({
       ...this.props,
       refreshing: this.state.refreshing,
-      onRefresh: this.onRefresh,
-      onScroll,
-      onScrollEndSnapToEdge: this.onScrollEndSnapToEdge,
+      onRefresh: this.onRefresh.bind(this),
+      onScroll: this.onScrollEndSnapToEdge.bind(this),
+      onScrollEndSnapToEdge: this.onScrollEndSnapToEdge.bind(this),
     });
   }
 }

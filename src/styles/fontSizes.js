@@ -1,5 +1,5 @@
 export const fontSizes = {
-  xlarge: 46,
+  xlarge: 40,
   large: 24,
   medium: 18,
 };

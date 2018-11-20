@@ -14,13 +14,11 @@ const Article = ({
   refreshing,
   onRefresh,
   onScroll = () => {},
-  setScrollView = () => {},
   onScrollEndSnapToEdge = () => {},
 }) => !event ||(
   <Animated.ScrollView
     style={{ flex: 1, flexDirection: 'column', backgroundColor: '#fff' }}
-    ref={setScrollView}
-    onScroll={onScrollEndSnapToEdge}
+    onScroll={onScroll}
     onScrollEndDrag={onScrollEndSnapToEdge}
     onMomentumScrollEnd={onScrollEndSnapToEdge}
     scrollEventThrottle={16}

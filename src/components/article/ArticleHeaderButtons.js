@@ -12,6 +12,7 @@ const ArticleHeaderButtons = ({ color, event }) => (
       iconSize={26}
       color={color || '#fff'} />
   )}>
+    <Item title="subscribe" iconName="bell" onPress={() => alert('关注功能正在开发中')} />
     <Item title="share" iconName="share-apple" onPress={onShare(event)} />
   </HeaderButtons>
 );
