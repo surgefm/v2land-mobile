@@ -8,11 +8,10 @@ import {
   createStackNavigator,
   createAppContainer,
 } from 'react-navigation';
-import routers from './config/routers';
 
-import DropDownAlert from 'react-native-dropdownalert';
-import DropDownHolder from './plugins/DropDownHolder';
+import routers from './config/routers';
 import { Icon } from 'react-native-elements';
+import { AlertProvider } from './context';
 
 import Events from './containers/Events';
 import News from './containers/News';
@@ -20,8 +19,6 @@ import Search from './containers/Search';
 import Article from './containers/Article';
 import Profile from './containers/Profile';
 import Login from './containers/Login';
-
-import { colors } from './styles';
 
 const store = configStore();
 
@@ -95,16 +92,11 @@ const NavigatorContainer = createAppContainer(Navigator);
 export default class App extends React.Component {
   render() {
     return (
-      <View style={{ flex: 1 }}>
-        <Provider store={store}>
+      <Provider store={store}>
+        <AlertProvider>
           <NavigatorContainer />
-        </Provider>
-        <DropDownAlert
-          ref={ref => DropDownHolder.setDropDown(ref)}
-          infoColor={colors.theme}
-          closeInterval={3000}
-        />
-      </View>
+        </AlertProvider>
+      </Provider>
     );
   }
 }
