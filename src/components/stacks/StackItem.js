@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { BreakLine } from '../elements';
-import { NewsList } from '../news';
+import NewsList from '../../containers/NewsList';
 import { colors, paddings } from '../../styles';
 import { getTimeString, trimText } from '../../util';
 
@@ -12,7 +12,6 @@ export default class StackItemComponent extends Component {
     this.state = {
       isStackExpanded: false,
     };
-    _this = this;
   }
 
   toggleNewsList() {
@@ -48,8 +47,10 @@ export default class StackItemComponent extends Component {
 
         {!this.state.isStackExpanded || <NewsList
           style={styles.newsList}
+          stackId={this.props.stack.id}
           newsList={this.props.stack.news}
           onNewsPress={this.props.onNewsPress}
+          newsCount={this.props.stack.newsCount}
         />}
 
         {this.props.isLastStack || <BreakLine style={styles.breakLine} />}
