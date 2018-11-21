@@ -101,7 +101,7 @@ export default class App extends React.Component {
         </Provider>
         <DropDownAlert
           ref={ref => DropDownHolder.setDropDown(ref)}
-          infoColor={colors.blue}
+          infoColor={colors.theme}
           closeInterval={3000}
         />
       </View>
