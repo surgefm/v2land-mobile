@@ -24,7 +24,7 @@ const Article = R.compose(
     headerTitleStyle: {
       color: params.headerTitleColor,
     },
-    headerBackTitle: null,
+    headerBackTitle: '事件',
     headerLeftContainerStyle: {
       paddingLeft: 10,
     },
@@ -42,8 +42,10 @@ const Article = R.compose(
   withNavigationHandlers(({ state, navigate, goBack }) => {
     return {
       eventId: state.params.eventId,
-      onStackPress: ({ stackId }) => () => navigate(routers.search, { stackId }),
-      onNewsPress: ({ newsId }) => () => navigate(routers.news, { newsId }),
+      onStackPress: ({ stackId }) => () => navigate(routers.search, { eventId, stackId }),
+      onNewsPress: ({ eventId, stackId, newsId }) => () => (
+        navigate(routers.news, { eventId, stackId, newsId })
+      ),
       goBack,
     };
   }),
