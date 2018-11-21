@@ -18,7 +18,7 @@ const EventItem = ({
     >
       <View style={styles.eventDescription}>
         <EventTitle>{name}</EventTitle>
-        <Text style={styles.textDesc}>{description || ''}</Text>
+        <Text numberOfLines={4} style={styles.textDesc}>{description || ''}</Text>
       </View>
     </Card>
   </TouchableHighlight>
