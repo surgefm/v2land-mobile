@@ -6,6 +6,7 @@ import {
   createStackNavigator,
   createAppContainer,
 } from 'react-navigation';
+import { AlertProvider } from './context';
 import Events from './containers/Events';
 import Search from './containers/Search';
 import Article from './containers/Article';
@@ -86,7 +87,9 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <NavigatorContainer />
+        <AlertProvider>
+          <NavigatorContainer />
+        </AlertProvider>
       </Provider>
     );
   }
