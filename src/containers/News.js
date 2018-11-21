@@ -1,4 +1,6 @@
+import React from 'react';
 import NewsComponent from '../components/News.js';
+import { NewsHeaderButtons } from '../components/news';
 import { colors } from '../styles';
 
 import R from 'ramda';
@@ -13,6 +15,7 @@ import { newsSelector } from '../store/selectors/news';
 const News = R.compose(
   withNavigationOptions(({ navigation: { state: { params } } }) => ({
     headerTitle: '新闻',
+    headerRight: <NewsHeaderButtons news={params.news} color={colors.theme} />,
     headerTintColor: colors.theme,
     headerTitleStyle: { color: '#000' },
   })),
