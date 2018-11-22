@@ -5,7 +5,7 @@ import { buttonStyle, buttonTextStyle } from './buttons';
 import { paddingConstants, paddings } from './paddings';
 import { pageStyle } from './pageStyle';
 import { searchBarStyle } from './searchBarStyle';
-import loginStyle from './login';
+import loginStyle from './loginStyle';
 
 export const commonStyle = StyleSheet.create({
   eventTitle: {

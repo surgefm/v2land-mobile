@@ -17,6 +17,7 @@ const Events = R.compose(
   withNavigationOptions({
     title: '浪潮',
     header: null,
+    headerBackTitle: null,
   }),
   withNavigationHandlers(({ navigate }) => ({
     onEventPress: (eventId) => () => navigate(routers.event, { eventId }),

@@ -1,46 +1,79 @@
-import React from 'react';
-import { StyleSheet, ScrollView, View } from 'react-native';
-import { SafeAreaView } from 'react-navigation';
-import { Text } from 'react-native-elements';
-import { EventTitle, EventTime } from './article';
-import { StackList } from './stacks';
-import { HeaderImage, RefreshControl } from './elements';
-import { paddings, paddingConstants } from '../styles';
+import React, { Component } from 'react';
+import { Animated } from 'react-native';
+import ArticleComponent from './article/Article';
+import { AlertContext } from '../context/Alert';
 
-const Article = ({ event, onStackPress, goBack, refreshing, onRefresh }) => !event ||(
-  <ScrollView
-    style={{ flex: 1, flexDirection: 'column', backgroundColor: '#fff' }}
-    refreshControl={
-      <RefreshControl
-        refreshing={refreshing}
-        onRefresh={() => onRefresh()}
-        title='刷新事件进展'/>
-    }>
-    <HeaderImage headerImage={event.headerImage} />
-    <SafeAreaView style={{ flex: 1 }}>
-      {!event || <View>
-        <View style={[paddings.side, paddings.largeInterval]}>
-          <EventTime style={[paddings.interval, styles.eventTime]} time={1531368000000} />
-          <EventTitle style={paddings.interval}>{event.name}</EventTitle>
-          <Text style={styles.eventDescription}>{event.description}</Text>
-        </View>
-        <View style={[paddings.side, paddings.largeInterval]}>
-          <EventTitle style={paddings.interval}>进展</EventTitle>
-          <StackList stacks={event.stack} onPress={onStackPress} />
-        </View>
-      </View>}
-    </SafeAreaView>
-  </ScrollView>
+export const scrollRangeForAnimation = 100;
+
+export const onScroll = Animated.event(
+  [{
+    nativeEvent: { contentOffset: { y: new Animated.Value(0) } },
+  }],
+  {
+    useNativeDriver: true,
+  }
 );
 
-const styles = StyleSheet.create({
-  eventTime: {
-    paddingTop: paddingConstants.largeInterval,
-  },
-  eventDescription: {
-    fontSize: 14,
-    lineHeight: 22,
-  },
-});
+export default class Article extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      refreshing: false,
+    };
+    this.props.navigation.setParams({
+      ...this.props.navigation.state,
+      event: this.props.event,
+    });
+  }
 
-export default Article;
+  setAlert(alert) {
+    this.alert = alert;
+  }
+
+  async onRefresh() {
+    this.setState(() => ({ refreshing: true }));
+    const { fetchEvent, eventId } = this.props;
+    await fetchEvent({ eventId });
+    this.setState(() => ({ refreshing: false }));
+    this.alert('info', '刷新成功', this.refreshInfo());
+  }
+
+  refreshInfo() {
+    const { event } = this.props;
+    return (typeof event.updateStat === 'undefined' || event.updateStat.stack === 0)
+      ? '成功加载该事件的最新信息'
+      : `成功加载 ${event.updateStat.stack} 个新进展`;
+  }
+
+  onScrollEndSnapToEdge(event) {
+    const y = event.nativeEvent.contentOffset.y;
+    const shade = Math.min((y - 100) / 100, 1);
+    const tintColorElement = Math.floor((1 - shade) * 256);
+    const tintColor = `${tintColorElement}, ${tintColorElement}, ${tintColorElement}`;
+    this.props.navigation.setParams({
+      ...this.props.navigation.state,
+      headerShade: shade,
+      headerTitle: this.props.event.name,
+      headerTitleColor: `rgba(${tintColor}, ${shade})`,
+      headerBackgroundColor: `rgba(256, 256, 256, ${shade})`,
+      headerTintColor: `rgb(${tintColor})`,
+    });
+  }
+
+  render() {
+    return (
+      <AlertContext.Consumer>
+        {(alert) => {
+          return ArticleComponent({
+            ...this.props,
+            setAlert: this.setAlert(alert),
+            refreshing: this.state.refreshing,
+            onRefresh: this.onRefresh.bind(this),
+            onScroll: this.onScrollEndSnapToEdge.bind(this),
+            onScrollEndSnapToEdge: this.onScrollEndSnapToEdge.bind(this),
+          });
+        }}
+      </AlertContext.Consumer>
+    );
+  }
+}

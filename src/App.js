@@ -1,25 +1,31 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import configStore from './store/configStore';
+
 import {
   createBottomTabNavigator,
   createStackNavigator,
   createAppContainer,
 } from 'react-navigation';
+
+import routers from './config/routers';
+import { Icon } from 'react-native-elements';
 import { AlertProvider } from './context';
+import { colors } from './styles';
+
 import Events from './containers/Events';
+import News from './containers/News';
 import Search from './containers/Search';
 import Article from './containers/Article';
 import Profile from './containers/Profile';
 import Login from './containers/Login';
-import { Icon } from 'react-native-elements';
-import routers from './config/routers';
 
 const store = configStore();
 
 const EventsStack = createStackNavigator({
   [routers.eventList]: Events,
   [routers.event]: Article,
+  [routers.news]: News,
 }, {
   headerMode: 'screen',
 });
@@ -87,7 +93,7 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <AlertProvider>
+        <AlertProvider infoColor={colors.theme} closeInterval={3000}>
           <NavigatorContainer />
         </AlertProvider>
       </Provider>

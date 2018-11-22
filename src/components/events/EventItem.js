@@ -8,15 +8,13 @@ import getAssetURL from '../../util/getAssetURL';
 const EventItem = ({
   name,
   description,
-  imageUrl,
-  source,
-  sourceUrl,
+  headerImage = {},
   onPress,
 }) => (
   <TouchableHighlight onPress={onPress} underlayColor={colors.lightGrey}>
     <Card
       containerStyle={styles.cardContainer}
-      image={{ uri: getAssetURL(imageUrl) }}
+      image={{ uri: getAssetURL(headerImage.imageUrl) }}
     >
       <View style={styles.eventDescription}>
         <EventTitle>{name}</EventTitle>

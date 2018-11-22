@@ -30,6 +30,13 @@ const fetchEventOKHandler = (state, event) => {
   const eventList = [...state];
   for (let i = 0; i < eventList.length; i++) {
     if (eventList[i].id === event.id) {
+      const oldEvent = eventList[i];
+      if (oldEvent.newsCount) {
+        event.updateStat = {
+          news: event.newsCount - oldEvent.newsCount,
+          stack: event.stackCount - oldEvent.stackCount,
+        };
+      }
       eventList[i] = event;
       return eventList;
     }
@@ -37,7 +44,7 @@ const fetchEventOKHandler = (state, event) => {
   return [...eventList, event];
 };
 
-export const fetchEvent = (state, action) => requestData(
+export const fetchEvent = requestData(
   fetchEventAction.type,
   getEvent,
   fetchEventOKHandler,
@@ -45,7 +52,7 @@ export const fetchEvent = (state, action) => requestData(
     log('FETCH_EVENT#ERR');
     return null;
   },
-)(state, action);
+);
 
 export const eventReducers = combineReducers({
   data: reduceReducers(
