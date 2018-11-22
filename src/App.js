@@ -1,5 +1,4 @@
 import React from 'react';
-import { View } from 'react-native';
 import { Provider } from 'react-redux';
 import configStore from './store/configStore';
 
@@ -12,6 +11,7 @@ import {
 import routers from './config/routers';
 import { Icon } from 'react-native-elements';
 import { AlertProvider } from './context';
+import { colors } from './styles';
 
 import Events from './containers/Events';
 import News from './containers/News';
@@ -93,7 +93,7 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <AlertProvider>
+        <AlertProvider infoColor={colors.theme} closeInterval={3000}>
           <NavigatorContainer />
         </AlertProvider>
       </Provider>

@@ -6,7 +6,9 @@ describe('Alert', () => {
   let testRenderer;
   class SubComponent extends React.Component {
     static contextType = AlertContext;
-    render() { return <div /> }
+    render() {
+      return <div />;
+    }
   }
 
   beforeEach(() => {
@@ -16,11 +18,11 @@ describe('Alert', () => {
           {context => <SubComponent context={context} />}
         </AlertContext>
       </AlertProvider>
-    )
-  })
+    );
+  });
 
   it('should provide a alert function from context', () => {
     const alert = testRenderer.root.findByType(SubComponent).props.context;
-    expect(typeof alert).toBe('function')
-  })
-})
+    expect(typeof alert).toBe('function');
+  });
+});
