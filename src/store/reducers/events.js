@@ -54,18 +54,14 @@ const fetchEventOKHandler = (state, event) => {
         };
       }
       for (const oldStack of oldEvent.stack || []) {
-        if (!event.stack.map(s => s.id).includes(oldStack.id)) {
-          event.stack.push(oldStack);
-        } else {
-          for (const stack of event.stack) {
-            if (stack.id === oldStack.id) {
-              for (const oldNews of oldStack.news) {
-                if (!stack.news.map(n => n.id).includes(oldNews.id)) {
-                  stack.news.push(oldNews);
-                }
+        for (const stack of event.stack) {
+          if (stack.id === oldStack.id) {
+            for (const oldNews of oldStack.news) {
+              if (!stack.news.map(n => n.id).includes(oldNews.id)) {
+                stack.news.push(oldNews);
               }
-              break;
             }
+            break;
           }
         }
       }
