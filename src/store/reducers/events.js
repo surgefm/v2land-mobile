@@ -44,7 +44,7 @@ const fetchEventOKHandler = (state, event) => {
   return [...eventList, event];
 };
 
-export const fetchEvent = (state, action) => requestData(
+export const fetchEvent = requestData(
   fetchEventAction.type,
   getEvent,
   fetchEventOKHandler,
@@ -52,7 +52,7 @@ export const fetchEvent = (state, action) => requestData(
     log('FETCH_EVENT#ERR');
     return null;
   },
-)(state, action);
+);
 
 export const eventReducers = combineReducers({
   data: reduceReducers(

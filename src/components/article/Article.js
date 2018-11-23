@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, Animated } from 'react-native';
-import { SafeAreaView } from 'react-navigation';
+import { StyleSheet, View, StatusBar } from 'react-native';
+import { SafeAreaView, ScrollView } from 'react-navigation';
 import { Text } from 'react-native-elements';
 import { EventTitle, EventTime } from '.';
 import { StackList } from '../stacks';
@@ -16,7 +16,7 @@ const Article = ({
   onScroll = () => {},
   onScrollEndSnapToEdge = () => {},
 }) => !event ||(
-  <Animated.ScrollView
+  <ScrollView
     style={{ flex: 1, flexDirection: 'column', backgroundColor: '#fff' }}
     onScroll={onScroll}
     onScrollEndDrag={onScrollEndSnapToEdge}
@@ -46,7 +46,7 @@ const Article = ({
         </View>
       </View>}
     </SafeAreaView>
-  </Animated.ScrollView>
+  </ScrollView>
 );
 
 const styles = StyleSheet.create({

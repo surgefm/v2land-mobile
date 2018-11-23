@@ -1,16 +1,14 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { Animated } from 'react-native';
 import ArticleComponent from './article/Article';
-import DropDownHolder from '../plugins/DropDownHolder';
+import { AlertContext } from '../context/Alert';
 
 export const scrollRangeForAnimation = 100;
 
 export const onScroll = Animated.event(
-  [
-    {
-      nativeEvent: { contentOffset: { y: new Animated.Value(0) } },
-    },
-  ],
+  [{
+    nativeEvent: { contentOffset: { y: new Animated.Value(0) } },
+  }],
   {
     useNativeDriver: true,
   }
@@ -26,7 +24,10 @@ export default class Article extends Component {
       ...this.props.navigation.state,
       event: this.props.event,
     });
-    _this = this;
+  }
+
+  setAlert(alert) {
+    this.alert = alert;
   }
 
   async onRefresh() {
@@ -34,11 +35,11 @@ export default class Article extends Component {
     const { fetchEvent, eventId } = this.props;
     await fetchEvent({ eventId });
     this.setState(() => ({ refreshing: false }));
-    DropDownHolder.alert('info', '刷新成功', this.refreshInfo());
+    this.alert('info', '刷新成功', this.refreshInfo());
   }
 
   refreshInfo() {
-    const { event } = _this.props;
+    const { event } = this.props;
     return (typeof event.updateStat === 'undefined' || event.updateStat.stack === 0)
       ? '成功加载该事件的最新信息'
       : `成功加载 ${event.updateStat.stack} 个新进展`;
@@ -61,12 +62,19 @@ export default class Article extends Component {
   }
 
   render() {
-    return ArticleComponent({
-      ...this.props,
-      refreshing: this.state.refreshing,
-      onRefresh: this.onRefresh.bind(this),
-      onScroll: this.onScrollEndSnapToEdge.bind(this),
-      onScrollEndSnapToEdge: this.onScrollEndSnapToEdge.bind(this),
-    });
+    return (
+      <AlertContext.Consumer>
+        {(alert) => {
+          return ArticleComponent({
+            ...this.props,
+            setAlert: this.setAlert(alert),
+            refreshing: this.state.refreshing,
+            onRefresh: this.onRefresh.bind(this),
+            onScroll: this.onScrollEndSnapToEdge.bind(this),
+            onScrollEndSnapToEdge: this.onScrollEndSnapToEdge.bind(this),
+          });
+        }}
+      </AlertContext.Consumer>
+    );
   }
 }
