@@ -17,7 +17,7 @@ class NewsList extends Component {
       isListLoading: true,
     }));
 
-    await this.fetchNewsList({
+    await this.props.fetchNewsList({
       where: {
         stack: this.props.stackId,
         status: 'admitted',
@@ -55,7 +55,7 @@ const NewsListComponent = ({
         <NewsItem newsId={item} onPress={onNewsPress({ newsId: item })} />
       )}
       keyExtractor={news => `News#${news.id}`}
-      extraData={newsList}
+      extraData={newsList.length}
     />
     {!(newsCount && newsList.length < newsCount) || (
       <TouchableOpacity style={styles.loadMore} onPress={onLoadingPress}>
