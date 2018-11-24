@@ -1,1 +1,1 @@
-export default state => ({ ...state });
+export default input => input;
