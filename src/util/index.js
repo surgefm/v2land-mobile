@@ -5,6 +5,7 @@ import getTimeString from './getTimeString';
 import getTimeLapseString from './getTimeLapseString';
 import trimText from './trimText';
 import log from './log';
+import id from './id';
 
 export {
   getAssetURL,
@@ -14,4 +15,5 @@ export {
   getTimeLapseString,
   trimText,
   log,
+  id,
 };
