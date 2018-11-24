@@ -49,12 +49,13 @@ export default class Article extends Component {
     const y = event.nativeEvent.contentOffset.y;
     const shade = Math.min((y - 100) / 100, 1);
     const tintColorElement = Math.floor((1 - shade) * 256);
-    const tintColor = `${tintColorElement}, ${tintColorElement}, ${tintColorElement}`;
+    const tintColor = `${tintColorElement}, ${256 - 125 * shade}, ${256 - 88 * shade}`;
+    const titleColor = `${tintColorElement}, ${tintColorElement}, ${tintColorElement}`;
     this.props.navigation.setParams({
       ...this.props.navigation.state,
       headerShade: shade,
       headerTitle: this.props.event.name,
-      headerTitleColor: `rgba(${tintColor}, ${shade})`,
+      headerTitleColor: `rgba(${titleColor}, ${shade})`,
       headerBackgroundColor: `rgba(256, 256, 256, ${shade})`,
       headerTintColor: `rgb(${tintColor})`,
     });

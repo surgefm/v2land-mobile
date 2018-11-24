@@ -8,7 +8,11 @@ import { colors } from '../../styles';
 const NewsItem = ({ news, onPress }) => (
   <TouchableOpacity
     style={styles.newsContainer}
-    onPress={onPress}>
+    onPress={() => onPress({
+      eventId: news.eventId,
+      stackId: news.stackId,
+      newsId: news.id,
+    })}>
     <Image
       style={styles.source}
       source={require('../../static/defaultSource.png')} />

@@ -6,14 +6,12 @@ export const eventListSelector = [
   data => data || [],
 ];
 
-export const eventSelector = [
-  (state, props) => {
-    if (!state.events || !state.events.data) return null;
-    for (const event of state.events.data) {
-      if (event.id === props.eventId) {
-        return event;
-      }
+export const eventSelector = (state, props) => {
+  if (!state.events || !state.events.data) return null;
+  for (const event of state.events.data) {
+    if (event.id === props.eventId) {
+      return event;
     }
-    return null;
-  },
-];
+  }
+  return null;
+};

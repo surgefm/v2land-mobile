@@ -8,7 +8,7 @@ const normalizeActions = actions => {
   return actions;
 };
 
-const connect = (selector, actions, ...args) =>
+const connect = (selector = null, actions = null, ...args) =>
   connect_(
     selector === null ? selector : createSelector(selector),
     actions === null ? actions : normalizeActions(actions),

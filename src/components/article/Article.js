@@ -28,7 +28,6 @@ const Article = ({
         onRefresh={() => onRefresh()}
         title='刷新事件进展'/>
     }>
-    <StatusBar hidden />
     <HeaderImage headerImage={event.headerImage} />
     <SafeAreaView style={{ flex: 1 }}>
       {!event || <View>
