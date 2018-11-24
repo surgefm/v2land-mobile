@@ -7,12 +7,7 @@ import fallback from '../transducers/fallback.js';
 import { fetchNewsList as fetchNewsListAction } from '../actions/news.js';
 import { fetchNewsList as fetchNewsListService } from '../../service/news.js';
 
-const fetchNewsListOKHandler = (state, { payload, type }) => {
-  if (type !== 'FETCH_NEWS_LIST#OK' || !payload || !payload.newsList) {
-    return { ...state };
-  }
-
-  const { newsList } = payload;
+const fetchNewsListOKHandler = (state, { newsList }) => {
   const events = [...state.events.data];
 
   for (const news of newsList) {
@@ -75,7 +70,6 @@ export const fetchNewsList = requestData(
 
 export const newsReducers = reduceReducers(
   fetchNewsList,
-  fetchNewsListOKHandler,
   fallback(null),
 );
 
