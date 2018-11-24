@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, SafeAreaView } from 'react-native';
 import { TwitterButton, WeiboButton } from './login';
-import { Button, FormLabel, FormInput } from 'react-native-elements';
+import { Button, FormLabel, FormInput, FormValidationMessage } from 'react-native-elements';
 import { commonStyle, paddings, buttonStyle, buttonTextStyle } from '../styles';
 import { Title } from './elements';
 
-const Login = () => (
+const Login = ({ onLoginClick, onRegisterClick, errorMessage }) => (
   <SafeAreaView style={{ backgroundColor: '#fff', flex: 1 }}>
     <ScrollView style={[paddings.pageTop]}>
       <View style={[paddings.largeInterval, paddings.side, { flex: 1 }]}>
@@ -20,9 +20,13 @@ const Login = () => (
             containerStyle={commonStyle.noSideMargins}
             secureTextEntry
           />
+          <FormValidationMessage>
+            {errorMessage}
+          </FormValidationMessage>
         </View>
         <View style={styles.loginButtons}>
           <Button
+            onClick={onRegisterClick}
             containerViewStyle={commonStyle.noSideMargins}
             buttonStyle={[buttonStyle.button, buttonStyle.outline]}
             textStyle={[buttonTextStyle.button, buttonTextStyle.outline]}
@@ -30,6 +34,7 @@ const Login = () => (
             outline
           />
           <Button
+            onClick={onLoginClick}
             containerViewStyle={commonStyle.noSideMargins}
             buttonStyle={[buttonStyle.button, buttonStyle.primary]}
             textStyle={buttonTextStyle.button}
