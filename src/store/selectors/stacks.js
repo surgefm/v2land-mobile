@@ -1,9 +1,8 @@
-const stacksSelector = store => store.stacks;
-const eventIdSelector = props => props.eventId;
+export const stackStateSelector = state => state.stacks.data;
 
-export const eventStackListSelector = [
-  [stacksSelector, eventIdSelector],
-  (stacks, eventId) => {
+export const stackIdSelector = (state, props) => typeof props === 'number' ? props : props.stackId;
 
-  },
+export const stackSelector = [
+  [stackStateSelector, stackIdSelector],
+  (state, stackId) => state[stackId],
 ];

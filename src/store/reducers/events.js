@@ -20,7 +20,6 @@ export const fetchEventList = requestData(
   getAll,
   (state, { eventList }) => {
     let newState = { ...state };
-    console.log(1);
     for (const event of eventList) {
       const { entities } = normalize(event, Event);
       newState = {
@@ -28,8 +27,6 @@ export const fetchEventList = requestData(
         ...entities.events,
       };
     }
-    console.log(2);
-    console.log(123, newState);
     return newState;
   },
   (_, err) => {
