@@ -10,7 +10,6 @@ const withState = ({ init, updaters }) => BaseComponent => {
       : init
 
     updaters = map(
-      updaters,
       handler => (mayBeEvent, ...args) => {
         // Having that functional form of setState can be called async
         // we need to persist SyntheticEvent
@@ -21,7 +20,8 @@ const withState = ({ init, updaters }) => BaseComponent => {
         this.setState((state, props) =>
           handler(state, props)(mayBeEvent, ...args)
         )
-      }
+      },
+      updaters
     )
 
     render() {

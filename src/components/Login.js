@@ -5,7 +5,7 @@ import { Button, FormLabel, FormInput, FormValidationMessage } from 'react-nativ
 import { commonStyle, paddings, buttonStyle, buttonTextStyle } from '../styles';
 import { Title } from './elements';
 
-const Login = ({ onLoginClick, onRegisterClick, errorMessage }) => (
+const Login = ({ onLoginClick, onRegisterClick, errorMessage, setLoginName, setPasswd }) => (
   <SafeAreaView style={{ backgroundColor: '#fff', flex: 1 }}>
     <ScrollView style={[paddings.pageTop]}>
       <View style={[paddings.largeInterval, paddings.side, { flex: 1 }]}>
@@ -14,10 +14,11 @@ const Login = ({ onLoginClick, onRegisterClick, errorMessage }) => (
           <FormLabel labelStyle={commonStyle.noSideMargins}>
             用户名或邮箱
           </FormLabel>
-          <FormInput containerStyle={commonStyle.noSideMargins} />
+          <FormInput containerStyle={commonStyle.noSideMargins} onChangeText={setLoginName} />
           <FormLabel labelStyle={commonStyle.noSideMargins}>密码</FormLabel>
           <FormInput
             containerStyle={commonStyle.noSideMargins}
+            onChangeText={setPasswd}
             secureTextEntry
           />
           <FormValidationMessage>
@@ -26,7 +27,7 @@ const Login = ({ onLoginClick, onRegisterClick, errorMessage }) => (
         </View>
         <View style={styles.loginButtons}>
           <Button
-            onClick={onRegisterClick}
+            onPress={onRegisterClick}
             containerViewStyle={commonStyle.noSideMargins}
             buttonStyle={[buttonStyle.button, buttonStyle.outline]}
             textStyle={[buttonTextStyle.button, buttonTextStyle.outline]}
@@ -34,7 +35,7 @@ const Login = ({ onLoginClick, onRegisterClick, errorMessage }) => (
             outline
           />
           <Button
-            onClick={onLoginClick}
+            onPress={onLoginClick}
             containerViewStyle={commonStyle.noSideMargins}
             buttonStyle={[buttonStyle.button, buttonStyle.primary]}
             textStyle={buttonTextStyle.button}
