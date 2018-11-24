@@ -1,17 +1,7 @@
-import connect from './connect';
-import prepare from './prepare';
-import setStatic from './setStatic';
-import setProp from './setProp';
-import withNavigationHandlers from './withNavigationHandlers';
-import withNavigationOptions from './withNavigationOptions';
-
-export {
-  connect,
-  prepare,
-  setStatic,
-  setProp,
-  withNavigationHandlers,
-  withNavigationOptions,
-};
-
-export default 'enhancers';
+export connect from './connect.js'
+export prepare from './prepare.js'
+export setStatic from './setStatic.js'
+export setProp from './setProp.js'
+export withNavigationHandlers from './withNavigationHandlers.js'
+export withNavigationOptions from './withNavigationOptions.js'
+export withState from './withState.js'
