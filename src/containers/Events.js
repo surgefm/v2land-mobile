@@ -10,7 +10,7 @@ import {
   prepare,
 } from '../enhancers';
 
-import { fetchList } from '../store/actions/events.js';
+import { fetchEventList } from '../store/actions/events.js';
 import { eventListSelector } from '../store/selectors/events.js';
 
 const Events = R.compose(
@@ -25,9 +25,9 @@ const Events = R.compose(
   connect({
     eventList: eventListSelector,
   }, {
-    fetchList,
+    fetchEventList,
   }),
-  prepare(({ fetchList }) => fetchList()),
+  prepare(({ fetchEventList }) => fetchEventList()),
 )(EventsComponent);
 
 export default Events;

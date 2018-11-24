@@ -6,19 +6,28 @@ import requestData from '../transducers/requestData.js';
 import fallback from '../transducers/fallback.js';
 
 import {
-  fetchList as fetchListAction,
+  fetchEventList as fetchEventListAction,
   fetchEvent as fetchEventAction,
 } from '../actions/events.js';
 import OK from '../actions/OK.js';
 import ERR from '../actions/ERR.js';
 
 import { getAll, getEvent } from '../../service/events.js';
+import { Event, normalize } from '../schemas';
 
 export const fetchEventList = requestData(
-  fetchListAction.type,
+  fetchEventListAction.type,
   getAll,
-  (_, res) => {
-    return res.eventList;
+  (state, { eventList }) => {
+    let newState = { ...state };
+    for (const event of eventList) {
+      const { entities } = normalize(event, Event);
+      newState = {
+        ...newState,
+        ...entities.events,
+      };
+    }
+    return newState;
   },
   (_, err) => {
     // TODO: handle error
@@ -27,21 +36,21 @@ export const fetchEventList = requestData(
 );
 
 const fetchEventOKHandler = (state, event) => {
-  const eventList = [...state];
-  for (let i = 0; i < eventList.length; i++) {
-    if (eventList[i].id === event.id) {
-      const oldEvent = eventList[i];
-      if (oldEvent.newsCount) {
-        event.updateStat = {
-          news: event.newsCount - oldEvent.newsCount,
-          stack: event.stackCount - oldEvent.stackCount,
-        };
-      }
-      eventList[i] = event;
-      return eventList;
-    }
+  const { entities, result } = normalize(event, Event);
+  event = entities.events[result];
+
+  if (state[result] && state[result].newsCount) {
+    const oldEvent = state[result];
+    event.updateStat = {
+      news: event.newsCount - oldEvent.newsCount,
+      stack: event.stackCount - oldEvent.stackCount,
+    };
   }
-  return [...eventList, event];
+
+  return {
+    ...state,
+    [result]: event,
+  };
 };
 
 export const fetchEvent = requestData(

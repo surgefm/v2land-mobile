@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FlatList, View, TouchableOpacity, StyleSheet } from 'react-native';
 import { Icon, Text } from 'react-native-elements';
-import NewsItem from './NewsItem';
+import NewsItem from '../../containers/NewsItem';
 
 class NewsList extends Component {
   constructor(props) {
@@ -52,8 +52,8 @@ const NewsListComponent = ({
     <FlatList
       data={newsList}
       renderItem={({ item }) => <NewsItem
-        news={item}
-        onPress={onNewsPress({ newsId: item.id })} /> }
+        newsId={item}
+        onPress={onNewsPress({ newsId: item })} /> }
       keyExtractor={news => `News#${news.id}`}
       extraData={newsList}
     />
