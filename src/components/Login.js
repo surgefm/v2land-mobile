@@ -11,23 +11,31 @@ const Login = () => (
       <View style={[paddings.largeInterval, paddings.side, { flex: 1 }]}>
         <Title style={paddings.largeInterval}>登录</Title>
         <View style={[styles.loginInterface, paddings.largeInterval]}>
-          <FormLabel labelStyle={commonStyle.noSideMargins}>用户名或邮箱</FormLabel>
+          <FormLabel labelStyle={commonStyle.noSideMargins}>
+            用户名或邮箱
+          </FormLabel>
           <FormInput containerStyle={commonStyle.noSideMargins} />
           <FormLabel labelStyle={commonStyle.noSideMargins}>密码</FormLabel>
-          <FormInput containerStyle={commonStyle.noSideMargins} secureTextEntry />
+          <FormInput
+            containerStyle={commonStyle.noSideMargins}
+            secureTextEntry
+          />
         </View>
         <View style={styles.loginButtons}>
           <Button
             containerViewStyle={commonStyle.noSideMargins}
             buttonStyle={[buttonStyle.button, buttonStyle.outline]}
             textStyle={[buttonTextStyle.button, buttonTextStyle.outline]}
-            title='注册' outline />
+            title="注册"
+            outline
+          />
           <Button
             containerViewStyle={commonStyle.noSideMargins}
             buttonStyle={[buttonStyle.button, buttonStyle.primary]}
             textStyle={buttonTextStyle.button}
-            backgroundColor='dimgrey'
-            title='登入' />
+            backgroundColor="dimgrey"
+            title="登入"
+          />
         </View>
         <View>
           <Text style={[styles.socialText]}>或使用第三方账号登入</Text>

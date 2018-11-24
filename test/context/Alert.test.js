@@ -17,7 +17,7 @@ describe('Alert', () => {
         <AlertContext>
           {context => <SubComponent context={context} />}
         </AlertContext>
-      </AlertProvider>
+      </AlertProvider>,
     );
   });
 

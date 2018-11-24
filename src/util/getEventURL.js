@@ -1,6 +1,6 @@
 import config from '../config/const';
 
-const getEventURL = (event) => {
+const getEventURL = event => {
   return `${config.site}${event.id}`;
 };
 

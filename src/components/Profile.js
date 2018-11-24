@@ -15,8 +15,7 @@ export default class Profile extends Component {
         <ScrollView
           keyboardShouldPersistTaps="always"
           style={[pageStyle.background, paddings.pageTop]}
-        >
-        </ScrollView>
+        />
       </SafeAreaView>
     );
   }

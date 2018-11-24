@@ -15,7 +15,7 @@ export default class StackItemComponent extends Component {
   }
 
   toggleNewsList() {
-    this.setState((state) => ({
+    this.setState(state => ({
       ...state,
       isStackExpanded: !state.isStackExpanded,
     }));
@@ -24,34 +24,46 @@ export default class StackItemComponent extends Component {
   render() {
     return (
       <View>
-        <Text style={[styles.title, paddings.interval]}>{trimText(this.props.stack.title)}</Text>
-        {!getTimeString(this.props.stack.time) || <Text style={[paddings.interval, styles.time]}>
-          {getTimeString(this.props.stack.time, {
-            showWeekday: false,
-            withSpaceBetween: true,
-            forceShowYear: true,
-          })}
-        </Text>}
-        <Text style={styles.description}>{trimText(this.props.stack.description)}</Text>
+        <Text style={[styles.title, paddings.interval]}>
+          {trimText(this.props.stack.title)}
+        </Text>
+        {!getTimeString(this.props.stack.time) || (
+          <Text style={[paddings.interval, styles.time]}>
+            {getTimeString(this.props.stack.time, {
+              showWeekday: false,
+              withSpaceBetween: true,
+              forceShowYear: true,
+            })}
+          </Text>
+        )}
+        <Text style={styles.description}>
+          {trimText(this.props.stack.description)}
+        </Text>
         <TouchableOpacity
-          activeOpacity={.8}
+          activeOpacity={0.8}
           style={[styles.button, paddings.interval]}
-          onPress={() => this.toggleNewsList()}>
-          <Text style={styles.buttonText}>查看 {this.props.stack.newsCount} 条相关新闻</Text>
+          onPress={() => this.toggleNewsList()}
+        >
+          <Text style={styles.buttonText}>
+            查看 {this.props.stack.newsCount} 条相关新闻
+          </Text>
           <Icon
-            type='material-community'
+            type="material-community"
             color={colors.darkGrey}
             name={this.state.isStackExpanded ? 'arrow-down' : 'arrow-right'}
-            size={11} />
+            size={11}
+          />
         </TouchableOpacity>
 
-        {!this.state.isStackExpanded || <NewsList
-          style={styles.newsList}
-          stackId={this.props.stack.id}
-          newsList={this.props.stack.news}
-          onNewsPress={this.props.onNewsPress}
-          newsCount={this.props.stack.newsCount}
-        />}
+        {!this.state.isStackExpanded || (
+          <NewsList
+            style={styles.newsList}
+            stackId={this.props.stack.id}
+            newsList={this.props.stack.news}
+            onNewsPress={this.props.onNewsPress}
+            newsCount={this.props.stack.newsCount}
+          />
+        )}
 
         {this.props.isLastStack || <BreakLine style={styles.breakLine} />}
       </View>

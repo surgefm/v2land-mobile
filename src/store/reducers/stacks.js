@@ -48,11 +48,8 @@ export const stackReducers = combineReducers({
     fallback(null),
   ),
 
-  state: (state, action) => requestState(
-    action.type,
-    ERR(action.type),
-    OK(action.type)
-  )(state, action),
+  state: (state, action) =>
+    requestState(action.type, ERR(action.type), OK(action.type))(state, action),
 });
 
 export default stackReducers;

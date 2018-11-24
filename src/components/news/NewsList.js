@@ -12,7 +12,7 @@ class NewsList extends Component {
   }
 
   async onLoadingPress() {
-    this.setState((state) => ({
+    this.setState(state => ({
       ...state,
       isListLoading: true,
     }));
@@ -25,7 +25,7 @@ class NewsList extends Component {
       page: Math.floor(this.props.newsList.length / 15) + 1,
     });
 
-    this.setState((state) => ({
+    this.setState(state => ({
       ...state,
       isListLoading: false,
     }));
@@ -51,9 +51,9 @@ const NewsListComponent = ({
   <View style={[{ flex: 1 }, style]}>
     <FlatList
       data={newsList}
-      renderItem={({ item }) => <NewsItem
-        newsId={item}
-        onPress={onNewsPress({ newsId: item })} /> }
+      renderItem={({ item }) => (
+        <NewsItem newsId={item} onPress={onNewsPress({ newsId: item })} />
+      )}
       keyExtractor={news => `News#${news.id}`}
       extraData={newsList}
     />
@@ -61,9 +61,10 @@ const NewsListComponent = ({
       <TouchableOpacity style={styles.loadMore} onPress={onLoadingPress}>
         <Icon
           containerStyle={styles.loadMoreIcon}
-          type='material-community'
+          type="material-community"
           name={isListLoading ? 'progress-download' : 'reload'}
-          size={12} />
+          size={12}
+        />
         <Text>{isListLoading ? '正在加载相关新闻' : '加载更多相关新闻'}</Text>
       </TouchableOpacity>
     )}

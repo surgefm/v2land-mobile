@@ -22,13 +22,16 @@ import Login from './containers/Login';
 
 const store = configStore();
 
-const EventsStack = createStackNavigator({
-  [routers.eventList]: Events,
-  [routers.event]: Article,
-  [routers.news]: News,
-}, {
-  headerMode: 'screen',
-});
+const EventsStack = createStackNavigator(
+  {
+    [routers.eventList]: Events,
+    [routers.event]: Article,
+    [routers.news]: News,
+  },
+  {
+    headerMode: 'screen',
+  },
+);
 
 const SearchStack = createStackNavigator(
   {
@@ -70,11 +73,23 @@ const Navigator = createBottomTabNavigator(
         if (!iconConfig.name && iconConfig.focused) {
           const focusedIcon = iconConfig.focused;
           const idleIcon = iconConfig.idle;
-          return focused
-            ? <Icon name={focusedIcon.name} color={tintColor} type={focusedIcon.name} />
-            : <Icon name={idleIcon.name} color={tintColor} type={idleIcon.type} />;
+          return focused ? (
+            <Icon
+              name={focusedIcon.name}
+              color={tintColor}
+              type={focusedIcon.name}
+            />
+          ) : (
+            <Icon name={idleIcon.name} color={tintColor} type={idleIcon.type} />
+          );
         } else {
-          return <Icon name={iconConfig.name} color={tintColor} type={iconConfig.type} />;
+          return (
+            <Icon
+              name={iconConfig.name}
+              color={tintColor}
+              type={iconConfig.type}
+            />
+          );
         }
       },
     }),

@@ -17,7 +17,7 @@ export default class News extends Component {
       if (supported) {
         Linking.openURL(this.props.news.url);
       } else {
-        log('Don\'t know how to open URI: ' + this.props.news.url);
+        log("Don't know how to open URI: " + this.props.news.url);
       }
     });
   }
@@ -26,7 +26,8 @@ export default class News extends Component {
     return (
       <NewsComponent
         {...this.props}
-        onButtonPress={this.onButtonPress.bind(this)} />
+        onButtonPress={this.onButtonPress.bind(this)}
+      />
     );
   }
 }

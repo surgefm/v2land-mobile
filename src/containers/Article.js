@@ -36,24 +36,28 @@ const Article = R.compose(
     headerRight: (
       <ArticleHeaderButtons
         event={params.event}
-        color={params.headerTintColor} />
+        color={params.headerTintColor}
+      />
     ),
   })),
   withNavigationHandlers(({ state, navigate, goBack }) => {
     return {
       eventId: state.params.eventId,
-      onStackPress: ({ stackId }) => () => navigate(routers.search, { eventId, stackId }),
-      onNewsPress: ({ eventId, stackId, newsId }) => () => (
-        navigate(routers.news, { eventId, stackId, newsId })
-      ),
+      onStackPress: ({ stackId }) => () =>
+        navigate(routers.search, { eventId, stackId }),
+      onNewsPress: ({ eventId, stackId, newsId }) => () =>
+        navigate(routers.news, { eventId, stackId, newsId }),
       goBack,
     };
   }),
-  connect({
-    event: eventSelector,
-  }, {
-    fetchEvent,
-  }),
+  connect(
+    {
+      event: eventSelector,
+    },
+    {
+      fetchEvent,
+    },
+  ),
   prepare(({ fetchEvent, eventId }) => fetchEvent({ eventId })),
 )(ArticleComponent);
 

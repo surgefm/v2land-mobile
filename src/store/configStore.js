@@ -5,7 +5,7 @@ import reducers from './reducers';
 const configStore = () => {
   return createStore(
     reducers, // reducers
-    install() // enhancers
+    install(), // enhancers
   );
 };
 

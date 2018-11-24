@@ -20,13 +20,16 @@ const Events = R.compose(
     headerBackTitle: null,
   }),
   withNavigationHandlers(({ navigate }) => ({
-    onEventPress: (eventId) => () => navigate(routers.event, { eventId }),
+    onEventPress: eventId => () => navigate(routers.event, { eventId }),
   })),
-  connect({
-    eventList: eventListSelector,
-  }, {
-    fetchEventList,
-  }),
+  connect(
+    {
+      eventList: eventListSelector,
+    },
+    {
+      fetchEventList,
+    },
+  ),
   prepare(({ fetchEventList }) => fetchEventList()),
 )(EventsComponent);
 

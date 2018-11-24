@@ -7,7 +7,8 @@ const RefreshControl = ({ refreshing, title, onRefresh }) => (
     refreshing={refreshing}
     onRefresh={() => onRefresh()}
     title={title || '下拉刷新'}
-    progressBackgroundColor={colors.lightGrey} />
+    progressBackgroundColor={colors.lightGrey}
+  />
 );
 
 export default RefreshControl;

@@ -7,7 +7,8 @@ const HeaderImage = ({ headerImage, style }) => {
     return (
       <Image
         style={[{ width: '100%', height: 300 }, style]}
-        source={{ uri: getAssetURL(headerImage.imageUrl) }} />
+        source={{ uri: getAssetURL(headerImage.imageUrl) }}
+      />
     );
   } else {
     return <View />;

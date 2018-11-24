@@ -12,7 +12,7 @@ const connect = (selector = null, actions = null, ...args) =>
   connect_(
     selector === null ? selector : createSelector(selector),
     actions === null ? actions : normalizeActions(actions),
-    ...args
+    ...args,
   );
 
 export default connect;

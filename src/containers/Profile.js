@@ -2,10 +2,7 @@ import R from 'ramda';
 import routers from '../config/routers';
 import ProfileComponent from '../components/Profile.js';
 
-import {
-  withNavigationOptions,
-  withNavigationHandlers,
-} from '../enhancers';
+import { withNavigationOptions, withNavigationHandlers } from '../enhancers';
 
 const Article = R.compose(
   withNavigationOptions({

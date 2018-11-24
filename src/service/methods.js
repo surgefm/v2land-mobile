@@ -4,13 +4,16 @@ import config from '../config/const';
 const api = path => resolve(config.api, path);
 
 export const get = (path, query = {}, options = {}) =>
-  fetch(format({
-    pathname: api(path),
-    query,
-  }), {
-    ...options,
-    method: 'GET',
-  }).then(res => res.json());
+  fetch(
+    format({
+      pathname: api(path),
+      query,
+    }),
+    {
+      ...options,
+      method: 'GET',
+    },
+  ).then(res => res.json());
 
 export const post = (path, data = {}, options = {}) =>
   fetch(api(path), {

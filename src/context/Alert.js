@@ -9,13 +9,13 @@ const alertWarning = () => {
 const AlertContext = React.createContext(alertWarning);
 
 class AlertProvider extends React.Component {
-  alertRef = React.createRef()
+  alertRef = React.createRef();
 
   alert = (...args) => {
     if (this.alertRef.current) {
       this.alertRef.current.alertWithType(...args);
     }
-  }
+  };
 
   render() {
     const { children, ...props } = this.props;
@@ -28,7 +28,4 @@ class AlertProvider extends React.Component {
   }
 }
 
-export {
-  AlertProvider,
-  AlertContext,
-};
+export { AlertProvider, AlertContext };

@@ -7,10 +7,14 @@ const state = {
   OK: 'OK',
 };
 
-const requestState = (typeLoading, typeErr, typeOk) => simpleSM({
-  [typeLoading]: state.LOADING,
-  [typeErr]: state.ERR,
-  [typeOk]: state.OK,
-}, state.DEFAULT);
+const requestState = (typeLoading, typeErr, typeOk) =>
+  simpleSM(
+    {
+      [typeLoading]: state.LOADING,
+      [typeErr]: state.ERR,
+      [typeOk]: state.OK,
+    },
+    state.DEFAULT,
+  );
 
 export default requestState;

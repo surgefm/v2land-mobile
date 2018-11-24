@@ -5,12 +5,7 @@ import EventTitle from '../article/EventTitle';
 import { colors } from '../../styles';
 import getAssetURL from '../../util/getAssetURL';
 
-const EventItem = ({
-  name,
-  description,
-  headerImage = {},
-  onPress,
-}) => (
+const EventItem = ({ name, description, headerImage = {}, onPress }) => (
   <TouchableHighlight onPress={onPress} underlayColor={colors.lightGrey}>
     <Card
       containerStyle={styles.cardContainer}
@@ -18,7 +13,9 @@ const EventItem = ({
     >
       <View style={styles.eventDescription}>
         <EventTitle>{name}</EventTitle>
-        <Text numberOfLines={4} style={styles.textDesc}>{description || ''}</Text>
+        <Text numberOfLines={4} style={styles.textDesc}>
+          {description || ''}
+        </Text>
       </View>
     </Card>
   </TouchableHighlight>

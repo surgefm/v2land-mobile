@@ -6,12 +6,14 @@ import { AlertContext } from '../context/Alert';
 export const scrollRangeForAnimation = 100;
 
 export const onScroll = Animated.event(
-  [{
-    nativeEvent: { contentOffset: { y: new Animated.Value(0) } },
-  }],
+  [
+    {
+      nativeEvent: { contentOffset: { y: new Animated.Value(0) } },
+    },
+  ],
   {
     useNativeDriver: true,
-  }
+  },
 );
 
 export default class Article extends Component {
@@ -40,7 +42,8 @@ export default class Article extends Component {
 
   refreshInfo() {
     const { event } = this.props;
-    return (typeof event.updateStat === 'undefined' || event.updateStat.stack === 0)
+    return typeof event.updateStat === 'undefined' ||
+      event.updateStat.stack === 0
       ? '成功加载该事件的最新信息'
       : `成功加载 ${event.updateStat.stack} 个新进展`;
   }
@@ -49,7 +52,8 @@ export default class Article extends Component {
     const y = event.nativeEvent.contentOffset.y;
     const shade = Math.min((y - 100) / 100, 1);
     const tintColorElement = Math.floor((1 - shade) * 256);
-    const tintColor = `${tintColorElement}, ${256 - 125 * shade}, ${256 - 88 * shade}`;
+    const tintColor = `${tintColorElement}, ${256 - 125 * shade}, ${256 -
+      88 * shade}`;
     const titleColor = `${tintColorElement}, ${tintColorElement}, ${tintColorElement}`;
     this.props.navigation.setParams({
       ...this.props.navigation.state,
@@ -64,7 +68,7 @@ export default class Article extends Component {
   render() {
     return (
       <AlertContext.Consumer>
-        {(alert) => {
+        {alert => {
           return ArticleComponent({
             ...this.props,
             setAlert: this.setAlert(alert),

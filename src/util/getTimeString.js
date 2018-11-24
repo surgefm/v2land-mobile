@@ -1,15 +1,26 @@
 import _ from 'lodash';
 
-const weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+const weekdays = [
+  '星期日',
+  '星期一',
+  '星期二',
+  '星期三',
+  '星期四',
+  '星期五',
+  '星期六',
+];
 
 /**
  * @param {Date|String|Number} time 时间
  */
-const getTimeString = (time, options = {
-  showWeekday: true,
-  forceShowYear: undefined,
-  withSpaceBetween: false,
-}) => {
+const getTimeString = (
+  time,
+  options = {
+    showWeekday: true,
+    forceShowYear: undefined,
+    withSpaceBetween: false,
+  },
+) => {
   if (!time) return;
   if (!_.isDate(time)) {
     try {
@@ -25,9 +36,10 @@ const getTimeString = (time, options = {
   const weekday = weekdays[time.getDay()];
   const space = options.withSpaceBetween ? ' ' : '';
   let showYear = options.forceShowYear;
-  showYear = typeof showYear === 'undefined'
-    ? year !== (new Date()).getFullYear()
-    : showYear;
+  showYear =
+    typeof showYear === 'undefined'
+      ? year !== new Date().getFullYear()
+      : showYear;
 
   let str = `${month}${space}月${space}${date}${space}日`;
   if (showYear) {

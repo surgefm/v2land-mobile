@@ -8,40 +8,42 @@ import { colors } from '../../styles';
 const NewsItem = ({ news, onPress }) => (
   <TouchableOpacity
     style={styles.newsContainer}
-    onPress={() => onPress({
-      eventId: news.eventId,
-      stackId: news.stackId,
-      newsId: news.id,
-    })}>
+    onPress={() =>
+      onPress({
+        eventId: news.eventId,
+        stackId: news.stackId,
+        newsId: news.id,
+      })
+    }
+  >
     <Image
       style={styles.source}
-      source={require('../../static/defaultSource.png')} />
+      source={require('../../static/defaultSource.png')}
+    />
 
-    <Text
-      style={styles.date}>
+    <Text style={styles.date}>
       {getTimeString(news.time, {
         showWeekday: false,
         withSpaceBetween: false,
       })}
     </Text>
 
-    <Text numberOfLines={1}>
-      {news.title}
-    </Text>
+    <Text numberOfLines={1}>{news.title}</Text>
 
     <View style={styles.rightContainer}>
       <LinearGradient
         style={styles.shade}
         colors={['rgba(256, 256, 256, 0)', 'rgba(256, 256, 256, 1)']}
         start={[0, 0.5]}
-        end={[.7, 0.5]}
+        end={[0.7, 0.5]}
       >
         <Icon
-          type='ionicon'
+          type="ionicon"
           color={colors.darkGrey}
           style={styles.icon}
-          name='md-arrow-dropright'
-          size={20} />
+          name="md-arrow-dropright"
+          size={20}
+        />
       </LinearGradient>
     </View>
   </TouchableOpacity>

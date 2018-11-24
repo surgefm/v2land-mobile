@@ -1,6 +1,6 @@
 import config from '../config/const';
 
-const getNewsURL = (news) => {
+const getNewsURL = news => {
   let eventId = news.eventId;
   if (!eventId) {
     eventId = typeof news.event === 'number' ? news.event : news.event.id;

@@ -64,17 +64,10 @@ export const fetchEvent = requestData(
 );
 
 export const eventReducers = combineReducers({
-  data: reduceReducers(
-    fetchEventList,
-    fetchEvent,
-    fallback(null),
-  ),
+  data: reduceReducers(fetchEventList, fetchEvent, fallback(null)),
 
-  state: (state, action) => requestState(
-    action.type,
-    ERR(action.type),
-    OK(action.type)
-  )(state, action),
+  state: (state, action) =>
+    requestState(action.type, ERR(action.type), OK(action.type))(state, action),
 });
 
 export default eventReducers;
