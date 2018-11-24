@@ -34,6 +34,7 @@
   "dependencies": {
     "expo": "^31.0.5",
     "lodash": "^4.17.11",
+    "normalizr": "^3.3.0",
     "ramda": "^0.25.0",
     "re-select": "^0.5.0",
     "react": "16.5.1",
