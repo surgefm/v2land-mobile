@@ -1,13 +1,20 @@
 import { createFactory, Component } from 'react'
 import { map } from 'ramda';
 
-const withState = ({ init, updaters }) => BaseComponent => {
+const toCallable = f => typeof f === 'function' ? f : () => f;
+
+const withState = (...automatons) => BaseComponent => {
   const factory = createFactory(BaseComponent)
+  const { init, updaters } = automatons.reduce((acc, cur) => ({
+    init: props => ({ ...toCallable(acc.init)(props), ...toCallable(cur.init)(props) }),
+    updaters: ({
+      ...acc.updaters,
+      ...cur.updaters,
+    })
+  }))
 
   class WithState extends Component {
-    state = typeof init === 'function'
-      ? init(this.props)
-      : init
+    state = init(this.props)
 
     updaters = map(
       handler => (mayBeEvent, ...args) => {
