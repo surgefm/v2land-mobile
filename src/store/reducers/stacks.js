@@ -8,10 +8,14 @@ import {
   fetchEventList as fetchEventListAction,
   fetchEvent as fetchEventAction,
 } from '../actions/events.js';
+import {
+  fetchNewsList as fetchNewsListAction,
+} from '../actions/news.js';
 import OK from '../actions/OK.js';
 import ERR from '../actions/ERR.js';
 
 import { Event, normalize } from '../schemas';
+import { getStackId } from '../../util';
 
 const onFetchEventListOKHandler = on(
   OK(fetchEventListAction.type),
@@ -41,10 +45,30 @@ const onFetchEventOKHandler = on(
   },
 );
 
+const onFetchNewsListOKHandler = on(
+  OK(fetchNewsListAction.type),
+  (state, { newsList }) => {
+    for (const news of newsList) {
+      const stackId = getStackId(news);
+      if (state[stackId] && state[stackId].news && !state[stackId].news.includes(news.id)) {
+        return {
+          ...state,
+          [stackId]: {
+            ...state[stackId],
+            news: [...state[stackId].news, news.id],
+          },
+        };
+      }
+      return state;
+    }
+  },
+);
+
 export const stackReducers = combineReducers({
   data: reduceReducers(
     onFetchEventListOKHandler,
     onFetchEventOKHandler,
+    onFetchNewsListOKHandler,
     fallback(null),
   ),
 
