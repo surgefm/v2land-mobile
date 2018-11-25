@@ -3,7 +3,7 @@ import config from '../config/const';
 
 const api = path => resolve(config.api, path);
 
-export const get = (path, query = {}, options = {}) =>
+export const getRaw = (path, query = {}, options = {}) =>
   fetch(
     format({
       pathname: api(path),
@@ -13,9 +13,9 @@ export const get = (path, query = {}, options = {}) =>
       ...options,
       method: 'GET',
     },
-  ).then(res => res.json());
+  )
 
-export const post = (path, data = {}, options = {}) =>
+export const postRaw = (path, data = {}, options = {}) =>
   fetch(api(path), {
     ...options,
     method: 'POST',
@@ -23,4 +23,7 @@ export const post = (path, data = {}, options = {}) =>
       'Content-Type': 'application/json; charset=utf-8',
     },
     body: JSON.stringify(data),
-  }).then(res => res.json());
+  })
+
+export const get = (...args) => getRaw(...args).then(res => res.json());
+export const post = (...args) => postRaw(...args).then(res => res.json());

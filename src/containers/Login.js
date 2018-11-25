@@ -6,7 +6,10 @@ import {
   withState,
   automaton,
   withProps,
+  connect,
 } from '../enhancers';
+
+import { login } from '../store/actions/auth.js';
 
 import { log } from '../util';
 
@@ -14,12 +17,18 @@ const Article = R.compose(
   withNavigationOptions({
     header: null,
   }),
+  connect(
+    null,
+    {
+      login,
+    }
+  ),
   withState(
     automaton.stringBox('', { box: 'loginName',    fill: 'setLoginName' }),
     automaton.stringBox('', { box: 'passwd',       fill: 'setPasswd' }),
     automaton.stringBox('', { box: 'errorMessage', fill: 'setErrorMessage' })
   ),
-  withProps(({ loginName, passwd, setErrorMessage }) => ({
+  withProps(({ loginName, passwd, setErrorMessage, login }) => ({
     onLoginClick: () => {
       if (!loginName) {
         setErrorMessage('请填写用户名')
@@ -33,6 +42,10 @@ const Article = R.compose(
 
       // else clean error message
       setErrorMessage('')
+      login({
+        loginName,
+        password: passwd,
+      })
     }
   }))
 )(LoginComponent);
