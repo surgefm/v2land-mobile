@@ -1,6 +1,7 @@
 import { combineReducers, reduceReducers } from 'redux-loop';
 
 import on from '../transducers/on.js';
+import requestData from '../transducers/requestData.js';
 import requestState from '../transducers/requestState.js';
 import fallback from '../transducers/fallback.js';
 
@@ -8,10 +9,17 @@ import {
   fetchEventList as fetchEventListAction,
   fetchEvent as fetchEventAction,
 } from '../actions/events.js';
+import {
+  fetchNewsList as fetchNewsListAction,
+} from '../actions/news.js';
+import {
+  fetchNewsList as fetchNewsListService,
+} from '../../service/news';
+
 import OK from '../actions/OK.js';
 import ERR from '../actions/ERR.js';
 
-import { Event, normalize } from '../schemas';
+import { Event, News, normalize } from '../schemas';
 
 const onFetchEventListOKHandler = on(
   OK(fetchEventListAction.type),
@@ -41,8 +49,27 @@ const onFetchEventOKHandler = on(
   },
 );
 
+const fetchNewsList = requestData(
+  fetchNewsListAction.type,
+  fetchNewsListService,
+  (state = {}, { newsList }) => {
+    let newState = { ...state };
+    for (const news of newsList) {
+      const { entities } = normalize(news, News);
+      list = entities.news;
+      newState = {
+        ...newState,
+        ...list,
+      };
+    }
+    return newState;
+  },
+  () => {},
+);
+
 export const newsReducers = combineReducers({
   data: reduceReducers(
+    fetchNewsList,
     onFetchEventListOKHandler,
     onFetchEventOKHandler,
     fallback(null),

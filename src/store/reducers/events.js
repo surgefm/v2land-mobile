@@ -1,5 +1,5 @@
 import { combineReducers, reduceReducers } from 'redux-loop';
-import log from '../../util/log.js';
+import { log } from '../../util';
 
 import requestState from '../transducers/requestState.js';
 import requestData from '../transducers/requestData.js';
