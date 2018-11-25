@@ -15,13 +15,24 @@ const Article = R.compose(
     header: null,
   }),
   withState(
-    automaton.stringBox('', { box: 'loginName', fill: 'setLoginName' }),
-    automaton.stringBox('', { box: 'passwd',    fill: 'setPasswd' }),
+    automaton.stringBox('', { box: 'loginName',    fill: 'setLoginName' }),
+    automaton.stringBox('', { box: 'passwd',       fill: 'setPasswd' }),
+    automaton.stringBox('', { box: 'errorMessage', fill: 'setErrorMessage' })
   ),
-  withProps(({ loginName, passwd }) => ({
+  withProps(({ loginName, passwd, setErrorMessage }) => ({
     onLoginClick: () => {
-      log(loginName, passwd);
-      // TODO: not implemented
+      if (!loginName) {
+        setErrorMessage('请填写用户名')
+        return;
+      }
+
+      if (!passwd) {
+        setErrorMessage('请填写密码')
+        return;
+      }
+
+      // else clean error message
+      setErrorMessage('')
     }
   }))
 )(LoginComponent);
