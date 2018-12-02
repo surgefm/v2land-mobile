@@ -52,7 +52,7 @@ const SearchStack = createStackNavigator(
 );
 
 const ProfileStack = createStackNavigator({
-  Profile: {
+  [routers.me]: {
     screen: Profile,
     navigationOptions: {
       header: null,
@@ -115,7 +115,7 @@ const NavigatorContainer = compose(
   connect(null, { initializeTokenFromStorage }),
   prepare(({ initializeTokenFromStorage }) =>
     storage.token.read().then(token => {
-      initializeTokenFromStorage(token);
+      token && initializeTokenFromStorage(token);
     })
   ),
   createAppContainer,

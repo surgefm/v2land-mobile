@@ -6,7 +6,7 @@ import fallback from '../transducers/fallback.js';
 import consequence from '../transducers/consequence.js';
 
 import OK from '../actions/OK.js';
-import { login as loginAction, saveToken as saveTokenAction, initializeTokenFromStorage as initTokenAction } from '../actions/auth.js';
+import { login as loginAction, saveToken as saveTokenAction, initializeTokenFromStorage as initTokenAction, invalidateToken as invalidateTokenAction } from '../actions/auth.js';
 
 import { login } from '../../service/auth.js';
 import { storage } from '../../util';
@@ -47,6 +47,14 @@ export default combineReducers({
       () => true,
     ),
 
+    // Invalidate token
+    requestData(
+      invalidateTokenAction.type,
+      () => storage.token.clear(),
+      () => false,
+      () => false,
+    ),
+
     fallback(false),
   ),
 
@@ -61,6 +69,12 @@ export default combineReducers({
     on(
       initTokenAction.type,
       (_, token) => token,
+    ),
+
+    // Reset to null when token was invalidated
+    on(
+      OK(invalidateTokenAction.type),
+      () => null,
     ),
 
     fallback(null),

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, SafeAreaView, Text, Button } from 'react-native';
+import { ScrollView, SafeAreaView, Text, TouchableOpacity } from 'react-native';
 import { pageStyle, paddings } from '../styles';
 
 export default class Profile extends Component {
@@ -10,7 +10,11 @@ export default class Profile extends Component {
         <Text>
           Signed In!
         </Text>
-        <Button onClick={logout} title="Logout!"/>
+        <TouchableOpacity onPress={logout}>
+          <Text>+++++++++++++++++++++++++++</Text>
+          <Text>+         Logout!         +</Text>
+          <Text>+++++++++++++++++++++++++++</Text>
+        </TouchableOpacity>
         <ScrollView
           keyboardShouldPersistTaps="always"
           style={[pageStyle.background, paddings.pageTop]}

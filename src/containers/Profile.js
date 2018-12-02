@@ -2,11 +2,13 @@ import R from 'ramda';
 import routers from '../config/routers';
 import ProfileComponent from '../components/Profile.js';
 
-import { withNavigationOptions, withNavigationHandlers, connect, prepare } from '../enhancers';
+import { withNavigationOptions, withNavigationHandlers, connect, withProps } from '../enhancers';
+
+import { invalidateToken } from '../store/actions/auth.js';
 
 import { authorizedSelector } from '../store/selectors/auth.js';
 
-const Article = R.compose(
+const Profile = R.compose(
   withNavigationOptions({
     header: null,
   }),
@@ -15,14 +17,19 @@ const Article = R.compose(
       goLogin: () => replace(routers.login),
     })
   ),
-  connect({
-    authorized: authorizedSelector,
-  }),
-  prepare(({ authorized, goLogin }) => {
+  connect(
+    {
+      authorized: authorizedSelector,
+    },
+    {
+      logout: invalidateToken,
+    }
+  ),
+  withProps(({ authorized, goLogin }) => {
     if (!authorized) {
       goLogin();
     }
   }),
 )(ProfileComponent);
 
-export default Article;
+export default Profile;

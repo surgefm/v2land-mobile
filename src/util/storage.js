@@ -9,6 +9,10 @@ const token = {
 
   read() {
     return AsyncStorage.getItem(token.name);
+  },
+
+  clear() {
+    return AsyncStorage.removeItem(token.name);
   }
 }
 

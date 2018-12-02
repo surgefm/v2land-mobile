@@ -1,8 +1,10 @@
 import R from 'ramda';
+import routers from '../config/routers';
 import LoginComponent from '../components/Login.js';
 
 import {
   withNavigationOptions,
+  withNavigationHandlers,
   withState,
   automaton,
   withProps,
@@ -11,18 +13,32 @@ import {
 
 import { login } from '../store/actions/auth.js';
 
+import { authorizedSelector } from '../store/selectors/auth.js';
+
 import { log } from '../util';
 
-const Article = R.compose(
+const Login = R.compose(
   withNavigationOptions({
     header: null,
   }),
+  withNavigationHandlers(({ replace }) =>
+    ({
+      goMe: () => replace(routers.me),
+    })
+  ),
   connect(
-    null,
+    {
+      authorized: authorizedSelector,
+    },
     {
       login,
     }
   ),
+  withProps(({ goMe, authorized }) => {
+    if (authorized) {
+      goMe();
+    }
+  }),
   withState(
     automaton.stringBox('', { box: 'loginName',    fill: 'setLoginName' }),
     automaton.stringBox('', { box: 'passwd',       fill: 'setPasswd' }),
@@ -47,7 +63,7 @@ const Article = R.compose(
         password: passwd,
       })
     }
-  }))
+  })),
 )(LoginComponent);
 
-export default Article;
+export default Login;
