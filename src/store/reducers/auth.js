@@ -23,7 +23,7 @@ export default combineReducers({
       () => false,
     ),
 
-    // ACTION: login -> ACTION: saveToken
+    // ACTION: login[OK] -> ACTION: saveToken
     consequence(
       OK(loginAction.type),
       saveTokenAction,
