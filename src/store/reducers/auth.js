@@ -6,7 +6,7 @@ import fallback from '../transducers/fallback.js';
 import consequence from '../transducers/consequence.js';
 
 import OK from '../actions/OK.js';
-import { login as loginAction, saveToken as saveTokenAction } from '../actions/auth.js';
+import { login as loginAction, saveToken as saveTokenAction, initializeTokenFromStorage as initTokenAction } from '../actions/auth.js';
 
 import { login } from '../../service/auth.js';
 import { storage } from '../../util';
@@ -15,12 +15,15 @@ const findTokenString = RegExp.prototype.test.bind(/^sails\.sid/)
 
 export default combineReducers({
   authorized: reduceReducers(
+    // Request login
     requestData(
       loginAction.type,
       login,
       () => false,
       () => false,
     ),
+
+    // ACTION: login -> ACTION: saveToken
     consequence(
       OK(loginAction.type),
       saveTokenAction,
@@ -29,20 +32,37 @@ export default combineReducers({
         return [token];
       },
     ),
+
+    // Save token to storage
     requestData(
       saveTokenAction.type,
       (_, tokenValue) => storage.token.save(tokenValue),
       () => true,
       () => true,
     ),
+
+    // Initialize token from client side storage
+    on(
+      initTokenAction.type,
+      () => true,
+    ),
+
     fallback(false),
   ),
 
   token: reduceReducers(
+    // Get token from request
     on(
-      OK(loginAction.type),
-      (_, res) => res.headers.get('set-cookie').split(';').find(findTokenString).split('=')[1]
+      OK(saveTokenAction.type),
+      (_, token) => token,
     ),
+
+    // Get token from client side storage
+    on(
+      initTokenAction.type,
+      (_, token) => token,
+    ),
+
     fallback(null),
   ),
 });

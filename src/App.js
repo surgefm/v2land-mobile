@@ -112,10 +112,12 @@ const Navigator = createBottomTabNavigator(
 );
 
 const NavigatorContainer = compose(
-  // connect(null, { initializeTokenFromStorage }),
-  // prepare(async ({ initializeTokenFromStorage }) => {
-  //   const token = await storage.token.read();
-  // }),
+  connect(null, { initializeTokenFromStorage }),
+  prepare(({ initializeTokenFromStorage }) =>
+    storage.token.read().then(token => {
+      initializeTokenFromStorage(token);
+    })
+  ),
   createAppContainer,
 )(Navigator);
 
