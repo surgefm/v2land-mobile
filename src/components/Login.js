@@ -1,11 +1,22 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, SafeAreaView } from 'react-native';
 import { TwitterButton, WeiboButton } from './login';
-import { Button, FormLabel, FormInput, FormValidationMessage } from 'react-native-elements';
+import {
+  Button,
+  FormLabel,
+  FormInput,
+  FormValidationMessage,
+} from 'react-native-elements';
 import { commonStyle, paddings, buttonStyle, buttonTextStyle } from '../styles';
 import { Title } from './elements';
 
-const Login = ({ onLoginClick, onRegisterClick, errorMessage, setLoginName, setPasswd }) => (
+const Login = ({
+  onLoginClick,
+  onRegisterClick,
+  errorMessage,
+  setLoginName,
+  setPasswd,
+}) => (
   <SafeAreaView style={{ backgroundColor: '#fff', flex: 1 }}>
     <ScrollView style={[paddings.pageTop]}>
       <View style={[paddings.largeInterval, paddings.side, { flex: 1 }]}>
@@ -14,16 +25,17 @@ const Login = ({ onLoginClick, onRegisterClick, errorMessage, setLoginName, setP
           <FormLabel labelStyle={commonStyle.noSideMargins}>
             用户名或邮箱
           </FormLabel>
-          <FormInput containerStyle={commonStyle.noSideMargins} onChangeText={setLoginName} />
+          <FormInput
+            containerStyle={commonStyle.noSideMargins}
+            onChangeText={setLoginName}
+          />
           <FormLabel labelStyle={commonStyle.noSideMargins}>密码</FormLabel>
           <FormInput
             containerStyle={commonStyle.noSideMargins}
             onChangeText={setPasswd}
             secureTextEntry
           />
-          <FormValidationMessage>
-            {errorMessage}
-          </FormValidationMessage>
+          <FormValidationMessage>{errorMessage}</FormValidationMessage>
         </View>
         <View style={styles.loginButtons}>
           <Button

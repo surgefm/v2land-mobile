@@ -15,10 +15,7 @@ import { AlertProvider } from './context';
 import { colors } from './styles';
 import { storage } from './util';
 
-import {
-  connect,
-  prepare,
-} from './enhancers';
+import { connect, prepare } from './enhancers';
 
 import { initializeTokenFromStorage } from './store/actions/auth';
 
@@ -116,7 +113,7 @@ const NavigatorContainer = compose(
   prepare(({ initializeTokenFromStorage }) =>
     storage.token.read().then(token => {
       token && initializeTokenFromStorage(token);
-    })
+    }),
   ),
   createAppContainer,
 )(Navigator);

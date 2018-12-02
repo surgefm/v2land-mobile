@@ -8,9 +8,7 @@ import {
   fetchEventList as fetchEventListAction,
   fetchEvent as fetchEventAction,
 } from '../actions/events.js';
-import {
-  fetchNewsList as fetchNewsListAction,
-} from '../actions/news.js';
+import { fetchNewsList as fetchNewsListAction } from '../actions/news.js';
 import OK from '../actions/OK.js';
 import ERR from '../actions/ERR.js';
 
@@ -50,7 +48,11 @@ const onFetchNewsListOKHandler = on(
   (state, { newsList }) => {
     for (const news of newsList) {
       const stackId = getStackId(news);
-      if (state[stackId] && state[stackId].news && !state[stackId].news.includes(news.id)) {
+      if (
+        state[stackId] &&
+        state[stackId].news &&
+        !state[stackId].news.includes(news.id)
+      ) {
         return {
           ...state,
           [stackId]: {

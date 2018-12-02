@@ -13,8 +13,8 @@ const token = {
 
   clear() {
     return AsyncStorage.removeItem(token.name);
-  }
-}
+  },
+};
 
 export default {
   token,

@@ -1,15 +1,12 @@
-import { createFactory } from "react"
-import { compose } from "ramda"
+import { createFactory } from 'react';
+import { compose } from 'ramda';
 
 const mapProps = mapper => BaseComponent => {
-  const factory = createFactory(BaseComponent)
+  const factory = createFactory(BaseComponent);
 
-  const MapProps = compose(
-    factory,
-    mapper,
-  )
+  const MapProps = compose(factory, mapper);
 
-  return MapProps
-}
+  return MapProps;
+};
 
-export default mapProps
+export default mapProps;

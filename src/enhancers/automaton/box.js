@@ -3,6 +3,6 @@ export default (initialValue, { box = 'box', fill = 'fill' } = {}) => ({
     [box]: initialValue,
   },
   updaters: {
-    [fill]: () => (b) => ({ [box]: b })
-  }
-})
+    [fill]: () => b => ({ [box]: b }),
+  },
+});
