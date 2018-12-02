@@ -7349,6 +7349,14 @@ react-native-maps@expo/react-native-maps#v0.22.1-exp.0:
   version "0.22.1"
   resolved "https://codeload.github.com/expo/react-native-maps/tar.gz/e6f98ff7272e5d0a7fe974a41f28593af2d77bb2"
 
+react-native-notifications@^1.1.21:
+  version "1.1.21"
+  resolved "https://registry.yarnpkg.com/react-native-notifications/-/react-native-notifications-1.1.21.tgz#72ee591d55f47a193e57abfdbcf7cd3deb53d423"
+  integrity sha512-zM9pqTWM3C7qmQOxtjU49kZKnj2faeTnS5gTtLAPlTLi+j+L+nnJMpgldmQbDV1AJZkk+O2Qz6P3rM5HRcm64w==
+  dependencies:
+    core-js "^1.0.0"
+    uuid "^2.0.3"
+
 react-native-platform-touchable@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/react-native-platform-touchable/-/react-native-platform-touchable-1.1.1.tgz#fde4acc65eea585d28b164d0c3716a42129a68e4"
@@ -8944,7 +8952,7 @@ uuid@3.3.2, uuid@^3.0.0, uuid@^3.0.1, uuid@^3.2.1, uuid@^3.3.2:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
   integrity sha512-yXJmeNaw3DnnKAOKJE51sL/ZaYfWJRl1pK9dr19YFCu0ObS231AB1/LbqTKRAQ5kw8A90rA6fr4riOUpTZvQZA==
 
-uuid@^2.0.1:
+uuid@^2.0.1, uuid@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-2.0.3.tgz#67e2e863797215530dff318e5bf9dcebfd47b21a"
   integrity sha1-Z+LoY3lyFVMN/zGOW/nc6/1Hsho=

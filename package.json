@@ -41,6 +41,7 @@
     "react-native": "0.57.1",
     "react-native-dropdownalert": "^3.7.0",
     "react-native-elements": "^0.19.1",
+    "react-native-notifications": "^1.1.21",
     "react-native-screens": "^1.0.0-alpha.16",
     "react-native-svg-uri": "^1.2.3",
     "react-navigation": "^3.0.0",
