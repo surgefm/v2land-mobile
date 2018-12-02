@@ -13,7 +13,7 @@ import {
 
 import { login } from '../store/actions/auth.js';
 
-import { authorizedSelector } from '../store/selectors/auth.js';
+import { authorizedSelector, errorMessageSelector } from '../store/selectors/auth.js';
 
 import { log } from '../util';
 
@@ -29,6 +29,7 @@ const Login = R.compose(
   connect(
     {
       authorized: authorizedSelector,
+      serverErrorMessage: errorMessageSelector,
     },
     {
       login,
@@ -42,27 +43,28 @@ const Login = R.compose(
   withState(
     automaton.stringBox('', { box: 'loginName',    fill: 'setLoginName' }),
     automaton.stringBox('', { box: 'passwd',       fill: 'setPasswd' }),
-    automaton.stringBox('', { box: 'errorMessage', fill: 'setErrorMessage' })
+    automaton.stringBox('', { box: 'clientErrorMessage', fill: 'setClientErrorMessage' }),
   ),
-  withProps(({ loginName, passwd, setErrorMessage, login }) => ({
+  withProps(({ loginName, passwd, setClientErrorMessage, login, clientErrorMessage, serverErrorMessage }) => ({
     onLoginClick: () => {
       if (!loginName) {
-        setErrorMessage('请填写用户名')
+        setClientErrorMessage('请填写用户名')
         return;
       }
 
       if (!passwd) {
-        setErrorMessage('请填写密码')
+        setClientErrorMessage('请填写密码')
         return;
       }
 
       // else clean error message
-      setErrorMessage('')
+      setClientErrorMessage('');
       login({
-        loginName,
+        username: loginName,
         password: passwd,
       })
-    }
+    },
+    errorMessage: serverErrorMessage || clientErrorMessage,
   })),
 )(LoginComponent);
 

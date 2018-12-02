@@ -9,3 +9,8 @@ export const tokenSelector = [
   authSelector,
   auth => auth.token,
 ];
+
+export const errorMessageSelector = [
+  authSelector,
+  auth => auth.errorMessage,
+]

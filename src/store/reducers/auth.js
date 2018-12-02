@@ -6,6 +6,7 @@ import fallback from '../transducers/fallback.js';
 import consequence from '../transducers/consequence.js';
 
 import OK from '../actions/OK.js';
+import ERR from '../actions/ERR.js';
 import { login as loginAction, saveToken as saveTokenAction, initializeTokenFromStorage as initTokenAction, invalidateToken as invalidateTokenAction } from '../actions/auth.js';
 
 import { login } from '../../service/auth.js';
@@ -78,5 +79,14 @@ export default combineReducers({
     ),
 
     fallback(null),
+  ),
+
+  errorMessage: reduceReducers(
+    on(
+      ERR(loginAction.type),
+      (_, err) => err.toString(),
+    ),
+
+    fallback(''),
   ),
 });
