@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
-import { ScrollView, SafeAreaView } from 'react-native';
+import { ScrollView, SafeAreaView, Text } from 'react-native';
 import { pageStyle, paddings } from '../styles';
 
 export default class Profile extends Component {
-  constructor(props) {
-    super(props);
-    const { goLogin } = props;
-    goLogin();
-  }
-
   render() {
     return (
       <SafeAreaView style={{ backgroundColor: '#fff', flex: 1 }}>
+        <Text>
+          Signed In!
+        </Text>
         <ScrollView
           keyboardShouldPersistTaps="always"
           style={[pageStyle.background, paddings.pageTop]}
