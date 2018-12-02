@@ -1,5 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { compose } from 'ramda';
 import configStore from './store/configStore';
 
 import {
@@ -12,6 +13,14 @@ import routers from './config/routers';
 import { Icon } from 'react-native-elements';
 import { AlertProvider } from './context';
 import { colors } from './styles';
+import { storage } from './util';
+
+import {
+  connect,
+  prepare,
+} from './enhancers';
+
+import { initializeTokenFromStorage } from './store/actions/auth';
 
 import Events from './containers/Events';
 import News from './containers/News';
@@ -102,7 +111,13 @@ const Navigator = createBottomTabNavigator(
   },
 );
 
-const NavigatorContainer = createAppContainer(Navigator);
+const NavigatorContainer = compose(
+  // connect(null, { initializeTokenFromStorage }),
+  // prepare(async ({ initializeTokenFromStorage }) => {
+  //   const token = await storage.token.read();
+  // }),
+  createAppContainer,
+)(Navigator);
 
 export default class App extends React.Component {
   render() {
