@@ -1,25 +1,12 @@
-import getAssetURL from './getAssetURL';
-import getEventURL from './getEventURL';
-import getNewsURL from './getNewsURL';
-import getEventId from './getEventId';
-import getStackId from './getStackId';
-import getShortenedDescription from './getShortenedDescription';
-import getTimeString from './getTimeString';
-import getTimeLapseString from './getTimeLapseString';
-import trimText from './trimText';
-import log from './log';
-import id from './id';
-
-export {
-  getAssetURL,
-  getEventURL,
-  getNewsURL,
-  getEventId,
-  getStackId,
-  getShortenedDescription,
-  getTimeString,
-  getTimeLapseString,
-  trimText,
-  log,
-  id,
-};
+export getAssetURL from './getAssetURL';
+export getEventURL from './getEventURL';
+export getNewsURL from './getNewsURL';
+export getEventId from './getEventId';
+export getStackId from './getStackId';
+export getShortenedDescription from './getShortenedDescription';
+export getTimeString from './getTimeString';
+export getTimeLapseString from './getTimeLapseString';
+export trimText from './trimText';
+export log from './log';
+export id from './id';
+export storage from './storage';
