@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { Animated } from 'react-native';
 import ArticleComponent from './article/Article';
 import { AlertContext } from '../context/Alert';
@@ -17,6 +17,8 @@ export const onScroll = Animated.event(
 );
 
 export default class Article extends Component {
+  static contextType = AlertContext;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -28,16 +30,12 @@ export default class Article extends Component {
     });
   }
 
-  setAlert(alert) {
-    this.alert = alert;
-  }
-
   async onRefresh() {
     this.setState(() => ({ refreshing: true }));
     const { fetchEvent, eventId } = this.props;
     await fetchEvent({ eventId });
     this.setState(() => ({ refreshing: false }));
-    this.alert('info', '刷新成功', this.refreshInfo());
+    this.context('info', '刷新成功', this.refreshInfo());
   }
 
   refreshInfo() {
@@ -67,18 +65,13 @@ export default class Article extends Component {
 
   render() {
     return (
-      <AlertContext.Consumer>
-        {alert => {
-          return ArticleComponent({
-            ...this.props,
-            setAlert: this.setAlert(alert),
-            refreshing: this.state.refreshing,
-            onRefresh: this.onRefresh.bind(this),
-            onScroll: this.onScrollEndSnapToEdge.bind(this),
-            onScrollEndSnapToEdge: this.onScrollEndSnapToEdge.bind(this),
-          });
-        }}
-      </AlertContext.Consumer>
+      ArticleComponent({
+        ...this.props,
+        refreshing: this.state.refreshing,
+        onRefresh: this.onRefresh.bind(this),
+        onScroll: this.onScrollEndSnapToEdge.bind(this),
+        onScrollEndSnapToEdge: this.onScrollEndSnapToEdge.bind(this),
+      })
     );
   }
 }
