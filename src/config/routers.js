@@ -6,4 +6,5 @@ export default {
   searchIndex: '搜索起始页',
   profile: '用户',
   login: '登录',
+  me: '个人页面',
 };

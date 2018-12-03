@@ -9,12 +9,8 @@ import {
   fetchEventList as fetchEventListAction,
   fetchEvent as fetchEventAction,
 } from '../actions/events.js';
-import {
-  fetchNewsList as fetchNewsListAction,
-} from '../actions/news.js';
-import {
-  fetchNewsList as fetchNewsListService,
-} from '../../service/news';
+import { fetchNewsList as fetchNewsListAction } from '../actions/news.js';
+import { fetchNewsList as fetchNewsListService } from '../../service/news';
 
 import OK from '../actions/OK.js';
 import ERR from '../actions/ERR.js';
