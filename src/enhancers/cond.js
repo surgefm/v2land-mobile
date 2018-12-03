@@ -2,7 +2,7 @@ import { createFactory } from 'react';
 import { id } from '../util';
 
 const cond = (...tuple) => BaseComponent => {
-  let factoryCache = {};
+  const factoryCache = {};
 
   const Cond = props => {
     const index = tuple.findIndex(([check]) => check(props));
