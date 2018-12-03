@@ -1,8 +1,8 @@
-export default (initialValue, { que = 'que', push = 'push' } = {}) => ({
+export default (initialValue, { queue = 'queue', push = 'push' } = {}) => ({
   init: {
-    [que]: initialValue,
+    [queue]: initialValue,
   },
   updaters: {
-    [push]: ({ [que]: q }) => value => ({ [que]: q.concat(value) }),
+    [push]: ({ [queue]: q }) => value => ({ [queue]: q.concat(value) }),
   },
 });
