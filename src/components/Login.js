@@ -16,6 +16,8 @@ const Login = ({
   errorMessage,
   setLoginName,
   setPasswd,
+  loginName,
+  passwd,
 }) => (
   <SafeAreaView style={{ backgroundColor: '#fff', flex: 1 }}>
     <ScrollView style={[paddings.pageTop]}>
@@ -28,14 +30,18 @@ const Login = ({
           <FormInput
             containerStyle={commonStyle.noSideMargins}
             onChangeText={setLoginName}
+            value={loginName}
           />
           <FormLabel labelStyle={commonStyle.noSideMargins}>密码</FormLabel>
           <FormInput
             containerStyle={commonStyle.noSideMargins}
             onChangeText={setPasswd}
+            value={passwd}
             secureTextEntry
           />
-          <FormValidationMessage labelStyle={commonStyle.noSideMargins}>{errorMessage}</FormValidationMessage>
+          <FormValidationMessage labelStyle={commonStyle.noSideMargins}>
+            {errorMessage}
+          </FormValidationMessage>
         </View>
         <View style={styles.loginButtons}>
           <Button

@@ -7,4 +7,6 @@ export withNavigationOptions from './withNavigationOptions.js';
 export withState from './withState.js';
 export withProps from './withProps.js';
 export mapProps from './mapProps.js';
+export lifecycle from './lifecycle.js';
 export automaton from './automaton';
+export addNavigationListener from './addNavigationListener.js';

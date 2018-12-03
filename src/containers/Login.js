@@ -9,6 +9,8 @@ import {
   automaton,
   withProps,
   connect,
+  lifecycle,
+  addNavigationListener,
 } from '../enhancers';
 
 import { login } from '../store/actions/auth.js';
@@ -48,6 +50,15 @@ const Login = R.compose(
       box: 'clientErrorMessage',
       fill: 'setClientErrorMessage',
     }),
+    automaton.coin(false, { side: 'isDirty' }),
+  ),
+  addNavigationListener(
+    'didBlur',
+    ({ setLoginName, setPasswd, flip }) => () => {
+      setLoginName('');
+      setPasswd('');
+      flip(true);
+    },
   ),
   withProps(
     ({
@@ -57,8 +68,13 @@ const Login = R.compose(
       login,
       clientErrorMessage,
       serverErrorMessage,
+      isDirty,
+      setLoginName,
+      setPasswd,
+      flip,
     }) => ({
       onLoginClick: () => {
+        flip(false);
         if (!loginName) {
           setClientErrorMessage('请填写用户名');
           return;
@@ -76,7 +92,15 @@ const Login = R.compose(
           password: passwd,
         });
       },
-      errorMessage: serverErrorMessage || clientErrorMessage,
+      errorMessage: isDirty ? '' : serverErrorMessage || clientErrorMessage,
+      setLoginName: (...args) => {
+        flip(true);
+        setLoginName(...args);
+      },
+      setPasswd: (...args) => {
+        flip(true);
+        setPasswd(...args);
+      },
     }),
   ),
 )(LoginComponent);

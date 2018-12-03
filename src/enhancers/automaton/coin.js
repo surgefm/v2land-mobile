@@ -3,6 +3,6 @@ export default (initialValue, { side = 'side', flip = 'flip' } = {}) => ({
     [side]: initialValue,
   },
   updaters: {
-    [flip]: ({ [side]: s }) => () => ({ [side]: !s }),
+    [flip]: ({ [side]: s }) => (nextSide = !s) => ({ [side]: nextSide }),
   },
 });
