@@ -35,7 +35,7 @@ const Login = ({
             onChangeText={setPasswd}
             secureTextEntry
           />
-          <FormValidationMessage>{errorMessage}</FormValidationMessage>
+          <FormValidationMessage labelStyle={commonStyle.noSideMargins}>{errorMessage}</FormValidationMessage>
         </View>
         <View style={styles.loginButtons}>
           <Button
