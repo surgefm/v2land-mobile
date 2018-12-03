@@ -39,7 +39,9 @@ const Login = ({
             value={passwd}
             secureTextEntry
           />
-          <FormValidationMessage labelStyle={commonStyle.noSideMargins}>
+          <FormValidationMessage
+            labelStyle={[commonStyle.noSideMargins, { height: 20 }]}
+          >
             {errorMessage}
           </FormValidationMessage>
         </View>
