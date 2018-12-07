@@ -6,6 +6,7 @@ import { paddingConstants, paddings } from './paddings';
 import { pageStyle } from './pageStyle';
 import { searchBarStyle } from './searchBarStyle';
 import loginStyle from './loginStyle';
+import profileStyle from './profileStyle';
 
 export const commonStyle = StyleSheet.create({
   eventTitle: {
@@ -37,6 +38,7 @@ export {
   searchBarStyle,
   pageStyle,
   loginStyle,
+  profileStyle,
 };
 
 export default commonStyle;

@@ -15,7 +15,7 @@ import { authorizedSelector } from '../store/selectors/auth.js';
 
 const Profile = R.compose(
   withNavigationOptions({
-    header: null,
+    title: '个人页面',
   }),
   withNavigationHandlers(({ replace }) => ({
     goLogin: () => replace(routers.login),

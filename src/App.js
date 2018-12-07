@@ -51,9 +51,6 @@ const SearchStack = createStackNavigator(
 const ProfileStack = createStackNavigator({
   [routers.me]: {
     screen: Profile,
-    navigationOptions: {
-      header: null,
-    },
   },
   [routers.login]: Login,
 });
