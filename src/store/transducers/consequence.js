@@ -1,5 +1,4 @@
 import { loop, Cmd } from 'redux-loop';
-import createAction from '../actions/createAction.js';
 
 const consequence = (type, next, input) => (state, action) => {
   if (action.type === type) {
