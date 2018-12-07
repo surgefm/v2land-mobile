@@ -36,5 +36,6 @@ export default StyleSheet.create({
     width: 40,
     textAlign: 'center',
     marginRight: 4,
+    color: colors.theme,
   },
 });
