@@ -17,8 +17,6 @@ import {
 import { login } from '../../service/auth.js';
 import { storage } from '../../util';
 
-const findTokenString = RegExp.prototype.test.bind(/^sails\.sid/);
-
 export default combineReducers({
   authorized: reduceReducers(
     // Request login
@@ -26,11 +24,7 @@ export default combineReducers({
 
     // ACTION: login[OK] -> ACTION: saveToken
     consequence(OK(loginAction.type), saveTokenAction, (_, res) => {
-      const token = res.headers
-        .get('set-cookie')
-        .split(';')
-        .find(findTokenString)
-        .split('=')[1];
+      const token = res.token;
       return [token];
     }),
 
