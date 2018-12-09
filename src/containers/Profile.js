@@ -7,32 +7,42 @@ import {
   withNavigationHandlers,
   connect,
   withProps,
+  prepare,
 } from '../enhancers';
 
 import { invalidateToken } from '../store/actions/auth.js';
+import { getUserInfo } from '../store/actions/user.js';
 
 import { authorizedSelector } from '../store/selectors/auth.js';
 
 const Profile = R.compose(
+
   withNavigationOptions({
     title: '个人页面',
   }),
+
   withNavigationHandlers(({ replace }) => ({
     goLogin: () => replace(routers.login),
   })),
+
   connect(
     {
       authorized: authorizedSelector,
     },
     {
       logout: invalidateToken,
+      getUserInfo,
     },
   ),
+
   withProps(({ authorized, goLogin }) => {
     if (!authorized) {
       goLogin();
     }
   }),
+
+  prepare(({ getUserInfo }) => getUserInfo()),
+
 )(ProfileComponent);
 
 export default Profile;

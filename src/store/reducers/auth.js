@@ -13,9 +13,13 @@ import {
   initializeTokenFromStorage as initTokenAction,
   invalidateToken as invalidateTokenAction,
 } from '../actions/auth.js';
+import {
+  getUserInfo as getUserInfoAction
+} from '../actions/user.js';
 
 import { login } from '../../service/auth.js';
-import { storage } from '../../util';
+import { getUserInfo } from '../../service/me.js';
+import { storage, id } from '../../util';
 
 export default combineReducers({
   authorized: reduceReducers(
@@ -59,6 +63,13 @@ export default combineReducers({
 
     // Reset to null when token was invalidated
     on(OK(invalidateTokenAction.type), () => null),
+
+    requestData(
+      getUserInfoAction.type,
+      getUserInfo,
+      id,
+      id,
+    ),
 
     fallback(null),
   ),
