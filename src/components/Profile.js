@@ -50,7 +50,7 @@ export default class Profile extends Component {
   static contextType = AlertContext;
 
   render() {
-    const { logout } = this.props;
+    const { logout, username = '', role = '' } = this.props;
     return (
       <SafeAreaView style={{ backgroundColor: colors.lightGrey, flex: 1 }}>
         <ScrollView style={profileStyle.pageTop}>
@@ -64,8 +64,8 @@ export default class Profile extends Component {
             />
             <View style={profileStyle.usernameContainer}>
               <Text style={profileStyle.username}>
-                小朋友{'  '}
-                <Text style={profileStyle.role}>社区协作者</Text>
+                {username}{'   '}
+                <Text style={profileStyle.role}>{role}</Text>
               </Text>
               <Text numberOfLines={1}>
                 大家好，我叫小朋友。我的兴趣爱好十分广泛，我喜欢读书，写作，跳舞，吹牛。

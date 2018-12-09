@@ -64,6 +64,9 @@ export default combineReducers({
     // Reset to null when token was invalidated
     on(OK(invalidateTokenAction.type), () => null),
 
+
+    // Fetch user infos with token
+    consequence(initTokenAction.type, getUserInfoAction),
     requestData(
       getUserInfoAction.type,
       getUserInfo,

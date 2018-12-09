@@ -7,13 +7,12 @@ import {
   withNavigationHandlers,
   connect,
   withProps,
-  prepare,
 } from '../enhancers';
 
 import { invalidateToken } from '../store/actions/auth.js';
-import { getUserInfo } from '../store/actions/user.js';
 
 import { authorizedSelector } from '../store/selectors/auth.js';
+import { userNameSelector, userDisplayRoleSelector } from '../store/selectors/user.js';
 
 const Profile = R.compose(
 
@@ -28,21 +27,19 @@ const Profile = R.compose(
   connect(
     {
       authorized: authorizedSelector,
+      username: userNameSelector,
+      role: userDisplayRoleSelector,
     },
     {
       logout: invalidateToken,
-      getUserInfo,
     },
   ),
 
-  withProps(({ authorized, goLogin }) => {
+  withProps(({ authorized, goLogin, username }) => {
     if (!authorized) {
       goLogin();
     }
   }),
-
-  prepare(({ getUserInfo }) => getUserInfo()),
-
 )(ProfileComponent);
 
 export default Profile;
