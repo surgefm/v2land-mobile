@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux-loop';
-import eventReducers from './events';
-import stackReducers from './stacks';
-import newsReducers from './news';
-import authReducers from './auth.js';
+import events from './events';
+import stacks from './stacks';
+import news from './news';
+import auth from './auth.js';
+import user from './user.js';
 
 export default combineReducers({
-  events: eventReducers,
-  stacks: stackReducers,
-  news: newsReducers,
-  auth: authReducers,
+  events,
+  stacks,
+  news,
+  auth,
+  user,
 });

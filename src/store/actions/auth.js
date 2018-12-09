@@ -9,3 +9,5 @@ export const initializeTokenFromStorage = createAction(
 export const invalidateToken = createAction('invalidate token');
 
 export const saveToken = createAction('save token');
+
+export const getUserInfo = createAction('get user infomation');

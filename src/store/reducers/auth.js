@@ -13,11 +13,13 @@ import {
   initializeTokenFromStorage as initTokenAction,
   invalidateToken as invalidateTokenAction,
 } from '../actions/auth.js';
+import {
+  getUserInfo as getUserInfoAction
+} from '../actions/user.js';
 
 import { login } from '../../service/auth.js';
-import { storage } from '../../util';
-
-const findTokenString = RegExp.prototype.test.bind(/^sails\.sid/);
+import { getUserInfo } from '../../service/me.js';
+import { storage, id } from '../../util';
 
 export default combineReducers({
   authorized: reduceReducers(
@@ -26,11 +28,7 @@ export default combineReducers({
 
     // ACTION: login[OK] -> ACTION: saveToken
     consequence(OK(loginAction.type), saveTokenAction, (_, res) => {
-      const token = res.headers
-        .get('set-cookie')
-        .split(';')
-        .find(findTokenString)
-        .split('=')[1];
+      const token = res.token;
       return [token];
     }),
 
@@ -65,6 +63,16 @@ export default combineReducers({
 
     // Reset to null when token was invalidated
     on(OK(invalidateTokenAction.type), () => null),
+
+
+    // Fetch user infos with token
+    consequence(initTokenAction.type, getUserInfoAction),
+    requestData(
+      getUserInfoAction.type,
+      getUserInfo,
+      id,
+      id,
+    ),
 
     fallback(null),
   ),
