@@ -9,7 +9,11 @@ const EventItem = ({ name, description, headerImage = {}, onPress }) => (
   <TouchableHighlight onPress={onPress} underlayColor={colors.lightGrey}>
     <Card
       containerStyle={styles.cardContainer}
-      image={{ uri: getAssetURL(headerImage.imageUrl) }}
+      image={
+        headerImage !== null
+          ? { uri: getAssetURL(headerImage.imageUrl) }
+          : require('../../static/defaultHeaderImage.png')
+      }
     >
       <View style={styles.eventDescription}>
         <EventTitle>{name}</EventTitle>

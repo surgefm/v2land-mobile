@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, StatusBar } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { SafeAreaView, ScrollView } from 'react-navigation';
 import { Text } from 'react-native-elements';
 import { EventTitle, EventTime } from '.';
@@ -46,7 +46,7 @@ const Article = ({
             <View style={[paddings.side, paddings.largeInterval]}>
               <EventTitle style={paddings.interval}>进展</EventTitle>
               <StackList
-                stacks={event.stack}
+                stacks={event.stacks}
                 onPress={onStackPress}
                 onNewsPress={onNewsPress}
               />

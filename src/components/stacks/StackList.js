@@ -14,7 +14,7 @@ const StackList = ({ stacks, onPress, onNewsPress }) =>
           onNewsPress={onNewsPress}
         />
       )}
-      keyExtractor={stack => `Stack#${stack.id}`}
+      keyExtractor={stack => `Stack#${stack}`}
       extraData={stacks}
     />
   );

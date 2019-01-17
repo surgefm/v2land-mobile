@@ -15,7 +15,7 @@ const Stack = new schema.Entity('stacks', {
 });
 
 const Event = new schema.Entity('events', {
-  stack: [Stack],
+  stacks: [Stack],
   subscribers: [Client],
 });
 
