@@ -38,7 +38,7 @@ const Article = ({
             <View style={[paddings.side, paddings.largeInterval]}>
               <EventTime
                 style={[paddings.interval, styles.eventTime]}
-                time={1531368000000}
+                time={event.updatedAt}
               />
               <EventTitle style={paddings.interval}>{event.name}</EventTitle>
               <Text style={styles.eventDescription}>{event.description}</Text>

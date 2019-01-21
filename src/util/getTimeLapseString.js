@@ -28,8 +28,7 @@ const getTimeLapseString = (time, type = 'specific') => {
   clearHour(time);
   const dayDiff = Math.floor((getSecond(now) - getSecond(time)) / 60 / 60 / 24);
   if (dayDiff === 0) return '今天';
-  if (type !== 'general' && secondDiff < 3600 * 24)
-    return `${Math.floor(secondDiff / 3600)} 小时前`;
+  if (type !== 'general' && secondDiff < 3600 * 24) return `${Math.floor(secondDiff / 3600)} 小时前`;
   if (dayDiff === 1) return '昨天';
   if (type !== 'general') return `${dayDiff} 天前`;
 

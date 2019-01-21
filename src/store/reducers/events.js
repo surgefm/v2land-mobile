@@ -21,6 +21,7 @@ export const fetchEventList = requestData(
   (state, { eventList }) => {
     let newState = { ...state };
     for (const event of eventList) {
+      event.updatedAt = new Date(event.updatedAt);
       const { entities } = normalize(event, Event);
       newState = {
         ...newState,
@@ -38,6 +39,7 @@ export const fetchEventList = requestData(
 const fetchEventOKHandler = (state, event) => {
   const { entities, result } = normalize(event, Event);
   event = entities.events[result];
+  event.updatedAt = new Date(event.updatedAt);
 
   if (state[result] && state[result].newsCount) {
     const oldEvent = state[result];

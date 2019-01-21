@@ -64,7 +64,7 @@ export default class Profile extends Component {
             />
             <View style={profileStyle.usernameContainer}>
               <Text style={profileStyle.username}>
-                {username}{'   '}
+                {username || '黑衣人'}{'  '}
                 <Text style={profileStyle.role}>{role}</Text>
               </Text>
               <Text numberOfLines={1}>

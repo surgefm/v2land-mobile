@@ -16,7 +16,7 @@ const Events = ({ onEventPress, eventList }) => (
         />
       </View>
       <SectionList
-        sections={eventList.map(data => ({ data: [data] }))}
+        sections={eventList}
         style={{ paddingBottom: 50 }}
         renderItem={({ item }) => (
           <EventItem
@@ -26,8 +26,8 @@ const Events = ({ onEventPress, eventList }) => (
             onPress={onEventPress(item.id)}
           />
         )}
-        renderSectionHeader={({ section }) => (
-          <TimeBadge style={styles.sectionHeader} date={1542083664886} />
+        renderSectionHeader={({ section: { title } }) => (
+          <TimeBadge style={styles.sectionHeader} title={title} />
         )}
         renderSectionFooter={() => <View style={{ height: 16 }} />}
         keyExtractor={item => item.id.toString()}

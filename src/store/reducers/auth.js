@@ -14,7 +14,7 @@ import {
   invalidateToken as invalidateTokenAction,
 } from '../actions/auth.js';
 import {
-  getUserInfo as getUserInfoAction
+  getUserInfo as getUserInfoAction,
 } from '../actions/user.js';
 
 import { login } from '../../service/auth.js';
