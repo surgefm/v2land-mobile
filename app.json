@@ -1,7 +1,22 @@
 {
   "expo": {
     "sdkVersion": "31.0.0",
-    "name": "v2land-mobile",
+    "version": "0.1.3",
+    "name": "浪潮",
+    "icon": "./src/static/icon.png",
+    "ios": {
+      "bundleIdentifier": "org.langchao.mobile",
+      "config": {
+        "usesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "org.langchao.mobile"
+    },
+    "assetBundlePatterns": [
+      "src/static/**/*",
+      "src/static/logotype.svg"
+    ],
     "slug": "v2land-mobile",
     "privacy": "unlisted",
     "orientation": "portrait",
