@@ -19,7 +19,7 @@ class NewsList extends Component {
 
     await this.props.fetchNewsList({
       where: {
-        stack: this.props.stackId,
+        stackId: this.props.stackId,
         status: 'admitted',
       },
       page: Math.floor(this.props.newsList.length / 15) + 1,
@@ -49,7 +49,6 @@ const NewsListComponent = ({
   isListLoading,
 }) => (
   <View style={[{ flex: 1 }, style]}>
-    {console.log(newsList.length)}
     <FlatList
       data={newsList}
       renderItem={({ item }) => (

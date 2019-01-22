@@ -20,6 +20,9 @@ const onFetchEventListOKHandler = on(
   (state = {}, { eventList }) => {
     let newState = { ...state };
     for (const event of eventList) {
+      if (event.stacks) {
+        event.stacks.sort((a, b) => new Date(b) - new Date(a));
+      }
       const { entities } = normalize(event, Event);
       stackList = entities.stacks;
       newState = {
@@ -46,23 +49,24 @@ const onFetchEventOKHandler = on(
 const onFetchNewsListOKHandler = on(
   OK(fetchNewsListAction.type),
   (state, { newsList }) => {
+    let newState = { ...state };
     for (const news of newsList) {
       const stackId = getStackId(news);
       if (
-        state[stackId] &&
-        state[stackId].news &&
-        !state[stackId].news.includes(news.id)
+        newState[stackId] &&
+        newState[stackId].news &&
+        !newState[stackId].news.includes(news.id)
       ) {
-        return {
-          ...state,
+        newState = {
+          ...newState,
           [stackId]: {
-            ...state[stackId],
-            news: [...state[stackId].news, news.id],
+            ...newState[stackId],
+            news: [...newState[stackId].news, news.id],
           },
         };
       }
-      return state;
     }
+    return newState;
   },
 );
 

@@ -21,6 +21,9 @@ export const fetchEventList = requestData(
   (state, { eventList }) => {
     let newState = { ...state };
     for (const event of eventList) {
+      if (event.stacks) {
+        event.stacks.sort((a, b) => new Date(b.time) - new Date(a.time));
+      }
       event.updatedAt = new Date(event.updatedAt);
       const { entities } = normalize(event, Event);
       newState = {
@@ -37,6 +40,9 @@ export const fetchEventList = requestData(
 );
 
 const fetchEventOKHandler = (state, event) => {
+  if (event.stacks) {
+    event.stacks.sort((a, b) => new Date(b.time) - new Date(a.time));
+  }
   const { entities, result } = normalize(event, Event);
   event = entities.events[result];
   event.updatedAt = new Date(event.updatedAt);
