@@ -49,6 +49,7 @@ const NewsListComponent = ({
   isListLoading,
 }) => (
   <View style={[{ flex: 1 }, style]}>
+    {console.log(newsList.length)}
     <FlatList
       data={newsList}
       renderItem={({ item }) => (
