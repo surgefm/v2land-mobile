@@ -28,7 +28,7 @@ const News = ({ news, onButtonPress = () => {} }) =>
           style={styles.sourceIcon}
           source={require('../../static/defaultSource.png')}
         />
-        <Subtitle>{news.source}</Subtitle>
+        <Text>{news.source}</Text>
       </View>
       <Text style={[styles.newsDescription, paddings.largeInterval]}>
         {news.abstract}
@@ -67,6 +67,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     flexWrap: 'wrap',
+    marginBottom: 8,
   },
   sourceIcon: {
     width: fontSizes.medium,
@@ -74,8 +75,9 @@ const styles = StyleSheet.create({
     marginRight: 4,
   },
   newsDescription: {
-    fontSize: 14,
-    lineHeight: 22,
+    fontSize: 16,
+    lineHeight: 24,
+    fontFamily: 'source-han-sans',
   },
   button: {
     padding: 6,

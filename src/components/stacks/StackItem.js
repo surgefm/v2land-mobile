@@ -75,15 +75,19 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     lineHeight: 26,
+    fontFamily: 'source-han-sans',
   },
   time: {
     fontSize: 16,
+    lineHeight: 17,
     color: colors.darkGrey,
+    fontFamily: 'source-han-sans',
   },
   description: {
     paddingBottom: 12,
     fontSize: 14,
     lineHeight: 22,
+    fontFamily: 'source-han-sans',
   },
   button: {
     padding: 6,

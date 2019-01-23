@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, StatusBar } from 'react-native';
 import { SafeAreaView, ScrollView } from 'react-navigation';
 import { Text } from 'react-native-elements';
 import { EventTitle, EventTime } from '.';
 import { StackList } from '../stacks';
 import { HeaderImage, RefreshControl } from '../elements';
-import { paddings, paddingConstants } from '../../styles';
+import { paddings, paddingConstants, colors } from '../../styles';
 
 const Article = ({
   event,
@@ -31,7 +31,10 @@ const Article = ({
         />
       }
     >
-      <HeaderImage headerImage={event.headerImage} />
+      <StatusBar hidden={true} />
+      { event.headerImage
+        ? <HeaderImage headerImage={event.headerImage} />
+        : <View style={{ height: 80 }} />}
       <SafeAreaView style={{ flex: 1 }}>
         {!event || (
           <View>
@@ -60,10 +63,12 @@ const Article = ({
 const styles = StyleSheet.create({
   eventTime: {
     paddingTop: paddingConstants.largeInterval,
+    color: colors.theme,
   },
   eventDescription: {
-    fontSize: 14,
-    lineHeight: 22,
+    fontSize: 16,
+    lineHeight: 24,
+    fontFamily: 'source-han-sans',
   },
 });
 

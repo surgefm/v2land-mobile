@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { Animated } from 'react-native';
 import ArticleComponent from './article/Article';
 import { AlertContext } from '../context/Alert';
@@ -24,10 +24,23 @@ export default class Article extends Component {
     this.state = {
       refreshing: false,
     };
+
     this.props.navigation.setParams({
       ...this.props.navigation.state,
       event: this.props.event,
     });
+
+    if (!this.props.event.headerImage) {
+      this.props.navigation.setParams({
+        ...this.props.navigation.state,
+        headerShade: 1,
+        headerTransparent: false,
+        headerTitle: this.props.event.name,
+        headerTitleColor: 'rgb(0, 0, 0)',
+        headerBackgroundColor: 'rgb(256, 256, 256)',
+        headerTintColor: 'rgb(0, 131, 168)',
+      });
+    }
   }
 
   async onRefresh() {
@@ -35,7 +48,11 @@ export default class Article extends Component {
     const { fetchEvent, eventId } = this.props;
     await fetchEvent({ eventId });
     this.setState(() => ({ refreshing: false }));
-    this.context('info', '刷新成功', this.refreshInfo());
+    this.alert('info', '刷新成功', this.refreshInfo());
+  }
+
+  setAlert(alert) {
+    this.alert = alert;
   }
 
   refreshInfo() {
@@ -47,6 +64,7 @@ export default class Article extends Component {
   }
 
   onScrollEndSnapToEdge(event) {
+    if (!this.props.event.headerImage) return;
     const y = event.nativeEvent.contentOffset.y;
     const shade = Math.min((y - 100) / 100, 1);
     const tintColorElement = Math.floor((1 - shade) * 256);
@@ -65,13 +83,16 @@ export default class Article extends Component {
 
   render() {
     return (
-      ArticleComponent({
-        ...this.props,
-        refreshing: this.state.refreshing,
-        onRefresh: this.onRefresh.bind(this),
-        onScroll: this.onScrollEndSnapToEdge.bind(this),
-        onScrollEndSnapToEdge: this.onScrollEndSnapToEdge.bind(this),
-      })
+      <AlertContext.Consumer>
+        {alert => ArticleComponent({
+          ...this.props,
+          setAlert: this.setAlert(alert),
+          refreshing: this.state.refreshing,
+          onRefresh: this.onRefresh.bind(this),
+          onScroll: this.onScrollEndSnapToEdge.bind(this),
+          onScrollEndSnapToEdge: this.onScrollEndSnapToEdge.bind(this),
+        })}
+      </AlertContext.Consumer>
     );
   }
 }

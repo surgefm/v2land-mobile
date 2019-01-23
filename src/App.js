@@ -3,6 +3,8 @@ import { Provider } from 'react-redux';
 import { compose } from 'ramda';
 import configStore from './store/configStore';
 
+import { Font } from 'expo';
+
 import {
   createBottomTabNavigator,
   createStackNavigator,
@@ -116,6 +118,13 @@ const NavigatorContainer = compose(
 )(Navigator);
 
 export default class App extends React.Component {
+  componentDidMount() {
+    Font.loadAsync({
+      'source-han-serif-semibold': require('./static/fonts/SourceHanSerifCN-SemiBold.ttf'),
+      'source-han-sans': require('./static/fonts/SourceHanSansCN-Regular.ttf'),
+    });
+  }
+
   render() {
     return (
       <Provider store={store}>

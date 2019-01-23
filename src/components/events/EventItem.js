@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
   textDesc: {
     marginTop: 8,
     lineHeight: 20,
+    fontFamily: 'source-han-sans',
   },
   cardContainer: {
     borderRadius: 8,
@@ -36,9 +37,6 @@ const styles = StyleSheet.create({
     marginLeft: 0,
     marginRight: 0,
     marginTop: 12,
-
-    // FIXME: shadow on android
-    /* shadow */
     shadowColor: colors.shadow,
     shadowOffset: { width: 8, height: 8 },
     shadowOpacity: 1.0,

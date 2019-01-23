@@ -10,9 +10,9 @@ import profileStyle from './profileStyle';
 
 export const commonStyle = StyleSheet.create({
   eventTitle: {
-    fontWeight: 'bold',
     fontSize: 24,
     lineHeight: 28,
+    fontFamily: 'source-han-serif-semibold',
   },
   noSideMargins: {
     marginLeft: 0,
