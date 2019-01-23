@@ -14,9 +14,9 @@ describe('Alert', () => {
   beforeEach(() => {
     testRenderer = renderer.create(
       <AlertProvider>
-        <AlertContext>
+        <AlertContext.Consumer>
           {context => <SubComponent context={context} />}
-        </AlertContext>
+        </AlertContext.Consumer>
       </AlertProvider>,
     );
   });
