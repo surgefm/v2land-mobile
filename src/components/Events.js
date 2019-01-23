@@ -1,61 +1,55 @@
-import React from 'react';
-import { StyleSheet, SectionList, View, SafeAreaView } from 'react-native';
-import { ScrollView } from 'react-navigation';
-import { colors, paddings, paddingConstants } from '../styles';
-import SvgUri from 'react-native-svg-uri';
-import { EventItem, TimeBadge } from './events';
+import React, { Component } from 'react';
+import { Animated } from 'react-native';
+import EventsComponent from './events/Events';
+import { AlertContext } from '../context/Alert';
 
-const Events = ({ onEventPress, eventList }) => (
-  <SafeAreaView style={styles.container}>
-    <ScrollView style={[styles.container, paddings.side]}>
-      <View style={[styles.header, paddings.largeInterval]}>
-        <SvgUri
-          width="100"
-          height="50"
-          source={require('../static/logotype.svg')}
-        />
-      </View>
-      <SectionList
-        sections={eventList}
-        style={{ paddingBottom: 50 }}
-        renderItem={({ item }) => (
-          <EventItem
-            name={item.name}
-            description={item.description}
-            headerImage={item.headerImage}
-            onPress={onEventPress(item.id)}
-          />
-        )}
-        renderSectionHeader={({ section: { title } }) => (
-          <TimeBadge style={styles.sectionHeader} title={title} />
-        )}
-        renderSectionFooter={() => <View style={{ height: 16 }} />}
-        keyExtractor={item => item.id.toString()}
-      />
-    </ScrollView>
-  </SafeAreaView>
+export const scrollRangeForAnimation = 100;
+
+export const onScroll = Animated.event(
+  [
+    {
+      nativeEvent: { contentOffset: { y: new Animated.Value(0) } },
+    },
+  ],
+  {
+    useNativeDriver: true,
+  },
 );
 
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: paddingConstants.top,
-    backgroundColor: colors.lightGrey,
-    flexDirection: 'column',
-  },
-  header: {
-    flexDirection: 'row',
-    height: 50,
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  headerCircle: {
-    width: 36,
-    height: 36,
-    borderRadius: 20,
-    backgroundColor: colors.grey,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
+export default class Article extends Component {
+  static contextType = AlertContext;
 
-export default Events;
+  constructor(props) {
+    super(props);
+    this.state = {
+      refreshing: false,
+    };
+  }
+
+  async onRefresh() {
+    this.setState(() => ({ refreshing: true }));
+    const { fetchEventList } = this.props;
+    console.log(fetchEventList);
+    await fetchEventList();
+    console.log(123);
+    this.setState(() => ({ refreshing: false }));
+    this.alert('info', '刷新成功', '成功加载最新事件');
+  }
+
+  setAlert(alert) {
+    this.alert = alert;
+  }
+
+  render() {
+    return (
+      <AlertContext.Consumer>
+        {alert => EventsComponent({
+          ...this.props,
+          setAlert: this.setAlert(alert),
+          refreshing: this.state.refreshing,
+          onRefresh: this.onRefresh.bind(this),
+        })}
+      </AlertContext.Consumer>
+    );
+  }
+}

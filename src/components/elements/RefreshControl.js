@@ -2,7 +2,7 @@ import React from 'react';
 import { RefreshControl as RC } from 'react-native';
 import { colors } from '../../styles';
 
-const RefreshControl = ({ refreshing, title, onRefresh }) => (
+const RefreshControl = ({ refreshing, title, onRefresh = () => {} }) => (
   <RC
     refreshing={refreshing}
     onRefresh={() => onRefresh()}
