@@ -17,8 +17,8 @@ import {
   getUserInfo as getUserInfoAction,
 } from '../actions/user.js';
 
-import { login } from '../../service/auth.js';
-import { getUserInfo } from '../../service/me.js';
+import { login } from '../../services/auth.js';
+import { getUserInfo } from '../../services/me.js';
 import { storage, id } from '../../util';
 
 export default combineReducers({

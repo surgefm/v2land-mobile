@@ -10,7 +10,7 @@ export const login = (_, { username, password }) =>
         .split(';')
         .find(findTokenString)
         .split('=')[1];
-      return res.json().then(body => ({...body, token}));
+      return res.json().then(body => ({ ...body, token }));
     }
     return Promise.reject('用户名或密码错误');
   });

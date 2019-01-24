@@ -13,7 +13,7 @@ import {
 } from '../actions/auth.js';
 import OK from '../actions/OK.js';
 
-import { getUserInfo } from '../../service/me.js';
+import { getUserInfo } from '../../services/me.js';
 
 export default combineReducers({
   data: reduceReducers(

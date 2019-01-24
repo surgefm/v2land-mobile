@@ -12,7 +12,7 @@ import {
 import OK from '../actions/OK.js';
 import ERR from '../actions/ERR.js';
 
-import { getAll, getEvent } from '../../service/events.js';
+import { getAll, getEvent } from '../../services/events.js';
 import { Event, normalize } from '../schemas';
 
 export const fetchEventList = requestData(
