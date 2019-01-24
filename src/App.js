@@ -67,7 +67,7 @@ const Navigator = createBottomTabNavigator(
   {
     [routers.today]: EventsStack,
     [routers.search]: SearchStack,
-    [routers.profile]: ProfileStack,
+    // [routers.profile]: ProfileStack,
   },
   {
     initialRouteName: routers.today,
@@ -99,6 +99,8 @@ const Navigator = createBottomTabNavigator(
       },
     }),
     tabBarOptions: {
+      showLabel: false,
+      activeTintColor: colors.theme,
       style: {
         // FIXME: adding a shadow arround the top of the tab bar
         // elevation: 24,
@@ -122,6 +124,7 @@ export default class App extends React.Component {
     Font.loadAsync({
       'source-han-serif-semibold': require('./static/fonts/SourceHanSerifCN-SemiBold.ttf'),
       'source-han-sans': require('./static/fonts/SourceHanSansCN-Regular.ttf'),
+      'source-han-sans-medium': require('./static/fonts/SourceHanSansCN-Medium.ttf'),
     });
   }
 

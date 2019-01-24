@@ -12,8 +12,9 @@ const Subtitle = ({ children, style }) => (
 const styles = StyleSheet.create({
   title: {
     fontSize: fontSizes.medium,
-    fontWeight: 'bold',
     color: '#4D4D4D',
+    fontFamily: 'source-han-sans-medium',
+    lineHeight: 20,
   },
 });
 

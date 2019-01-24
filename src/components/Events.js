@@ -29,9 +29,7 @@ export default class Article extends Component {
   async onRefresh() {
     this.setState(() => ({ refreshing: true }));
     const { fetchEventList } = this.props;
-    console.log(fetchEventList);
     await fetchEventList();
-    console.log(123);
     this.setState(() => ({ refreshing: false }));
     this.alert('info', '刷新成功', '成功加载最新事件');
   }

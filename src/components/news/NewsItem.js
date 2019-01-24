@@ -2,7 +2,6 @@ import React from 'react';
 import { View, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { Text, Icon } from 'react-native-elements';
 import { LinearGradient } from 'expo';
-import { getTimeString } from '../../util';
 import { colors } from '../../styles';
 
 const NewsItem = ({ news, onPress }) => (
@@ -21,14 +20,9 @@ const NewsItem = ({ news, onPress }) => (
       source={require('../../static/defaultSource.png')}
     />
 
-    <Text style={styles.date}>
-      {getTimeString(news.time, {
-        showWeekday: false,
-        withSpaceBetween: false,
-      })}
+    <Text numberOfLines={1} style={styles.title}>
+      {news.title}
     </Text>
-
-    <Text numberOfLines={1}>{news.title}</Text>
 
     <View style={styles.rightContainer}>
       <LinearGradient
@@ -61,10 +55,10 @@ const styles = StyleSheet.create({
     height: 16,
     marginRight: 4,
   },
-  date: {
-    color: colors.darkGrey,
-    fontWeight: 'bold',
-    marginRight: 4,
+  title: {
+    size: 14,
+    lineHeight: 18,
+    fontFamily: 'source-han-sans',
   },
   rightContainer: {
     position: 'absolute',
@@ -73,7 +67,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    height: 28,
+    height: 30,
   },
   shade: {
     width: 40,

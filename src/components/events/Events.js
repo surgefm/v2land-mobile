@@ -34,7 +34,7 @@ const Events = ({ onEventPress, eventList, refreshing, onRefresh }) => (
             name={item.name}
             description={item.description}
             headerImage={item.headerImage}
-            onPress={onEventPress(item.id)}
+            onPress={onEventPress(item)}
           />
         )}
         renderSectionHeader={({ section: { title } }) => (

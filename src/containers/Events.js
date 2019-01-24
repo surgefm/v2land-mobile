@@ -20,7 +20,11 @@ const Events = R.compose(
     headerBackTitle: null,
   }),
   withNavigationHandlers(({ navigate }) => ({
-    onEventPress: eventId => () => navigate(routers.event, { eventId }),
+    onEventPress: event => () => navigate(routers.event, {
+      eventId: event.id,
+      title: event.name,
+      hadHeaderImage: !!event.headerImage,
+    }),
   })),
   connect(
     {

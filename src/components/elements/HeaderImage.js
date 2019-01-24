@@ -6,7 +6,11 @@ const HeaderImage = ({ headerImage, style }) => {
   if (headerImage && headerImage.imageUrl) {
     return (
       <Image
-        style={[{ width: '100%', height: 300 }, style]}
+        style={[{
+          width: '100%',
+          height: 300,
+          backgroundColor: 'rgba(0, 131, 168, 0.05)',
+        }, style]}
         source={{ uri: getAssetURL(headerImage.imageUrl) }}
       />
     );

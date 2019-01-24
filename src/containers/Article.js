@@ -17,26 +17,36 @@ import { eventSelector } from '../store/selectors/events.js';
 
 const Article = R.compose(
   withNavigationOptions(({ navigation: { state: { params } } }) => ({
-    headerTransparent: true,
-    headerTintColor: params.headerTintColor || '#fff',
+    headerTransparent: params.hadHeaderImage,
+    headerTintColor: params.hadHeaderImage
+      ? (params.headerTintColor || '#fff')
+      : 'rgb(0, 131, 168)',
     headerBackgroundTransitionPreset: 'fade',
-    headerTitle: params.headerTitle,
+    headerTitle: params.title,
     headerTitleStyle: {
-      color: params.headerTitleColor,
+      color: params.hadHeaderImage
+        ? (params.headerTitleColor || 'transparent')
+        : '#000',
     },
     headerBackTitle: '事件',
     headerLeftContainerStyle: {
       paddingLeft: 10,
     },
     headerStyle: {
-      backgroundColor: params.headerBackgroundColor || 'rgba(256, 256, 256, 0)',
+      backgroundColor: params.hadHeaderImage
+        ? (params.headerBackgroundColor || 'rgba(256, 256, 256, 0)')
+        : 'rgb(256, 256, 256)',
       borderBottomWidth: 1,
       borderBottomColor: `rgba(174, 174, 174, ${params.headerShade || 0})`,
     },
     headerRight: (
       <ArticleHeaderButtons
         event={params.event}
-        color={params.headerTintColor}
+        color={
+          params.hadHeaderImage
+            ? (params.headerTintColor || '#fff')
+            : 'rgb(0, 131, 168)'
+        }
       />
     ),
   })),

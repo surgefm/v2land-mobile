@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, StatusBar } from 'react-native';
-import { SafeAreaView, ScrollView } from 'react-navigation';
+import { ScrollView } from 'react-navigation';
 import { Text } from 'react-native-elements';
 import { EventTitle, EventTime } from '.';
 import { StackList } from '../stacks';
@@ -31,11 +31,11 @@ const Article = ({
         />
       }
     >
-      <StatusBar hidden={true} />
-      { event.headerImage
-        ? <HeaderImage headerImage={event.headerImage} />
-        : <View style={{ height: 80 }} />}
-      <SafeAreaView style={{ flex: 1 }}>
+      <StatusBar
+        barStyle="dark-content"
+        hidden={event.headerImage !== null} />
+      <HeaderImage headerImage={event.headerImage} />
+      <View style={{ flex: 1 }}>
         {!event || (
           <View>
             <View style={[paddings.side, paddings.largeInterval]}>
@@ -46,17 +46,17 @@ const Article = ({
               <EventTitle style={paddings.interval}>{event.name}</EventTitle>
               <Text style={styles.eventDescription}>{event.description}</Text>
             </View>
-            <View style={[paddings.side, paddings.largeInterval]}>
+            {!event.stacks || <View style={[paddings.side, paddings.largeInterval]}>
               <EventTitle style={paddings.interval}>进展</EventTitle>
               <StackList
                 stacks={event.stacks}
                 onPress={onStackPress}
                 onNewsPress={onNewsPress}
               />
-            </View>
+            </View>}
           </View>
         )}
-      </SafeAreaView>
+      </View>
     </ScrollView>
   );
 

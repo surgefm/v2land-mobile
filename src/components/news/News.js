@@ -18,7 +18,7 @@ const News = ({ news, onButtonPress = () => {} }) =>
     <ScrollView style={[pageStyle.default, styles.topPadding]}>
       <View style={[paddings.interval, styles.newsSubtitle]}>
         <Subtitle style={styles.theme}>
-          {getTimeString(news.time) + ' / '}
+          {getTimeString(news.time, { withSpaceBetween: true }) + ' / '}
         </Subtitle>
         <EventTime style={styles.theme} time={news.time} />
       </View>

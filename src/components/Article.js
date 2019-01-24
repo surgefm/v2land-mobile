@@ -29,18 +29,6 @@ export default class Article extends Component {
       ...this.props.navigation.state,
       event: this.props.event,
     });
-
-    if (!this.props.event.headerImage) {
-      this.props.navigation.setParams({
-        ...this.props.navigation.state,
-        headerShade: 1,
-        headerTransparent: false,
-        headerTitle: this.props.event.name,
-        headerTitleColor: 'rgb(0, 0, 0)',
-        headerBackgroundColor: 'rgb(256, 256, 256)',
-        headerTintColor: 'rgb(0, 131, 168)',
-      });
-    }
   }
 
   async onRefresh() {
