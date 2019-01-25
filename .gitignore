@@ -19,3 +19,5 @@ yarn-error.log*
 .vscode/*
 
 .DS_Store
+
+ios/Pods/*

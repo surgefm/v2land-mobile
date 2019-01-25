@@ -8,10 +8,14 @@
       "bundleIdentifier": "org.langchao.mobile",
       "config": {
         "usesNonExemptEncryption": false
-      }
+      },
+      "publishBundlePath": "ios/--/Supporting/shell-app.bundle",
+      "publishManifestPath": "ios/--/Supporting/shell-app-manifest.json"
     },
     "android": {
-      "package": "org.langchao.mobile"
+      "package": "org.langchao.mobile",
+      "publishBundlePath": "android/app/src/main/assets/shell-app.bundle",
+      "publishManifestPath": "android/app/src/main/assets/shell-app-manifest.json"
     },
     "assetBundlePatterns": [
       "src/static/**/*",
@@ -23,6 +27,11 @@
     "privacy": "unlisted",
     "orientation": "portrait",
     "primaryColor": "#4A90E2",
-    "scheme": "v2land"
+    "scheme": "v2land",
+    "isDetached": true,
+    "detach": {
+      "iosExpoViewUrl": "https://s3.amazonaws.com/exp-exponent-view-code/ios-v2.9.0-sdk31.0.0-250a3991-b623-4f9c-b07f-0b9ed7e8c4c9.tar.gz",
+      "androidExpoViewUrl": "https://s3.amazonaws.com/exp-exponent-view-code/android-v2.9.2-sdk31.0.0-d1776f37-d524-4fee-872d-6807b0fd83ff.tar.gz"
+    }
   }
 }

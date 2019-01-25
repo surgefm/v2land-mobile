@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "expo": "^31.0.5",
+    "expokit": "31.0.2",
     "lodash": "^4.17.11",
     "normalizr": "^3.3.0",
     "ramda": "^0.25.0",
