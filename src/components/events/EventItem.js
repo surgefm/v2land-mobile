@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View, TouchableHighlight, Image } from 'react-native';
 import { Text } from 'react-native-elements';
 import FadeIn from 'react-native-fade-in-image';
+import { CachedImage } from 'react-native-cached-image';
 import EventTitle from '../article/EventTitle';
 import { colors } from '../../styles';
 import getAssetURL from '../../util/getAssetURL';
@@ -11,12 +12,16 @@ const EventItem = ({ name, description, headerImage = {}, onPress }) => (
     <View style={styles.cardContainer}>
       <View style={styles.headerImage}>
         <FadeIn placeholderStyle={styles.headerImagePlaceholder}>
-          <Image
-            style={styles.headerImage}
-            source={headerImage !== null
-              ? { uri: getAssetURL(headerImage.imageUrl) }
-              : require('../../static/defaultHeaderImage.png')}
-          />
+          {headerImage === null
+            ? <Image
+              style={styles.headerImage}
+              source={require('../../static/defaultHeaderImage.png')}
+            />
+            : <CachedImage
+              style={styles.headerImage}
+              source={{ uri: getAssetURL(headerImage.imageUrl) }}
+            />
+          }
         </FadeIn>
       </View>
 

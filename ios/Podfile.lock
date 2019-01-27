@@ -180,6 +180,8 @@ PODS:
   - lottie-ios (2.5.2)
   - React (0.57.1):
     - React/Core (= 0.57.1)
+  - react-native-fetch-blob (0.10.6):
+    - React/Core
   - React/ART (0.57.1):
     - React/Core
   - React/Core (0.57.1):
@@ -262,6 +264,7 @@ DEPENDENCIES:
   - EXSMS (from `../node_modules/expo-sms/ios`)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
+  - react-native-fetch-blob (from `../node_modules/react-native-fetch-blob`)
   - React/ART (from `../node_modules/react-native`)
   - React/Core (from `../node_modules/react-native`)
   - React/CxxBridge (from `../node_modules/react-native`)
@@ -371,6 +374,8 @@ EXTERNAL SOURCES:
     :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
   React:
     :path: "../node_modules/react-native"
+  react-native-fetch-blob:
+    :path: "../node_modules/react-native-fetch-blob"
   yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -434,9 +439,10 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   JKBigInteger2: e91672035c42328c48b7dd015b66812ddf40ca9b
   lottie-ios: 3fef45d3fabe63e3c7c2eb603dd64ddfffc73062
-  React: 13fe8b6d6a51fa141982a6843ae43f30514eb345
+  React: 1fe0eb13d90b625d94c3b117c274dcfd2e760e11
+  react-native-fetch-blob: 63394b1d7b0781547b3e4463b3195790177b1222
   yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
 
-PODFILE CHECKSUM: a6279db7f519062ece55951a589cd763a9f43fdb
+PODFILE CHECKSUM: ea5d80284656668e37dcc8dddfa185c1aa6c305c
 
 COCOAPODS: 1.5.3
