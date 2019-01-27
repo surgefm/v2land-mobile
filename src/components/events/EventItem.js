@@ -28,7 +28,7 @@ const EventItem = ({ name, description, headerImage = {}, onPress }) => (
       <View style={styles.eventDescription}>
         <EventTitle>{name}</EventTitle>
         <Text numberOfLines={4} style={styles.textDesc}>
-          {description || ''}
+          {description ? description.split('\n').join('') : ''}
         </Text>
       </View>
     </View>
@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
     lineHeight: 20,
     fontFamily: 'source-han-sans',
+    textAlign: 'justify',
   },
 });
 

@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
     fontFamily: 'source-han-sans',
+    textAlign: 'justify',
   },
   button: {
     padding: 6,
