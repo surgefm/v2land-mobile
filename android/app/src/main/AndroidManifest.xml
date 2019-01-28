@@ -37,7 +37,6 @@
   <uses-permission android:name="android.permission.RECORD_AUDIO" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-  <uses-permission android:name="android.permission.READ_SMS" />
   <!-- END OPTIONAL PERMISSIONS -->
 
   <!-- ADD TEST PERMISSIONS HERE -->
@@ -91,17 +90,6 @@
     </activity>
 
     <activity
-      android:name=".experience.ShellAppActivity"
-      android:launchMode="singleTask"
-      android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-      android:theme="@style/Theme.Exponent.Splash"
-      android:windowSoftInputMode="adjustResize">
-      <!-- ADD SHELL INTENT FILTERS HERE -->
-      <!-- ADD SHELL SCHEME HERE -->
-      <!-- ADD SHELL APP SPECIFIC INTENT FILTERS -->
-    </activity>
-
-    <activity
       android:name=".experience.HomeActivity"
       android:label="@string/app_name"
       android:launchMode="singleTask"
@@ -125,6 +113,7 @@
     <activity android:name="com.facebook.react.devsupport.DevSettingsActivity"/>
     <!-- WHEN_PREPARING_SHELL_REMOVE_FROM_HERE -->
     <!-- ADD DEV SETTINGS HERE -->
+    <activity android:name="abi32_0_0.com.facebook.react.devsupport.DevSettingsActivity"/>
     <!-- BEGIN_SDK_31 -->
     <activity android:name="abi31_0_0.com.facebook.react.devsupport.DevSettingsActivity"/>
     <!-- END_SDK_31 -->
@@ -143,9 +132,6 @@
     <!-- BEGIN_SDK_26 -->
     <activity android:name="abi26_0_0.com.facebook.react.devsupport.DevSettingsActivity"/>
     <!-- END_SDK_26 -->
-    <!-- BEGIN_SDK_25 -->
-    <activity android:name="abi25_0_0.com.facebook.react.devsupport.DevSettingsActivity"/>
-    <!-- END_SDK_25 -->
     <!-- WHEN_PREPARING_SHELL_REMOVE_TO_HERE -->
 
     <activity
@@ -188,7 +174,7 @@
             <action android:name="android.intent.action.VIEW" />
             <category android:name="android.intent.category.DEFAULT" />
             <category android:name="android.intent.category.BROWSABLE" />
-            <data android:scheme="expo.modules.payments.stripe.52e46a97-6b5b-47de-92f9-c6fcba62622c" />
+            <data android:scheme="expo.modules.payments.stripe.06bec990-d8de-4b3c-896f-04592a41f46a" />
         </intent-filter>
     </activity>
     <!-- Versioned Activity for Stripe -->
@@ -344,7 +330,7 @@
     <!-- The Facebook SDK runs FacebookInitProvider on startup and crashes if there isn't an ID here -->
     <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="fb0"/>
 
-    <meta-data android:name="standaloneStripeScheme" android:value="52e46a97-6b5b-47de-92f9-c6fcba62622c" />
+    <meta-data android:name="standaloneStripeScheme" android:value="06bec990-d8de-4b3c-896f-04592a41f46a" />
   </application>
 
 </manifest>

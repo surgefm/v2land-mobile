@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { compose } from 'ramda';
-import configStore from './store/configStore';
+import configStore from './src/store/configStore';
 
 import { Font } from 'expo';
 
@@ -11,22 +11,22 @@ import {
   createAppContainer,
 } from 'react-navigation';
 
-import routers from './config/routers';
+import routers from './src/config/routers';
 import { Icon } from 'react-native-elements';
-import { AlertProvider } from './context';
-import { colors } from './styles';
-import { storage } from './util';
+import { AlertProvider } from './src/context';
+import { colors } from './src/styles';
+import { storage } from './src/util';
 
-import { connect, prepare } from './enhancers';
+import { connect, prepare } from './src/enhancers';
 
-import { initializeTokenFromStorage } from './store/actions/auth';
+import { initializeTokenFromStorage } from './src/store/actions/auth';
 
-import Events from './containers/Events';
-import News from './containers/News';
-import Search from './containers/Search';
-import Article from './containers/Article';
-import Profile from './containers/Profile';
-import Login from './containers/Login';
+import Events from './src/containers/Events';
+import News from './src/containers/News';
+import Search from './src/containers/Search';
+import Article from './src/containers/Article';
+import Profile from './src/containers/Profile';
+import Login from './src/containers/Login';
 
 const store = configStore();
 
@@ -122,9 +122,9 @@ const NavigatorContainer = compose(
 export default class App extends React.Component {
   componentDidMount() {
     Font.loadAsync({
-      'source-han-serif-semibold': require('./static/fonts/SourceHanSerifCN-SemiBold.ttf'),
-      'source-han-sans': require('./static/fonts/SourceHanSansCN-Regular.ttf'),
-      'source-han-sans-medium': require('./static/fonts/SourceHanSansCN-Medium.ttf'),
+      'source-han-serif-semibold': require('./src/static/fonts/SourceHanSerifCN-SemiBold.ttf'),
+      'source-han-sans': require('./src/static/fonts/SourceHanSansCN-Regular.ttf'),
+      'source-han-sans-medium': require('./src/static/fonts/SourceHanSansCN-Medium.ttf'),
     });
   }
 

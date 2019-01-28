@@ -2,7 +2,45 @@
   "name": "v2land-mobile",
   "version": "0.1.0",
   "description": "mobile app for Langchao",
-  "private": true,
+  "private": false,
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "eject": "expo eject",
+    "test": "jest",
+    "test:watch": "npm test -- --watch",
+    "appr": "appr",
+    "format": "prettier --write \"{src,test}/**/*.js\"",
+    "lint": "eslint src test"
+  },
+  "jest": {
+    "preset": "jest-expo"
+  },
+  "dependencies": {
+    "expo": "^32.0.0",
+    "expokit": "32.0.5",
+    "lodash": "^4.17.11",
+    "normalizr": "^3.3.0",
+    "ramda": "^0.25.0",
+    "re-select": "^0.5.0",
+    "react": "16.5.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
+    "react-native-cached-image": "^1.4.3",
+    "react-native-dropdownalert": "^3.7.0",
+    "react-native-elements": "^0.19.1",
+    "react-native-fade-in-image": "^1.4.1",
+    "react-native-fetch-blob": "^0.10.8",
+    "react-native-push-notification": "^3.1.2",
+    "react-native-svg-uri": "^1.2.3",
+    "react-navigation": "^3.0.0",
+    "react-navigation-header-buttons": "^2.1.1",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-loop": "^4.3.3",
+    "schedule": "0.4.0"
+  },
   "devDependencies": {
     "appr": "^2.0.0",
     "babel-eslint": "^8.2.3",
@@ -16,46 +54,7 @@
     "prettier": "1.12.1",
     "react-test-renderer": "16.6.1"
   },
-  "main": "index.js",
-  "scripts": {
-    "start": "expo start",
-    "eject": "expo eject",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "test": "jest",
-    "test:watch": "npm test -- --watch",
-    "appr": "appr",
-    "format": "prettier --write \"{src,test}/**/*.js\"",
-    "lint": "eslint src test"
-  },
-  "jest": {
-    "preset": "jest-expo"
-  },
-  "dependencies": {
-    "expo": "^31.0.5",
-    "expokit": "31.0.2",
-    "lodash": "^4.17.11",
-    "normalizr": "^3.3.0",
-    "ramda": "^0.25.0",
-    "re-select": "^0.5.0",
-    "react": "16.6.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
-    "react-native-cached-image": "^1.4.3",
-    "react-native-dropdownalert": "^3.7.0",
-    "react-native-elements": "^0.19.1",
-    "react-native-fade-in-image": "^1.4.1",
-    "react-native-fetch-blob": "^0.10.8",
-    "react-native-screens": "^1.0.0-alpha.16",
-    "react-native-svg-uri": "^1.2.3",
-    "react-navigation": "^3.0.0",
-    "react-navigation-header-buttons": "^2.1.1",
-    "react-redux": "^5.0.7",
-    "redux": "^4.0.0",
-    "redux-loop": "^4.3.3",
-    "schedule": "0.4.0"
-  },
   "engines": {
     "node": ">=8"
-  },
-  "privacy": "unlisted"
+  }
 }

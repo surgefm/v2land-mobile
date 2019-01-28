@@ -18,16 +18,14 @@
 		B5CFBF4F1EDE419400B4BE24 /* EXBuildConstants.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5CFBF4E1EDE419400B4BE24 /* EXBuildConstants.plist */; };
 		B5DB04801F3A684600E91581 /* shell-app-manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = B5DB047E1F3A684600E91581 /* shell-app-manifest.json */; };
 		B5DB04811F3A684600E91581 /* shell-app.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B5DB047F1F3A684600E91581 /* shell-app.bundle */; };
-		EBB8117C1BFA0514F79CAF74 /* libPods---.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A88D15726AD99E8A257BC7 /* libPods---.a */; };
+		EBB8117C1BFA0514F79CAF74 /* libPods-v2land-mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A88D15726AD99E8A257BC7 /* libPods-v2land-mobile.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2C1548D9E4CB1AEFA5CCAE6D /* Pods---.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods---.debug.xcconfig"; path = "Pods/Target Support Files/Pods---/Pods---.debug.xcconfig"; sourceTree = "<group>"; };
-		9B2DD16A21FA9DA900D5C53D /* libRCTPushNotification.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRCTPushNotification.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		9BFE694021FA855300D1B4A4 /* --.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "--.entitlements"; sourceTree = "<group>"; };
-		A47FE4D7F70906B7DC8CE39B /* Pods---.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods---.release.xcconfig"; path = "Pods/Target Support Files/Pods---/Pods---.release.xcconfig"; sourceTree = "<group>"; };
+		2C1548D9E4CB1AEFA5CCAE6D /* Pods-v2land-mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v2land-mobile.debug.xcconfig"; path = "Pods/Target Support Files/Pods-v2land-mobile/Pods-v2land-mobile.debug.xcconfig"; sourceTree = "<group>"; };
+		A47FE4D7F70906B7DC8CE39B /* Pods-v2land-mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v2land-mobile.release.xcconfig"; path = "Pods/Target Support Files/Pods-v2land-mobile/Pods-v2land-mobile.release.xcconfig"; sourceTree = "<group>"; };
 		B501732A1DC01252003445D9 /* EXShell.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EXShell.plist; sourceTree = "<group>"; };
-		B56386411DB9693800A0598C /* --.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "--.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B56386411DB9693800A0598C /* v2land-mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "v2land-mobile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B56386471DB9693800A0598C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B56386481DB9693800A0598C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B56386501DB9693800A0598C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -40,7 +38,7 @@
 		B5CFBF4E1EDE419400B4BE24 /* EXBuildConstants.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EXBuildConstants.plist; sourceTree = "<group>"; };
 		B5DB047E1F3A684600E91581 /* shell-app-manifest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "shell-app-manifest.json"; sourceTree = "<group>"; };
 		B5DB047F1F3A684600E91581 /* shell-app.bundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "shell-app.bundle"; sourceTree = "<group>"; };
-		C4A88D15726AD99E8A257BC7 /* libPods---.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods---.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4A88D15726AD99E8A257BC7 /* libPods-v2land-mobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-v2land-mobile.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBB8117C1BFA0514F79CAF74 /* libPods---.a in Frameworks */,
+				EBB8117C1BFA0514F79CAF74 /* libPods-v2land-mobile.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,8 +56,7 @@
 		1A42804E64B7E9E0AB8B6799 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9B2DD16A21FA9DA900D5C53D /* libRCTPushNotification.a */,
-				C4A88D15726AD99E8A257BC7 /* libPods---.a */,
+				C4A88D15726AD99E8A257BC7 /* libPods-v2land-mobile.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -67,8 +64,8 @@
 		5B29BC350A332C58878A9F13 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2C1548D9E4CB1AEFA5CCAE6D /* Pods---.debug.xcconfig */,
-				A47FE4D7F70906B7DC8CE39B /* Pods---.release.xcconfig */,
+				2C1548D9E4CB1AEFA5CCAE6D /* Pods-v2land-mobile.debug.xcconfig */,
+				A47FE4D7F70906B7DC8CE39B /* Pods-v2land-mobile.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -76,7 +73,7 @@
 		B56386381DB9693800A0598C = {
 			isa = PBXGroup;
 			children = (
-				B56386431DB9693800A0598C /* -- */,
+				B56386431DB9693800A0598C /* v2land-mobile */,
 				B56386421DB9693800A0598C /* Products */,
 				5B29BC350A332C58878A9F13 /* Pods */,
 				1A42804E64B7E9E0AB8B6799 /* Frameworks */,
@@ -86,21 +83,20 @@
 		B56386421DB9693800A0598C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B56386411DB9693800A0598C /* --.app */,
+				B56386411DB9693800A0598C /* v2land-mobile.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B56386431DB9693800A0598C /* -- */ = {
+		B56386431DB9693800A0598C /* v2land-mobile */ = {
 			isa = PBXGroup;
 			children = (
-				9BFE694021FA855300D1B4A4 /* --.entitlements */,
 				B56386471DB9693800A0598C /* AppDelegate.h */,
 				B56386481DB9693800A0598C /* AppDelegate.m */,
 				B56386501DB9693800A0598C /* Assets.xcassets */,
 				B563865B1DB96A5E00A0598C /* Supporting */,
 			);
-			path = "--";
+			path = "v2land-mobile";
 			sourceTree = "<group>";
 		};
 		B563865B1DB96A5E00A0598C /* Supporting */ = {
@@ -123,9 +119,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B56386401DB9693800A0598C /* -- */ = {
+		B56386401DB9693800A0598C /* v2land-mobile */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B56386581DB9693800A0598C /* Build configuration list for PBXNativeTarget "--" */;
+			buildConfigurationList = B56386581DB9693800A0598C /* Build configuration list for PBXNativeTarget "v2land-mobile" */;
 			buildPhases = (
 				23539343DCC44EF8449429EE /* [CP] Check Pods Manifest.lock */,
 				B5722AD01DFB7E3F0084848F /* Prepare Expo */,
@@ -139,9 +135,9 @@
 			);
 			dependencies = (
 			);
-			name = "--";
-			productName = "--";
-			productReference = B56386411DB9693800A0598C /* --.app */;
+			name = "v2land-mobile";
+			productName = "v2land-mobile";
+			productReference = B56386411DB9693800A0598C /* v2land-mobile.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -157,21 +153,10 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = J5S56W8T3D;
 						ProvisioningStyle = Manual;
-						SystemCapabilities = {
-							com.apple.Keychain = {
-								enabled = 1;
-							};
-							com.apple.Maps.iOS = {
-								enabled = 0;
-							};
-							com.apple.Push = {
-								enabled = 1;
-							};
-						};
 					};
 				};
 			};
-			buildConfigurationList = B563863C1DB9693800A0598C /* Build configuration list for PBXProject "--" */;
+			buildConfigurationList = B563863C1DB9693800A0598C /* Build configuration list for PBXProject "v2land-mobile" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -184,7 +169,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B56386401DB9693800A0598C /* -- */,
+				B56386401DB9693800A0598C /* v2land-mobile */,
 			);
 		};
 /* End PBXProject section */
@@ -221,7 +206,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -eo pipefail\n\nif [ \"$CONFIGURATION\" == \"Debug\" ]; then\n  echo \"Skipping asset bundling in debug mode.\"\n  exit 0\nfi\n\npushd \"${SRCROOT}/..\"\nvalue=\"$(cat ~/.expo/PATH)\"\ndest=\"$CONFIGURATION_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH\"\nPATH=\"$PATH:$value\" expo bundle-assets --platform ios --dest \"$dest\"\npopd\n";
+			shellScript = "set -eo pipefail\n\nif [ \"$CONFIGURATION\" == \"Debug\" ]; then\n  echo \"Skipping asset bundling in debug mode.\"\n  exit 0\nfi\n\npushd \"${SRCROOT}/..\"\nexport PATH=\"$(if [ -f ~/.expo/PATH ]; then echo $PATH:$(cat ~/.expo/PATH); else echo $PATH; fi)\"\ndest=\"$CONFIGURATION_BUILD_DIR/$UNLOCALIZED_RESOURCES_FOLDER_PATH\"\nexpo bundle-assets --platform ios --dest \"$dest\"\npopd\n";
 		};
 		23539343DCC44EF8449429EE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -234,7 +219,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods----checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-v2land-mobile-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -247,7 +232,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods---/Pods----resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-v2land-mobile/Pods-v2land-mobile-resources.sh",
 				"${PODS_ROOT}/Amplitude-iOS/Amplitude/api.amplitude.com.der",
 				"${PODS_ROOT}/Amplitude-iOS/Amplitude/ComodoCaLimitedRsaCertificationAuthority.der",
 				"${PODS_ROOT}/Amplitude-iOS/Amplitude/ComodoRsaCA.der",
@@ -268,7 +253,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods---/Pods----resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-v2land-mobile/Pods-v2land-mobile-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B5722AD01DFB7E3F0084848F /* Prepare Expo */ = {
@@ -283,7 +268,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "set -eo pipefail\n\npushd \"${SRCROOT}/..\"\nvalue=\"$(cat ~/.expo/PATH)\"\nPATH=\"$PATH:$value\" expo prepare-detached-build --platform ios\npopd\n";
+			shellScript = "set -eo pipefail\n\npushd \"${SRCROOT}/..\"\nexport PATH=\"$(if [ -f ~/.expo/PATH ]; then echo $PATH:$(cat ~/.expo/PATH); else echo $PATH; fi)\"\nexpo prepare-detached-build --platform ios\npopd\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -347,7 +332,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -395,7 +380,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -404,14 +389,13 @@
 		};
 		B56386591DB9693800A0598C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2C1548D9E4CB1AEFA5CCAE6D /* Pods---.debug.xcconfig */;
+			baseConfigurationReference = 2C1548D9E4CB1AEFA5CCAE6D /* Pods-v2land-mobile.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "--/--.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Zehua Li (J5S56W8T3D)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = J5S56W8T3D;
-				INFOPLIST_FILE = "$(SRCROOT)/--/Supporting/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/v2land-mobile/Supporting/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.langchao.mobile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -422,14 +406,13 @@
 		};
 		B563865A1DB9693800A0598C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A47FE4D7F70906B7DC8CE39B /* Pods---.release.xcconfig */;
+			baseConfigurationReference = A47FE4D7F70906B7DC8CE39B /* Pods-v2land-mobile.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "--/--.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Zehua Li (J5S56W8T3D)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = J5S56W8T3D;
-				INFOPLIST_FILE = "$(SRCROOT)/--/Supporting/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/v2land-mobile/Supporting/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.langchao.mobile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -441,7 +424,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B563863C1DB9693800A0598C /* Build configuration list for PBXProject "--" */ = {
+		B563863C1DB9693800A0598C /* Build configuration list for PBXProject "v2land-mobile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B56386561DB9693800A0598C /* Debug */,
@@ -450,7 +433,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B56386581DB9693800A0598C /* Build configuration list for PBXNativeTarget "--" */ = {
+		B56386581DB9693800A0598C /* Build configuration list for PBXNativeTarget "v2land-mobile" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B56386591DB9693800A0598C /* Debug */,

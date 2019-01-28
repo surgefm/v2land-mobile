@@ -11,9 +11,8 @@ import host.exp.exponent.Constants;
 @DoNotStrip
 public class AppConstants {
 
-  public static final String VERSION_NAME = "2.9.2";
+  public static final String VERSION_NAME = "2.10.5";
   public static String INITIAL_URL = "exp://exp.host/@v2land/v2land-mobile";
-  public static final boolean IS_DETACHED = true;
   public static final String SHELL_APP_SCHEME = "v2land";
   public static final String RELEASE_CHANNEL = "default";
   public static boolean SHOW_LOADING_VIEW_IN_SHELL_APP = false;
@@ -35,7 +34,6 @@ public class AppConstants {
     Constants.ExpoViewAppConstants constants = new Constants.ExpoViewAppConstants();
     constants.VERSION_NAME = VERSION_NAME;
     constants.INITIAL_URL = INITIAL_URL;
-    constants.IS_DETACHED = IS_DETACHED;
     constants.SHELL_APP_SCHEME = SHELL_APP_SCHEME;
     constants.RELEASE_CHANNEL = RELEASE_CHANNEL;
     constants.SHOW_LOADING_VIEW_IN_SHELL_APP = SHOW_LOADING_VIEW_IN_SHELL_APP;

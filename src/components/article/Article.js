@@ -1,6 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, StatusBar } from 'react-native';
-import { ScrollView } from 'react-navigation';
+import { StyleSheet, View, StatusBar, ScrollView } from 'react-native';
 import { EventTitle, EventTime } from '.';
 import { StackList } from '../stacks';
 import Description from './Description';

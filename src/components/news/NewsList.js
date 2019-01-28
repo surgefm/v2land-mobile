@@ -54,7 +54,7 @@ const NewsListComponent = ({
       renderItem={({ item }) => (
         <NewsItem newsId={item} onPress={onNewsPress({ newsId: item })} />
       )}
-      keyExtractor={news => `News#${news.id}`}
+      keyExtractor={news => `News#${news}`}
       extraData={newsList.length}
     />
     {!(newsCount && newsList.length < newsCount) || (

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>isManifestVerificationBypassed</key>
-	<false/>
+	<true/>
 	<key>isShell</key>
 	<true/>
 	<key>manifestUrl</key>

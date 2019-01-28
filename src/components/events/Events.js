@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, SectionList, View, SafeAreaView, StatusBar } from 'react-native';
-import { ScrollView } from 'react-navigation';
+import { StyleSheet, SectionList, View, SafeAreaView, StatusBar, ScrollView } from 'react-native';
+// import { ScrollView } from 'react-navigation';
 import { colors, paddings, paddingConstants } from '../../styles';
 import SvgUri from 'react-native-svg-uri';
 import { RefreshControl } from '../elements';

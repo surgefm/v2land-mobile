@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B56386401DB9693800A0598C"
-               BuildableName = "--.app"
-               BlueprintName = "--"
-               ReferencedContainer = "container:--.xcodeproj">
+               BuildableName = "v2land-mobile.app"
+               BlueprintName = "v2land-mobile"
+               ReferencedContainer = "container:v2land-mobile.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,9 +34,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B56386401DB9693800A0598C"
-            BuildableName = "--.app"
-            BlueprintName = "--"
-            ReferencedContainer = "container:--.xcodeproj">
+            BuildableName = "v2land-mobile.app"
+            BlueprintName = "v2land-mobile"
+            ReferencedContainer = "container:v2land-mobile.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -58,9 +58,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B56386401DB9693800A0598C"
-            BuildableName = "--.app"
-            BlueprintName = "--"
-            ReferencedContainer = "container:--.xcodeproj">
+            BuildableName = "v2land-mobile.app"
+            BlueprintName = "v2land-mobile"
+            ReferencedContainer = "container:v2land-mobile.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
@@ -84,9 +84,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B56386401DB9693800A0598C"
-            BuildableName = "--.app"
-            BlueprintName = "--"
-            ReferencedContainer = "container:--.xcodeproj">
+            BuildableName = "v2land-mobile.app"
+            BlueprintName = "v2land-mobile"
+            ReferencedContainer = "container:v2land-mobile.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
