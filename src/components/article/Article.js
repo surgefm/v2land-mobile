@@ -1,9 +1,8 @@
 import React from 'react';
-import { StyleSheet, View, StatusBar } from 'react-native';
-import { ScrollView } from 'react-navigation';
-import { Text } from 'react-native-elements';
+import { StyleSheet, View, StatusBar, ScrollView } from 'react-native';
 import { EventTitle, EventTime } from '.';
 import { StackList } from '../stacks';
+import Description from './Description';
 import { HeaderImage, RefreshControl } from '../elements';
 import { paddings, paddingConstants, colors } from '../../styles';
 
@@ -12,6 +11,7 @@ const Article = ({
   onStackPress,
   onNewsPress,
   refreshing,
+  statusBarStyle,
   onRefresh,
   onScroll = () => {},
   onScrollEndSnapToEdge = () => {},
@@ -31,9 +31,7 @@ const Article = ({
         />
       }
     >
-      <StatusBar
-        barStyle="dark-content"
-        hidden={event.headerImage !== null} />
+      <StatusBar barStyle={statusBarStyle} />
       <HeaderImage headerImage={event.headerImage} />
       <View style={{ flex: 1 }}>
         {!event || (
@@ -44,7 +42,7 @@ const Article = ({
                 time={event.updatedAt}
               />
               <EventTitle style={paddings.interval}>{event.name}</EventTitle>
-              <Text style={styles.eventDescription}>{event.description}</Text>
+              <Description description={event.description} />
             </View>
             {!event.stacks || <View style={[paddings.side, paddings.largeInterval]}>
               <EventTitle style={paddings.interval}>进展</EventTitle>

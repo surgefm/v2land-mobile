@@ -3,9 +3,9 @@ import { StyleSheet, Text, View } from 'react-native';
 import { colors, fontSizes } from '../../styles';
 import { getTimeLapseString } from '../../util';
 
-const TimeBadge = ({ date, title }) =>
+const TimeBadge = ({ date, title, style }) =>
   title ? (
-    <View style={styles.timeContainer}>
+    <View style={[styles.timeContainer, style]}>
       <Text style={styles.textLeft}>{title}</Text>
     </View>
   ) : (

@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, SectionList, View, SafeAreaView, StatusBar } from 'react-native';
-import { ScrollView } from 'react-navigation';
+import { StyleSheet, SectionList, View, SafeAreaView, StatusBar, ScrollView } from 'react-native';
+// import { ScrollView } from 'react-navigation';
 import { colors, paddings, paddingConstants } from '../../styles';
 import SvgUri from 'react-native-svg-uri';
 import { RefreshControl } from '../elements';
@@ -28,7 +28,7 @@ const Events = ({ onEventPress, eventList, refreshing, onRefresh }) => (
       </View>
       <SectionList
         sections={eventList}
-        style={{ paddingBottom: 50 }}
+        style={{ paddingBottom: 50, overflow: 'visible' }}
         renderItem={({ item }) => (
           <EventItem
             name={item.name}
@@ -40,7 +40,7 @@ const Events = ({ onEventPress, eventList, refreshing, onRefresh }) => (
         renderSectionHeader={({ section: { title } }) => (
           <TimeBadge style={styles.sectionHeader} title={title} />
         )}
-        renderSectionFooter={() => <View style={{ height: 16 }} />}
+        renderSectionFooter={() => <View style={{ height: 20 }} />}
         keyExtractor={item => item.id.toString()}
       />
     </ScrollView>

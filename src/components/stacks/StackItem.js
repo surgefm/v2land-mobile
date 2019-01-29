@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 24,
     fontFamily: 'source-han-sans',
+    textAlign: 'justify',
   },
   buttonText: {
     fontSize: 14,

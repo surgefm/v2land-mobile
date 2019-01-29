@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     marginRight: 4,
   },
   title: {
-    size: 14,
+    fontSize: 14,
     lineHeight: 18,
     fontFamily: 'source-han-sans',
   },

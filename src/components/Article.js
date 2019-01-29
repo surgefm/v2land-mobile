@@ -23,6 +23,9 @@ export default class Article extends Component {
     super(props);
     this.state = {
       refreshing: false,
+      statusBarStyle: !this.props.event.headerImage
+        ? 'dark-content'
+        : 'light-content',
     };
 
     this.props.navigation.setParams({
@@ -32,10 +35,10 @@ export default class Article extends Component {
   }
 
   async onRefresh() {
-    this.setState(() => ({ refreshing: true }));
+    this.setState((state) => ({ ...state, refreshing: true }));
     const { fetchEvent, eventId } = this.props;
     await fetchEvent({ eventId });
-    this.setState(() => ({ refreshing: false }));
+    this.setState((state) => ({ ...state, refreshing: false }));
     this.alert('info', '刷新成功', this.refreshInfo());
   }
 
@@ -54,6 +57,10 @@ export default class Article extends Component {
   onScrollEndSnapToEdge(event) {
     if (!this.props.event.headerImage) return;
     const y = event.nativeEvent.contentOffset.y;
+    this.setState((state) => ({
+      ...state,
+      statusBarStyle: y >= 150 ? 'dark-content' : 'light-content',
+    }));
     const shade = Math.min((y - 100) / 100, 1);
     const tintColorElement = Math.floor((1 - shade) * 256);
     const tintColor = `${tintColorElement}, ${256 - 125 * shade}, ${256 -
@@ -76,6 +83,7 @@ export default class Article extends Component {
           ...this.props,
           setAlert: this.setAlert(alert),
           refreshing: this.state.refreshing,
+          statusBarStyle: this.state.statusBarStyle,
           onRefresh: this.onRefresh.bind(this),
           onScroll: this.onScrollEndSnapToEdge.bind(this),
           onScrollEndSnapToEdge: this.onScrollEndSnapToEdge.bind(this),
