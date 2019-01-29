@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Image, ScrollView, StatusBar } from 'react-native';
 import { Text, Icon } from 'react-native-elements';
 import { Subtitle } from '../elements';
 import { EventTime, EventTitle } from '../article';
@@ -15,6 +15,7 @@ import {
 const News = ({ news, onButtonPress = () => {} }) =>
   !news || (
     <ScrollView style={[pageStyle.default, styles.topPadding]}>
+      <StatusBar barStyle="dark-content" />
       <View style={[paddings.interval, styles.newsSubtitle]}>
         <Subtitle style={styles.theme}>
           {getTimeString(news.time, { withSpaceBetween: true }) + ' / '}

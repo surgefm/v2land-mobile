@@ -11,6 +11,7 @@ const Article = ({
   onStackPress,
   onNewsPress,
   refreshing,
+  statusBarStyle,
   onRefresh,
   onScroll = () => {},
   onScrollEndSnapToEdge = () => {},
@@ -30,9 +31,7 @@ const Article = ({
         />
       }
     >
-      <StatusBar
-        barStyle="dark-content"
-        hidden={event.headerImage !== null} />
+      <StatusBar barStyle={statusBarStyle} />
       <HeaderImage headerImage={event.headerImage} />
       <View style={{ flex: 1 }}>
         {!event || (
