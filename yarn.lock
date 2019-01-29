@@ -1256,13 +1256,6 @@ append-transform@^0.4.0:
   dependencies:
     default-require-extensions "^1.0.0"
 
-appr@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/appr/-/appr-2.0.0.tgz#69554c8a0b619f7e98f8fede173749d70f3eb12e"
-  integrity sha512-ankWy70gQgQXa4LNdN7omLoVcIfc7Mh7TGiMQmyI3aGwYg+GIW8Tm7vpB9W85iMQXzx/9j4+5tPhyYi6LjuwCg==
-  dependencies:
-    request "^2.81.0"
-
 aproba@^1.0.3, aproba@^1.1.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/aproba/-/aproba-1.2.0.tgz#6802e6264efd18c790a1b0d517f0f2627bf2c94a"
@@ -7925,7 +7918,7 @@ react-native-gesture-handler@^1.0.0:
     invariant "^2.2.2"
     prop-types "^15.5.10"
 
-"react-native-maps@github:expo/react-native-maps#v0.22.1-exp.0":
+react-native-maps@expo/react-native-maps#v0.22.1-exp.0:
   version "0.22.1"
   resolved "https://codeload.github.com/expo/react-native-maps/tar.gz/e6f98ff7272e5d0a7fe974a41f28593af2d77bb2"
 
