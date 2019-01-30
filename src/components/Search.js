@@ -17,7 +17,7 @@ export default class Search extends Component {
     return (
       <SafeAreaView style={{ backgroundColor: '#fff', flex: 1 }}>
         <ScrollView
-          keyboardShouldPersistTaps="always"
+          keyboardShouldPersistTaps="handled"
           style={[pageStyle.background, paddings.pageTop]}
         >
           <View style={paddings.largeInterval}>
@@ -30,8 +30,8 @@ export default class Search extends Component {
                 value={this.state.search}
                 onChangeText={text => this.setState({ search: text })}
                 containerStyle={searchBarStyle.searchContainer}
-                inputStyle={searchBarStyle.searchInput}
-                clearIcon={{ color: '#86939e', name: 'close' }}
+                inputContainerStyle={searchBarStyle.searchInput}
+                clearIcon={{ color: '#86939e', name: 'close', type: 'antdesign' }}
                 placeholder="输入事件/新闻关键词"
                 lightTheme
               />

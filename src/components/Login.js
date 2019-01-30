@@ -1,12 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, SafeAreaView } from 'react-native';
 import { TwitterButton, WeiboButton } from './login';
-import {
-  Button,
-  FormLabel,
-  FormInput,
-  FormValidationMessage,
-} from 'react-native-elements';
+import { Button, Input } from 'react-native-elements';
 import { commonStyle, paddings, buttonStyle, buttonTextStyle } from '../styles';
 import { Title } from './elements';
 
@@ -16,6 +11,7 @@ const Login = ({
   errorMessage,
   setLoginName,
   setPasswd,
+  isLoading,
   loginName,
   passwd,
 }) => (
@@ -24,43 +20,37 @@ const Login = ({
       <View style={[paddings.largeInterval, paddings.side, { flex: 1 }]}>
         <Title style={paddings.largeInterval}>登录</Title>
         <View style={[styles.loginInterface, paddings.largeInterval]}>
-          <FormLabel labelStyle={commonStyle.noSideMargins}>
-            用户名或邮箱
-          </FormLabel>
-          <FormInput
-            containerStyle={commonStyle.noSideMargins}
+          <Input
+            label="用户名或邮箱"
+            containerStyle={{ paddingHorizontal: 0 }}
             onChangeText={setLoginName}
             value={loginName}
+            shake={true}
           />
-          <FormLabel labelStyle={commonStyle.noSideMargins}>密码</FormLabel>
-          <FormInput
-            containerStyle={commonStyle.noSideMargins}
+          <Input
+            label="密码"
+            containerStyle={{ marginTop: 16, paddingHorizontal: 0 }}
             onChangeText={setPasswd}
             value={passwd}
+            errorMessage={errorMessage}
+            errorStyle={[commonStyle.noSideMargins, { fontSize: 14 }]}
             secureTextEntry
           />
-          <FormValidationMessage
-            labelStyle={[commonStyle.noSideMargins, { height: 20 }]}
-          >
-            {errorMessage}
-          </FormValidationMessage>
         </View>
         <View style={styles.loginButtons}>
           <Button
             onPress={onRegisterClick}
-            containerViewStyle={commonStyle.noSideMargins}
-            buttonStyle={[buttonStyle.button, buttonStyle.outline]}
-            textStyle={[buttonTextStyle.button, buttonTextStyle.outline]}
             title="注册"
-            outline
+            type="clear"
+            disabled={true}
           />
           <Button
             onPress={onLoginClick}
-            containerViewStyle={commonStyle.noSideMargins}
+            loading={isLoading}
+            containerStyle={commonStyle.noSideMargins}
             buttonStyle={[buttonStyle.button, buttonStyle.primary]}
             textStyle={buttonTextStyle.button}
-            backgroundColor="dimgrey"
-            title="登入"
+            title="登录"
           />
         </View>
         <View>
