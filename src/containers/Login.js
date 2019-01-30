@@ -9,7 +9,6 @@ import {
   automaton,
   withProps,
   connect,
-  lifecycle,
   addNavigationListener,
 } from '../enhancers';
 
@@ -19,8 +18,6 @@ import {
   authorizedSelector,
   errorMessageSelector,
 } from '../store/selectors/auth.js';
-
-import { log } from '../util';
 
 const Login = R.compose(
   withNavigationOptions({
@@ -51,6 +48,7 @@ const Login = R.compose(
       fill: 'setClientErrorMessage',
     }),
     automaton.coin(false, { side: 'isDirty' }),
+    automaton.box(false, { box: 'isLoading', fill: 'setLoading' }),
   ),
   addNavigationListener(
     'didBlur',
@@ -69,28 +67,35 @@ const Login = R.compose(
       clientErrorMessage,
       serverErrorMessage,
       isDirty,
+      flip,
       setLoginName,
       setPasswd,
-      flip,
+      setLoading,
     }) => ({
-      onLoginClick: () => {
+      onLoginClick: async () => {
         flip(false);
+        setLoading(true);
+
+        loginName = loginName.trim();
         if (!loginName) {
           setClientErrorMessage('请填写用户名');
+          setLoading(false);
           return;
         }
 
         if (!passwd) {
           setClientErrorMessage('请填写密码');
+          setLoading(false);
           return;
         }
 
         // else clean error message
         setClientErrorMessage('');
-        login({
+        await login({
           username: loginName,
           password: passwd,
         });
+        setLoading(false);
       },
       errorMessage: isDirty ? '' : serverErrorMessage || clientErrorMessage,
       setLoginName: (...args) => {

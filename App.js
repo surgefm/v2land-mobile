@@ -60,16 +60,16 @@ const ProfileStack = createStackNavigator({
 });
 
 const tabBarIcons = {
-  [routers.today]: { name: 'today', type: 'Ionicons' },
-  [routers.search]: { name: 'search', type: 'Ionicons' },
-  [routers.profile]: { name: 'account-box', type: 'Ionicons' },
+  [routers.today]: { name: 'home', type: 'antdesign' },
+  [routers.search]: { name: 'search1', type: 'antdesign' },
+  [routers.profile]: { name: 'user', type: 'antdesign' },
 };
 
 const Navigator = createBottomTabNavigator(
   {
     [routers.today]: EventsStack,
     [routers.search]: SearchStack,
-    // [routers.profile]: ProfileStack,
+    [routers.profile]: ProfileStack,
   },
   {
     initialRouteName: routers.today,
@@ -82,19 +82,20 @@ const Navigator = createBottomTabNavigator(
           const idleIcon = iconConfig.idle;
           return focused ? (
             <Icon
-              name={focusedIcon.name}
+              {...focusedIcon}
               color={tintColor}
-              type={focusedIcon.name}
             />
           ) : (
-            <Icon name={idleIcon.name} color={tintColor} type={idleIcon.type} />
+            <Icon
+              {...idleIcon}
+              color={tintColor}
+            />
           );
         } else {
           return (
             <Icon
-              name={iconConfig.name}
+              {...iconConfig}
               color={tintColor}
-              type={iconConfig.type}
             />
           );
         }

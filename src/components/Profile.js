@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
-import { SafeAreaView, Text, View } from 'react-native';
-import { ScrollView } from 'react-navigation';
-import { Avatar, List, ListItem, Icon } from 'react-native-elements';
+import React from 'react';
+import { SafeAreaView, View, ScrollView } from 'react-native';
+import { Avatar, ListItem, Icon, Text } from 'react-native-elements';
 import { paddings, profileStyle, colors } from '../styles';
 import { AlertContext } from '../context/Alert';
 
@@ -46,12 +45,9 @@ const informationList = [
   },
 ];
 
-export default class Profile extends Component {
-  static contextType = AlertContext;
-
-  render() {
-    const { logout, username = '', role = '' } = this.props;
-    return (
+const Profile = ({ username = '', role = '', logout = () => {} }) => (
+  <AlertContext.Consumer>
+    {alert => (
       <SafeAreaView style={{ backgroundColor: colors.lightGrey, flex: 1 }}>
         <ScrollView style={profileStyle.pageTop}>
           <View style={[paddings.side, profileStyle.avatarContainer]}>
@@ -73,40 +69,38 @@ export default class Profile extends Component {
             </View>
           </View>
 
-          <List>
-            {
-              userActionList.map((item) => (
-                <ListItem
-                  key={item.title}
-                  title={item.title}
-                  leftIcon={<Icon {...item.icon} size={24} iconStyle={profileStyle.icon} />}
-                />
-              ))
-            }
-          </List>
+          <View>
+            {userActionList.map((item) => (
+              <ListItem
+                key={item.title}
+                title={item.title}
+                leftIcon={<Icon {...item.icon} size={24} iconStyle={profileStyle.icon} />}
+              />
+            ))}
+          </View>
 
-          <List>
-            {
-              informationList.map((item) => (
-                <ListItem
-                  key={item.title}
-                  title={item.title}
-                  leftIcon={<Icon {...item.icon} size={24} iconStyle={profileStyle.icon} />}
-                />
-              ))
-            }
-          </List>
+          <View>
+            {informationList.map((item) => (
+              <ListItem
+                key={item.title}
+                title={item.title}
+                leftIcon={<Icon {...item.icon} size={24} iconStyle={profileStyle.icon} />}
+              />
+            ))}
+          </View>
 
-          <List>
+          <View>
             <ListItem
               title='退出登录'
               hideChevron={true}
               titleStyle={{ textAlign: 'center', color: 'red' }}
               onPress={logout}
             />
-          </List>
+          </View>
         </ScrollView>
       </SafeAreaView>
-    );
-  }
-}
+    )}
+  </AlertContext.Consumer>
+);
+
+export default Profile;

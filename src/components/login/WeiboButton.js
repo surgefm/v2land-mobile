@@ -1,24 +1,19 @@
 import React from 'react';
 import { Button } from 'react-native-elements';
-import {
-  commonStyle,
-  buttonStyle,
-  buttonTextStyle,
-  loginStyle,
-} from '../../styles';
+import { commonStyle, buttonStyle, loginStyle } from '../../styles';
 
 const WeiboButton = () => (
   <Button
-    backgroundColor="rgb(222,82,67)"
-    containerViewStyle={commonStyle.noSideMargins}
+    containerStyle={commonStyle.noSideMargins}
     buttonStyle={[buttonStyle.button, loginStyle.socialButton]}
-    textStyle={buttonTextStyle.button}
-    rightIcon={{
-      name: 'md-arrow-round-forward',
-      type: 'ionicon',
-      color: 'white',
+    titleStyle={{ color: 'rgb(230, 22, 45)' }}
+    icon={{
+      name: 'weibo',
+      type: 'antdesign',
+      color: 'rgb(230, 22, 45)',
     }}
     title="微博"
+    type="clear"
   />
 );
 
