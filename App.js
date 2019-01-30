@@ -28,6 +28,8 @@ import Article from './src/containers/Article';
 import Profile from './src/containers/Profile';
 import Login from './src/containers/Login';
 
+import { initializeNotification } from './src/services/notification';
+
 const store = configStore();
 
 const EventsStack = createStackNavigator(
@@ -126,6 +128,7 @@ export default class App extends React.Component {
       'source-han-sans': require('./src/static/fonts/SourceHanSansCN-Regular.ttf'),
       'source-han-sans-medium': require('./src/static/fonts/SourceHanSansCN-Medium.ttf'),
     });
+    initializeNotification();
   }
 
   render() {
