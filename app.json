@@ -15,7 +15,7 @@
     "orientation": "portrait",
     "assetBundlePatterns": [
       "src/static/**/*",
-      "src/static/logotype.svg",
+      "src/static/*.svg",
       "src/static/fonts/SourceHanSerifCN-SemiBold.ttf",
       "src/static/fonts/SourceHanSansCN-Regular.ttf"
     ],

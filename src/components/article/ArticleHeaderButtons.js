@@ -7,7 +7,7 @@ import HeaderButtons, {
 } from 'react-navigation-header-buttons';
 import { getEventURL, getShortenedDescription, log } from '../../util';
 
-const ArticleHeaderButtons = ({ color, event }) => (
+const ArticleHeaderButtons = ({ color, event, beginSubscriptionEditing }) => (
   <HeaderButtons
     HeaderButtonComponent={props => (
       <HeaderButton
@@ -21,7 +21,7 @@ const ArticleHeaderButtons = ({ color, event }) => (
     <Item
       title="subscribe"
       iconName="bell"
-      onPress={() => alert('关注功能正在开发中')}
+      onPress={() => beginSubscriptionEditing({ eventId: event.id })}
     />
     <Item title="share" iconName="share-apple" onPress={onShare(event)} />
   </HeaderButtons>

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, ScrollView, SafeAreaView } from 'react-native';
+import { View, ScrollView, SafeAreaView, StatusBar } from 'react-native';
 import { SearchBar } from 'react-native-elements';
+import SvgUri from 'react-native-svg-uri';
 import { SearchHistory } from './search';
-import { Title, Subtitle } from './elements';
+import { Subtitle } from './elements';
 import { pageStyle, paddings, searchBarStyle } from '../styles';
 
 export default class Search extends Component {
@@ -16,13 +17,18 @@ export default class Search extends Component {
   render() {
     return (
       <SafeAreaView style={{ backgroundColor: '#fff', flex: 1 }}>
+        <StatusBar barStyle="dark-content" />
         <ScrollView
           keyboardShouldPersistTaps="handled"
           style={[pageStyle.background, paddings.pageTop]}
         >
           <View style={paddings.largeInterval}>
             <View style={[paddings.side, paddings.interval]}>
-              <Title>搜索</Title>
+              <SvgUri
+                width="82.31"
+                height="40"
+                source={require('../static/search.svg')}
+              />
             </View>
             <View style={{ paddingHorizontal: 8 }}>
               <SearchBar

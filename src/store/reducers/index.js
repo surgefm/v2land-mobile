@@ -4,6 +4,7 @@ import stacks from './stacks';
 import news from './news';
 import auth from './auth.js';
 import user from './user.js';
+import status from './status.js';
 
 export default combineReducers({
   events,
@@ -11,4 +12,5 @@ export default combineReducers({
   news,
   auth,
   user,
+  status,
 });
