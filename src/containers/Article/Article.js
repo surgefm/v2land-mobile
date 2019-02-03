@@ -1,19 +1,19 @@
 import React from 'react';
-import ArticleComponent from '../components/Article.js';
-import { ArticleHeaderButtons } from '../components/article';
+import ArticleComponent from '../../components/Article.js';
+import ArticleHeaderButtons from './ArticleHeaderButtons';
 
 import R from 'ramda';
-import routers from '../config/routers';
+import routers from '../../config/routers';
 
 import {
   withNavigationOptions,
   withNavigationHandlers,
   connect,
   prepare,
-} from '../enhancers';
+} from '../../enhancers';
 
-import { fetchEvent } from '../store/actions/events.js';
-import { eventSelector } from '../store/selectors/events.js';
+import { fetchEvent } from '../../store/actions/events.js';
+import { eventSelector } from '../../store/selectors/events.js';
 
 const Article = R.compose(
   withNavigationOptions(({ navigation: { state: { params } } }) => ({

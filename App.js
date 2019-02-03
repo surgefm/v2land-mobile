@@ -24,7 +24,7 @@ import { initializeTokenFromStorage } from './src/store/actions/auth';
 import Events from './src/containers/Events';
 import News from './src/containers/News';
 import Search from './src/containers/Search';
-import Article from './src/containers/Article';
+import { Article } from './src/containers/Article';
 import Profile from './src/containers/Profile';
 import Login from './src/containers/Login';
 

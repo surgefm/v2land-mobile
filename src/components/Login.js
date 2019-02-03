@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, SafeAreaView, StatusBar } from 'react-native';
 import { TwitterButton, WeiboButton } from './login';
 import { Button, Input } from 'react-native-elements';
 import { commonStyle, paddings, buttonStyle, buttonTextStyle } from '../styles';
-import { Title } from './elements';
+import SvgUri from 'react-native-svg-uri';
 
 const Login = ({
   onLoginClick,
@@ -16,9 +16,16 @@ const Login = ({
   passwd,
 }) => (
   <SafeAreaView style={{ backgroundColor: '#fff', flex: 1 }}>
-    <ScrollView style={[paddings.pageTop]}>
+    <StatusBar barStyle="dark-content" />
+    <ScrollView style={paddings.pageTop}>
       <View style={[paddings.largeInterval, paddings.side, { flex: 1 }]}>
-        <Title style={paddings.largeInterval}>登录</Title>
+        <View style={paddings.largeInterval}>
+          <SvgUri
+            width="82.31"
+            height="40"
+            source={require('../static/login.svg')}
+          />
+        </View>
         <View style={[styles.loginInterface, paddings.largeInterval]}>
           <Input
             label="用户名或邮箱"

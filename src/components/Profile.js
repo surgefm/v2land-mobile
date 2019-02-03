@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, View, ScrollView } from 'react-native';
+import { SafeAreaView, View, ScrollView, StatusBar } from 'react-native';
 import { Avatar, ListItem, Icon, Text } from 'react-native-elements';
 import { paddings, profileStyle, colors } from '../styles';
 import { AlertContext } from '../context/Alert';
@@ -49,6 +49,7 @@ const Profile = ({ username = '', role = '', logout = () => {} }) => (
   <AlertContext.Consumer>
     {alert => (
       <SafeAreaView style={{ backgroundColor: colors.lightGrey, flex: 1 }}>
+        <StatusBar barStyle="dark-content" />
         <ScrollView style={profileStyle.pageTop}>
           <View style={[paddings.side, profileStyle.avatarContainer]}>
             <Avatar

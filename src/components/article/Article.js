@@ -5,6 +5,7 @@ import { StackList } from '../stacks';
 import Description from './Description';
 import { HeaderImage, RefreshControl } from '../elements';
 import { paddings, paddingConstants, colors } from '../../styles';
+import { SubscriptionEditor } from '../../containers/Subscription';
 
 const Article = ({
   event,
@@ -55,6 +56,7 @@ const Article = ({
           </View>
         )}
       </View>
+      <SubscriptionEditor eventId={event.id} />
     </ScrollView>
   );
 
