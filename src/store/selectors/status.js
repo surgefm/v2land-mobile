@@ -1,7 +1,7 @@
-const statusSelector = state => !state.status ? {} : state.status;
+const statusSelector = state => state.status || {};
 const subscriptionStatusSelector = [
   statusSelector,
-  state => !state.subscriptions ? {} : state.subscriptions,
+  state => state.subscriptions || {},
 ];
 
 export const isSubscriptionEditing = [

@@ -1,11 +1,14 @@
 import React from 'react';
 import { StyleSheet, View, Dimensions } from 'react-native';
-import { ButtonGroup, Slider, Text, Icon, Overlay, Button } from 'react-native-elements';
-import { commonStyle, paddings, paddingConstants, colors, buttonStyle } from '../../styles';
+import { Slider, Text, Icon, Overlay, Button } from 'react-native-elements';
+import { paddings, paddingConstants, colors, buttonStyle } from '../../styles';
+import Picker from 'react-native-picker-select';
 
 const SubscriptionEditor = ({
   eventId,
   method,
+  methods,
+  updateMethod,
   mode,
   modeLabel,
   updateMode,
@@ -34,11 +37,16 @@ const SubscriptionEditor = ({
       </View>
       <View style={paddings.interval}>
         <Text style={styles.label}>通知方式</Text>
-        <ButtonGroup
-          buttons={['应用通知', 'Twitter', '微博', '邮件']}
-          selectedIndex={method}
-          containerStyle={commonStyle.noSideMargins}
-          selectedButtonStyle={buttonStyle.primary}
+        <Picker
+          placeholder={{
+            label: '选择通知方式',
+            value: null,
+            color: '#9EA0A4',
+          }}
+          items={methods}
+          onValueChange={value => updateMethod(value)}
+          style={{ ...pickerSelectStyles }}
+          value={method}
         />
       </View>
       <View style={paddings.largeInterval}>
@@ -46,17 +54,18 @@ const SubscriptionEditor = ({
         <Slider
           value={mode}
           onValueChange={value => updateMode(value)}
-          maximumValue={4}
+          maximumValue={2}
           minimumValue={0}
           step={1}
           minimumTrackTintColor='rgb(189, 219, 228)'
           maximumTrackTintColor='#ddd'
           thumbTintColor={colors.theme}
+          animateTransitions={true}
+          animationType='spring'
         />
         <Text style={styles.modeLabel}>{modeLabel}</Text>
       </View>
       <View style={styles.buttonContainer}>
-        <Button title='重置' buttonStyle={{ width: 80 }} type='clear' />
         <Button
           title='关注'
           buttonStyle={[{ width: 80 }, buttonStyle.primary]}
@@ -96,7 +105,32 @@ const styles = StyleSheet.create({
   buttonContainer: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
+  },
+});
+
+const pickerSelectStyles = StyleSheet.create({
+  inputIOS: {
+    fontSize: 16,
+    paddingTop: 13,
+    paddingHorizontal: 10,
+    paddingBottom: 12,
+    borderWidth: 1,
+    borderColor: 'gray',
+    borderRadius: 4,
+    backgroundColor: 'white',
+    color: 'black',
+  },
+  inputAndroid: {
+    fontSize: 16,
+    paddingTop: 13,
+    paddingHorizontal: 10,
+    paddingBottom: 12,
+    borderWidth: 1,
+    borderColor: 'gray',
+    borderRadius: 4,
+    backgroundColor: 'white',
+    color: 'black',
   },
 });
 
