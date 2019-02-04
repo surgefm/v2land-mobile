@@ -1,6 +1,8 @@
 import R from 'ramda';
 import routers from '../config/routers';
-import LoginComponent from '../components/Login.js';
+import RegistrationComponent from '../components/registration/Registration';
+
+import validator from 'validator';
 
 import {
   withNavigationOptions,
@@ -19,13 +21,13 @@ import {
   errorMessageSelector,
 } from '../store/selectors/auth.js';
 
-const Login = R.compose(
+const Registration = R.compose(
   withNavigationOptions({
     header: null,
   }),
-  withNavigationHandlers(({ replace, navigate }) => ({
+  withNavigationHandlers(({ replace, goBack }) => ({
     goMe: () => replace(routers.me),
-    onRegisterClick: () => navigate(routers.registration),
+    goBack,
   })),
   connect(
     {
@@ -42,8 +44,9 @@ const Login = R.compose(
     }
   }),
   withState(
-    automaton.stringBox('', { box: 'loginName', fill: 'setLoginName' }),
-    automaton.stringBox('', { box: 'passwd', fill: 'setPasswd' }),
+    automaton.stringBox('', { box: 'username', fill: 'setUsername' }),
+    automaton.stringBox('', { box: 'email', fill: 'setEmail' }),
+    automaton.stringBox('', { box: 'password', fill: 'setPassword' }),
     automaton.stringBox('', {
       box: 'clientErrorMessage',
       fill: 'setClientErrorMessage',
@@ -53,38 +56,48 @@ const Login = R.compose(
   ),
   addNavigationListener(
     'didBlur',
-    ({ setLoginName, setPasswd, flip }) => () => {
-      setLoginName('');
-      setPasswd('');
+    ({ setUsername, setEmail, setPassword, flip }) => () => {
+      setUsername('');
+      setEmail('');
+      setPassword('');
       flip(true);
     },
   ),
   withProps(
     ({
-      loginName,
-      passwd,
+      username,
+      email,
+      password,
       setClientErrorMessage,
-      login,
+      register,
       clientErrorMessage,
       serverErrorMessage,
       isDirty,
       flip,
-      setLoginName,
-      setPasswd,
+      setUsername,
+      setEmail,
+      setPassword,
       setLoading,
     }) => ({
-      onLoginClick: async () => {
+      onRegisterClick: async () => {
         flip(false);
         setLoading(true);
 
-        loginName = loginName.trim();
-        if (!loginName) {
+        username = username.trim();
+        if (!username) {
           setClientErrorMessage('请填写用户名');
           setLoading(false);
           return;
         }
 
-        if (!passwd) {
+        email = email.trim();
+        if (!email || !validator.isEmail(email)) {
+          setClientErrorMessage('请填写正确的邮箱');
+          setLoading(false);
+          return;
+        }
+
+        if (!password) {
           setClientErrorMessage('请填写密码');
           setLoading(false);
           return;
@@ -92,23 +105,24 @@ const Login = R.compose(
 
         // else clean error message
         setClientErrorMessage('');
-        await login({
-          username: loginName,
-          password: passwd,
-        });
+        await register({ username, email, password });
         setLoading(false);
       },
       errorMessage: isDirty ? '' : serverErrorMessage || clientErrorMessage,
-      setLoginName: (...args) => {
+      setUsername: (...args) => {
         flip(true);
-        setLoginName(...args);
+        setUsername(...args);
       },
-      setPasswd: (...args) => {
+      setEmail: (...args) => {
         flip(true);
-        setPasswd(...args);
+        setEmail(...args);
+      },
+      setPassword: (...args) => {
+        flip(true);
+        setPassword(...args);
       },
     }),
   ),
-)(LoginComponent);
+)(RegistrationComponent);
 
-export default Login;
+export default Registration;

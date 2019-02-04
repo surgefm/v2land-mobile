@@ -27,6 +27,7 @@ import Search from './src/containers/Search';
 import { Article } from './src/containers/Article';
 import Profile from './src/containers/Profile';
 import Login from './src/containers/Login';
+import Registration from './src/containers/Registration';
 
 import { initializeNotification } from './src/services/notification';
 
@@ -57,6 +58,7 @@ const ProfileStack = createStackNavigator({
     screen: Profile,
   },
   [routers.login]: Login,
+  [routers.registration]: Registration,
 });
 
 const tabBarIcons = {
@@ -135,7 +137,11 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <AlertProvider infoColor={colors.theme} closeInterval={3000}>
+        <AlertProvider
+          infoColor={colors.theme}
+          closeInterval={3000}
+          updateStatusBar={false}
+        >
           <NavigatorContainer />
         </AlertProvider>
       </Provider>
