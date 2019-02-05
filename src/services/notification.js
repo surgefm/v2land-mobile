@@ -5,7 +5,6 @@ import config from '../config/const';
 import PushNotification from 'react-native-push-notification';
 import { PushNotificationIOS } from 'react-native';
 
-
 export function initializeNotification() {
   PushNotification.configure({
     onRegister: async (token) => {
@@ -19,8 +18,6 @@ export function initializeNotification() {
       };
       const installation = await Installation.getCurrent();
       const result = await installation.save(info);
-
-      console.log(result);
     },
 
     onNotification: function(notification) {

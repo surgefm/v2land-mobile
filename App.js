@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { compose } from 'ramda';
 import configStore from './src/store/configStore';
 
-import { Font } from 'expo';
+import { Font, AppLoading } from 'expo';
 
 import {
   createBottomTabNavigator,
@@ -36,8 +36,14 @@ const store = configStore();
 const EventsStack = createStackNavigator(
   {
     [routers.eventList]: Events,
-    [routers.event]: Article,
-    [routers.news]: News,
+    [routers.event]: {
+      screen: Article,
+      path: 'event/:eventId',
+    },
+    [routers.news]: {
+      screen: News,
+      path: 'event/:eventId/:stackId/:newsId',
+    },
   },
   {
     headerMode: 'screen',
@@ -46,7 +52,10 @@ const EventsStack = createStackNavigator(
 
 const SearchStack = createStackNavigator(
   {
-    [routers.searchIndex]: Search,
+    [routers.searchIndex]: {
+      screen: Search,
+      path: 'search',
+    },
   },
   {
     initialRouteName: routers.searchIndex,
@@ -69,9 +78,18 @@ const tabBarIcons = {
 
 const Navigator = createBottomTabNavigator(
   {
-    [routers.today]: EventsStack,
-    [routers.search]: SearchStack,
-    [routers.profile]: ProfileStack,
+    [routers.today]: {
+      screen: EventsStack,
+      path: 'events',
+    },
+    [routers.search]: {
+      screen: SearchStack,
+      path: 'search',
+    },
+    [routers.profile]: {
+      screen: ProfileStack,
+      path: 'profile',
+    },
   },
   {
     initialRouteName: routers.today,
@@ -82,24 +100,11 @@ const Navigator = createBottomTabNavigator(
         if (!iconConfig.name && iconConfig.focused) {
           const focusedIcon = iconConfig.focused;
           const idleIcon = iconConfig.idle;
-          return focused ? (
-            <Icon
-              {...focusedIcon}
-              color={tintColor}
-            />
-          ) : (
-            <Icon
-              {...idleIcon}
-              color={tintColor}
-            />
-          );
+          return focused
+            ? <Icon {...focusedIcon} color={tintColor} />
+            : <Icon {...idleIcon} color={tintColor} />;
         } else {
-          return (
-            <Icon
-              {...iconConfig}
-              color={tintColor}
-            />
-          );
+          return <Icon {...iconConfig} color={tintColor} />;
         }
       },
     }),
@@ -125,16 +130,33 @@ const NavigatorContainer = compose(
 )(Navigator);
 
 export default class App extends React.Component {
-  componentDidMount() {
-    Font.loadAsync({
+  state = {
+    isReady: false,
+  };
+
+  async loadFont() {
+    return Font.loadAsync({
       'source-han-serif-semibold': require('./src/static/fonts/SourceHanSerifCN-SemiBold.ttf'),
       'source-han-sans': require('./src/static/fonts/SourceHanSansCN-Regular.ttf'),
       'source-han-sans-medium': require('./src/static/fonts/SourceHanSansCN-Medium.ttf'),
     });
+  }
+
+  componentDidMount() {
     initializeNotification();
   }
 
   render() {
+    if (!this.state.isReady) {
+      return (
+        <AppLoading
+          startAsync={this.loadFont}
+          onFinish={() => this.setState({ isReady: true })}
+          onError={console.warn}
+        />
+      );
+    }
+
     return (
       <Provider store={store}>
         <AlertProvider
@@ -142,7 +164,7 @@ export default class App extends React.Component {
           closeInterval={3000}
           updateStatusBar={false}
         >
-          <NavigatorContainer />
+          <NavigatorContainer uriPrefix='v2land://' />
         </AlertProvider>
       </Provider>
     );

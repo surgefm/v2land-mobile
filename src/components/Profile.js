@@ -103,6 +103,8 @@ const Profile = ({ username = '', role = '', logout }) => (
           <View style={profileStyle.section}>
             <ListItem
               title='退出登录'
+              topDivider={true}
+              bottomDivider={true}
               titleStyle={{ textAlign: 'center', color: 'red' }}
               onPress={() => logout() && alert('info', '登出成功', '你已成功退出登录')}
             />
