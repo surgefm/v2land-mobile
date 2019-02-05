@@ -3,26 +3,8 @@ import { colors } from './colors';
 import { fontSizes } from './fontSizes';
 
 export default StyleSheet.create({
-  pageTop: {
+  section: {
     paddingTop: 16,
-  },
-  containerStyle: {
-    borderColor: colors.grey,
-  },
-  avatarContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    backgroundColor: '#fff',
-    paddingVertical: 8,
-    borderTopWidth: 1,
-    borderBottomWidth: 1,
-    borderColor: colors.grey,
-  },
-  usernameContainer: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    marginLeft: 12,
   },
   username: {
     fontSize: fontSizes.medium,
@@ -32,10 +14,14 @@ export default StyleSheet.create({
   role: {
     fontWeight: 'normal',
   },
+  description: {
+    fontSize: 16,
+    fontFamily: 'source-han-sans',
+    lineHeight: 18,
+  },
   icon: {
-    width: 40,
+    width: 32,
     textAlign: 'center',
-    marginRight: 4,
     color: colors.theme,
   },
 });
