@@ -31,6 +31,8 @@ const Login = ({
             label="用户名或邮箱"
             containerStyle={{ paddingHorizontal: 0 }}
             onChangeText={setLoginName}
+            spellCheck={false}
+            autoCapitalize='none'
             value={loginName}
             shake={true}
           />

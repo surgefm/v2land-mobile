@@ -32,6 +32,8 @@ const Registration = ({
             label="用户名"
             containerStyle={{ paddingHorizontal: 0 }}
             onChangeText={setUsername}
+            spellCheck={false}
+            autoCapitalize='none'
             value={username}
             shake={true}
           />
@@ -39,6 +41,8 @@ const Registration = ({
             label="邮箱"
             containerStyle={{ marginTop: 16, paddingHorizontal: 0 }}
             onChangeText={setEmail}
+            spellCheck={false}
+            autoCapitalize='none'
             value={email}
             shake={true}
           />
@@ -57,7 +61,6 @@ const Registration = ({
             onPress={() => goBack()}
             title="返回"
             type="clear"
-            x={console.log(goBack)}
           />
           <Button
             onPress={onRegisterClick}
