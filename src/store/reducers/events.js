@@ -47,6 +47,7 @@ const fetchEventOKHandler = (state, event) => {
   event = entities.events[result];
   event.updatedAt = new Date(event.updatedAt);
 
+  state = state || [];
   if (state[result] && state[result].newsCount) {
     const oldEvent = state[result];
     event.updateStat = {

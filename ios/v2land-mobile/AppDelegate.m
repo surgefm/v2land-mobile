@@ -1,41 +1,16 @@
 // Copyright 2015-present 650 Industries. All rights reserved.
 
 #import "AppDelegate.h"
-#import "ExpoKit.h"
-#import "EXViewController.h"
 #import <React/RCTPushNotificationManager.h>
-
-@interface AppDelegate ()
-
-@property (nonatomic, strong) EXViewController *rootViewController;
-
-@end
 
 @implementation AppDelegate
 
+// Put your app delegate methods here. Remember to also call methods from EXStandaloneAppDelegate superclass
+// in order to keep Expo working. See example below.
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    _window.backgroundColor = [UIColor whiteColor];
-    [[ExpoKit sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
-    _rootViewController = [ExpoKit sharedInstance].rootViewController;
-    _window.rootViewController = _rootViewController;
-    
-    [_window makeKeyAndVisible];
-    
-    return YES;
-}
-
-#pragma mark - Handling URLs
-
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(id)annotation
-{
-    return [[ExpoKit sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
-}
-
-- (BOOL)application:(UIApplication *)application continueUserActivity:(nonnull NSUserActivity *)userActivity restorationHandler:(nonnull void (^)(NSArray * _Nullable))restorationHandler
-{
-    return [[ExpoKit sharedInstance] application:application continueUserActivity:userActivity restorationHandler:restorationHandler];
+    return [super application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
 #pragma mark - Notifications
@@ -61,10 +36,10 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
     [RCTPushNotificationManager didFailToRegisterForRemoteNotificationsWithError:error];
 }
-// Required for the localNotification event.
-- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
-{
-    [RCTPushNotificationManager didReceiveLocalNotification:notification];
-}
+//// Required for the localNotification event.
+//- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+//{
+//    [RCTPushNotificationManager didReceiveLocalNotification:notification];
+//}
 
 @end

@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { compose } from 'ramda';
 import configStore from './src/store/configStore';
 
-import { Font, AppLoading } from 'expo';
+import { Font, AppLoading, Linking } from 'expo';
 
 import {
   createBottomTabNavigator,
@@ -29,7 +29,8 @@ import Profile from './src/containers/Profile';
 import Login from './src/containers/Login';
 import Registration from './src/containers/Registration';
 
-import { initializeNotification } from './src/services/notification';
+import NotificationService from './src/services/notification';
+import { PushNotificationIOS } from 'react-native';
 
 const store = configStore();
 
@@ -130,9 +131,13 @@ const NavigatorContainer = compose(
 )(Navigator);
 
 export default class App extends React.Component {
-  state = {
-    isReady: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      isReady: false,
+    };
+    this.notification = new NotificationService(this.onRegister.bind(this), this.onNotification.bind(this));
+  }
 
   async loadFont() {
     return Font.loadAsync({
@@ -140,10 +145,6 @@ export default class App extends React.Component {
       'source-han-sans': require('./src/static/fonts/SourceHanSansCN-Regular.ttf'),
       'source-han-sans-medium': require('./src/static/fonts/SourceHanSansCN-Medium.ttf'),
     });
-  }
-
-  componentDidMount() {
-    initializeNotification();
   }
 
   render() {
@@ -168,5 +169,19 @@ export default class App extends React.Component {
         </AlertProvider>
       </Provider>
     );
+  }
+
+  onRegister(result) {
+    console.log(result);
+  }
+
+  onNotification(notification) {
+    // console.log(123);
+    // const { data } = notification;
+    // const { type } = data;
+    // if (type === 'event') {
+    //   Linking.openURL('v2land://events/event/' + data.eventId);
+    // }
+    // notification.finish(PushNotificationIOS.FetchResult.NoData);
   }
 }
