@@ -35,11 +35,12 @@ const Profile = R.compose(
     },
   ),
 
-  withProps(({ authorized, goLogin, username }) => {
+  withProps(({ authorized, goLogin }) => {
     if (!authorized) {
       goLogin();
     }
   }),
+
 )(ProfileComponent);
 
 export default Profile;

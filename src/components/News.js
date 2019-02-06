@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Linking } from 'react-native';
+import { WebBrowser } from 'expo';
 import NewsComponent from './news/News';
 import { log } from '../util';
 
@@ -15,9 +16,9 @@ export default class News extends Component {
   onButtonPress() {
     Linking.canOpenURL(this.props.news.url).then(supported => {
       if (supported) {
-        Linking.openURL(this.props.news.url);
+        WebBrowser.openBrowserAsync(this.props.news.url);
       } else {
-        log("Don't know how to open URI: " + this.props.news.url);
+        log('Don\'t know how to open URI: ' + this.props.news.url);
       }
     });
   }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, View, ScrollView, StatusBar } from 'react-native';
-import { Avatar, ListItem, Icon, Text } from 'react-native-elements';
-import { paddings, profileStyle, colors } from '../styles';
+import { ListItem, Text } from 'react-native-elements';
+import { profileStyle, colors } from '../styles';
 import { AlertContext } from '../context/Alert';
 
 const userActionList = [
@@ -45,57 +45,66 @@ const informationList = [
   },
 ];
 
-const Profile = ({ username = '', role = '', logout = () => {} }) => (
+const Profile = ({ username = '', role = '', logout }) => (
   <AlertContext.Consumer>
     {alert => (
       <SafeAreaView style={{ backgroundColor: colors.lightGrey, flex: 1 }}>
         <StatusBar barStyle="dark-content" />
-        <ScrollView style={profileStyle.pageTop}>
-          <View style={[paddings.side, profileStyle.avatarContainer]}>
-            <Avatar
-              large
-              rounded
-              source={require('../static/defaultAvatar.png')}
-              onPress={() => this.context('info', 'Avatar pressed', 'No magic happened.')}
-              activeOpacity={0.7}
-            />
-            <View style={profileStyle.usernameContainer}>
+        <ScrollView style={profileStyle.section}>
+          <ListItem
+            leftAvatar={{
+              title: username,
+              source: require('../static/defaultAvatar.png'),
+              showEditButton: true,
+              size: 'large',
+              onPress: () => alert('info', '听说你想改头像', '先将就着看吧'),
+            }}
+            title={
               <Text style={profileStyle.username}>
                 {username || '黑衣人'}{'  '}
                 <Text style={profileStyle.role}>{role}</Text>
               </Text>
-              <Text numberOfLines={1}>
+            }
+            subtitle={
+              <Text style={profileStyle.description} numberOfLines={2}>
                 大家好，我叫小朋友。我的兴趣爱好十分广泛，我喜欢读书，写作，跳舞，吹牛。
               </Text>
-            </View>
-          </View>
+            }
+            topDivider={true}
+            bottomDivider={true}
+          />
 
-          <View>
+          <View style={profileStyle.section}>
             {userActionList.map((item) => (
               <ListItem
                 key={item.title}
                 title={item.title}
-                leftIcon={<Icon {...item.icon} size={24} iconStyle={profileStyle.icon} />}
+                topDivider={true}
+                bottomDivider={true}
+                leftIcon={{ ...item.icon, iconStyle: profileStyle.icon }}
+                chevron
               />
             ))}
           </View>
 
-          <View>
+          <View style={profileStyle.section}>
             {informationList.map((item) => (
               <ListItem
                 key={item.title}
                 title={item.title}
-                leftIcon={<Icon {...item.icon} size={24} iconStyle={profileStyle.icon} />}
+                topDivider={true}
+                bottomDivider={true}
+                leftIcon={{ ...item.icon, iconStyle: profileStyle.icon }}
+                chevron
               />
             ))}
           </View>
 
-          <View>
+          <View style={profileStyle.section}>
             <ListItem
               title='退出登录'
-              hideChevron={true}
               titleStyle={{ textAlign: 'center', color: 'red' }}
-              onPress={logout}
+              onPress={() => logout() && alert('info', '登出成功', '你已成功退出登录')}
             />
           </View>
         </ScrollView>
