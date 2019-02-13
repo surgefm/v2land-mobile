@@ -13,7 +13,7 @@ import {
 
 import routers from './src/config/routers';
 import { Icon } from 'react-native-elements';
-import { AlertProvider } from './src/context';
+import { InAppNotificationProvider } from 'react-native-in-app-notification';
 import { colors } from './src/styles';
 import { storage } from './src/util';
 
@@ -137,13 +137,9 @@ export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <AlertProvider
-          infoColor={colors.theme}
-          closeInterval={3000}
-          updateStatusBar={false}
-        >
+        <InAppNotificationProvider backgroundColor={'#fff'}>
           <NavigatorContainer />
-        </AlertProvider>
+        </InAppNotificationProvider>
       </Provider>
     );
   }
