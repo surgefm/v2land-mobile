@@ -165,7 +165,7 @@ export default class App extends React.Component {
           closeInterval={3000}
           updateStatusBar={false}
         >
-          <NavigatorContainer uriPrefix='v2land://' />
+          <NavigatorContainer uriPrefix={Linking.makeUrl('/')} />
         </AlertProvider>
       </Provider>
     );
