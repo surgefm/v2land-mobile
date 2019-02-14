@@ -7,7 +7,7 @@ import {
   connect,
 } from '../../enhancers';
 
-import { login, saveToken, getUserInfo } from '../../store/actions/auth.js';
+import { saveToken, getUserInfo } from '../../store/actions/auth.js';
 
 import { authorizedSelector } from '../../store/selectors/auth.js';
 
@@ -25,16 +25,21 @@ const ThirdPartyAuthorization = R.compose(
       authorized: authorizedSelector,
     },
     {
-      login,
       saveToken,
       getUserInfo,
     },
   ),
-  withProps(({ navigation, saveToken }) => ({
+  withProps(({ navigation }) => ({
+    goTo(route, options) {
+      navigation.popToTop();
+      navigation.replace(route, options);
+    },
+  })),
+  withProps(({ navigation, saveToken, goTo }) => ({
     async redirect() {
       const { state } = navigation;
       if (!state.params) {
-        navigation.replace(routers.login);
+        goTo(routers.login);
         return {};
       }
 
@@ -45,7 +50,7 @@ const ThirdPartyAuthorization = R.compose(
       } else if (params.site === 'weibo') {
         path += `code=${params.code}&authId=${params.authId}`;
       } else {
-        navigation.replace(routers.login);
+        goTo(routers.login);
         return {};
       }
 
@@ -54,19 +59,19 @@ const ThirdPartyAuthorization = R.compose(
         const token = getTokenStringFromHeader(response.headers);
         await saveToken(token);
         if ([200, 201].includes(response.status)) {
-          navigation.replace(routers.me);
+          goTo(routers.me);
           return {};
         } else if (response.status === 202 &&
           response.data.name === 'authentication required') {
-          navigation.replace(routers.registration);
+          goTo(routers.registration);
           return {};
         } else if (response.status === 202 &&
           response.data.name === 'already connected') {
-          navigation.replace(routers.me);
+          goTo(routers.me);
           return {};
         }
       } catch (err) {
-        navigation.replace(routers.login);
+        goTo(routers.login);
         return {};
       }
     },
