@@ -28,6 +28,7 @@ import { Article } from './src/containers/Article';
 import Profile from './src/containers/Profile';
 import Login from './src/containers/Login';
 import Registration from './src/containers/Registration';
+import ThirdPartyAuthorization from './src/containers/Login/ThirdPartyAuthorization';
 
 import NotificationService from './src/services/notification';
 import { PushNotificationIOS } from 'react-native';
@@ -66,9 +67,20 @@ const SearchStack = createStackNavigator(
 const ProfileStack = createStackNavigator({
   [routers.me]: {
     screen: Profile,
+    path: 'me',
   },
-  [routers.login]: Login,
-  [routers.registration]: Registration,
+  [routers.login]: {
+    screen: Login,
+    path: 'login',
+  },
+  [routers.registration]: {
+    screen: Registration,
+    path: 'registration',
+  },
+  [routers.thirdPartyAuthoirzation]: {
+    screen: ThirdPartyAuthorization,
+    path: 'third-party-authorization',
+  },
 });
 
 const tabBarIcons = {

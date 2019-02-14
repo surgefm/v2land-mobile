@@ -9,7 +9,7 @@ import {
   withProps,
 } from '../enhancers';
 
-import { invalidateToken } from '../store/actions/auth.js';
+import { invalidateToken, getUserInfo } from '../store/actions/auth.js';
 
 import { authorizedSelector } from '../store/selectors/auth.js';
 import { userNameSelector, userDisplayRoleSelector } from '../store/selectors/user.js';
@@ -32,12 +32,15 @@ const Profile = R.compose(
     },
     {
       logout: invalidateToken,
+      getUserInfo,
     },
   ),
 
-  withProps(({ authorized, goLogin }) => {
+  withProps(({ authorized, goLogin, getUserInfo }) => {
     if (!authorized) {
       goLogin();
+    } else {
+      getUserInfo();
     }
   }),
 
