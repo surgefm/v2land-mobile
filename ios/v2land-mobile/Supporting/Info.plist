@@ -31,7 +31,7 @@
 			<string>OAuthRedirect</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>org.langchao.mobile</string>
+				<string>v2land</string>
 			</array>
 		</dict>
 	</array>
@@ -71,7 +71,7 @@
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Allow v2land-mobile to access your microphone</string>
 	<key>NSMotionUsageDescription</key>
-	<string>Allow v2land-mobile to access your device's accelerometer</string>
+	<string>Allow v2land-mobile to access your device&apos;s accelerometer</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Give v2land-mobile permission to save photos</string>
 	<key>NSPhotoLibraryUsageDescription</key>
