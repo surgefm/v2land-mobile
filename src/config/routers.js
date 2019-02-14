@@ -7,5 +7,6 @@ export default {
   profile: '用户',
   login: '登录',
   registration: '注册',
+  thirdPartyAuthoirzation: '第三方登录',
   me: '个人页面',
 };
