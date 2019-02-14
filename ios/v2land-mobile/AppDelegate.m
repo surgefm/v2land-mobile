@@ -1,6 +1,7 @@
 // Copyright 2015-present 650 Industries. All rights reserved.
 
 #import "AppDelegate.h"
+#import "Expokit.h"
 #import <React/RCTPushNotificationManager.h>
 
 @implementation AppDelegate
@@ -11,6 +12,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     return [super application:application didFinishLaunchingWithOptions:launchOptions];
+}
+
+#pragma mark - Handling URLs
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(id)annotation
+{
+    return [[ExpoKit sharedInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
 }
 
 #pragma mark - Notifications
