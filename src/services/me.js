@@ -1,5 +1,4 @@
 import { get, post } from './methods.js';
-import { storage } from '../util';
 
 const withCookie = method => (a1, a2, options = {}) => token => {
   options.headers = options.headers || {};
