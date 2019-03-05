@@ -26,8 +26,7 @@ export default class NotificationService {
       },
 
       onNotification(notif) {
-        console.log(!!notif);
-        // onNotification(notif);
+        onNotification(notif);
       },
 
       permissions: {
@@ -38,7 +37,7 @@ export default class NotificationService {
 
       popInitialNotification: true,
 
-      requestPermissions: false,
+      requestPermissions: true,
     });
   }
 }
