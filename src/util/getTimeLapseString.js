@@ -1,17 +1,13 @@
-import _ from 'lodash';
-
 /**
  * @param {Date|String|Number} time 时间
  * @param {String} type 输出类型 ['specific', 'general']
  */
 const getTimeLapseString = (time, type = 'specific') => {
   if (!time) return;
-  if (!_.isDate(time)) {
-    try {
-      time = new Date(time);
-    } catch (err) {
-      return;
-    }
+  try {
+    time = new Date(time);
+  } catch (err) {
+    return;
   }
 
   const now = new Date();

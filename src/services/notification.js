@@ -38,7 +38,7 @@ export default class NotificationService {
 
       popInitialNotification: true,
 
-      requestPermissions: true,
+      requestPermissions: false,
     });
   }
 }

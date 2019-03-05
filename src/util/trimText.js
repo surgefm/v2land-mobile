@@ -1,3 +1,3 @@
-const trimText = (text = '') => text.trim();
+const trimText = text => (text || '').trim();
 
 export default trimText;

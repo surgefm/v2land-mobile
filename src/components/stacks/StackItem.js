@@ -5,10 +5,10 @@ import NewsList from '../../containers/NewsList';
 import { colors, paddings } from '../../styles';
 import { getTimeString, trimText } from '../../util';
 
-const StackItem = ({ stack, onNewsPress, isLastStack }) => (
+const StackItem = ({ stack, onNewsPress, isLastStack, index }) => (
   <View>
     <Text style={[styles.title, paddings.interval]}>
-      {trimText(stack.title)}
+      {index}、{trimText(stack.title)}
     </Text>
     {!getTimeString(stack.time) || (
       <Text style={[paddings.interval, styles.time]}>
