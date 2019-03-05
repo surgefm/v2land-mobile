@@ -87,17 +87,17 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontFamily: 'source-han-sans-medium',
+    fontFamily: 'SourceHanSansCN-Medium',
     lineHeight: 30,
   },
   label: {
     fontSize: 16,
-    fontFamily: 'source-han-sans',
+    fontFamily: 'SourceHanSansCN-Regular',
     marginBottom: 4,
   },
   modeLabel: {
     fontSize: 16,
-    fontFamily: 'source-han-sans',
+    fontFamily: 'SourceHanSansCN-Regular',
     color: colors.theme,
     width: '100%',
     textAlign: 'center',

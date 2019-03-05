@@ -1,42 +1,4 @@
 {
-  "expo": {
-    "name": "v2land-mobile",
-    "version": "0.1.8",
-    "slug": "v2land-mobile",
-    "scheme": "v2land",
-    "privacy": "public",
-    "sdkVersion": "32.0.0",
-    "icon": "./src/static/icon.png",
-    "primaryColor": "#4A90E2",
-    "platforms": [
-      "ios",
-      "android"
-    ],
-    "orientation": "portrait",
-    "assetBundlePatterns": [
-      "src/static/**/*",
-      "src/static/*.svg",
-      "src/static/fonts/SourceHanSerifCN-SemiBold.ttf",
-      "src/static/fonts/SourceHanSansCN-Regular.ttf"
-    ],
-    "isDetached": true,
-    "detach": {
-      "iosExpoViewUrl": "https://s3.amazonaws.com/exp-exponent-view-code/ios-v2.10.2-sdk32.0.0-c59c23cd-1d49-49d2-a633-d03f9d554cf6.tar.gz",
-      "androidExpoViewUrl": "https://s3.amazonaws.com/exp-exponent-view-code/android-v2.10.5-sdk32.0.0-6b87ee30-8cbe-4cc6-b5ba-b03b77e34f90.tar.gz"
-    },
-    "ios": {
-      "bundleIdentifier": "org.langchao.mobile",
-      "publishBundlePath": "ios/v2land-mobile/Supporting/shell-app.bundle",
-      "publishManifestPath": "ios/v2land-mobile/Supporting/shell-app-manifest.json"
-    },
-    "android": {
-      "package": "org.langchao.mobile",
-      "publishBundlePath": "android/app/src/main/assets/shell-app.bundle",
-      "publishManifestPath": "android/app/src/main/assets/shell-app-manifest.json"
-    },
-    "updates": {
-      "enabled": true,
-      "fallbackToCacheTimeout": 1000
-    }
-  }
+  "name": "v2land",
+  "displayName": "v2land-mobile"
 }

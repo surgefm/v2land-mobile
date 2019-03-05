@@ -1,6 +1,6 @@
 import React from 'react';
 import { Share } from 'react-native';
-import { EvilIcons } from '@expo/vector-icons';
+import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import HeaderButtons, {
   HeaderButton,
   Item,

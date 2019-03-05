@@ -1,6 +1,6 @@
 import React from 'react';
 import { SafeAreaView, View, ScrollView, StatusBar } from 'react-native';
-import { WebBrowser } from 'expo';
+import WebBrowser from 'react-native-inappbrowser-reborn';
 import { ListItem, Text } from 'react-native-elements';
 import { profileStyle, colors } from '../styles';
 import { AlertContext } from '../context/Alert';
@@ -37,8 +37,9 @@ const informationList = [
       name: 'md-information-circle-outline',
       type: 'ionicon',
     },
-    onPress() {
-      WebBrowser.openBrowserAsync(`${config.site}about`);
+    async onPress() {
+      await WebBrowser.isAvailable();
+      WebBrowser.open(`${config.site}about`);
     },
   },
   // {

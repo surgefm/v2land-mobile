@@ -1,11 +1,15 @@
 import React from 'react';
+import { Linking } from 'react-native';
 import { Button } from 'react-native-elements';
+import WebBrowser from 'react-native-inappbrowser-reborn';
 import { commonStyle, buttonStyle, loginStyle } from '../../styles';
-import { WebBrowser, Linking } from 'expo';
-import { getThirdPartyAuthUrl } from '../../util';
+import { getThirdPartyAuthUrl, getThirdPartyAuthRedirectUrl } from '../../util';
 
 const jumpToWeibo = async (redirect) => {
-  const result = await WebBrowser.openAuthSessionAsync(getThirdPartyAuthUrl('weibo', redirect));
+  const result = await WebBrowser.openAuth(
+    getThirdPartyAuthUrl('twitter', redirect),
+    getThirdPartyAuthRedirectUrl(redirect),
+  );
   if (result.type === 'success') {
     Linking.openURL(result.url);
   }

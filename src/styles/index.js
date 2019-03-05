@@ -12,7 +12,7 @@ export const commonStyle = StyleSheet.create({
   eventTitle: {
     fontSize: 24,
     lineHeight: 28,
-    fontFamily: 'source-han-serif-semibold',
+    fontFamily: 'SourceHanSerifCN-Semibold',
   },
   noSideMargins: {
     marginLeft: 0,

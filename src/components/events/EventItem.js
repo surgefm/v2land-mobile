@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   textDesc: {
     marginTop: 8,
     lineHeight: 20,
-    fontFamily: 'source-han-sans',
+    fontFamily: 'SourceHanSansCN-Regular',
     textAlign: 'justify',
   },
 });

@@ -44,19 +44,19 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     lineHeight: 26,
-    fontFamily: 'source-han-sans',
+    fontFamily: 'SourceHanSansCN-Regular',
   },
   time: {
     fontSize: 16,
     lineHeight: 17,
     color: colors.theme,
-    fontFamily: 'source-han-sans',
+    fontFamily: 'SourceHanSansCN-Regular',
   },
   description: {
     paddingBottom: 12,
     fontSize: 14,
     lineHeight: 24,
-    fontFamily: 'source-han-sans',
+    fontFamily: 'SourceHanSansCN-Regular',
     textAlign: 'justify',
   },
   buttonText: {
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     color: colors.darkGrey,
     lineHeight: 15,
     marginTop: 4,
-    fontFamily: 'source-han-sans',
+    fontFamily: 'SourceHanSansCN-Regular',
   },
   newsList: {
     marginTop: 2,

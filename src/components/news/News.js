@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
   newsDescription: {
     fontSize: 16,
     lineHeight: 24,
-    fontFamily: 'source-han-sans',
+    fontFamily: 'SourceHanSansCN-Regular',
     textAlign: 'justify',
   },
   button: {
