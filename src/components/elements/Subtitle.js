@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: fontSizes.medium,
     color: '#4D4D4D',
-    fontFamily: 'source-han-sans-medium',
+    fontFamily: 'SourceHanSansCN-Medium',
     lineHeight: 20,
   },
 });

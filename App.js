@@ -3,8 +3,6 @@ import { Provider } from 'react-redux';
 import { compose } from 'ramda';
 import configStore from './src/store/configStore';
 
-import { Font, AppLoading, Linking } from 'expo';
-
 import {
   createBottomTabNavigator,
   createStackNavigator,
@@ -15,7 +13,7 @@ import routers from './src/config/routers';
 import { Icon } from 'react-native-elements';
 import { AlertProvider } from './src/context';
 import { colors } from './src/styles';
-import { storage } from './src/util';
+import { storage, getDeepLink } from './src/util';
 
 import { connect, prepare } from './src/enhancers';
 
@@ -31,7 +29,6 @@ import Registration from './src/containers/Registration';
 import ThirdPartyAuthorization from './src/containers/Login/ThirdPartyAuthorization';
 
 import NotificationService from './src/services/notification';
-import { PushNotificationIOS } from 'react-native';
 
 const store = configStore();
 
@@ -149,31 +146,10 @@ const NavigatorContainer = compose(
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isReady: false,
-    };
     this.notification = new NotificationService(this.onRegister.bind(this), this.onNotification.bind(this));
   }
 
-  async loadFont() {
-    return Font.loadAsync({
-      'source-han-serif-semibold': require('./src/static/fonts/SourceHanSerifCN-SemiBold.ttf'),
-      'source-han-sans': require('./src/static/fonts/SourceHanSansCN-Regular.ttf'),
-      'source-han-sans-medium': require('./src/static/fonts/SourceHanSansCN-Medium.ttf'),
-    });
-  }
-
   render() {
-    if (!this.state.isReady) {
-      return (
-        <AppLoading
-          startAsync={this.loadFont}
-          onFinish={() => this.setState({ isReady: true })}
-          onError={console.warn}
-        />
-      );
-    }
-
     return (
       <Provider store={store}>
         <AlertProvider
@@ -181,7 +157,7 @@ export default class App extends React.Component {
           closeInterval={3000}
           updateStatusBar={false}
         >
-          <NavigatorContainer uriPrefix={Linking.makeUrl('/')} />
+          <NavigatorContainer uriPrefix={getDeepLink()} />
         </AlertProvider>
       </Provider>
     );
@@ -192,12 +168,11 @@ export default class App extends React.Component {
   }
 
   onNotification(notification) {
-    // console.log(123);
-    // const { data } = notification;
-    // const { type } = data;
-    // if (type === 'event') {
-    //   Linking.openURL('v2land://events/event/' + data.eventId);
-    // }
-    // notification.finish(PushNotificationIOS.FetchResult.NoData);
+    const { data } = notification;
+    const { type } = data;
+    if (type === 'event') {
+      Linking.openURL('v2land://events/event/' + data.eventId);
+    }
+    notification.finish(PushNotificationIOS.FetchResult.NoData);
   }
 }

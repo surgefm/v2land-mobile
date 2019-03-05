@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { Text, Icon } from 'react-native-elements';
-import { LinearGradient } from 'expo';
+import LinearGradient from 'react-native-linear-gradient';
 import { colors } from '../../styles';
 
 const NewsItem = ({ news, onPress }) => (
@@ -28,8 +28,8 @@ const NewsItem = ({ news, onPress }) => (
       <LinearGradient
         style={styles.shade}
         colors={['rgba(256, 256, 256, 0)', 'rgba(256, 256, 256, 1)']}
-        start={[0, 0.5]}
-        end={[0.7, 0.5]}
+        start={{ x: 0, y: 0.5 }}
+        end={{ x: 0.7, y: 0.5 }}
       >
         <Icon
           type="ionicon"
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 14,
     lineHeight: 18,
-    fontFamily: 'source-han-sans',
+    fontFamily: 'SourceHanSansCN-Regular',
   },
   rightContainer: {
     position: 'absolute',

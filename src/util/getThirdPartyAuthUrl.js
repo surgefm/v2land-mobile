@@ -1,8 +1,8 @@
 import config from '../config/const';
-import { Linking } from 'expo';
+import getThirdPartyAuthRedirectUrl from './getThirdPartyAuthRedirectUrl';
 
 const getThirdPartyAuthUrl = (site, redirect) => {
-  redirect = encodeURIComponent(Linking.makeUrl('/profile/third-party-authorization?'), { redirect });
+  redirect = getThirdPartyAuthRedirectUrl(redirect);
   return `${config.api}auth/${site}?redirect=${redirect}`;
 };
 
