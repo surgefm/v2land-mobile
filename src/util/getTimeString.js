@@ -1,5 +1,3 @@
-import _ from 'lodash';
-
 const weekdays = [
   '星期日',
   '星期一',
@@ -22,12 +20,10 @@ const getTimeString = (
   },
 ) => {
   if (!time) return;
-  if (!_.isDate(time)) {
-    try {
-      time = new Date(time);
-    } catch (err) {
-      return;
-    }
+  try {
+    time = new Date(time);
+  } catch (err) {
+    return;
   }
 
   const year = time.getFullYear();

@@ -25,6 +25,7 @@ export const fetchEventList = requestData(
         event.stacks.sort((a, b) => new Date(b.time) - new Date(a.time));
       }
       event.updatedAt = new Date(event.updatedAt);
+      event.isInTimeline = true;
       const { entities } = normalize(event, Event);
       newState = {
         ...newState,
@@ -46,6 +47,7 @@ const fetchEventOKHandler = (state, event) => {
   const { entities, result } = normalize(event, Event);
   event = entities.events[result];
   event.updatedAt = new Date(event.updatedAt);
+  event.isInTimeline = true;
 
   state = state || [];
   if (state[result] && state[result].newsCount) {

@@ -1,8 +1,10 @@
 import React from 'react';
 import { SafeAreaView, View, ScrollView, StatusBar } from 'react-native';
+import { WebBrowser } from 'expo';
 import { ListItem, Text } from 'react-native-elements';
 import { profileStyle, colors } from '../styles';
 import { AlertContext } from '../context/Alert';
+import config from '../config/const';
 
 const userActionList = [
   {
@@ -35,14 +37,17 @@ const informationList = [
       name: 'md-information-circle-outline',
       type: 'ionicon',
     },
-  },
-  {
-    title: '意见反馈',
-    icon: {
-      name: 'mail',
-      type: 'feather',
+    onPress() {
+      WebBrowser.openBrowserAsync(`${config.site}about`);
     },
   },
+  // {
+  //   title: '意见反馈',
+  //   icon: {
+  //     name: 'mail',
+  //     type: 'feather',
+  //   },
+  // },
 ];
 
 const Profile = ({ username = '', role = '', logout }) => (
@@ -74,7 +79,7 @@ const Profile = ({ username = '', role = '', logout }) => (
             bottomDivider={true}
           />
 
-          <View style={profileStyle.section}>
+          {/* <View style={profileStyle.section}>
             {userActionList.map((item) => (
               <ListItem
                 key={item.title}
@@ -85,7 +90,7 @@ const Profile = ({ username = '', role = '', logout }) => (
                 chevron
               />
             ))}
-          </View>
+          </View> */}
 
           <View style={profileStyle.section}>
             {informationList.map((item) => (
@@ -94,6 +99,7 @@ const Profile = ({ username = '', role = '', logout }) => (
                 title={item.title}
                 topDivider={true}
                 bottomDivider={true}
+                onPress={item.onPress || (() => {})}
                 leftIcon={{ ...item.icon, iconStyle: profileStyle.icon }}
                 chevron
               />
