@@ -6,9 +6,10 @@ const StackList = ({ stacks, onPress, onNewsPress }) =>
   !stacks || (
     <FlatList
       data={stacks}
-      renderItem={({ item }) => (
+      renderItem={({ item, index }) => (
         <StackItem
           stackId={item}
+          index={stacks.length - index}
           isLastStack={item === stacks[stacks.length - 1]}
           onPress={onPress}
           onNewsPress={onNewsPress}

@@ -18,11 +18,11 @@ const ArticleHeaderButtons = ({ color, event, beginSubscriptionEditing }) => (
       />
     )}
   >
-    <Item
+    {/* <Item
       title="subscribe"
       iconName="bell"
       onPress={() => beginSubscriptionEditing({ eventId: event.id })}
-    />
+    /> */}
     <Item title="share" iconName="share-apple" onPress={onShare(event)} />
   </HeaderButtons>
 );
