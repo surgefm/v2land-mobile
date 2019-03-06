@@ -100,10 +100,10 @@ const Navigator = createBottomTabNavigator(
       screen: SearchStack,
       path: 'search',
     },
-    // [routers.profile]: {
-    //   screen: ProfileStack,
-    //   path: 'profile',
-    // },
+    [routers.profile]: {
+      screen: ProfileStack,
+      path: 'profile',
+    },
   },
   {
     initialRouteName: routers.today,

@@ -16,7 +16,7 @@ export default StyleSheet.create({
   },
   description: {
     fontSize: 16,
-    fontFamily: 'SourceHanSansCN',
+    fontFamily: 'SourceHanSansCN-Regular',
     lineHeight: 18,
   },
   icon: {
