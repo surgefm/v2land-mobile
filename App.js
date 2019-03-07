@@ -1,4 +1,5 @@
 import React from 'react';
+import { PushNotificationIOS } from 'react-native';
 import { Provider } from 'react-redux';
 import { compose } from 'ramda';
 import configStore from './src/store/configStore';
