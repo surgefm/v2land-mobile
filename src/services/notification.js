@@ -3,39 +3,41 @@ import AVInstallation from 'leancloud-installation';
 import config from '../config/const';
 
 import PushNotification from 'react-native-push-notification';
-import { PushNotificationIOS } from 'react-native';
 
+export default class NotificationService {
+  constructor(onRegister, onNotification) {
+    this.configure(onRegister, onNotification);
+  }
 
-export function initializeNotification() {
-  PushNotification.configure({
-    onRegister: async (token) => {
-      AV.initialize(config.AV.appId, config.AV.appKey);
-      const Installation = AVInstallation(AV);
+  configure(onRegister, onNotification) {
+    PushNotification.configure({
+      onRegister: async (token) => {
+        AV.initialize(config.AV.appId, config.AV.appKey);
+        const Installation = AVInstallation(AV);
 
-      const info = {
-        apnsTopic: 'org.langchao.mobile',
-        deviceType: token.os,
-        deviceToken: token.token,
-      };
-      const installation = await Installation.getCurrent();
-      const result = await installation.save(info);
+        const info = {
+          apnsTopic: 'org.langchao.mobile',
+          deviceType: token.os,
+          deviceToken: token.token,
+        };
+        const installation = await Installation.getCurrent();
+        const result = await installation.save(info);
+        onRegister(result);
+      },
 
-      console.log(result);
-    },
+      onNotification(notif) {
+        onNotification(notif);
+      },
 
-    onNotification: function(notification) {
-      console.log('Notification', notification);
-      notification.finish(PushNotificationIOS.FetchResult.NoData);
-    },
+      permissions: {
+        alert: true,
+        badge: true,
+        sound: true,
+      },
 
-    permissions: {
-      alert: true,
-      badge: true,
-      sound: true,
-    },
+      popInitialNotification: true,
 
-    popInitialNotification: true,
-
-    requestPermissions: true,
-  });
+      requestPermissions: true,
+    });
+  }
 }

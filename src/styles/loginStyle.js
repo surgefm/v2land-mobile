@@ -12,6 +12,6 @@ export default StyleSheet.create({
   },
   textStyle: {
     fontSize: 16,
-    fontFamily: 'source-han-sans',
+    fontFamily: 'SourceHanSansCN-Regular',
   },
 });

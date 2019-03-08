@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   eventDescription: {
     fontSize: 16,
     lineHeight: 24,
-    fontFamily: 'source-han-sans',
+    fontFamily: 'SourceHanSansCN-Regular',
   },
 });
 

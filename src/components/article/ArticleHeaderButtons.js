@@ -1,6 +1,6 @@
 import React from 'react';
 import { Share } from 'react-native';
-import { EvilIcons } from '@expo/vector-icons';
+import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import HeaderButtons, {
   HeaderButton,
   Item,
@@ -18,11 +18,11 @@ const ArticleHeaderButtons = ({ color, event, beginSubscriptionEditing }) => (
       />
     )}
   >
-    <Item
+    {/* <Item
       title="subscribe"
       iconName="bell"
       onPress={() => beginSubscriptionEditing({ eventId: event.id })}
-    />
+    /> */}
     <Item title="share" iconName="share-apple" onPress={onShare(event)} />
   </HeaderButtons>
 );

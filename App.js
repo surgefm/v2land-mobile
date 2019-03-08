@@ -1,9 +1,8 @@
 import React from 'react';
+import { PushNotificationIOS } from 'react-native';
 import { Provider } from 'react-redux';
 import { compose } from 'ramda';
 import configStore from './src/store/configStore';
-
-import { Font } from 'expo';
 
 import {
   createBottomTabNavigator,
@@ -15,7 +14,7 @@ import routers from './src/config/routers';
 import { Icon } from 'react-native-elements';
 import { AlertProvider } from './src/context';
 import { colors } from './src/styles';
-import { storage } from './src/util';
+import { storage, getDeepLink } from './src/util';
 
 import { connect, prepare } from './src/enhancers';
 
@@ -28,16 +27,23 @@ import { Article } from './src/containers/Article';
 import Profile from './src/containers/Profile';
 import Login from './src/containers/Login';
 import Registration from './src/containers/Registration';
+import ThirdPartyAuthorization from './src/containers/Login/ThirdPartyAuthorization';
 
-import { initializeNotification } from './src/services/notification';
+import NotificationService from './src/services/notification';
 
 const store = configStore();
 
 const EventsStack = createStackNavigator(
   {
     [routers.eventList]: Events,
-    [routers.event]: Article,
-    [routers.news]: News,
+    [routers.event]: {
+      screen: Article,
+      path: 'event/:eventId',
+    },
+    [routers.news]: {
+      screen: News,
+      path: 'event/:eventId/:stackId/:newsId',
+    },
   },
   {
     headerMode: 'screen',
@@ -46,7 +52,14 @@ const EventsStack = createStackNavigator(
 
 const SearchStack = createStackNavigator(
   {
-    [routers.searchIndex]: Search,
+    [routers.searchIndex]: {
+      screen: Search,
+      path: 'search',
+    },
+    [routers.event]: {
+      screen: Article,
+      path: 'event/:eventId',
+    },
   },
   {
     initialRouteName: routers.searchIndex,
@@ -56,9 +69,20 @@ const SearchStack = createStackNavigator(
 const ProfileStack = createStackNavigator({
   [routers.me]: {
     screen: Profile,
+    path: 'me',
   },
-  [routers.login]: Login,
-  [routers.registration]: Registration,
+  [routers.login]: {
+    screen: Login,
+    path: 'login',
+  },
+  [routers.registration]: {
+    screen: Registration,
+    path: 'registration',
+  },
+  [routers.thirdPartyAuthoirzation]: {
+    screen: ThirdPartyAuthorization,
+    path: 'third-party-authorization',
+  },
 });
 
 const tabBarIcons = {
@@ -69,9 +93,18 @@ const tabBarIcons = {
 
 const Navigator = createBottomTabNavigator(
   {
-    [routers.today]: EventsStack,
-    [routers.search]: SearchStack,
-    [routers.profile]: ProfileStack,
+    [routers.today]: {
+      screen: EventsStack,
+      path: 'events',
+    },
+    [routers.search]: {
+      screen: SearchStack,
+      path: 'search',
+    },
+    [routers.profile]: {
+      screen: ProfileStack,
+      path: 'profile',
+    },
   },
   {
     initialRouteName: routers.today,
@@ -82,24 +115,11 @@ const Navigator = createBottomTabNavigator(
         if (!iconConfig.name && iconConfig.focused) {
           const focusedIcon = iconConfig.focused;
           const idleIcon = iconConfig.idle;
-          return focused ? (
-            <Icon
-              {...focusedIcon}
-              color={tintColor}
-            />
-          ) : (
-            <Icon
-              {...idleIcon}
-              color={tintColor}
-            />
-          );
+          return focused
+            ? <Icon {...focusedIcon} color={tintColor} />
+            : <Icon {...idleIcon} color={tintColor} />;
         } else {
-          return (
-            <Icon
-              {...iconConfig}
-              color={tintColor}
-            />
-          );
+          return <Icon {...iconConfig} color={tintColor} />;
         }
       },
     }),
@@ -125,13 +145,9 @@ const NavigatorContainer = compose(
 )(Navigator);
 
 export default class App extends React.Component {
-  componentDidMount() {
-    Font.loadAsync({
-      'source-han-serif-semibold': require('./src/static/fonts/SourceHanSerifCN-SemiBold.ttf'),
-      'source-han-sans': require('./src/static/fonts/SourceHanSansCN-Regular.ttf'),
-      'source-han-sans-medium': require('./src/static/fonts/SourceHanSansCN-Medium.ttf'),
-    });
-    initializeNotification();
+  constructor(props) {
+    super(props);
+    this.notification = new NotificationService(this.onRegister.bind(this), this.onNotification.bind(this));
   }
 
   render() {
@@ -142,9 +158,22 @@ export default class App extends React.Component {
           closeInterval={3000}
           updateStatusBar={false}
         >
-          <NavigatorContainer />
+          <NavigatorContainer uriPrefix={getDeepLink()} />
         </AlertProvider>
       </Provider>
     );
+  }
+
+  onRegister(result) {
+    // Placeholder
+  }
+
+  onNotification(notification) {
+    const { data } = notification;
+    const { type } = data;
+    if (type === 'event') {
+      Linking.openURL('v2land://events/event/' + data.eventId);
+    }
+    notification.finish(PushNotificationIOS.FetchResult.NoData);
   }
 }

@@ -1,21 +1,27 @@
 import { AsyncStorage } from 'react-native';
 
-const token = {
-  name: 'token',
+class StorageInstance {
+  constructor(name) {
+    this.name = name;
+  }
 
   save(value) {
-    return AsyncStorage.setItem(token.name, value).then(() => value);
-  },
+    return AsyncStorage.setItem(this.name, value).then(() => value);
+  }
 
   read() {
-    return AsyncStorage.getItem(token.name);
-  },
+    return AsyncStorage.getItem(this.name);
+  }
 
   clear() {
-    return AsyncStorage.removeItem(token.name);
-  },
-};
+    return AsyncStorage.removeItem(this.name);
+  }
+}
+
+const token = new StorageInstance('token');
+const searchHistory = new StorageInstance('searchHistory');
 
 export default {
   token,
+  searchHistory,
 };

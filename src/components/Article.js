@@ -23,15 +23,22 @@ export default class Article extends Component {
     super(props);
     this.state = {
       refreshing: false,
-      statusBarStyle: !this.props.event.headerImage
-        ? 'dark-content'
-        : 'light-content',
+      statusBarStyle: this.props.hadHeaderImage
+        ? 'light-content'
+        : 'dark-content',
     };
 
     this.props.navigation.setParams({
       ...this.props.navigation.state,
       event: this.props.event,
     });
+
+    this.fetchEvent();
+  }
+
+  async fetchEvent() {
+    await this.props.fetchEvent({ eventId: this.props.eventId });
+    this.onScrollEndSnapToEdge();
   }
 
   async onRefresh() {
@@ -56,7 +63,7 @@ export default class Article extends Component {
 
   onScrollEndSnapToEdge(event) {
     if (!this.props.event.headerImage) return;
-    const y = event.nativeEvent.contentOffset.y;
+    const y = event ? event.nativeEvent.contentOffset.y : 0;
     this.setState((state) => ({
       ...state,
       statusBarStyle: y >= 150 ? 'dark-content' : 'light-content',
@@ -68,6 +75,8 @@ export default class Article extends Component {
     const titleColor = `${tintColorElement}, ${tintColorElement}, ${tintColorElement}`;
     this.props.navigation.setParams({
       ...this.props.navigation.state,
+      hadHeaderImage: this.props.event.headerImage,
+      title: this.props.event.name,
       headerShade: shade,
       headerTitle: this.props.event.name,
       headerTitleColor: `rgba(${titleColor}, ${shade})`,

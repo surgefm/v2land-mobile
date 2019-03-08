@@ -36,8 +36,8 @@ const Article = R.compose(
       backgroundColor: params.hadHeaderImage
         ? (params.headerBackgroundColor || 'rgba(256, 256, 256, 0)')
         : 'rgb(256, 256, 256)',
-      borderBottomWidth: 1,
-      borderBottomColor: `rgba(174, 174, 174, ${params.headerShade || 0})`,
+      borderBottomWidth: 0.5,
+      borderBottomColor: `rgba(208, 208, 208, ${params.hadHeaderImage ? params.headerShade || 0 : 1})`,
     },
     headerRight: (
       <ArticleHeaderButtons
