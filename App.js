@@ -165,7 +165,7 @@ export default class App extends React.Component {
   }
 
   onRegister(result) {
-    console.log(result);
+    // Placeholder
   }
 
   onNotification(notification) {
