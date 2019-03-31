@@ -1,5 +1,5 @@
 import React from 'react';
-import { PushNotificationIOS } from 'react-native';
+import { PushNotificationIOS, Linking } from 'react-native';
 import { Provider } from 'react-redux';
 import { compose } from 'ramda';
 import configStore from './src/store/configStore';
@@ -148,6 +148,7 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.notification = new NotificationService(this.onRegister.bind(this), this.onNotification.bind(this));
+    console.disableYellowBox = true;
   }
 
   render() {

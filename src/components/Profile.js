@@ -4,6 +4,7 @@ import WebBrowser from 'react-native-inappbrowser-reborn';
 import { ListItem, Text } from 'react-native-elements';
 import { profileStyle, colors } from '../styles';
 import { AlertContext } from '../context/Alert';
+import { getAppVersion } from '../util';
 import config from '../config/const';
 
 const userActionList = [
@@ -116,6 +117,7 @@ const Profile = ({ username = '', role = '', logout }) => (
               onPress={() => logout() && alert('info', '登出成功', '你已成功退出登录')}
             />
           </View>
+          <Text>{getAppVersion()}</Text>
         </ScrollView>
       </SafeAreaView>
     )}

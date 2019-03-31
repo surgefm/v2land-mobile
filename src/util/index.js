@@ -10,6 +10,7 @@ export getThirdPartyAuthRedirectUrl from './getThirdPartyAuthRedirectUrl';
 export getThirdPartyAuthUrl from './getThirdPartyAuthUrl';
 export getTokenStringFromHeader from './getTokenStringFromHeader';
 export getDeepLink from './getDeepLink';
+export getAppVersion from './getAppVersion';
 export trimText from './trimText';
 export log from './log';
 export id from './id';
