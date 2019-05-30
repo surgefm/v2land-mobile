@@ -1,8 +1,8 @@
 import { loop, Cmd } from 'redux-loop';
-import { simpleSM } from './sm.js';
-import createAction from '../actions/createAction.js';
-import OK from '../actions/OK.js';
-import ERR from '../actions/ERR.js';
+import { simpleSM } from './sm';
+import createAction from 'store/actions/createAction';
+import OK from 'store/actions/OK';
+import ERR from 'store/actions/ERR';
 
 const requestData = (type, func, inputOK, inputERR) =>
   simpleSM({

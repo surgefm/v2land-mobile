@@ -1,21 +1,21 @@
 import { combineReducers, reduceReducers } from 'redux-loop';
 
-import on from '../transducers/on.js';
-import requestData from '../transducers/requestData.js';
-import requestState from '../transducers/requestState.js';
-import fallback from '../transducers/fallback.js';
+import on from 'store/transducers/on';
+import requestData from 'store/transducers/requestData';
+import requestState from 'store/transducers/requestState';
+import fallback from 'store/transducers/fallback';
 
 import {
   fetchEventList as fetchEventListAction,
   fetchEvent as fetchEventAction,
-} from '../actions/events.js';
-import { fetchNewsList as fetchNewsListAction } from '../actions/news.js';
-import { fetchNewsList as fetchNewsListService } from '../../services/news';
+} from 'store/actions/events';
+import { fetchNewsList as fetchNewsListAction } from 'store/actions/news';
+import { fetchNewsList as fetchNewsListService } from 'services/news';
 
-import OK from '../actions/OK.js';
-import ERR from '../actions/ERR.js';
+import OK from 'store/actions/OK';
+import ERR from 'store/actions/ERR';
 
-import { Event, News, normalize } from '../schemas';
+import { Event, News, normalize } from 'store/schemas';
 
 const onFetchEventListOKHandler = on(
   OK(fetchEventListAction.type),

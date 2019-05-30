@@ -1,6 +1,6 @@
 import React from 'react';
 import DropDownAlert from 'react-native-dropdownalert';
-import log from '../util/log.js';
+import log from 'util/log';
 
 const alertWarning = () => {
   log('cannot call alert outside AlertProvider.');

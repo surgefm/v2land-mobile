@@ -1,5 +1,5 @@
 import R from 'ramda';
-import SearchComponent from '../components/Search.js';
+import SearchComponent from 'components/Search';
 import {
   withNavigationOptions,
   withNavigationHandlers,
@@ -7,12 +7,12 @@ import {
   withProps,
   withState,
   automaton,
-} from '../enhancers';
+} from 'enhancers';
 
-import routers from '../config/routers';
+import routers from 'config/routers';
 
-import { search } from '../store/actions/search';
-import { searchResultSelector } from '../store/selectors/search';
+import { search } from 'store/actions/search';
+import { searchResultSelector } from 'store/selectors/search';
 
 const Search = R.compose(
   withNavigationOptions({

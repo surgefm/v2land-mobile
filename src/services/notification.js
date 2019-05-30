@@ -1,6 +1,6 @@
 import AV from 'leancloud-storage';
 import AVInstallation from 'leancloud-installation';
-import config from '../config/const';
+import config from 'config/const';
 
 import PushNotification from 'react-native-push-notification';
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, View, StatusBar, ScrollView } from 'react-native';
 import { EventTitle, EventTime } from '.';
-import { StackList } from '../stacks';
+import { StackList } from 'components/stacks';
 import Description from './Description';
-import { HeaderImage, RefreshControl } from '../elements';
-import { paddings, paddingConstants, colors } from '../../styles';
-import { SubscriptionEditor } from '../../containers/Subscription';
+import { HeaderImage, RefreshControl } from 'components/elements';
+import { paddings, paddingConstants, colors } from 'styles';
+import { SubscriptionEditor } from 'containers/subscription';
 
 const Article = ({
   event,

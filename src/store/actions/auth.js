@@ -1,4 +1,4 @@
-import createAction from './createAction.js';
+import createAction from './createAction';
 
 export const login = createAction('login');
 

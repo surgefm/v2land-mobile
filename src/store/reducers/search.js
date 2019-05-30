@@ -1,23 +1,23 @@
 import { combineReducers, reduceReducers } from 'redux-loop';
 
-import requestData from '../transducers/requestData';
-import requestState from '../transducers/requestState.js';
-import fallback from '../transducers/fallback.js';
+import requestData from 'store/transducers/requestData';
+import requestState from 'store/transducers/requestState';
+import fallback from 'store/transducers/fallback';
 
 import {
   search as searchAction,
   addSearchHistory as addSearchHistoryAction,
   removeSearchHistory as removeSearchHistoryAction,
   cleanAllSearchHistory as cleanAllSearchHistoryAction,
-} from '../actions/search.js';
+} from 'store/actions/search';
 import {
   search as searchService,
-} from '../../services/search';
+} from 'services/search';
 
-import { storage, id } from '../../util';
+import { storage, id } from 'util';
 
-import OK from '../actions/OK.js';
-import ERR from '../actions/ERR.js';
+import OK from 'store/actions/OK';
+import ERR from 'store/actions/ERR';
 
 const onSearchHandler = requestData(
   searchAction.type,

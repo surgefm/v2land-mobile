@@ -1,12 +1,12 @@
 import { reduceReducers } from 'redux-loop';
 
-import fallback from '../transducers/fallback.js';
-import on from '../transducers/on.js';
+import fallback from 'store/transducers/fallback';
+import on from 'store/transducers/on';
 
 import {
   beginSubscriptionEditing as beginSubscriptionEditingAction,
   endSubscriptionEditing as endSubscriptionEditingAction,
-} from '../actions/status.js';
+} from 'store/actions/status';
 
 const beginSubscriptionEditing = on(
   beginSubscriptionEditingAction.type,

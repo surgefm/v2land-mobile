@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Animated } from 'react-native';
-import EventsComponent from './events/Events';
-import { AlertContext } from '../context/Alert';
+import EventsComponent from 'components/events/Events';
+import { AlertContext } from 'context/Alert';
 
 export const scrollRangeForAnimation = 100;
 

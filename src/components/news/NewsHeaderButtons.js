@@ -5,7 +5,7 @@ import HeaderButtons, {
   HeaderButton,
   Item,
 } from 'react-navigation-header-buttons';
-import { getNewsURL, getShortenedDescription, log } from '../../util';
+import { getNewsURL, getShortenedDescription, log } from 'util';
 
 const NewsHeaderButtons = ({ color, news }) => (
   <HeaderButtons

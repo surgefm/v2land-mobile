@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, SafeAreaView, StatusBar } from 'react-native';
-import { TwitterButton, WeiboButton } from './login';
+import { TwitterButton, WeiboButton } from 'components/login';
 import { Button, Input } from 'react-native-elements';
-import { commonStyle, paddings, buttonStyle, buttonTextStyle } from '../styles';
+import { commonStyle, paddings, buttonStyle, buttonTextStyle } from 'styles';
 import SvgUri from 'react-native-svg-uri';
 
 const Login = ({

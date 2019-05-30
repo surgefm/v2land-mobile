@@ -1,6 +1,6 @@
 import React from 'react';
 import { FlatList } from 'react-native';
-import StackItem from '../../containers/StackItem';
+import StackItem from 'containers/StackItem';
 
 const StackList = ({ stacks, onPress, onNewsPress }) =>
   !stacks || (

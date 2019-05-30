@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Dimensions } from 'react-native';
 import { Slider, Text, Icon, Overlay, Button } from 'react-native-elements';
-import { paddings, paddingConstants, colors, buttonStyle } from '../../styles';
+import { paddings, paddingConstants, colors, buttonStyle } from 'styles';
 import Picker from 'react-native-picker-select';
 
 const SubscriptionEditor = ({

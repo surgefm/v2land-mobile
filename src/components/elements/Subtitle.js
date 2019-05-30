@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { fontSizes } from '../../styles';
+import { fontSizes } from 'styles';
 import { Text } from 'react-native-elements';
 
 const Subtitle = ({ children, style }) => (

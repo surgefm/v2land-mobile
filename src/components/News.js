@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Linking } from 'react-native';
 import WebBrowser from 'react-native-inappbrowser-reborn';
-import NewsComponent from './news/News';
-import { log } from '../util';
+import NewsComponent from 'components/news/News';
+import { log } from 'util';
 
 export default class News extends Component {
   constructor(props) {

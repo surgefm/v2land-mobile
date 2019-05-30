@@ -5,7 +5,7 @@ import HeaderButtons, {
   HeaderButton,
   Item,
 } from 'react-navigation-header-buttons';
-import { getEventURL, getShortenedDescription, log } from '../../util';
+import { getEventURL, getShortenedDescription, log } from 'util';
 
 const ArticleHeaderButtons = ({ color, event, beginSubscriptionEditing }) => (
   <HeaderButtons

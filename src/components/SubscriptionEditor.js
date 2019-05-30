@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SubscriptionEditorComponent from './subscription/SubscriptionEditor';
-import { AlertContext } from '../context/Alert';
+import SubscriptionEditorComponent from 'components/subscription/SubscriptionEditor';
+import { AlertContext } from 'context/Alert';
 
 export default class SubscriptionEditor extends Component {
   constructor(props) {

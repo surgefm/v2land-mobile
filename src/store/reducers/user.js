@@ -1,20 +1,20 @@
 import { combineReducers, reduceReducers } from 'redux-loop';
 
-import fallback from '../transducers/fallback.js';
-import on from '../transducers/on.js';
-import requestData from '../transducers/requestData.js';
+import fallback from 'store/transducers/fallback';
+import on from 'store/transducers/on';
+import requestData from 'store/transducers/requestData';
 
 import {
   getUserInfo as getUserInfoAction,
-} from '../actions/user.js';
+} from 'store/actions/user';
 import {
   login as loginAction,
   invalidateToken as invalidateTokenAction,
-} from '../actions/auth.js';
-import OK from '../actions/OK.js';
+} from 'store/actions/auth';
+import OK from 'store/actions/OK';
 
-import { getUserInfo } from '../../services/me.js';
-import { storage } from '../../util';
+import { getUserInfo } from 'services/me';
+import { storage } from 'util';
 
 export default combineReducers({
   data: reduceReducers(

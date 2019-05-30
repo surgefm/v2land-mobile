@@ -1,19 +1,19 @@
 import { combineReducers, reduceReducers } from 'redux-loop';
-import { log } from '../../util';
+import { log } from 'util';
 
-import requestState from '../transducers/requestState.js';
-import requestData from '../transducers/requestData.js';
-import fallback from '../transducers/fallback.js';
+import requestState from 'store/transducers/requestState';
+import requestData from 'store/transducers/requestData';
+import fallback from 'store/transducers/fallback';
 
 import {
   fetchEventList as fetchEventListAction,
   fetchEvent as fetchEventAction,
-} from '../actions/events.js';
-import OK from '../actions/OK.js';
-import ERR from '../actions/ERR.js';
+} from 'store/actions/events';
+import OK from 'store/actions/OK';
+import ERR from 'store/actions/ERR';
 
-import { getAll, getEvent } from '../../services/events.js';
-import { Event, normalize } from '../schemas';
+import { getAll, getEvent } from 'services/events';
+import { Event, normalize } from 'store/schemas';
 
 export const fetchEventList = requestData(
   fetchEventListAction.type,

@@ -1,5 +1,5 @@
 import { postRaw } from './methods.js';
-import { getTokenStringFromHeader } from '../util';
+import { getTokenStringFromHeader } from 'util';
 
 export const login = (_, { username, password }) =>
   postRaw('client/login', { username, password }).then(res => {
