@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, View, TouchableOpacity, Image, ScrollView, StatusBar } from 'react-native';
 import { Text, Icon } from 'react-native-elements';
-import { Subtitle } from '../elements';
-import { EventTime, EventTitle } from '../article';
-import { getTimeString } from '../../util';
+import { Subtitle } from 'components/elements';
+import { EventTime, EventTitle } from 'components/article';
+import { getTimeString } from 'util';
 import {
   paddings,
   pageStyle,

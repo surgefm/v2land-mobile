@@ -1,4 +1,4 @@
-import { simpleSM } from './sm.js';
+import { simpleSM } from './sm';
 
 const state = {
   DEFAULT: 'DEFAULT',

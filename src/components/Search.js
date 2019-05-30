@@ -2,9 +2,9 @@ import React from 'react';
 import { View, ScrollView, SafeAreaView, StatusBar } from 'react-native';
 import { SearchBar } from 'react-native-elements';
 import SvgUri from 'react-native-svg-uri';
-import { SearchHistory, SearchResultItem } from './search';
-import { Subtitle } from './elements';
-import { pageStyle, paddings, searchBarStyle } from '../styles';
+import { SearchHistory, SearchResultItem } from 'components/search';
+import { Subtitle } from 'components/elements';
+import { pageStyle, paddings, searchBarStyle } from 'styles';
 
 const Search = ({
   keyword,

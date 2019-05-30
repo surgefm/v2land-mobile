@@ -1,17 +1,17 @@
 import R from 'ramda';
-import routers from '../config/routers';
+import routers from 'config/routers';
 
-import EventsComponent from '../components/Events.js';
+import EventsComponent from 'components/Events';
 
 import {
   withNavigationOptions,
   withNavigationHandlers,
   connect,
   prepare,
-} from '../enhancers';
+} from 'enhancers';
 
-import { fetchEventList } from '../store/actions/events.js';
-import { eventListSelector } from '../store/selectors/events.js';
+import { fetchEventList } from 'store/actions/events';
+import { eventListSelector } from 'store/selectors/events';
 
 const Events = R.compose(
   withNavigationOptions({

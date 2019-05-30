@@ -1,5 +1,5 @@
 import { resolve, format } from 'url';
-import config from '../config/const';
+import config from 'config/const';
 
 const api = path => resolve(config.api, path);
 

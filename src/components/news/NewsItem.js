@@ -2,7 +2,7 @@ import React from 'react';
 import { View, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { Text, Icon } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
-import { colors } from '../../styles';
+import { colors } from 'styles';
 
 const NewsItem = ({ news, onPress }) => (
   <TouchableOpacity

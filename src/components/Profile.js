@@ -2,10 +2,10 @@ import React from 'react';
 import { SafeAreaView, View, ScrollView, StatusBar } from 'react-native';
 import WebBrowser from 'react-native-inappbrowser-reborn';
 import { ListItem, Text } from 'react-native-elements';
-import { profileStyle, colors } from '../styles';
-import { AlertContext } from '../context/Alert';
-import { getAppVersion } from '../util';
-import config from '../config/const';
+import { profileStyle, colors } from 'styles';
+import { AlertContext } from 'context/Alert';
+import { getAppVersion } from 'util';
+import config from 'config/const';
 
 const userActionList = [
   {

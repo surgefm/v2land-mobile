@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import { BreakLine } from '../elements';
-import NewsList from '../../containers/NewsList';
-import { colors, paddings } from '../../styles';
-import { getTimeString, trimText } from '../../util';
+import { BreakLine } from 'components/elements';
+import NewsList from 'containers/NewsList';
+import { colors, paddings } from 'styles';
+import { getTimeString, trimText } from 'util';
 
 const StackItem = ({ stack, onNewsPress, isLastStack, index }) => (
   <View>

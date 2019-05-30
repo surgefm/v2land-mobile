@@ -1,6 +1,6 @@
 import R from 'ramda';
-import routers from '../config/routers';
-import RegistrationComponent from '../components/registration/Registration';
+import routers from 'config/routers';
+import RegistrationComponent from 'components/registration/Registration';
 
 import validator from 'validator';
 
@@ -12,14 +12,14 @@ import {
   withProps,
   connect,
   addNavigationListener,
-} from '../enhancers';
+} from 'enhancers';
 
-import { login } from '../store/actions/auth.js';
+import { login } from 'store/actions/auth.js';
 
 import {
   authorizedSelector,
   errorMessageSelector,
-} from '../store/selectors/auth.js';
+} from 'store/selectors/auth.js';
 
 const Registration = R.compose(
   withNavigationOptions({

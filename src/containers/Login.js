@@ -1,6 +1,6 @@
 import R from 'ramda';
-import routers from '../config/routers';
-import LoginComponent from '../components/Login.js';
+import routers from 'config/routers';
+import LoginComponent from 'components/Login';
 
 import {
   withNavigationOptions,
@@ -10,14 +10,14 @@ import {
   withProps,
   connect,
   addNavigationListener,
-} from '../enhancers';
+} from 'enhancers';
 
-import { login } from '../store/actions/auth.js';
+import { login } from 'store/actions/auth';
 
 import {
   authorizedSelector,
   errorMessageSelector,
-} from '../store/selectors/auth.js';
+} from 'store/selectors/auth';
 
 const Login = R.compose(
   withNavigationOptions({

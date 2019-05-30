@@ -1,16 +1,16 @@
 import React from 'react';
-import NewsComponent from '../components/News.js';
-import { NewsHeaderButtons } from '../components/news';
-import { colors } from '../styles';
+import NewsComponent from 'components/News';
+import { NewsHeaderButtons } from 'components/news';
+import { colors } from 'styles';
 
 import R from 'ramda';
 import {
   withNavigationOptions,
   withNavigationHandlers,
   connect,
-} from '../enhancers';
+} from 'enhancers';
 
-import { newsSelector } from '../store/selectors/news';
+import { newsSelector } from 'store/selectors/news';
 
 const News = R.compose(
   withNavigationOptions(({ navigation: { state: { params } } }) => ({

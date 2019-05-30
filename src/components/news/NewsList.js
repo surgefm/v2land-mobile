@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FlatList, View, TouchableOpacity, StyleSheet } from 'react-native';
 import { Icon, Text } from 'react-native-elements';
-import NewsItem from '../../containers/NewsItem';
+import NewsItem from 'containers/NewsItem';
 
 class NewsList extends Component {
   constructor(props) {

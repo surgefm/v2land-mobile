@@ -1,6 +1,6 @@
 import React from 'react';
-import { Subtitle } from '../elements';
-import { getTimeLapseString } from '../../util';
+import { Subtitle } from 'components/elements';
+import { getTimeLapseString } from 'util';
 
 const EventTime = ({ style, time }) =>
   !time ||

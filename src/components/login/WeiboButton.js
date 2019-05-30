@@ -7,7 +7,7 @@ import { getThirdPartyAuthUrl, getThirdPartyAuthRedirectUrl } from '../../util';
 
 const jumpToWeibo = async (redirect) => {
   const result = await WebBrowser.openAuth(
-    getThirdPartyAuthUrl('twitter', redirect),
+    getThirdPartyAuthUrl('weibo', redirect),
     getThirdPartyAuthRedirectUrl(redirect),
   );
   if (result.type === 'success') {

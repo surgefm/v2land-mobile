@@ -1,20 +1,20 @@
 import R from 'ramda';
-import ThirdPartyAuthComponent from '../../components/login/ThirdPartyAuthorization';
+import ThirdPartyAuthComponent from 'components/login/ThirdPartyAuthorization';
 
 import {
   withNavigationOptions,
   withProps,
   connect,
-} from '../../enhancers';
+} from 'enhancers';
 
-import { saveToken, getUserInfo } from '../../store/actions/auth.js';
+import { saveToken, getUserInfo } from 'store/actions/auth.js';
 
-import { authorizedSelector } from '../../store/selectors/auth.js';
+import { authorizedSelector } from 'store/selectors/auth.js';
 
-import routers from '../../config/routers';
-import config from '../../config/const';
+import routers from 'config/routers';
+import config from 'config/const';
 
-import { getTokenStringFromHeader } from '../../util';
+import { getTokenStringFromHeader } from 'util';
 
 const ThirdPartyAuthorization = R.compose(
   withNavigationOptions({

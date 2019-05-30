@@ -1,18 +1,18 @@
 import R from 'ramda';
-import routers from '../config/routers';
-import ProfileComponent from '../components/Profile.js';
+import routers from 'config/routers';
+import ProfileComponent from 'components/Profile';
 
 import {
   withNavigationOptions,
   withNavigationHandlers,
   connect,
   withProps,
-} from '../enhancers';
+} from 'enhancers';
 
-import { invalidateToken, getUserInfo } from '../store/actions/auth.js';
+import { invalidateToken, getUserInfo } from 'store/actions/auth';
 
-import { authorizedSelector } from '../store/selectors/auth.js';
-import { userNameSelector, userDisplayRoleSelector } from '../store/selectors/user.js';
+import { authorizedSelector } from 'store/selectors/auth';
+import { userNameSelector, userDisplayRoleSelector } from 'store/selectors/user';
 
 const Profile = R.compose(
 

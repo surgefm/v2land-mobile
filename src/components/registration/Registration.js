@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, ScrollView, SafeAreaView, StatusBar } from 'react-native';
 import { Button, Input } from 'react-native-elements';
-import { commonStyle, paddings, buttonStyle, buttonTextStyle } from '../../styles';
+import { commonStyle, paddings, buttonStyle, buttonTextStyle } from 'styles';
 import SvgUri from 'react-native-svg-uri';
 
 const Registration = ({
@@ -24,7 +24,7 @@ const Registration = ({
           <SvgUri
             width="82.31"
             height="40"
-            source={require('../../static/registration.svg')}
+            source={require('static/registration.svg')}
           />
         </View>
         <View style={[styles.loginInterface, paddings.largeInterval]}>

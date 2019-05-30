@@ -2,7 +2,7 @@ import React from 'react';
 import { PushNotificationIOS, Linking } from 'react-native';
 import { Provider } from 'react-redux';
 import { compose } from 'ramda';
-import configStore from './src/store/configStore';
+import configStore from 'store/configStore';
 
 import {
   createBottomTabNavigator,
@@ -10,26 +10,26 @@ import {
   createAppContainer,
 } from 'react-navigation';
 
-import routers from './src/config/routers';
+import routers from 'config/routers';
 import { Icon } from 'react-native-elements';
-import { AlertProvider } from './src/context';
-import { colors } from './src/styles';
-import { storage, getDeepLink } from './src/util';
+import { AlertProvider } from 'context';
+import { colors } from 'styles';
+import { storage, getDeepLink } from 'util';
 
-import { connect, prepare } from './src/enhancers';
+import { connect, prepare } from 'enhancers';
 
-import { initializeTokenFromStorage } from './src/store/actions/auth';
+import { initializeTokenFromStorage } from 'store/actions/auth';
 
-import Events from './src/containers/Events';
-import News from './src/containers/News';
-import Search from './src/containers/Search';
-import { Article } from './src/containers/Article';
-import Profile from './src/containers/Profile';
-import Login from './src/containers/Login';
-import Registration from './src/containers/Registration';
-import ThirdPartyAuthorization from './src/containers/Login/ThirdPartyAuthorization';
+import Events from 'containers/Events';
+import News from 'containers/News';
+import Search from 'containers/Search';
+import { Article } from 'containers/article';
+import Profile from 'containers/Profile';
+import Login from 'containers/Login';
+import Registration from 'containers/account/registration/Registration';
+import ThirdPartyAuthorization from 'containers/account/login/ThirdPartyAuthorization';
 
-import NotificationService from './src/services/notification';
+import NotificationService from 'services/notification';
 
 const store = configStore();
 

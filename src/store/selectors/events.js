@@ -1,5 +1,5 @@
 const eventsSelector = store => store.events;
-import { getTimeLapseString } from '../../util';
+import { getTimeLapseString } from 'util';
 
 export const eventListSelector = [
   eventsSelector,

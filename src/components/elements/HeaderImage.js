@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import getAssetURL from '../../util/getAssetURL';
+import getAssetURL from 'util/getAssetURL';
 import FadeIn from 'react-native-fade-in-image';
 import { CachedImage } from 'react-native-cached-image';
 

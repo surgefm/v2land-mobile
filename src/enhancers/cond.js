@@ -1,5 +1,5 @@
 import { createFactory } from 'react';
-import { id } from '../util';
+import { id } from 'util';
 
 const cond = (...tuple) => BaseComponent => {
   const factoryCache = {};
