@@ -9,5 +9,6 @@ before_install:
   - rvm install ruby-2.2.2
   - gem install cocoapods
 script:
+  - pod repo update
   - cd ios && pod install && cd ..
   - yarn test
