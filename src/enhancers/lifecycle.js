@@ -1,4 +1,4 @@
-import { createFactory, Component } from 'react';
+import {createFactory, Component} from 'react';
 
 const lifecycle = spec => BaseComponent => {
   const factory = createFactory(BaseComponent);

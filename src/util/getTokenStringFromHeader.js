@@ -1,6 +1,6 @@
 const findTokenString = RegExp.prototype.test.bind(/^sails\.sid/);
 
-const getTokenStringFromHeader = (header) => {
+const getTokenStringFromHeader = header => {
   return header
     .get('set-cookie')
     .split(';')

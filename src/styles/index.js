@@ -1,10 +1,10 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import fontSizes from './fontSizes';
 import colors from './colors';
-import { buttonStyle, buttonTextStyle } from './buttons';
-import { paddingConstants, paddings } from './paddings';
-import { pageStyle } from './pageStyle';
-import { searchBarStyle } from './searchBarStyle';
+import {buttonStyle, buttonTextStyle} from './buttons';
+import {paddingConstants, paddings} from './paddings';
+import {pageStyle} from './pageStyle';
+import {searchBarStyle} from './searchBarStyle';
 import loginStyle from './loginStyle';
 import profileStyle from './profileStyle';
 

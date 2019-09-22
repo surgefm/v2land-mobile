@@ -1,4 +1,4 @@
-import { combineReducers, reduceReducers } from 'redux-loop';
+import {combineReducers, reduceReducers} from 'redux-loop';
 
 import on from 'store/transducers/on';
 import requestState from 'store/transducers/requestState';
@@ -8,22 +8,22 @@ import {
   fetchEventList as fetchEventListAction,
   fetchEvent as fetchEventAction,
 } from 'store/actions/events';
-import { fetchNewsList as fetchNewsListAction } from 'store/actions/news';
+import {fetchNewsList as fetchNewsListAction} from 'store/actions/news';
 import OK from 'store/actions/OK';
 import ERR from 'store/actions/ERR';
 
-import { Event, normalize } from 'store/schemas';
-import { getStackId } from 'util';
+import {Event, normalize} from 'store/schemas';
+import {getStackId} from 'util';
 
 const onFetchEventListOKHandler = on(
   OK(fetchEventListAction.type),
-  (state = {}, { eventList }) => {
-    let newState = { ...state };
+  (state = {}, {eventList}) => {
+    let newState = {...state};
     for (const event of eventList) {
       if (event.stacks) {
         event.stacks.sort((a, b) => new Date(b) - new Date(a));
       }
-      const { entities } = normalize(event, Event);
+      const {entities} = normalize(event, Event);
       stackList = entities.stacks;
       newState = {
         ...newState,
@@ -37,7 +37,7 @@ const onFetchEventListOKHandler = on(
 const onFetchEventOKHandler = on(
   OK(fetchEventAction.type),
   (state = {}, event) => {
-    const { entities } = normalize(event, Event);
+    const {entities} = normalize(event, Event);
     stackList = entities.stacks;
     return {
       ...state,
@@ -48,8 +48,8 @@ const onFetchEventOKHandler = on(
 
 const onFetchNewsListOKHandler = on(
   OK(fetchNewsListAction.type),
-  (state, { newsList }) => {
-    let newState = { ...state };
+  (state, {newsList}) => {
+    let newState = {...state};
     for (const news of newsList) {
       const stackId = getStackId(news);
       if (

@@ -7,5 +7,7 @@ module.exports = {
     'react/display-name': 0,
     'new-cap': 0,
     'no-invalid-this': 0,
+    'object-curly-spacing': 0,
+    'no-unused-vars': 0,
   }
 };

@@ -1,5 +1,5 @@
-import { createStore } from 'redux';
-import { install } from 'redux-loop';
+import {createStore} from 'redux';
+import {install} from 'redux-loop';
 import reducers from './reducers';
 
 const configStore = () => {

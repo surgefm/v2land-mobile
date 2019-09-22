@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from 'styles';
-import { Text } from 'react-native-elements';
+import {Text} from 'react-native-elements';
 
-const EventTitle = ({ children, style = {} }) => (
+const EventTitle = ({children, style = {}}) => (
   <Text style={[style, styles.eventTitle]}>{children}</Text>
 );
 

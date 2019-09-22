@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyleSheet, View, StatusBar, ScrollView } from 'react-native';
-import { EventTitle, EventTime } from '.';
-import { StackList } from 'components/stacks';
+import {StyleSheet, View, StatusBar, ScrollView} from 'react-native';
+import {EventTitle, EventTime} from '.';
+import {StackList} from 'components/stacks';
 import Description from './Description';
-import { HeaderImage, RefreshControl } from 'components/elements';
-import { paddings, paddingConstants, colors } from 'styles';
-import { SubscriptionEditor } from 'containers/subscription';
+import {HeaderImage, RefreshControl} from 'components/elements';
+import {paddings, paddingConstants, colors} from 'styles';
+import {SubscriptionEditor} from 'containers/subscription';
 
 const Article = ({
   event,
@@ -19,7 +19,7 @@ const Article = ({
 }) =>
   !event || (
     <ScrollView
-      style={{ flex: 1, flexDirection: 'column', backgroundColor: '#fff' }}
+      style={{flex: 1, flexDirection: 'column', backgroundColor: '#fff'}}
       onScroll={onScroll}
       onScrollEndDrag={onScrollEndSnapToEdge}
       onMomentumScrollEnd={onScrollEndSnapToEdge}
@@ -30,11 +30,10 @@ const Article = ({
           onRefresh={() => onRefresh()}
           title="刷新事件进展"
         />
-      }
-    >
+      }>
       <StatusBar barStyle={statusBarStyle} />
       <HeaderImage headerImage={event.headerImage} />
-      <View style={{ flex: 1 }}>
+      <View style={{flex: 1}}>
         {!event || (
           <View>
             <View style={[paddings.side, paddings.largeInterval]}>
@@ -45,14 +44,16 @@ const Article = ({
               <EventTitle style={paddings.interval}>{event.name}</EventTitle>
               <Description description={event.description} />
             </View>
-            {!event.stacks || <View style={[paddings.side, paddings.largeInterval]}>
-              <EventTitle style={paddings.interval}>进展</EventTitle>
-              <StackList
-                stacks={event.stacks}
-                onPress={onStackPress}
-                onNewsPress={onNewsPress}
-              />
-            </View>}
+            {!event.stacks || (
+              <View style={[paddings.side, paddings.largeInterval]}>
+                <EventTitle style={paddings.interval}>进展</EventTitle>
+                <StackList
+                  stacks={event.stacks}
+                  onPress={onStackPress}
+                  onNewsPress={onNewsPress}
+                />
+              </View>
+            )}
           </View>
         )}
       </View>

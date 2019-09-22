@@ -1,13 +1,13 @@
 import React from 'react';
-import { Share } from 'react-native';
+import {Share} from 'react-native';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import HeaderButtons, {
   HeaderButton,
   Item,
 } from 'react-navigation-header-buttons';
-import { getNewsURL, getShortenedDescription, log } from 'util';
+import {getNewsURL, getShortenedDescription, log} from 'util';
 
-const NewsHeaderButtons = ({ color, news }) => (
+const NewsHeaderButtons = ({color, news}) => (
   <HeaderButtons
     HeaderButtonComponent={props => (
       <HeaderButton
@@ -16,8 +16,7 @@ const NewsHeaderButtons = ({ color, news }) => (
         iconSize={26}
         color={color || '#000'}
       />
-    )}
-  >
+    )}>
     <Item title="share" iconName="share-apple" onPress={onShare(news)} />
   </HeaderButtons>
 );

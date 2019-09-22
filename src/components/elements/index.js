@@ -5,4 +5,4 @@ import BackButton from './BackButton.js';
 import BreakLine from './BreakLine';
 import RefreshControl from './RefreshControl';
 
-export { Title, Subtitle, HeaderImage, BackButton, BreakLine, RefreshControl };
+export {Title, Subtitle, HeaderImage, BackButton, BreakLine, RefreshControl};

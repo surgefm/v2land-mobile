@@ -1,11 +1,11 @@
 import React from 'react';
-import { Linking } from 'react-native';
-import { Button } from 'react-native-elements';
+import {Linking} from 'react-native';
+import {Button} from 'react-native-elements';
 import WebBrowser from 'react-native-inappbrowser-reborn';
-import { commonStyle, buttonStyle, loginStyle } from '../../styles';
-import { getThirdPartyAuthUrl, getThirdPartyAuthRedirectUrl } from '../../util';
+import {commonStyle, buttonStyle, loginStyle} from '../../styles';
+import {getThirdPartyAuthUrl, getThirdPartyAuthRedirectUrl} from '../../util';
 
-const jumpToWeibo = async (redirect) => {
+const jumpToWeibo = async redirect => {
   const result = await WebBrowser.openAuth(
     getThirdPartyAuthUrl('weibo', redirect),
     getThirdPartyAuthRedirectUrl(redirect),
@@ -19,7 +19,7 @@ const WeiboButton = () => (
   <Button
     containerStyle={commonStyle.noSideMargins}
     buttonStyle={[buttonStyle.button, loginStyle.socialButton]}
-    titleStyle={{ color: 'rgb(230, 22, 45)' }}
+    titleStyle={{color: 'rgb(230, 22, 45)'}}
     icon={{
       name: 'weibo',
       type: 'antdesign',

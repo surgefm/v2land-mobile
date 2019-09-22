@@ -1,12 +1,11 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity } from 'react-native';
-import { Text } from 'react-native-elements';
+import {StyleSheet, TouchableOpacity} from 'react-native';
+import {Text} from 'react-native-elements';
 
-const SearchResultItem = ({ result, onPress }) => (
+const SearchResultItem = ({result, onPress}) => (
   <TouchableOpacity
     style={styles.resultContainer}
-    onPress={() => onPress(result)}
-  >
+    onPress={() => onPress(result)}>
     <Text style={styles.resultTitle}>{result.name}</Text>
     <Text numberOfLines={2}>{result.description}</Text>
   </TouchableOpacity>

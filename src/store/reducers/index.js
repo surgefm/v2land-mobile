@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux-loop';
+import {combineReducers} from 'redux-loop';
 import events from './events';
 import stacks from './stacks';
 import news from './news';

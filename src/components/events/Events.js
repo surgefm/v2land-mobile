@@ -1,12 +1,19 @@
 import React from 'react';
-import { StyleSheet, SectionList, View, SafeAreaView, StatusBar, ScrollView } from 'react-native';
+import {
+  StyleSheet,
+  SectionList,
+  View,
+  SafeAreaView,
+  StatusBar,
+  ScrollView,
+} from 'react-native';
 // import { ScrollView } from 'react-navigation';
-import { colors, paddings, paddingConstants } from '../../styles';
+import {colors, paddings, paddingConstants} from '../../styles';
 import SvgUri from 'react-native-svg-uri';
-import { RefreshControl } from '../elements';
-import { EventItem, TimeBadge } from '.';
+import {RefreshControl} from '../elements';
+import {EventItem, TimeBadge} from '.';
 
-const Events = ({ onEventPress, eventList, refreshing, onRefresh }) => (
+const Events = ({onEventPress, eventList, refreshing, onRefresh}) => (
   <SafeAreaView style={styles.container}>
     <ScrollView
       style={[styles.container, paddings.side]}
@@ -16,8 +23,7 @@ const Events = ({ onEventPress, eventList, refreshing, onRefresh }) => (
           onRefresh={() => onRefresh()}
           title="加载最新事件"
         />
-      }
-    >
+      }>
       <StatusBar barStyle="dark-content" />
       <View style={[styles.header, paddings.largeInterval]}>
         <SvgUri
@@ -28,8 +34,8 @@ const Events = ({ onEventPress, eventList, refreshing, onRefresh }) => (
       </View>
       <SectionList
         sections={eventList}
-        style={{ paddingBottom: 50, overflow: 'visible' }}
-        renderItem={({ item }) => (
+        style={{paddingBottom: 50, overflow: 'visible'}}
+        renderItem={({item}) => (
           <EventItem
             name={item.name}
             description={item.description}
@@ -37,10 +43,10 @@ const Events = ({ onEventPress, eventList, refreshing, onRefresh }) => (
             onPress={onEventPress(item)}
           />
         )}
-        renderSectionHeader={({ section: { title } }) => (
+        renderSectionHeader={({section: {title}}) => (
           <TimeBadge style={styles.sectionHeader} title={title} />
         )}
-        renderSectionFooter={() => <View style={{ height: 20 }} />}
+        renderSectionFooter={() => <View style={{height: 20}} />}
         keyExtractor={item => item.id.toString()}
       />
     </ScrollView>

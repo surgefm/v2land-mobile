@@ -102,6 +102,7 @@
 		9B7C907223375884001E21AF /* SourceHanSansRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SourceHanSansRegular.ttf; sourceTree = "<group>"; };
 		9B7C907323375884001E21AF /* SourceHanSerifSemibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SourceHanSerifSemibold.ttf; sourceTree = "<group>"; };
 		9B7C907423375884001E21AF /* SourceHanSansMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SourceHanSansMedium.ttf; sourceTree = "<group>"; };
+		9BBE5534233769480002FE63 /* v2land.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = v2land.entitlements; path = v2land/v2land.entitlements; sourceTree = "<group>"; };
 		9E06A966CC8C093B31A345DB /* libPods-v2landTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-v2landTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A10049FAE851165EC7FB2160 /* Pods-v2landTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v2landTests.release.xcconfig"; path = "Target Support Files/Pods-v2landTests/Pods-v2landTests.release.xcconfig"; sourceTree = "<group>"; };
 		B5A676A7F44FF88124E2F165 /* Pods-v2land.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v2land.debug.xcconfig"; path = "Target Support Files/Pods-v2land/Pods-v2land.debug.xcconfig"; sourceTree = "<group>"; };
@@ -167,6 +168,7 @@
 		13B07FAE1A68108700A75B9A /* v2land */ = {
 			isa = PBXGroup;
 			children = (
+				9BBE5534233769480002FE63 /* v2land.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -769,6 +771,7 @@
 			baseConfigurationReference = B5A676A7F44FF88124E2F165 /* Pods-v2land.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = v2land/v2land.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = J5S56W8T3D;
@@ -790,6 +793,7 @@
 			baseConfigurationReference = 205A19EEAFBCDC11053CD506 /* Pods-v2land.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = v2land/v2land.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = J5S56W8T3D;
 				INFOPLIST_FILE = v2land/Info.plist;

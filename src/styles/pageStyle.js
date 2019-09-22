@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-import { paddingConstants } from './paddings';
+import {StyleSheet} from 'react-native';
+import {paddingConstants} from './paddings';
 
 export const pageStyle = StyleSheet.create({
   default: {

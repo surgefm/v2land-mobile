@@ -1,4 +1,4 @@
-import { createFactory, Component } from 'react';
+import {createFactory, Component} from 'react';
 
 const addNavigationListener = (name, handler) => BaseComponent => {
   const factory = createFactory(BaseComponent);

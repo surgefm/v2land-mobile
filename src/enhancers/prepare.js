@@ -1,4 +1,4 @@
-import { createFactory, Component } from 'react';
+import {createFactory, Component} from 'react';
 
 const prepare = (func = () => {}) => BaseComponent => {
   const factory = createFactory(BaseComponent);

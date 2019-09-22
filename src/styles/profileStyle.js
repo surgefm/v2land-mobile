@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native';
-import { colors } from './colors';
-import { fontSizes } from './fontSizes';
+import {StyleSheet} from 'react-native';
+import {colors} from './colors';
+import {fontSizes} from './fontSizes';
 
 export default StyleSheet.create({
   section: {

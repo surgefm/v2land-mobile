@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { Text } from 'react-native-elements';
-import { fontSizes } from 'styles';
+import {StyleSheet, View} from 'react-native';
+import {Text} from 'react-native-elements';
+import {fontSizes} from 'styles';
 
-const Title = ({ children, style }) => (
+const Title = ({children, style}) => (
   <View>
     <Text style={[styles.title, style]}>{children}</Text>
   </View>

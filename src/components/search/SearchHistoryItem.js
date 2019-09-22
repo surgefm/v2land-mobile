@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { Text } from 'react-native-elements';
-import { colors } from 'styles';
+import {StyleSheet, View} from 'react-native';
+import {Text} from 'react-native-elements';
+import {colors} from 'styles';
 
-const SearchHistoryItem = ({ history } = {}) => (
+const SearchHistoryItem = ({history} = {}) => (
   <View style={styles.view}>
-    <Text style={{ color: colors.blue }}>{history.text}</Text>
+    <Text style={{color: colors.blue}}>{history.text}</Text>
   </View>
 );
 

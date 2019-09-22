@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import { BreakLine } from 'components/elements';
+import {StyleSheet, View, Text} from 'react-native';
+import {BreakLine} from 'components/elements';
 import NewsList from 'containers/NewsList';
-import { colors, paddings } from 'styles';
-import { getTimeString, trimText } from 'util';
+import {colors, paddings} from 'styles';
+import {getTimeString, trimText} from 'util';
 
-const StackItem = ({ stack, onNewsPress, isLastStack, index }) => (
+const StackItem = ({stack, onNewsPress, isLastStack, index}) => (
   <View>
     <Text style={[styles.title, paddings.interval]}>
       {index}、{trimText(stack.title)}
@@ -19,12 +19,8 @@ const StackItem = ({ stack, onNewsPress, isLastStack, index }) => (
         })}
       </Text>
     )}
-    <Text style={styles.description}>
-      {trimText(stack.description)}
-    </Text>
-    <Text style={styles.buttonText}>
-      {stack.newsCount} 条相关新闻
-    </Text>
+    <Text style={styles.description}>{trimText(stack.description)}</Text>
+    <Text style={styles.buttonText}>{stack.newsCount} 条相关新闻</Text>
 
     <NewsList
       style={styles.newsList}

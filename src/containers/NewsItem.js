@@ -1,7 +1,7 @@
 import R from 'ramda';
 import NewsItemComponent from 'components/news/NewsItem';
-import { connect } from 'enhancers';
-import { newsSelector } from 'store/selectors/news';
+import {connect} from 'enhancers';
+import {newsSelector} from 'store/selectors/news';
 
 const NewsItem = R.compose(
   connect({

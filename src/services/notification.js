@@ -11,7 +11,7 @@ export default class NotificationService {
 
   configure(onRegister, onNotification) {
     PushNotification.configure({
-      onRegister: async (token) => {
+      onRegister: async token => {
         AV.initialize(config.AV.appId, config.AV.appKey);
         const Installation = AVInstallation(AV);
 

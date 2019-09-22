@@ -1,6 +1,7 @@
 import React from 'react';
-import {PushNotificationIOS, Linking} from 'react-native';
+import {Linking} from 'react-native';
 import {Provider} from 'react-redux';
+import PushNotificationIOS from '@react-native-community/push-notification-ios';
 import {compose} from 'ramda';
 import configStore from 'store/configStore';
 
@@ -135,10 +136,7 @@ const Navigator = createBottomTabNavigator(
 );
 
 const NavigatorContainer = compose(
-  connect(
-    null,
-    {initializeTokenFromStorage},
-  ),
+  connect(null, {initializeTokenFromStorage}),
   prepare(({initializeTokenFromStorage}) =>
     storage.token.read().then(token => {
       token && initializeTokenFromStorage(token);

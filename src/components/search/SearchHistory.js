@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import SearchHistoryItem from './SearchHistoryItem.js';
 
-const SearchHistory = ({ history }) => (
+const SearchHistory = ({history}) => (
   <View style={styles.history}>
     {history.map(h => <SearchHistoryItem history={h} key={h.text} />)}
   </View>

@@ -1,4 +1,4 @@
-import { get, post } from './methods.js';
+import {get, post} from './methods.js';
 
 const withCookie = method => (a1, a2, options = {}) => token => {
   options.headers = options.headers || {};

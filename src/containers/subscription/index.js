@@ -1,3 +1,3 @@
 import SubscriptionEditor from './SubscriptionEditor';
 
-export { SubscriptionEditor };
+export {SubscriptionEditor};

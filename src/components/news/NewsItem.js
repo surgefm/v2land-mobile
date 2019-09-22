@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, TouchableOpacity, StyleSheet, Image } from 'react-native';
-import { Text, Icon } from 'react-native-elements';
+import {View, TouchableOpacity, StyleSheet, Image} from 'react-native';
+import {Text, Icon} from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
-import { colors } from 'styles';
+import {colors} from 'styles';
 
-const NewsItem = ({ news, onPress }) => (
+const NewsItem = ({news, onPress}) => (
   <TouchableOpacity
     style={styles.newsContainer}
     onPress={() =>
@@ -13,8 +13,7 @@ const NewsItem = ({ news, onPress }) => (
         stackId: news.stackId,
         newsId: news.id,
       })
-    }
-  >
+    }>
     <Image
       style={styles.source}
       source={require('../../static/defaultSource.png')}
@@ -28,9 +27,8 @@ const NewsItem = ({ news, onPress }) => (
       <LinearGradient
         style={styles.shade}
         colors={['rgba(256, 256, 256, 0)', 'rgba(256, 256, 256, 1)']}
-        start={{ x: 0, y: 0.5 }}
-        end={{ x: 0.7, y: 0.5 }}
-      >
+        start={{x: 0, y: 0.5}}
+        end={{x: 0.7, y: 0.5}}>
         <Icon
           type="ionicon"
           color={colors.darkGrey}

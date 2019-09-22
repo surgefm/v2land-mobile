@@ -36,7 +36,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>4</string>
+	<string>6</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
@@ -54,8 +54,16 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCalendarsUsageDescription</key>
+	<string>$(PRODUCT_NAME) may read your calendars.</string>
+	<key>NSContactsUsageDescription</key>
+	<string>$(PRODUCT_NAME) may read your contacts.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>$(PRODUCT_NAME) may use your microphone.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>$(PRODUCT_NAME) may access your photo album.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>SourceHanSansBold.ttf</string>

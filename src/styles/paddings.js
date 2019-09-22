@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
 export const paddingConstants = {
   top: 50,
@@ -9,8 +9,8 @@ export const paddingConstants = {
 };
 
 export const paddings = StyleSheet.create({
-  interval: { paddingBottom: paddingConstants.interval },
-  largeInterval: { paddingBottom: paddingConstants.largeInterval },
-  side: { paddingHorizontal: paddingConstants.side },
-  pageTop: { paddingTop: paddingConstants.top },
+  interval: {paddingBottom: paddingConstants.interval},
+  largeInterval: {paddingBottom: paddingConstants.largeInterval},
+  side: {paddingHorizontal: paddingConstants.side},
+  pageTop: {paddingTop: paddingConstants.top},
 });

@@ -1,20 +1,18 @@
-import { combineReducers, reduceReducers } from 'redux-loop';
+import {combineReducers, reduceReducers} from 'redux-loop';
 
 import fallback from 'store/transducers/fallback';
 import on from 'store/transducers/on';
 import requestData from 'store/transducers/requestData';
 
-import {
-  getUserInfo as getUserInfoAction,
-} from 'store/actions/user';
+import {getUserInfo as getUserInfoAction} from 'store/actions/user';
 import {
   login as loginAction,
   invalidateToken as invalidateTokenAction,
 } from 'store/actions/auth';
 import OK from 'store/actions/OK';
 
-import { getUserInfo } from 'services/me';
-import { storage } from 'util';
+import {getUserInfo} from 'services/me';
+import {storage} from 'util';
 
 export default combineReducers({
   data: reduceReducers(

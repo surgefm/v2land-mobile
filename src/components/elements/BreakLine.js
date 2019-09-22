@@ -1,8 +1,8 @@
 import React from 'react';
-import { View } from 'react-native';
-import { paddingConstants } from 'styles';
+import {View} from 'react-native';
+import {paddingConstants} from 'styles';
 
-const BreakLine = ({ style }) => (
+const BreakLine = ({style}) => (
   <View
     style={[
       {

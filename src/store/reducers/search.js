@@ -1,4 +1,4 @@
-import { combineReducers, reduceReducers } from 'redux-loop';
+import {combineReducers, reduceReducers} from 'redux-loop';
 
 import requestData from 'store/transducers/requestData';
 import requestState from 'store/transducers/requestState';
@@ -10,11 +10,9 @@ import {
   removeSearchHistory as removeSearchHistoryAction,
   cleanAllSearchHistory as cleanAllSearchHistoryAction,
 } from 'store/actions/search';
-import {
-  search as searchService,
-} from 'services/search';
+import {search as searchService} from 'services/search';
 
-import { storage, id } from 'util';
+import {storage, id} from 'util';
 
 import OK from 'store/actions/OK';
 import ERR from 'store/actions/ERR';
@@ -22,7 +20,7 @@ import ERR from 'store/actions/ERR';
 const onSearchHandler = requestData(
   searchAction.type,
   searchService,
-  (state, res) => ({ ...state, ...res }),
+  (state, res) => ({...state, ...res}),
   id,
 );
 
@@ -32,7 +30,7 @@ const onAddSearchHistoryHandler = requestData(
     const history = await storage.searchHistory.read();
     const newHistory = [keyword];
     for (const k of history) {
-      if (k != keyword) {
+      if (k !== keyword) {
         newHistory.push(k);
       }
     }

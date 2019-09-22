@@ -1,4 +1,4 @@
-import { combineReducers, reduceReducers } from 'redux-loop';
+import {combineReducers, reduceReducers} from 'redux-loop';
 
 import requestData from 'store/transducers/requestData';
 import on from 'store/transducers/on';
@@ -13,13 +13,11 @@ import {
   initializeTokenFromStorage as initTokenAction,
   invalidateToken as invalidateTokenAction,
 } from 'store/actions/auth';
-import {
-  getUserInfo as getUserInfoAction,
-} from 'store/actions/user';
+import {getUserInfo as getUserInfoAction} from 'store/actions/user';
 
-import { login } from 'services/auth';
-import { getUserInfo } from 'services/me';
-import { storage, id } from 'util';
+import {login} from 'services/auth';
+import {getUserInfo} from 'services/me';
+import {storage, id} from 'util';
 
 export default combineReducers({
   authorized: reduceReducers(
@@ -66,12 +64,7 @@ export default combineReducers({
 
     // Fetch user infos with token
     consequence(initTokenAction.type, getUserInfoAction),
-    requestData(
-      getUserInfoAction.type,
-      getUserInfo,
-      id,
-      id,
-    ),
+    requestData(getUserInfoAction.type, getUserInfo, id, id),
 
     fallback(null),
   ),

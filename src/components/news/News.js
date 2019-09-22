@@ -1,9 +1,16 @@
 import React from 'react';
-import { StyleSheet, View, TouchableOpacity, Image, ScrollView, StatusBar } from 'react-native';
-import { Text, Icon } from 'react-native-elements';
-import { Subtitle } from 'components/elements';
-import { EventTime, EventTitle } from 'components/article';
-import { getTimeString } from 'util';
+import {
+  StyleSheet,
+  View,
+  TouchableOpacity,
+  Image,
+  ScrollView,
+  StatusBar,
+} from 'react-native';
+import {Text, Icon} from 'react-native-elements';
+import {Subtitle} from 'components/elements';
+import {EventTime, EventTitle} from 'components/article';
+import {getTimeString} from 'util';
 import {
   paddings,
   pageStyle,
@@ -12,13 +19,13 @@ import {
   fontSizes,
 } from '../../styles';
 
-const News = ({ news, onButtonPress = () => {} }) =>
+const News = ({news, onButtonPress = () => {}}) =>
   !news || (
     <ScrollView style={[pageStyle.default, styles.topPadding]}>
       <StatusBar barStyle="dark-content" />
       <View style={[paddings.interval, styles.newsSubtitle]}>
         <Subtitle style={styles.theme}>
-          {getTimeString(news.time, { withSpaceBetween: true }) + ' / '}
+          {getTimeString(news.time, {withSpaceBetween: true}) + ' / '}
         </Subtitle>
         <EventTime style={styles.theme} time={news.time} />
       </View>
@@ -36,8 +43,7 @@ const News = ({ news, onButtonPress = () => {} }) =>
       <TouchableOpacity
         activeOpacity={0.8}
         style={[styles.button, paddings.interval]}
-        onPress={() => onButtonPress()}
-      >
+        onPress={() => onButtonPress()}>
         <Text style={styles.buttonText}>浏览原文</Text>
         <Icon
           type="material-community"

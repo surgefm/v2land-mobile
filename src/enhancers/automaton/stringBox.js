@@ -1,6 +1,6 @@
-import { lensPath, over } from 'ramda';
+import {lensPath, over} from 'ramda';
 import box from './box.js';
-import { log } from '../../util';
+import {log} from '../../util';
 
 const invaraintString = (s, ...msg) =>
   __DEV__ && typeof s !== 'string' && log(...msg);

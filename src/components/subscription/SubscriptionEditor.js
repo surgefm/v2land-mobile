@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, View, Dimensions } from 'react-native';
-import { Slider, Text, Icon, Overlay, Button } from 'react-native-elements';
-import { paddings, paddingConstants, colors, buttonStyle } from 'styles';
+import {StyleSheet, View, Dimensions} from 'react-native';
+import {Slider, Text, Icon, Overlay, Button} from 'react-native-elements';
+import {paddings, paddingConstants, colors, buttonStyle} from 'styles';
 import Picker from 'react-native-picker-select';
 
 const SubscriptionEditor = ({
@@ -18,21 +18,20 @@ const SubscriptionEditor = ({
 }) => (
   <Overlay
     borderRadius={8}
-    onBackdropPress={() => endSubscriptionEditing({ eventId })}
+    onBackdropPress={() => endSubscriptionEditing({eventId})}
     isVisible={isVisible}
-    animationType='fade'
-    height='auto'
-    width={Dimensions.get('screen').width - 30}
-  >
+    animationType="fade"
+    height="auto"
+    width={Dimensions.get('screen').width - 30}>
     <View>
       <View style={styles.headerContainer}>
         <Text style={styles.title}>关注事件</Text>
         <Icon
-          type='antDesign'
-          name='close'
+          type="antDesign"
+          name="close"
           color={colors.darkGrey}
           size={24}
-          onPress={() => endSubscriptionEditing({ eventId })}
+          onPress={() => endSubscriptionEditing({eventId})}
         />
       </View>
       <View style={paddings.interval}>
@@ -45,7 +44,7 @@ const SubscriptionEditor = ({
           }}
           items={methods}
           onValueChange={value => updateMethod(value)}
-          style={{ ...pickerSelectStyles }}
+          style={{...pickerSelectStyles}}
           value={method}
         />
       </View>
@@ -57,18 +56,18 @@ const SubscriptionEditor = ({
           maximumValue={2}
           minimumValue={0}
           step={1}
-          minimumTrackTintColor='rgb(189, 219, 228)'
-          maximumTrackTintColor='#ddd'
+          minimumTrackTintColor="rgb(189, 219, 228)"
+          maximumTrackTintColor="#ddd"
           thumbTintColor={colors.theme}
           animateTransitions={true}
-          animationType='spring'
+          animationType="spring"
         />
         <Text style={styles.modeLabel}>{modeLabel}</Text>
       </View>
       <View style={styles.buttonContainer}>
         <Button
-          title='关注'
-          buttonStyle={[{ width: 80 }, buttonStyle.primary]}
+          title="关注"
+          buttonStyle={[{width: 80}, buttonStyle.primary]}
           onPress={() => submitSubscriptionRequest()}
         />
       </View>

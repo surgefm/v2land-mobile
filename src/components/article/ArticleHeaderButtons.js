@@ -1,13 +1,13 @@
 import React from 'react';
-import { Share } from 'react-native';
+import {Share} from 'react-native';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import HeaderButtons, {
   HeaderButton,
   Item,
 } from 'react-navigation-header-buttons';
-import { getEventURL, getShortenedDescription, log } from 'util';
+import {getEventURL, getShortenedDescription, log} from 'util';
 
-const ArticleHeaderButtons = ({ color, event, beginSubscriptionEditing }) => (
+const ArticleHeaderButtons = ({color, event, beginSubscriptionEditing}) => (
   <HeaderButtons
     HeaderButtonComponent={props => (
       <HeaderButton
@@ -16,8 +16,7 @@ const ArticleHeaderButtons = ({ color, event, beginSubscriptionEditing }) => (
         iconSize={26}
         color={color || '#fff'}
       />
-    )}
-  >
+    )}>
     {/* <Item
       title="subscribe"
       iconName="bell"

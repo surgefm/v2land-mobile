@@ -1,11 +1,11 @@
-import { createFactory, Component } from 'react';
-import { map } from 'ramda';
+import {createFactory, Component} from 'react';
+import {map} from 'ramda';
 
 const toCallable = f => (typeof f === 'function' ? f : () => f);
 
 const withState = (...automatons) => BaseComponent => {
   const factory = createFactory(BaseComponent);
-  const { init, updaters } = automatons.reduce((acc, cur) => ({
+  const {init, updaters} = automatons.reduce((acc, cur) => ({
     init: props => ({
       ...toCallable(acc.init)(props),
       ...toCallable(cur.init)(props),

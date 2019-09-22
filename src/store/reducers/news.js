@@ -1,4 +1,4 @@
-import { combineReducers, reduceReducers } from 'redux-loop';
+import {combineReducers, reduceReducers} from 'redux-loop';
 
 import on from 'store/transducers/on';
 import requestData from 'store/transducers/requestData';
@@ -9,20 +9,20 @@ import {
   fetchEventList as fetchEventListAction,
   fetchEvent as fetchEventAction,
 } from 'store/actions/events';
-import { fetchNewsList as fetchNewsListAction } from 'store/actions/news';
-import { fetchNewsList as fetchNewsListService } from 'services/news';
+import {fetchNewsList as fetchNewsListAction} from 'store/actions/news';
+import {fetchNewsList as fetchNewsListService} from 'services/news';
 
 import OK from 'store/actions/OK';
 import ERR from 'store/actions/ERR';
 
-import { Event, News, normalize } from 'store/schemas';
+import {Event, News, normalize} from 'store/schemas';
 
 const onFetchEventListOKHandler = on(
   OK(fetchEventListAction.type),
-  (state = {}, { eventList }) => {
-    let newState = { ...state };
+  (state = {}, {eventList}) => {
+    let newState = {...state};
     for (const event of eventList) {
-      const { entities } = normalize(event, Event);
+      const {entities} = normalize(event, Event);
       newsList = entities.news;
       newState = {
         ...newState,
@@ -36,7 +36,7 @@ const onFetchEventListOKHandler = on(
 const onFetchEventOKHandler = on(
   OK(fetchEventAction.type),
   (state = {}, event) => {
-    const { entities } = normalize(event, Event);
+    const {entities} = normalize(event, Event);
     newsList = entities.news;
     return {
       ...state,
@@ -48,10 +48,10 @@ const onFetchEventOKHandler = on(
 const fetchNewsList = requestData(
   fetchNewsListAction.type,
   fetchNewsListService,
-  (state = {}, { newsList }) => {
-    let newState = { ...state };
+  (state = {}, {newsList}) => {
+    let newState = {...state};
     for (const news of newsList) {
-      const { entities } = normalize(news, News);
+      const {entities} = normalize(news, News);
       list = entities.news;
       newState = {
         ...newState,

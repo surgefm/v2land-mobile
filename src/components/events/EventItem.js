@@ -1,27 +1,28 @@
 import React from 'react';
-import { StyleSheet, View, TouchableHighlight, Image } from 'react-native';
-import { Text } from 'react-native-elements';
+import {StyleSheet, View, TouchableHighlight, Image} from 'react-native';
+import {Text} from 'react-native-elements';
 import FadeIn from 'react-native-fade-in-image';
 import FastImage from 'react-native-fast-image';
 import EventTitle from '../article/EventTitle';
-import { colors } from '../../styles';
+import {colors} from '../../styles';
 import getAssetURL from '../../util/getAssetURL';
 
-const EventItem = ({ name, description, headerImage = {}, onPress }) => (
+const EventItem = ({name, description, headerImage = {}, onPress}) => (
   <TouchableHighlight onPress={onPress} underlayColor={colors.lightGrey}>
     <View style={styles.cardContainer}>
       <View style={styles.headerImage}>
         <FadeIn placeholderStyle={styles.headerImagePlaceholder}>
-          {headerImage === null
-            ? <Image
+          {headerImage === null ? (
+            <Image
               style={styles.headerImage}
               source={require('../../static/defaultHeaderImage.png')}
             />
-            : <FastImage
+          ) : (
+            <FastImage
               style={styles.headerImage}
-              source={{ uri: getAssetURL(headerImage.imageUrl) }}
+              source={{uri: getAssetURL(headerImage.imageUrl)}}
             />
-          }
+          )}
         </FadeIn>
       </View>
 

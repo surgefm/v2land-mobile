@@ -1,12 +1,12 @@
 import React from 'react';
-import { FlatList } from 'react-native';
+import {FlatList} from 'react-native';
 import StackItem from 'containers/StackItem';
 
-const StackList = ({ stacks, onPress, onNewsPress }) =>
+const StackList = ({stacks, onPress, onNewsPress}) =>
   !stacks || (
     <FlatList
       data={stacks}
-      renderItem={({ item, index }) => (
+      renderItem={({item, index}) => (
         <StackItem
           stackId={item}
           index={stacks.length - index}

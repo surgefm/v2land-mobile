@@ -14,7 +14,7 @@ import {
   addNavigationListener,
 } from 'enhancers';
 
-import { login } from 'store/actions/auth.js';
+import {login} from 'store/actions/auth.js';
 
 import {
   authorizedSelector,
@@ -25,7 +25,7 @@ const Registration = R.compose(
   withNavigationOptions({
     header: null,
   }),
-  withNavigationHandlers(({ replace, goBack }) => ({
+  withNavigationHandlers(({replace, goBack}) => ({
     goMe: () => replace(routers.me),
     goBack,
   })),
@@ -38,25 +38,25 @@ const Registration = R.compose(
       login,
     },
   ),
-  withProps(({ goMe, authorized }) => {
+  withProps(({goMe, authorized}) => {
     if (authorized) {
       goMe();
     }
   }),
   withState(
-    automaton.stringBox('', { box: 'username', fill: 'setUsername' }),
-    automaton.stringBox('', { box: 'email', fill: 'setEmail' }),
-    automaton.stringBox('', { box: 'password', fill: 'setPassword' }),
+    automaton.stringBox('', {box: 'username', fill: 'setUsername'}),
+    automaton.stringBox('', {box: 'email', fill: 'setEmail'}),
+    automaton.stringBox('', {box: 'password', fill: 'setPassword'}),
     automaton.stringBox('', {
       box: 'clientErrorMessage',
       fill: 'setClientErrorMessage',
     }),
-    automaton.coin(false, { side: 'isDirty' }),
-    automaton.box(false, { box: 'isLoading', fill: 'setLoading' }),
+    automaton.coin(false, {side: 'isDirty'}),
+    automaton.box(false, {box: 'isLoading', fill: 'setLoading'}),
   ),
   addNavigationListener(
     'didBlur',
-    ({ setUsername, setEmail, setPassword, flip }) => () => {
+    ({setUsername, setEmail, setPassword, flip}) => () => {
       setUsername('');
       setEmail('');
       setPassword('');
@@ -105,7 +105,7 @@ const Registration = R.compose(
 
         // else clean error message
         setClientErrorMessage('');
-        await register({ username, email, password });
+        await register({username, email, password});
         setLoading(false);
       },
       errorMessage: isDirty ? '' : serverErrorMessage || clientErrorMessage,

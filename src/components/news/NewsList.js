@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { FlatList, View, TouchableOpacity, StyleSheet } from 'react-native';
-import { Icon, Text } from 'react-native-elements';
+import React, {Component} from 'react';
+import {FlatList, View, TouchableOpacity, StyleSheet} from 'react-native';
+import {Icon, Text} from 'react-native-elements';
 import NewsItem from 'containers/NewsItem';
 
 class NewsList extends Component {
@@ -48,11 +48,11 @@ const NewsListComponent = ({
   onLoadingPress,
   isListLoading,
 }) => (
-  <View style={[{ flex: 1 }, style]}>
+  <View style={[{flex: 1}, style]}>
     <FlatList
       data={newsList}
-      renderItem={({ item }) => (
-        <NewsItem newsId={item} onPress={onNewsPress({ newsId: item })} />
+      renderItem={({item}) => (
+        <NewsItem newsId={item} onPress={onNewsPress({newsId: item})} />
       )}
       keyExtractor={news => `News#${news}`}
       extraData={newsList.length}

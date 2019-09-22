@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import { Animated } from 'react-native';
+import React, {Component} from 'react';
+import {Animated} from 'react-native';
 import ArticleComponent from 'components/article/Article';
-import { AlertContext } from 'context/Alert';
+import {AlertContext} from 'context/Alert';
 
 export const scrollRangeForAnimation = 100;
 
 export const onScroll = Animated.event(
   [
     {
-      nativeEvent: { contentOffset: { y: new Animated.Value(0) } },
+      nativeEvent: {contentOffset: {y: new Animated.Value(0)}},
     },
   ],
   {
@@ -37,15 +37,15 @@ export default class Article extends Component {
   }
 
   async fetchEvent() {
-    await this.props.fetchEvent({ eventId: this.props.eventId });
+    await this.props.fetchEvent({eventId: this.props.eventId});
     this.onScrollEndSnapToEdge();
   }
 
   async onRefresh() {
-    this.setState((state) => ({ ...state, refreshing: true }));
-    const { fetchEvent, eventId } = this.props;
-    await fetchEvent({ eventId });
-    this.setState((state) => ({ ...state, refreshing: false }));
+    this.setState(state => ({...state, refreshing: true}));
+    const {fetchEvent, eventId} = this.props;
+    await fetchEvent({eventId});
+    this.setState(state => ({...state, refreshing: false}));
     this.alert('info', '刷新成功', this.refreshInfo());
   }
 
@@ -54,7 +54,7 @@ export default class Article extends Component {
   }
 
   refreshInfo() {
-    const { event } = this.props;
+    const {event} = this.props;
     return typeof event.updateStat === 'undefined' ||
       event.updateStat.stack === 0
       ? '成功加载该事件的最新信息'
@@ -64,7 +64,7 @@ export default class Article extends Component {
   onScrollEndSnapToEdge(event) {
     if (!this.props.event.headerImage) return;
     const y = event ? event.nativeEvent.contentOffset.y : 0;
-    this.setState((state) => ({
+    this.setState(state => ({
       ...state,
       statusBarStyle: y >= 150 ? 'dark-content' : 'light-content',
     }));
@@ -88,15 +88,17 @@ export default class Article extends Component {
   render() {
     return (
       <AlertContext.Consumer>
-        {alert => ArticleComponent({
-          ...this.props,
-          setAlert: this.setAlert(alert),
-          refreshing: this.state.refreshing,
-          statusBarStyle: this.state.statusBarStyle,
-          onRefresh: this.onRefresh.bind(this),
-          onScroll: this.onScrollEndSnapToEdge.bind(this),
-          onScrollEndSnapToEdge: this.onScrollEndSnapToEdge.bind(this),
-        })}
+        {alert =>
+          ArticleComponent({
+            ...this.props,
+            setAlert: this.setAlert(alert),
+            refreshing: this.state.refreshing,
+            statusBarStyle: this.state.statusBarStyle,
+            onRefresh: this.onRefresh.bind(this),
+            onScroll: this.onScrollEndSnapToEdge.bind(this),
+            onScrollEndSnapToEdge: this.onScrollEndSnapToEdge.bind(this),
+          })
+        }
       </AlertContext.Consumer>
     );
   }

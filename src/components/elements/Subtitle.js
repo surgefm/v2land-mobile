@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { fontSizes } from 'styles';
-import { Text } from 'react-native-elements';
+import {StyleSheet, View} from 'react-native';
+import {fontSizes} from 'styles';
+import {Text} from 'react-native-elements';
 
-const Subtitle = ({ children, style }) => (
+const Subtitle = ({children, style}) => (
   <View>
     <Text style={[styles.title, style]}>{children}</Text>
   </View>

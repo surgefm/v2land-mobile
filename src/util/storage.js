@@ -1,4 +1,4 @@
-import { AsyncStorage } from 'react-native';
+import {AsyncStorage} from 'react-native';
 
 class StorageInstance {
   constructor(name) {

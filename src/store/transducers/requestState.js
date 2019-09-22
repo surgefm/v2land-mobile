@@ -1,4 +1,4 @@
-import { simpleSM } from './sm';
+import {simpleSM} from './sm';
 
 const state = {
   DEFAULT: 'DEFAULT',

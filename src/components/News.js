@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { Linking } from 'react-native';
+import React, {Component} from 'react';
+import {Linking} from 'react-native';
 import WebBrowser from 'react-native-inappbrowser-reborn';
 import NewsComponent from 'components/news/News';
-import { log } from 'util';
+import {log} from 'util';
 
 export default class News extends Component {
   constructor(props) {
@@ -17,9 +17,9 @@ export default class News extends Component {
     Linking.canOpenURL(this.props.news.url).then(async supported => {
       if (supported) {
         await WebBrowser.isAvailable();
-        WebBrowser.open(this.props.news.url);
+        await WebBrowser.open(this.props.news.url);
       } else {
-        log('Don\'t know how to open URI: ' + this.props.news.url);
+        log(`Don't know how to open URI: ` + this.props.news.url);
       }
     });
   }

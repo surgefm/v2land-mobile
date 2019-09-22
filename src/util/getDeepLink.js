@@ -1,9 +1,10 @@
-import { Platform } from 'react-native';
+import {Platform} from 'react-native';
 import querystring from 'querystring';
 
 export const getDeepLink = (path = '', params) => {
   const scheme = 'v2land';
-  const prefix = Platform.OS == 'android' ? `${scheme}://my-host/` : `${scheme}://`;
+  const prefix =
+    Platform.OS === 'android' ? `${scheme}://my-host/` : `${scheme}://`;
   if (path[0] === '/') {
     path = path.slice(1);
   }

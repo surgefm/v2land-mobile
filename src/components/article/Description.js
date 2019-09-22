@@ -1,18 +1,15 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { Text } from 'react-native-elements';
+import {StyleSheet, View} from 'react-native';
+import {Text} from 'react-native-elements';
 
-const Description = ({ description }) => (
+const Description = ({description}) => (
   <View>
-    {typeof description === 'undefined' || (
-      description.split('\n').map((description) => (
-        <Text
-          style={styles.eventDescription}
-          key={description}>
+    {typeof description === 'undefined' ||
+      description.split('\n').map(description => (
+        <Text style={styles.eventDescription} key={description}>
           {description}
         </Text>
-      ))
-    )}
+      ))}
   </View>
 );
 
@@ -27,4 +24,3 @@ const styles = StyleSheet.create({
 });
 
 export default Description;
-

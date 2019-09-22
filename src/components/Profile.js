@@ -1,10 +1,10 @@
 import React from 'react';
-import { SafeAreaView, View, ScrollView, StatusBar } from 'react-native';
+import {SafeAreaView, View, ScrollView, StatusBar} from 'react-native';
 import WebBrowser from 'react-native-inappbrowser-reborn';
-import { ListItem, Text } from 'react-native-elements';
-import { profileStyle, colors } from 'styles';
-import { AlertContext } from 'context/Alert';
-import { getAppVersion } from 'util';
+import {ListItem, Text} from 'react-native-elements';
+import {profileStyle, colors} from 'styles';
+import {AlertContext} from 'context/Alert';
+import {getAppVersion} from 'util';
 import config from 'config/const';
 
 const userActionList = [
@@ -52,10 +52,10 @@ const informationList = [
   // },
 ];
 
-const Profile = ({ username = '', role = '', logout }) => (
+const Profile = ({username = '', role = '', logout}) => (
   <AlertContext.Consumer>
     {alert => (
-      <SafeAreaView style={{ backgroundColor: colors.lightGrey, flex: 1 }}>
+      <SafeAreaView style={{backgroundColor: colors.lightGrey, flex: 1}}>
         <StatusBar barStyle="dark-content" />
         <ScrollView style={profileStyle.section}>
           <ListItem
@@ -68,7 +68,8 @@ const Profile = ({ username = '', role = '', logout }) => (
             }}
             title={
               <Text style={profileStyle.username}>
-                {username || '黑衣人'}{'  '}
+                {username || '黑衣人'}
+                {'  '}
                 <Text style={profileStyle.role}>{role}</Text>
               </Text>
             }
@@ -95,14 +96,14 @@ const Profile = ({ username = '', role = '', logout }) => (
           </View> */}
 
           <View style={profileStyle.section}>
-            {informationList.map((item) => (
+            {informationList.map(item => (
               <ListItem
                 key={item.title}
                 title={item.title}
                 topDivider={true}
                 bottomDivider={true}
                 onPress={item.onPress || (() => {})}
-                leftIcon={{ ...item.icon, iconStyle: profileStyle.icon }}
+                leftIcon={{...item.icon, iconStyle: profileStyle.icon}}
                 chevron
               />
             ))}
@@ -110,11 +111,13 @@ const Profile = ({ username = '', role = '', logout }) => (
 
           <View style={profileStyle.section}>
             <ListItem
-              title='退出登录'
+              title="退出登录"
               topDivider={true}
               bottomDivider={true}
-              titleStyle={{ textAlign: 'center', color: 'red' }}
-              onPress={() => logout() && alert('info', '登出成功', '你已成功退出登录')}
+              titleStyle={{textAlign: 'center', color: 'red'}}
+              onPress={() =>
+                logout() && alert('info', '登出成功', '你已成功退出登录')
+              }
             />
           </View>
           <Text>{getAppVersion()}</Text>

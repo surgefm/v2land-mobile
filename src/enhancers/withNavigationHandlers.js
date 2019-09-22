@@ -1,4 +1,4 @@
-import { createFactory } from 'react';
+import {createFactory} from 'react';
 
 // TODO: Maintain a handlers cache for better performance
 const withNavigationHandlers = handlers => BaseComponent => {

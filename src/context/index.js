@@ -1,1 +1,1 @@
-export { AlertProvider, AlertContext } from './Alert.js';
+export {AlertProvider, AlertContext} from './Alert.js';

@@ -7,7 +7,7 @@ const subscriptionStatusSelector = [
 export const isSubscriptionEditing = [
   [
     subscriptionStatusSelector,
-    (state, props) => typeof props === 'object' ? props.eventId : props,
+    (state, props) => (typeof props === 'object' ? props.eventId : props),
   ],
   (state, eventId) => !!state[eventId],
 ];

@@ -1,6 +1,6 @@
-import { log } from '../../util';
+import {log} from '../../util';
 
-export default (init, faces, { face = 'face', roll = 'roll' } = {}) => ({
+export default (init, faces, {face = 'face', roll = 'roll'} = {}) => ({
   init: {
     [face]: init,
   },
@@ -10,7 +10,7 @@ export default (init, faces, { face = 'face', roll = 'roll' } = {}) => ({
         chosenFace < faces,
         `chosenFace out of range. Expect chosenFace to be 0 <= [value] < ${faces} but receive ${chosenFace}`,
       );
-      return { [face]: chosenFace };
+      return {[face]: chosenFace};
     },
   },
 });

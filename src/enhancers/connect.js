@@ -1,4 +1,4 @@
-import { connect as connect_ } from 'react-redux';
+import {connect as connect_} from 'react-redux';
 import createSelector from 're-select';
 
 const normalizeActions = actions => {

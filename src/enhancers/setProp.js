@@ -1,4 +1,4 @@
-import { createFactory } from 'react';
+import {createFactory} from 'react';
 import _ from 'lodash';
 
 const setProp = (key, value) => BaseComponent => {

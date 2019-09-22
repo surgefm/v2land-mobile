@@ -9,18 +9,17 @@ import {
   withProps,
 } from 'enhancers';
 
-import { invalidateToken, getUserInfo } from 'store/actions/auth';
+import {invalidateToken, getUserInfo} from 'store/actions/auth';
 
-import { authorizedSelector } from 'store/selectors/auth';
-import { userNameSelector, userDisplayRoleSelector } from 'store/selectors/user';
+import {authorizedSelector} from 'store/selectors/auth';
+import {userNameSelector, userDisplayRoleSelector} from 'store/selectors/user';
 
 const Profile = R.compose(
-
   withNavigationOptions({
     title: '个人页面',
   }),
 
-  withNavigationHandlers(({ replace }) => ({
+  withNavigationHandlers(({replace}) => ({
     goLogin: () => replace(routers.login),
   })),
 
@@ -36,14 +35,13 @@ const Profile = R.compose(
     },
   ),
 
-  withProps(({ authorized, goLogin, getUserInfo }) => {
+  withProps(({authorized, goLogin, getUserInfo}) => {
     if (!authorized) {
       goLogin();
     } else {
       getUserInfo();
     }
   }),
-
 )(ProfileComponent);
 
 export default Profile;

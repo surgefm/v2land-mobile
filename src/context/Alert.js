@@ -18,7 +18,7 @@ class AlertProvider extends React.Component {
   };
 
   render() {
-    const { children, ...props } = this.props;
+    const {children, ...props} = this.props;
     return (
       <AlertContext.Provider value={this.alert}>
         {children}
@@ -28,4 +28,4 @@ class AlertProvider extends React.Component {
   }
 }
 
-export { AlertProvider, AlertContext };
+export {AlertProvider, AlertContext};

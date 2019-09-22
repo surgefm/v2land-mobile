@@ -1,4 +1,4 @@
-import { reduceReducers } from 'redux-loop';
+import {reduceReducers} from 'redux-loop';
 
 import fallback from 'store/transducers/fallback';
 import on from 'store/transducers/on';
@@ -11,7 +11,7 @@ import {
 const beginSubscriptionEditing = on(
   beginSubscriptionEditingAction.type,
   (state, action) => {
-    const newState = { ...state };
+    const newState = {...state};
     newState.subscriptions = {
       ...newState.subscriptions,
       [action.eventId]: true,
@@ -23,7 +23,7 @@ const beginSubscriptionEditing = on(
 const endSubscriptionEditing = on(
   endSubscriptionEditingAction.type,
   (state, action) => {
-    const newState = { ...state };
+    const newState = {...state};
     newState.subscriptions = {
       ...newState.subscriptions,
       [action.eventId]: false,

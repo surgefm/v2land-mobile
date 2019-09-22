@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { colors, fontSizes } from '../../styles';
-import { getTimeLapseString } from '../../util';
+import {StyleSheet, Text, View} from 'react-native';
+import {colors, fontSizes} from '../../styles';
+import {getTimeLapseString} from '../../util';
 
-const TimeBadge = ({ date, title, style }) =>
+const TimeBadge = ({date, title, style}) =>
   title ? (
     <View style={[styles.timeContainer, style]}>
       <Text style={styles.textLeft}>{title}</Text>
@@ -12,7 +12,9 @@ const TimeBadge = ({ date, title, style }) =>
     !date ||
     !getTimeLapseString(date) || (
       <View style={styles.timeContainer}>
-        <Text style={styles.textLeft}>{getTimeLapseString(date, 'general')}</Text>
+        <Text style={styles.textLeft}>
+          {getTimeLapseString(date, 'general')}
+        </Text>
       </View>
     )
   );

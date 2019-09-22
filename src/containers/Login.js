@@ -12,18 +12,15 @@ import {
   addNavigationListener,
 } from 'enhancers';
 
-import { login } from 'store/actions/auth';
+import {login} from 'store/actions/auth';
 
-import {
-  authorizedSelector,
-  errorMessageSelector,
-} from 'store/selectors/auth';
+import {authorizedSelector, errorMessageSelector} from 'store/selectors/auth';
 
 const Login = R.compose(
   withNavigationOptions({
     header: null,
   }),
-  withNavigationHandlers(({ replace, navigate }) => ({
+  withNavigationHandlers(({replace, navigate}) => ({
     goMe: () => replace(routers.me),
     onRegisterClick: () => navigate(routers.registration),
   })),
@@ -36,29 +33,26 @@ const Login = R.compose(
       login,
     },
   ),
-  withProps(({ goMe, authorized }) => {
+  withProps(({goMe, authorized}) => {
     if (authorized) {
       goMe();
     }
   }),
   withState(
-    automaton.stringBox('', { box: 'loginName', fill: 'setLoginName' }),
-    automaton.stringBox('', { box: 'passwd', fill: 'setPasswd' }),
+    automaton.stringBox('', {box: 'loginName', fill: 'setLoginName'}),
+    automaton.stringBox('', {box: 'passwd', fill: 'setPasswd'}),
     automaton.stringBox('', {
       box: 'clientErrorMessage',
       fill: 'setClientErrorMessage',
     }),
-    automaton.coin(false, { side: 'isDirty' }),
-    automaton.box(false, { box: 'isLoading', fill: 'setLoading' }),
+    automaton.coin(false, {side: 'isDirty'}),
+    automaton.box(false, {box: 'isLoading', fill: 'setLoading'}),
   ),
-  addNavigationListener(
-    'didBlur',
-    ({ setLoginName, setPasswd, flip }) => () => {
-      setLoginName('');
-      setPasswd('');
-      flip(true);
-    },
-  ),
+  addNavigationListener('didBlur', ({setLoginName, setPasswd, flip}) => () => {
+    setLoginName('');
+    setPasswd('');
+    flip(true);
+  }),
   withProps(
     ({
       loginName,

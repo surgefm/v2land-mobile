@@ -1,4 +1,4 @@
-import { schema, normalize } from 'normalizr';
+import {schema, normalize} from 'normalizr';
 
 const Client = new schema.Entity('clients');
 
@@ -19,4 +19,4 @@ const Event = new schema.Entity('events', {
   subscribers: [Client],
 });
 
-export { Client, Record, News, Stack, Event, normalize };
+export {Client, Record, News, Stack, Event, normalize};

@@ -11,14 +11,14 @@ import {
 
 import routers from 'config/routers';
 
-import { search } from 'store/actions/search';
-import { searchResultSelector } from 'store/selectors/search';
+import {search} from 'store/actions/search';
+import {searchResultSelector} from 'store/selectors/search';
 
 const Search = R.compose(
   withNavigationOptions({
     header: null,
   }),
-  withNavigationHandlers(({ setParams, navigate }) => ({
+  withNavigationHandlers(({setParams, navigate}) => ({
     setParams,
     goToEvent(event) {
       navigate(routers.event, {
@@ -34,16 +34,16 @@ const Search = R.compose(
     },
     {
       search,
-    }
+    },
   ),
   withState(
-    automaton.stringBox('', { box: 'keyword', fill: 'setKeyword' }),
-    automaton.coin(false, { side: 'isSearching' }),
+    automaton.stringBox('', {box: 'keyword', fill: 'setKeyword'}),
+    automaton.coin(false, {side: 'isSearching'}),
   ),
-  withProps(({ search, keyword, setKeyword, setParams }) => ({
+  withProps(({search, keyword, setKeyword, setParams}) => ({
     onInputChange(newKeyword) {
       setKeyword(newKeyword);
-      setParams({ keyword: newKeyword });
+      setParams({keyword: newKeyword});
       if (keyword) {
         search(keyword);
       }
