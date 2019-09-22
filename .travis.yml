@@ -6,7 +6,8 @@ cache: yarn
 notifications:
   slack: v2land:xoeT2IXt8yCaUfMxoBbXrSZD
 before_install:
-  - rvm install ruby-2.2.2
+  - brew update
+  - brew install ruby
   - gem install cocoapods
 script:
   - pod repo update
