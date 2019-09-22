@@ -27,7 +27,7 @@
     "react": "16.9.0",
     "react-native": "0.61.0-rc.3",
     "react-native-device-info": "^0.29.0",
-    "react-native-dropdownalert": "^3.7.0",
+    "react-native-dropdownalert": "4.2.0",
     "react-native-elements": "^1.1.0",
     "react-native-fade-in-image": "^1.4.1",
     "react-native-fast-image": "^7.0.2",
