@@ -1,7 +1,7 @@
 import React from 'react';
-import { PushNotificationIOS, Linking } from 'react-native';
-import { Provider } from 'react-redux';
-import { compose } from 'ramda';
+import {PushNotificationIOS, Linking} from 'react-native';
+import {Provider} from 'react-redux';
+import {compose} from 'ramda';
 import configStore from 'store/configStore';
 
 import {
@@ -11,19 +11,19 @@ import {
 } from 'react-navigation';
 
 import routers from 'config/routers';
-import { Icon } from 'react-native-elements';
-import { AlertProvider } from 'context';
-import { colors } from 'styles';
-import { storage, getDeepLink } from 'util';
+import {Icon} from 'react-native-elements';
+import {AlertProvider} from 'context';
+import {colors} from 'styles';
+import {storage, getDeepLink} from 'util';
 
-import { connect, prepare } from 'enhancers';
+import {connect, prepare} from 'enhancers';
 
-import { initializeTokenFromStorage } from 'store/actions/auth';
+import {initializeTokenFromStorage} from 'store/actions/auth';
 
 import Events from 'containers/Events';
 import News from 'containers/News';
 import Search from 'containers/Search';
-import { Article } from 'containers/article';
+import {Article} from 'containers/article';
 import Profile from 'containers/Profile';
 import Login from 'containers/Login';
 import Registration from 'containers/account/registration/Registration';
@@ -86,9 +86,9 @@ const ProfileStack = createStackNavigator({
 });
 
 const tabBarIcons = {
-  [routers.today]: { name: 'home', type: 'antdesign' },
-  [routers.search]: { name: 'search1', type: 'antdesign' },
-  [routers.profile]: { name: 'user', type: 'antdesign' },
+  [routers.today]: {name: 'home', type: 'antdesign'},
+  [routers.search]: {name: 'search1', type: 'antdesign'},
+  [routers.profile]: {name: 'user', type: 'antdesign'},
 };
 
 const Navigator = createBottomTabNavigator(
@@ -108,16 +108,16 @@ const Navigator = createBottomTabNavigator(
   },
   {
     initialRouteName: routers.today,
-    defaultNavigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ focused, tintColor }) => {
-        const { routeName } = navigation.state;
+    defaultNavigationOptions: ({navigation}) => ({
+      tabBarIcon: ({focused, tintColor}) => {
+        const {routeName} = navigation.state;
         const iconConfig = tabBarIcons[routeName];
         if (!iconConfig.name && iconConfig.focused) {
           const focusedIcon = iconConfig.focused;
           const idleIcon = iconConfig.idle;
-          return focused
-            ? <Icon {...focusedIcon} color={tintColor} />
-            : <Icon {...idleIcon} color={tintColor} />;
+          return (
+            <Icon {...(focused ? focusedIcon : idleIcon)} color={tintColor} />
+          );
         } else {
           return <Icon {...iconConfig} color={tintColor} />;
         }
@@ -135,8 +135,11 @@ const Navigator = createBottomTabNavigator(
 );
 
 const NavigatorContainer = compose(
-  connect(null, { initializeTokenFromStorage }),
-  prepare(({ initializeTokenFromStorage }) =>
+  connect(
+    null,
+    {initializeTokenFromStorage},
+  ),
+  prepare(({initializeTokenFromStorage}) =>
     storage.token.read().then(token => {
       token && initializeTokenFromStorage(token);
     }),
@@ -147,7 +150,10 @@ const NavigatorContainer = compose(
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.notification = new NotificationService(this.onRegister.bind(this), this.onNotification.bind(this));
+    this.notification = new NotificationService(
+      this.onRegister.bind(this),
+      this.onNotification.bind(this),
+    );
     console.disableYellowBox = true;
   }
 
@@ -157,8 +163,7 @@ export default class App extends React.Component {
         <AlertProvider
           infoColor={colors.theme}
           closeInterval={3000}
-          updateStatusBar={false}
-        >
+          updateStatusBar={false}>
           <NavigatorContainer uriPrefix={getDeepLink()} />
         </AlertProvider>
       </Provider>
@@ -170,8 +175,8 @@ export default class App extends React.Component {
   }
 
   onNotification(notification) {
-    const { data } = notification;
-    const { type } = data;
+    const {data} = notification;
+    const {type} = data;
     if (type === 'event') {
       Linking.openURL('v2land://events/event/' + data.eventId);
     }

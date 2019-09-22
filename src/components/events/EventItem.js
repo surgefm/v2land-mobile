@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, TouchableHighlight, Image } from 'react-native';
 import { Text } from 'react-native-elements';
 import FadeIn from 'react-native-fade-in-image';
-import { CachedImage } from 'react-native-cached-image';
+import FastImage from 'react-native-fast-image';
 import EventTitle from '../article/EventTitle';
 import { colors } from '../../styles';
 import getAssetURL from '../../util/getAssetURL';
@@ -17,7 +17,7 @@ const EventItem = ({ name, description, headerImage = {}, onPress }) => (
               style={styles.headerImage}
               source={require('../../static/defaultHeaderImage.png')}
             />
-            : <CachedImage
+            : <FastImage
               style={styles.headerImage}
               source={{ uri: getAssetURL(headerImage.imageUrl) }}
             />
