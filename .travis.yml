@@ -1,8 +1,15 @@
+os: osx
 language: node_js
 node_js:
   - 10
 cache: yarn
 notifications:
   slack: v2land:xoeT2IXt8yCaUfMxoBbXrSZD
+before_install:
+  - brew update
+  - brew install ruby
+  - gem install cocoapods
 script:
+  - pod repo update
+  - cd ios && pod install && cd ..
   - yarn test
