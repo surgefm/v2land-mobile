@@ -3,9 +3,11 @@ import ThirdPartyAuthComponent from 'components/login/ThirdPartyAuthorization';
 
 import {withNavigationOptions, withProps, connect} from 'enhancers';
 
-import {saveToken, getUserInfo} from 'store/actions/auth.js';
+import {resolve, format} from 'url';
 
-import {authorizedSelector} from 'store/selectors/auth.js';
+import {getRaw} from 'services/auth';
+import {saveToken, getUserInfo} from 'store/actions/auth';
+import {authorizedSelector} from 'store/selectors/auth';
 
 import routers from 'config/routers';
 import config from 'config/const';
@@ -51,8 +53,16 @@ const ThirdPartyAuthorization = R.compose(
       }
 
       try {
-        const response = await fetch(path);
-        const token = getTokenStringFromHeader(response.headers);
+        await fetch(path, {withCredential: true});
+        const requestUrl = format({
+          pathname: resolve(config.api, 'oauth2/grant'),
+          query: {
+            grant_type: 'implicit_grant',
+            authorizationClientId: config.authorizationClientId,
+          },
+        });
+        const response = await fetch(requestUrl, {withCredential: true});
+        const token = (await response.json()).accessToken.token;
         await saveToken(token);
         if ([200, 201].includes(response.status)) {
           goTo(routers.me);
