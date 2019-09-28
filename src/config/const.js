@@ -7,6 +7,7 @@ export default {
   site: 'https://langchao.org/',
   api: 'https://langchao.org/api/',
   cdn: 'https://assets.v2land.net/',
+  authorizationClientId: '1',
   AV: {
     appId: 'RdQfc8SI7K8GpW72RLV8C1NJ-gzGzoHsz',
     appKey: 'pfFM1HO5dtFyDaxckXwrMV6r',

@@ -26,7 +26,7 @@ export default combineReducers({
 
     // ACTION: login[OK] -> ACTION: saveToken
     consequence(OK(loginAction.type), saveTokenAction, (_, res) => {
-      const token = res.token;
+      const {token} = res.accessToken;
       return [token];
     }),
 

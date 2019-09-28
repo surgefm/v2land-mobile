@@ -26,7 +26,7 @@ export default combineReducers({
       () => true,
     ),
 
-    on(OK(loginAction.type), (_, res) => res.client),
+    on(OK(loginAction.type), (_, res) => res),
 
     on(OK(getUserInfoAction.type), (_, res) => res.client),
 

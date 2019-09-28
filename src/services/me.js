@@ -1,13 +1,13 @@
 import {get, post} from './methods.js';
 
-const withCookie = method => (a1, a2, options = {}) => token => {
+const withAccessToken = method => (a1, a2, options = {}) => token => {
   options.headers = options.headers || {};
-  options.headers.cookie = 'sails.sid=' + token;
+  options.headers.Authorization = 'Bearer ' + token;
   return method(a1, a2, options);
 };
 
-export const userGet = withCookie(get);
+export const userGet = withAccessToken(get);
 
-export const userPost = withCookie(post);
+export const userPost = withAccessToken(post);
 
 export const getUserInfo = userGet('client/me');
