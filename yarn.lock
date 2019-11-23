@@ -261,6 +261,14 @@
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-syntax-export-default-from" "^7.2.0"
 
+"@babel/plugin-proposal-export-default-from@^7.7.4":
+  version "7.7.4"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-export-default-from/-/plugin-proposal-export-default-from-7.7.4.tgz#890de3c0c475374638292df31f6582160b54d639"
+  integrity sha512-1t6dh7BHYUz4zD1m4pozYYEZy/3m8dgOr9owx3r0mPPI3iGKRUKUbIxfYmcJ4hwljs/dhd0qOTr1ZDUp43ix+w==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.0.0"
+    "@babel/plugin-syntax-export-default-from" "^7.7.4"
+
 "@babel/plugin-proposal-nullish-coalescing-operator@^7.0.0":
   version "7.4.4"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-nullish-coalescing-operator/-/plugin-proposal-nullish-coalescing-operator-7.4.4.tgz#41c360d59481d88e0ce3a3f837df10121a769b39"
@@ -311,6 +319,13 @@
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-export-default-from/-/plugin-syntax-export-default-from-7.2.0.tgz#edd83b7adc2e0d059e2467ca96c650ab6d2f3820"
   integrity sha512-c7nqUnNST97BWPtoe+Ssi+fJukc9P9/JMZ71IOMNQWza2E+Psrd46N6AEvtw6pqK+gt7ChjXyrw4SPDO79f3Lw==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.0.0"
+
+"@babel/plugin-syntax-export-default-from@^7.7.4":
+  version "7.7.4"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-export-default-from/-/plugin-syntax-export-default-from-7.7.4.tgz#897f05808298060b52873fa804ff853540790ea1"
+  integrity sha512-j888jpjATLEzOWhKawq46UrpXnCRDbdhBd5io4jgwjJ3+CHHGCRb6PNAVEgs+BXIb+dNRAmnkv36zfB992PRVw==
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
@@ -5951,10 +5966,10 @@ realpath-native@^1.1.0:
   dependencies:
     util.promisify "^1.0.0"
 
-redux-loop@^4.3.3:
-  version "4.5.4"
-  resolved "https://registry.yarnpkg.com/redux-loop/-/redux-loop-4.5.4.tgz#4c87f5eb0a726a39af3d391641eba27dd91f7126"
-  integrity sha512-4DU7W7koaPWY3PwfVFYCBdi+12yYFTohaU2ajMgdKe4yPX7ZJJB6h2idjRuyr+usMNt7ewm6Y22u5e8qhy25yw==
+redux-loop@5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/redux-loop/-/redux-loop-5.1.1.tgz#39586c6eae5e04021ede996ffea4c28c7dcab104"
+  integrity sha512-85Yqy37osGBeoxPPuNTtNQh0Xcuig7HG+WmDBbK9dif0CusPX/uA2hi7ZVLI/M9QVU4GQ8lmFu62NrJG/ahAlg==
 
 redux@^4.0.0:
   version "4.0.4"

@@ -777,6 +777,7 @@
 				DEVELOPMENT_TEAM = J5S56W8T3D;
 				INFOPLIST_FILE = v2land/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 0.1.11;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -798,6 +799,7 @@
 				DEVELOPMENT_TEAM = J5S56W8T3D;
 				INFOPLIST_FILE = v2land/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 0.1.11;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

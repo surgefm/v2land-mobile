@@ -6,6 +6,7 @@ const StackList = ({stacks, onPress, onNewsPress}) =>
   !stacks || (
     <FlatList
       data={stacks}
+      scrollEnabled={false}
       renderItem={({item, index}) => (
         <StackItem
           stackId={item}

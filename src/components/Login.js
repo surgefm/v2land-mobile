@@ -54,12 +54,7 @@ const Login = ({
           />
         </View>
         <View style={styles.loginButtons}>
-          {/* <Button
-            onPress={onRegisterClick}
-            title="注册"
-            type="clear"
-          /> */}
-          <View />
+          <Button onPress={onRegisterClick} title="注册" type="clear" />
           <Button
             onPress={onLoginClick}
             loading={isLoading}

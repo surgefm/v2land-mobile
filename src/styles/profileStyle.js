@@ -24,4 +24,9 @@ export default StyleSheet.create({
     textAlign: 'center',
     color: colors.theme,
   },
+  versionNumber: {
+    textAlign: 'center',
+    width: '100%',
+    marginTop: 8,
+  },
 });

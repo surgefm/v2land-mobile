@@ -14,7 +14,8 @@ import {
   addNavigationListener,
 } from 'enhancers';
 
-import {login} from 'store/actions/auth.js';
+import {register} from 'store/actions/user';
+import {login} from 'store/actions/auth';
 
 import {
   authorizedSelector,
@@ -35,6 +36,7 @@ const Registration = R.compose(
       serverErrorMessage: errorMessageSelector,
     },
     {
+      register,
       login,
     },
   ),
@@ -70,6 +72,7 @@ const Registration = R.compose(
       password,
       setClientErrorMessage,
       register,
+      login,
       clientErrorMessage,
       serverErrorMessage,
       isDirty,
@@ -106,7 +109,9 @@ const Registration = R.compose(
         // else clean error message
         setClientErrorMessage('');
         await register({username, email, password});
+        await login({username, password});
         setLoading(false);
+
       },
       errorMessage: isDirty ? '' : serverErrorMessage || clientErrorMessage,
       setUsername: (...args) => {

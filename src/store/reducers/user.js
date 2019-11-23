@@ -4,14 +4,20 @@ import fallback from 'store/transducers/fallback';
 import on from 'store/transducers/on';
 import requestData from 'store/transducers/requestData';
 
-import {getUserInfo as getUserInfoAction} from 'store/actions/user';
+import {
+  register as registerAction,
+  getUserInfo as getUserInfoAction,
+} from 'store/actions/user';
+
 import {
   login as loginAction,
   invalidateToken as invalidateTokenAction,
 } from 'store/actions/auth';
+
 import OK from 'store/actions/OK';
 
 import {getUserInfo} from 'services/me';
+import {register} from 'services/user';
 import {storage} from 'util';
 
 export default combineReducers({
@@ -24,6 +30,13 @@ export default combineReducers({
       },
       () => true,
       () => true,
+    ),
+
+    requestData(
+      registerAction.type,
+      register,
+      (state, response) => response,
+      err => err,
     ),
 
     on(OK(loginAction.type), (_, res) => res),

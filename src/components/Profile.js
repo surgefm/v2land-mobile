@@ -120,7 +120,7 @@ const Profile = ({username = '', role = '', logout}) => (
               }
             />
           </View>
-          <Text>{getAppVersion()}</Text>
+          <Text style={profileStyle.versionNumber}>{getAppVersion()}</Text>
         </ScrollView>
       </SafeAreaView>
     )}
